@@ -1,0 +1,71 @@
+# ============================================================================
+# Economic Evaluation Parameters
+# ============================================================================
+
+# --- Production context ---
+mean_yield_kgha: 800           # FAOSTAT 2022, East Africa on-farm average
+bean_price_usd_per_kg: 0.50    # Jjagwe et al. 2022, Agric & Food Secur 11:45
+                               # (10.1186/s40066-022-00380-7): Uganda farm-gate mean
+                               # USD 0.505/kg (trained farmers), 0.369 (non-trained),
+                               # observed 0.20-1.14; one district, 2011. Sweep 0.30-1.50.
+total_area_ha: 5000000         # FAOSTAT dry-bean area harvested 2020-23: 5.1-5.4 Mha (UG, KE, TZ, RW, BI, ET), 6.6-7.0 Mha (FAO region Eastern Africa)
+sigma_a_kgha: 150              # additive genetic SD; ~10% of mean yield
+
+# --- Variety adoption / diffusion ---
+adoption_ceiling: 0.35         # ASSUMPTION; Larochelle et al. 2015 (10.1079/9781780644011.0314)
+                               # reportedly Uganda 33.5%, Rwanda climbing bean >43% (not
+                               # verified: no legal full text). Sweep 0.20-0.60.
+diffusion_rate_k: 0.30         # ASSUMPTION. Fuglie & Marder 2015 (10.1079/9781780644011.0338)
+                               # discuss SSA variety diffusion; k range not verified.
+diffusion_midpoint_years: 12   # ASSUMPTION (10-20 y post-release; not verified)
+
+# --- Discounting ---
+discount_rate: 0.08            # Developing-country social discount rates: Harberger & Jenkins
+                               # 2015 (10.1017/bca.2015.2) ~10%; Groom et al. 2022
+                               # (10.1146/annurev-resource-111920-020721): ADB 9%, IDB 12%,
+                               # Peru 8%, Brazil 8.5%. Sweep 5-15%. Returns-to-R&D context:
+                               # Hurley, Rao & Pardey 2014 (10.1093/ajae/aau047).
+evaluation_horizon: 25         # years
+
+# --- Breeding costs ---
+cost_per_plot_traditional: 10.0  # ASSUMPTION: USD 10/plot is an unreferenced CIMMYT wheat
+                                 # figure in Juliana et al. 2019, TAG 132:177
+                                 # (10.1007/s00122-018-3206-3). African NARS costing:
+                                 # Das et al. 2025 (10.3389/fsufs.2025.1545600).
+annual_program_cost_ref: 675000  # UNVERIFIED: Atlin & Econopouly 2022, Crop Sci 62:661
+                                 # (10.1002/csc2.20684) modest CGIAR program
+
+# --- tool scenario adjustments ---
+tool_cost_reduction_frac: 0.20  # whole-plot cost; MA3 meta-analysis (paper/lit): data capture
+                               # 25-36% of plot cost x 56-79% time saving -> ~20% (0.05-0.35)
+tool_error_reduction_frac: 0.10 # MA2 meta-analysis: implied reduction ~10% (compatible with 0)
+tool_cycle_compression: 1       # years saved (sensitivity 0-3)
+tool_fixed_cost: 10000          # USD equipment + training (sensitivity 3K-20K)
+                               # ">=70% time saving" claim: grey literature, unverified
+
+# --- Tool running cost (revision scenarios only; NOT part of the main NPV) ---
+# ASSUMPTION: incremental annual cost of developing, hosting and supporting the tool, paid in every
+# year of the horizon. The only source we read gives a rough order of magnitude for a GLOBAL AI
+# phenotyping system, "a few million USD per year" (Lasdun et al. 2024, Agric. Syst.
+# 10.1016/j.agsy.2024.104054); the levels below bracket a regional share of that cost.
+tool_running_cost_scenarios_usd_per_yr: [500000, 1000000, 2000000]
+
+# --- References for BCR context ---
+# Alston, Pardey & Rao 2022, AJAE 104:502 (10.1111/ajae.12255): CGIAR BCR ~10:1
+# Atlin et al. 2017, Global Food Sec 12:31 (10.1016/j.gfs.2017.01.008): rapid breeding value
+# Cobb et al. 2019, TAG 132:627 (10.1007/s00122-019-03317-0): breeder's equation optimization
+# Das et al. 2025, Front Sustain Food Syst 9:1545600 (10.3389/fsufs.2025.1545600): ESA costs
+# Chaingeni et al. 2025, Front Plant Sci 16:1553272 (10.3389/fpls.2025.1553272): budget optimization
+
+# --- Genetic-gain calibration (applied in Layer 2 only) ---
+# Simulated gain of the traditional programme over the check varieties is
+# ~3.7%/yr of mean yield, several times realised breeding progress. Layer 2
+# multiplies mean_dg_trad and mean_dg_tool of every cell by ONE common factor so
+# that the traditional programme's average gain equals this target. Relative
+# effects, rankings and sensitivity orderings are unchanged; dollar values
+# shrink (fixed tool costs do not, so NPV is not simply proportional).
+# Target from the MA1 meta-analysis (paper/lit/meta_analysis.R): common-bean
+# realised gain 0.51 %/yr (3-level REML, 8 estimates / 4 programmes; 95% CI
+# 0.00-1.01); PABRA East/Central/Southern Africa ~0.5 %/yr (Amongi et al.,
+# Afr Crop Sci J 31:85, 10.4314/acsj.v31i1.8). Sensitivity: 0.25 / 0.5 / 1.0.
+gain_target_pct_per_yr: 0.5      # set to null to disable calibration

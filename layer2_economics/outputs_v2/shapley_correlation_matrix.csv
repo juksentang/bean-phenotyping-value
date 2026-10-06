@@ -1,0 +1,9 @@
+param,error_reduction,cost_reduction,cycle_compression,tool_fixed_cost,total_budget,bean_price,discount_rate,adoption_ceiling
+error_reduction,1,0,0.3,0,0,0,0,0
+cost_reduction,0,1,0,-0.2,0,0,0,0
+cycle_compression,0.3,0,1,0,0,0,0,0
+tool_fixed_cost,0,-0.2,0,1,0,0,0,0
+total_budget,0,0,0,0,1,0,0,0.3
+bean_price,0,0,0,0,0,1,0.4,0
+discount_rate,0,0,0,0,0,0.4,1,0
+adoption_ceiling,0,0,0,0,0.3,0,0,1

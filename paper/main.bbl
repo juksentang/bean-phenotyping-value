@@ -1,0 +1,838 @@
+\begin{thebibliography}{999}
+
+\bibitem[Song et~al.(2021)Song, Wang, Guo, Yang, and
+  Zhao]{Song2021Highthroughput}
+Song, P.; Wang, J.; Guo, X.; Yang, W.; Zhao, C.
+\newblock High-throughput phenotyping: Breaking through the bottleneck in
+  future crop breeding.
+\newblock {\em The Crop Journal} {\bf 2021}, {\em 9},~633–645.
+\newblock {\url{https://doi.org/10.1016/j.cj.2021.03.015}}.
+
+\bibitem[Fasoula et~al.(2019)Fasoula, Ioannides, and
+  Omirou]{Fasoula2020Phenotyping}
+Fasoula, D.A.; Ioannides, I.M.; Omirou, M.
+\newblock Phenotyping and Plant Breeding: Overcoming the Barriers.
+\newblock {\em Frontiers in Plant Science} {\bf 2019}, {\em 10}.
+\newblock {\url{https://doi.org/10.3389/fpls.2019.01713}}.
+
+\bibitem[Kholová et~al.(2021)Kholová, Urban, Cock, Arcos, Arnaud, Aytekin,
+  Azevedo, Barnes, Ceccarelli, Chavarriaga, Cobb, Connor, Cooper, Craufurd,
+  Debouck, Fungo, Grando, Hammer, Jara, Messina, Mosquera, Nchanji, Ng, Prager,
+  Sankaran, Selvaraj, Tardieu, Thornton, Valdes-Gutierrez, van Etten, Wenzl,
+  and Xu]{Kholova2021Pursuit}
+Kholová, J.; Urban, M.O.; Cock, J.; Arcos, J.; Arnaud, E.; Aytekin, D.;
+  Azevedo, V.; Barnes, A.P.; Ceccarelli, S.; Chavarriaga, P.;  et~al.
+\newblock In pursuit of a better world: crop improvement and the CGIAR.
+\newblock {\em Journal of Experimental Botany} {\bf 2021}, {\em
+  72},~5158–5179.
+\newblock {\url{https://doi.org/10.1093/jxb/erab226}}.
+
+\bibitem[Walter et~al.(2015)Walter, Liebisch, and Hund]{Walter2015Plant}
+Walter, A.; Liebisch, F.; Hund, A.
+\newblock Plant phenotyping: from bean weighing to image analysis.
+\newblock {\em Plant Methods} {\bf 2015}, {\em 11},~14.
+\newblock {\url{https://doi.org/10.1186/s13007-015-0056-8}}.
+
+\bibitem[Zaman-Allah et~al.(2015)Zaman-Allah, Vergara, Araus, Tarekegne,
+  Magorokosho, Zarco-Tejada, Hornero, Albà, Das, Craufurd, Olsen, Prasanna,
+  and Cairns]{ZamanAllah2015Unmanned}
+Zaman-Allah, M.; Vergara, O.; Araus, J.L.; Tarekegne, A.; Magorokosho, C.;
+  Zarco-Tejada, P.J.; Hornero, A.; Albà, A.H.; Das, B.; Craufurd, P.;  et~al.
+\newblock Unmanned aerial platform-based multi-spectral imaging for field
+  phenotyping of maize.
+\newblock {\em Plant Methods} {\bf 2015}, {\em 11}.
+\newblock {\url{https://doi.org/10.1186/s13007-015-0078-2}}.
+
+\bibitem[Lasdun et~al.(2024)Lasdun, Güereña, Ortiz-Crespo, Mutuvi, Selvaraj,
+  and Assefa]{Lasdun2024Participatory}
+Lasdun, V.; Güereña, D.; Ortiz-Crespo, B.; Mutuvi, S.; Selvaraj, M.; Assefa,
+  T.
+\newblock Participatory AI for inclusive crop improvement.
+\newblock {\em Agricultural Systems} {\bf 2024}, {\em 220},~104054.
+\newblock {\url{https://doi.org/10.1016/j.agsy.2024.104054}}.
+
+\bibitem[Bock et~al.(2021)Bock, Chiang, and Del~Ponte]{Bock2021Plant}
+Bock, C.H.; Chiang, K.S.; Del~Ponte, E.M.
+\newblock Plant disease severity estimated visually: a century of research,
+  best practices, and opportunities for improving methods and practices to
+  maximize accuracy.
+\newblock {\em Tropical Plant Pathology} {\bf 2021}, {\em 47},~25–42.
+\newblock {\url{https://doi.org/10.1007/s40858-021-00439-z}}.
+
+\bibitem[Javornik et~al.(2025)Javornik, Carović-Stanko, Gunjača, Šatović,
+  Vidak, Safner, and Lazarević]{Javornik2025Phenotyping}
+Javornik, T.; Carović-Stanko, K.; Gunjača, J.; Šatović, Z.; Vidak, M.;
+  Safner, T.; Lazarević, B.
+\newblock Phenotyping Common Bean Under Drought Stress: High-Throughput
+  Approaches for Enhanced Drought Tolerance.
+\newblock {\em Agronomy} {\bf 2025}, {\em 15},~1344.
+\newblock {\url{https://doi.org/10.3390/agronomy15061344}}.
+
+\bibitem[Mohammadi et~al.(2024)Mohammadi, Uhlen, Lillemo, Ergon, and
+  Shafiee]{Mohammadi2024Enhancing}
+Mohammadi, S.; Uhlen, A.K.; Lillemo, M.; Ergon, {\AA}.; Shafiee, S.
+\newblock Enhancing phenotyping efficiency in faba bean breeding: integrating
+  UAV imaging and machine learning.
+\newblock {\em Precision Agriculture} {\bf 2024}, {\em 25},~1502–1528.
+\newblock {\url{https://doi.org/10.1007/s11119-024-10121-4}}.
+
+\bibitem[Liu et~al.(2021)Liu, Yu, Wu, Ye, Feng, Liu, and
+  Yang]{Liu2021Pocketmaize}
+Liu, L.; Yu, L.; Wu, D.; Ye, J.; Feng, H.; Liu, Q.; Yang, W.
+\newblock PocketMaize: An Android-Smartphone Application for Maize Plant
+  Phenotyping.
+\newblock {\em Frontiers in Plant Science} {\bf 2021}, {\em 12}.
+\newblock {\url{https://doi.org/10.3389/fpls.2021.770217}}.
+
+\bibitem[McDonald et~al.(2022)McDonald, Buck, and Li]{McDonald2022Automated}
+McDonald, S.C.; Buck, J.; Li, Z.
+\newblock Automated, image-based disease measurement for phenotyping resistance
+  to soybean frogeye leaf spot.
+\newblock {\em Plant Methods} {\bf 2022}, {\em 18}.
+\newblock {\url{https://doi.org/10.1186/s13007-022-00934-7}}.
+
+\bibitem[Hu et~al.(2025)Hu, Shen, Zhang, Zhang, Li, Xia, Liu, Lu, Wu, and
+  Han]{Hu2025Openpheno}
+Hu, T.; Shen, P.; Zhang, Y.; Zhang, J.; Li, X.; Xia, C.; Liu, P.; Lu, H.; Wu,
+  T.; Han, Z.
+\newblock OpenPheno: an open-access, user-friendly, and smartphone-based
+  software platform for instant plant phenotyping.
+\newblock {\em Plant Methods} {\bf 2025}, {\em 21}.
+\newblock {\url{https://doi.org/10.1186/s13007-025-01395-4}}.
+
+\bibitem[Mochida et~al.(2018)Mochida, Koda, Inoue, Hirayama, Tanaka, Nishii,
+  and Melgani]{Mochida2018Computer}
+Mochida, K.; Koda, S.; Inoue, K.; Hirayama, T.; Tanaka, S.; Nishii, R.;
+  Melgani, F.
+\newblock Computer vision-based phenotyping for improvement of plant
+  productivity: a machine learning perspective.
+\newblock {\em GigaScience} {\bf 2018}, {\em 8}.
+\newblock {\url{https://doi.org/10.1093/gigascience/giy153}}.
+
+\bibitem[Gage et~al.(2018)Gage, de~Leon, and Clayton]{Gage2018Comparing}
+Gage, J.L.; de~Leon, N.; Clayton, M.K.
+\newblock Comparing Genome-Wide Association Study Results from Different
+  Measurements of an Underlying Phenotype.
+\newblock {\em G3 Genes|Genomes|Genetics} {\bf 2018}, {\em 8},~3715–3722.
+\newblock {\url{https://doi.org/10.1534/g3.118.200700}}.
+
+\bibitem[Zhou et~al.(2021)Zhou, Kusmec, Mirnezami, Attigala, Srinivasan,
+  Jubery, Schnable, Salas-Fernandez, Ganapathysubramanian, and
+  Schnable]{Zhou2021Identification}
+Zhou, Y.; Kusmec, A.; Mirnezami, S.V.; Attigala, L.; Srinivasan, S.; Jubery,
+  T.Z.; Schnable, J.C.; Salas-Fernandez, M.G.; Ganapathysubramanian, B.;
+  Schnable, P.S.
+\newblock Identification and utilization of genetic determinants of trait
+  measurement errors in image-based, high-throughput phenotyping.
+\newblock {\em The Plant Cell} {\bf 2021}, {\em 33},~2562–2582.
+\newblock {\url{https://doi.org/10.1093/plcell/koab134}}.
+
+\bibitem[Cobb et~al.(2019)Cobb, Juma, Biswas, Arbelaez, Rutkoski, Atlin, Hagen,
+  Quinn, and Ng]{Cobb2019Enhancing}
+Cobb, J.N.; Juma, R.U.; Biswas, P.S.; Arbelaez, J.D.; Rutkoski, J.; Atlin, G.;
+  Hagen, T.; Quinn, M.; Ng, E.H.
+\newblock Enhancing the rate of genetic gain in public-sector plant breeding
+  programs: lessons from the breeder’s equation.
+\newblock {\em Theoretical and Applied Genetics} {\bf 2019}, {\em
+  132},~627–645.
+\newblock {\url{https://doi.org/10.1007/s00122-019-03317-0}}.
+
+\bibitem[Hickey et~al.(2017)Hickey, Chiurugwi, Mackay, Powell, and
+  {Implementing Genomic Selection in CGIAR Breeding Programs Workshop
+  Participants}]{Hickey2017Genomic}
+Hickey, J.M.; Chiurugwi, T.; Mackay, I.; Powell, W.; {Implementing Genomic
+  Selection in CGIAR Breeding Programs Workshop Participants}.
+\newblock Genomic prediction unifies animal and plant breeding programs to form
+  platforms for biological discovery.
+\newblock {\em Nature Genetics} {\bf 2017}, {\em 49},~1297–1303.
+\newblock {\url{https://doi.org/10.1038/ng.3920}}.
+
+\bibitem[Atlin and Econopouly(2022)]{Atlin2022Simple}
+Atlin, G.N.; Econopouly, B.F.
+\newblock Simple deterministic modeling can guide the design of breeding
+  pipelines for self‐pollinated crops.
+\newblock {\em Crop Science} {\bf 2022}, {\em 62},~661–678.
+\newblock {\url{https://doi.org/10.1002/csc2.20684}}.
+
+\bibitem[Bonnecarrere et~al.(2019)Bonnecarrere, Rosas, and
+  Ferraro]{Bonnecarrere2019Economic}
+Bonnecarrere, V.; Rosas, J.; Ferraro, B.
+\newblock Economic impact of marker-assisted selection and rapid generation
+  advance on breeding programs.
+\newblock {\em Euphytica} {\bf 2019}, {\em 215}.
+\newblock {\url{https://doi.org/10.1007/s10681-019-2529-8}}.
+
+\bibitem[Seck et~al.(2024)Seck, Prakash, Covarrubias-Pazaran, Gueye, Diédhiou,
+  Bhosale, Kadaru, and Bartholomé]{Seck2024Stochastic}
+Seck, F.; Prakash, P.T.; Covarrubias-Pazaran, G.; Gueye, T.; Diédhiou, I.;
+  Bhosale, S.; Kadaru, S.; Bartholomé, J.
+\newblock Stochastic simulation to optimize rice breeding at IRRI.
+\newblock {\em Frontiers in Plant Science} {\bf 2024}, {\em 15}.
+\newblock {\url{https://doi.org/10.3389/fpls.2024.1488814}}.
+
+\bibitem[Chaingeni et~al.(2025)Chaingeni, Mukaro, Sneller, Cairns, Musundire,
+  Das, Odiyo, Madahana, Mazibuko, Mubvereki, Prasanna, and
+  Kutywayo]{Chaingeni2025More}
+Chaingeni, D.; Mukaro, R.; Sneller, C.; Cairns, J.E.; Musundire, L.; Das, B.;
+  Odiyo, O.; Madahana, S.; Mazibuko, P.; Mubvereki, W.;  et~al.
+\newblock More bang for your buck: potential gains through optimizing maize
+  breeding schemes in sub-Saharan Africa.
+\newblock {\em Frontiers in Plant Science} {\bf 2025}, {\em 16}.
+\newblock {\url{https://doi.org/10.3389/fpls.2025.1553272}}.
+
+\bibitem[Lin et~al.(2023)Lin, Arief, Jahufer, Osorno, McClean, Jarquin, and
+  Hoyos-Villegas]{Lin2023Simulations}
+Lin, J.; Arief, V.; Jahufer, Z.; Osorno, J.; McClean, P.; Jarquin, D.;
+  Hoyos-Villegas, V.
+\newblock Simulations of rate of genetic gain in dry bean breeding programs.
+\newblock {\em Theoretical and Applied Genetics} {\bf 2023}, {\em 136}.
+\newblock {\url{https://doi.org/10.1007/s00122-023-04244-x}}.
+
+\bibitem[Dreisigacker et~al.(2023)Dreisigacker, Pérez-Rodríguez,
+  Crespo-Herrera, Bentley, and Crossa]{Dreisigacker2023Results}
+Dreisigacker, S.; Pérez-Rodríguez, P.; Crespo-Herrera, L.; Bentley, A.R.;
+  Crossa, J.
+\newblock Results from rapid-cycle recurrent genomic selection in spring bread
+  wheat.
+\newblock {\em G3: Genes, Genomes, Genetics} {\bf 2023}, {\em 13}.
+\newblock {\url{https://doi.org/10.1093/g3journal/jkad025}}.
+
+\bibitem[Gorjanc et~al.(2018)Gorjanc, Gaynor, and Hickey]{Gorjanc2018Optimal}
+Gorjanc, G.; Gaynor, R.C.; Hickey, J.M.
+\newblock Optimal cross selection for long-term genetic gain in two-part
+  programs with rapid recurrent genomic selection.
+\newblock {\em Theoretical and Applied Genetics} {\bf 2018}, {\em
+  131},~1953–1966.
+\newblock {\url{https://doi.org/10.1007/s00122-018-3125-3}}.
+
+\bibitem[Pook et~al.(2025)Pook, Tost, and Simianer]{Pook2025Optimization}
+Pook, T.; Tost, M.L.; Simianer, H.
+\newblock Optimization of recurrent rapid cycle breeding in maize for sustained
+  long-term genetic improvement via stochastic simulations.
+\newblock {\em G3: Genes, Genomes, Genetics} {\bf 2025}, {\em 15}.
+\newblock {\url{https://doi.org/10.1093/g3journal/jkaf100}}.
+
+\bibitem[Awada et~al.(2018)Awada, Phillips, and Smyth]{Awada2018Adoption}
+Awada, L.; Phillips, P.W.B.; Smyth, S.J.
+\newblock The adoption of automated phenotyping by plant breeders.
+\newblock {\em Euphytica} {\bf 2018}, {\em 214}.
+\newblock {\url{https://doi.org/10.1007/s10681-018-2226-z}}.
+
+\bibitem[Das et~al.(2025)Das, Mutiga, Odiyo, Madahana, Milic, Sinyinda, Mwansa,
+  Mukaro, Chaingeni, Asea, Kwemoi, and Musundire]{Das2025Costing}
+Das, B.; Mutiga, S.K.; Odiyo, O.; Madahana, S.; Milic, D.; Sinyinda, L.;
+  Mwansa, K.; Mukaro, R.; Chaingeni, D.; Asea, G.;  et~al.
+\newblock Costing of the breeding operations for the national maize programs in
+  Eastern and Southern Africa.
+\newblock {\em Frontiers in Sustainable Food Systems} {\bf 2025}, {\em 9}.
+\newblock {\url{https://doi.org/10.3389/fsufs.2025.1545600}}.
+
+\bibitem[Peixoto et~al.(2023)Peixoto, Coelho, Leach, Bhering, and
+  Resende]{Peixoto2023Simulationbased}
+Peixoto, M.A.; Coelho, I.F.; Leach, K.A.; Bhering, L.L.; Resende, M.F.R.
+\newblock Simulation-based decision-making and implementation of tools in
+  hybrid crop breeding pipelines.
+\newblock {\em Crop Science} {\bf 2023}, {\em 64},~110--125.
+\newblock {\url{https://doi.org/10.1002/csc2.21139}}.
+
+\bibitem[Jahufer et~al.(2021)Jahufer, Arojju, Faville, Ghamkhar, Luo, Arief,
+  Yang, Sun, DeLacy, Griffiths, Eady, Clayton, Stewart, George, Hoyos-Villegas,
+  Basford, and Barrett]{Jahufer2021Deterministic}
+Jahufer, M.Z.Z.; Arojju, S.K.; Faville, M.J.; Ghamkhar, K.; Luo, D.; Arief, V.;
+  Yang, W.H.; Sun, M.; DeLacy, I.H.; Griffiths, A.G.;  et~al.
+\newblock Deterministic and stochastic modelling of impacts from genomic
+  selection and phenomics on genetic gain for perennial ryegrass dry matter
+  yield.
+\newblock {\em Scientific Reports} {\bf 2021}, {\em 11},~13265.
+\newblock {\url{https://doi.org/10.1038/s41598-021-92537-w}}.
+
+\bibitem[Lane and Murray(2021)]{Lane2021High}
+Lane, H.M.; Murray, S.C.
+\newblock High throughput can produce better decisions than high accuracy when
+  phenotyping plant populations.
+\newblock {\em Crop Science} {\bf 2021}, {\em 61},~3301--3313.
+\newblock {\url{https://doi.org/10.1002/csc2.20514}}.
+
+\bibitem[Hassanpour et~al.(2025)Hassanpour, Geibel, Simianer, Rohde, and
+  Pook]{Hassanpour2024Optimization}
+Hassanpour, A.; Geibel, J.; Simianer, H.; Rohde, A.; Pook, T.
+\newblock Optimization of breeding program design through stochastic simulation
+  with evolutionary algorithms.
+\newblock {\em G3: Genes, Genomes, Genetics} {\bf 2025}, {\em 15}.
+\newblock {\url{https://doi.org/10.1093/g3journal/jkae248}}.
+
+\bibitem[Staver et~al.(2020)Staver, Pemsl, Scheerer, Perez~Vicente, and
+  Dita]{Staver2020ExAnte}
+Staver, C.; Pemsl, D.E.; Scheerer, L.; Perez~Vicente, L.; Dita, M.
+\newblock Ex Ante Assessment of Returns on Research Investments to Address the
+  Impact of Fusarium Wilt Tropical Race 4 on Global Banana Production.
+\newblock {\em Frontiers in Plant Science} {\bf 2020}, {\em 11}.
+\newblock {\url{https://doi.org/10.3389/fpls.2020.00844}}.
+
+\bibitem[Grovermann et~al.(2022)Grovermann, Weiner, Levy, Locher,
+  Manuel~Herrera, and Winter]{Grovermann2022Three}
+Grovermann, C.; Weiner, M.; Levy, L.; Locher, M.; Manuel~Herrera, J.; Winter,
+  E.
+\newblock Three decades of organic wheat improvement: Assessing the impact and
+  returns on investment.
+\newblock {\em Q Open} {\bf 2022}, {\em 2}.
+\newblock {\url{https://doi.org/10.1093/qopen/qoac005}}.
+
+\bibitem[Janssen et~al.(2018)Janssen, Saatkamp, and
+  Komen]{Janssen2018Costbenefit}
+Janssen, K.; Saatkamp, H.; Komen, H.
+\newblock Cost-benefit analysis of aquaculture breeding programs.
+\newblock {\em Genetics Selection Evolution} {\bf 2018}, {\em 50}.
+\newblock {\url{https://doi.org/10.1186/s12711-018-0372-3}}.
+
+\bibitem[Hurley et~al.(2014)Hurley, Rao, and Pardey]{Hurley2014Reexamining}
+Hurley, T.M.; Rao, X.; Pardey, P.G.
+\newblock Re‐examining the Reported Rates of Return to Food and Agricultural
+  Research and Development.
+\newblock {\em American Journal of Agricultural Economics} {\bf 2014}, {\em
+  96},~1492–1504.
+\newblock {\url{https://doi.org/10.1093/ajae/aau047}}.
+
+\bibitem[Flyvbjerg and Bester(2021)]{Flyvbjerg2021Costbenefit}
+Flyvbjerg, B.; Bester, D.W.
+\newblock The Cost-Benefit Fallacy: Why Cost-Benefit Analysis Is Broken and How
+  to Fix It.
+\newblock {\em Journal of Benefit-Cost Analysis} {\bf 2021}, {\em
+  12},~395–419.
+\newblock {\url{https://doi.org/10.1017/bca.2021.9}}.
+
+\bibitem[Schmutz et~al.(2014)Schmutz, McClean, Mamidi, Wu, Cannon, Grimwood,
+  Jenkins, Shu, Song, Chavarro, Torres-Torres, Geffroy, Moghaddam, Gao,
+  Abernathy, Barry, Blair, Brick, Chovatia, Gepts, Goodstein, Gonzales,
+  Hellsten, Hyten, Jia, Kelly, Kudrna, Lee, Richard, Miklas, Osorno, Rodrigues,
+  Thareau, Urrea, Wang, Yu, Zhang, Wing, Cregan, Rokhsar, and
+  Jackson]{Schmutz2014Reference}
+Schmutz, J.; McClean, P.E.; Mamidi, S.; Wu, G.A.; Cannon, S.B.; Grimwood, J.;
+  Jenkins, J.; Shu, S.; Song, Q.; Chavarro, C.;  et~al.
+\newblock A reference genome for common bean and genome-wide analysis of dual
+  domestications.
+\newblock {\em Nature Genetics} {\bf 2014}, {\em 46},~707–713.
+\newblock {\url{https://doi.org/10.1038/ng.3008}}.
+
+\bibitem[Beebe et~al.(2013)Beebe, Rao, Blair, and
+  Acosta-Gallegos]{Beebe2013Phenotyping}
+Beebe, S.E.; Rao, I.M.; Blair, M.W.; Acosta-Gallegos, J.A.
+\newblock Phenotyping common beans for adaptation to drought.
+\newblock {\em Frontiers in Physiology} {\bf 2013}, {\em 4}.
+\newblock {\url{https://doi.org/10.3389/fphys.2013.00035}}.
+
+\bibitem[Hillocks et~al.(2006)Hillocks, Madata, Chirwa, Minja, and
+  Msolla]{Hillocks2006Phaseolus}
+Hillocks, R.J.; Madata, C.S.; Chirwa, R.; Minja, E.M.; Msolla, S.
+\newblock Phaseolus Bean Improvement in Tanzania, 1959–2005.
+\newblock {\em Euphytica} {\bf 2006}, {\em 150},~215–231.
+\newblock {\url{https://doi.org/10.1007/s10681-006-9112-9}}.
+
+\bibitem[Gaynor et~al.(2021)Gaynor, Gorjanc, and Hickey]{Gaynor2020Alphasimr}
+Gaynor, R.C.; Gorjanc, G.; Hickey, J.M.
+\newblock AlphaSimR: an R package for breeding program simulations.
+\newblock {\em G3 Genes|Genomes|Genetics} {\bf 2021}, {\em 11}.
+\newblock {\url{https://doi.org/10.1093/g3journal/jkaa017}}.
+
+\bibitem[Fritsche-Neto et~al.(2024)Fritsche-Neto, Ali, De~Asis, Allahgholipour,
+  and Labroo]{FritscheNeto2023Improving}
+Fritsche-Neto, R.; Ali, J.; De~Asis, E.J.; Allahgholipour, M.; Labroo, M.R.
+\newblock Improving hybrid rice breeding programs via stochastic simulations:
+  number of parents, number of hybrids, tester update, and genomic prediction
+  of hybrid performance.
+\newblock {\em Theoretical and Applied Genetics} {\bf 2024}, {\em 137}.
+\newblock {\url{https://doi.org/10.1007/s00122-023-04508-6}}.
+
+\bibitem[Juliana et~al.(2019)Juliana, Montesinos-López, Crossa, Mondal,
+  González~Pérez, Poland, Huerta-Espino, Crespo-Herrera, Govindan,
+  Dreisigacker, Shrestha, Pérez-Rodríguez, Pinto~Espinosa, and
+  Singh]{Juliana2018Integrating}
+Juliana, P.; Montesinos-López, O.A.; Crossa, J.; Mondal, S.; González~Pérez,
+  L.; Poland, J.; Huerta-Espino, J.; Crespo-Herrera, L.; Govindan, V.;
+  Dreisigacker, S.;  et~al.
+\newblock Integrating genomic-enabled prediction and high-throughput
+  phenotyping in breeding for climate-resilient bread wheat.
+\newblock {\em Theoretical and Applied Genetics} {\bf 2019}, {\em
+  132},~177–194.
+\newblock {\url{https://doi.org/10.1007/s00122-018-3206-3}}.
+
+\bibitem[Lorenz(2013)]{Lorenz2013Resource}
+Lorenz, A.J.
+\newblock Resource Allocation for Maximizing Prediction Accuracy and Genetic
+  Gain of Genomic Selection in Plant Breeding: A Simulation Experiment.
+\newblock {\em G3 Genes|Genomes|Genetics} {\bf 2013}, {\em 3},~481–491.
+\newblock {\url{https://doi.org/10.1534/g3.112.004911}}.
+
+\bibitem[Katungi et~al.(2018)Katungi, Larochelle, Mugabo, and
+  Buruchara]{Katungi2018Effect}
+Katungi, E.M.; Larochelle, C.; Mugabo, J.R.; Buruchara, R.
+\newblock The effect of climbing bean adoption on the welfare of smallholder
+  common bean growers in {Rwanda}.
+\newblock {\em Food Security} {\bf 2018}, {\em 10},~61--79.
+\newblock {\url{https://doi.org/10.1007/s12571-017-0753-4}}.
+
+\bibitem[Jha et~al.(2023)Jha, Beebe, Alvarez-Toro, Mukankusi, and
+  Ramirez-Villegas]{Jha2023Characterizing}
+Jha, P.K.; Beebe, S.; Alvarez-Toro, P.; Mukankusi, C.; Ramirez-Villegas, J.
+\newblock Characterizing patterns of seasonal drought stress for use in common
+  bean breeding in {East Africa} under present and future climates.
+\newblock {\em Agricultural and Forest Meteorology} {\bf 2023}, {\em
+  342},~109735.
+\newblock {\url{https://doi.org/10.1016/j.agrformet.2023.109735}}.
+
+\bibitem[Katiyar et~al.(2025)Katiyar, Pazhamala, Das, Musundire, Bilaro, Kessy,
+  Asante, Yadaw, Chandel, Sao, Poudel, and Ofosu]{Katiyar2026Unified}
+Katiyar, S.K.; Pazhamala, L.T.; Das, R.R.; Musundire, L.; Bilaro, A.; Kessy,
+  T.T.; Asante, M.D.; Yadaw, R.B.; Chandel, G.; Sao, A.;  et~al.
+\newblock A unified global costing framework catalyzes strategic investment in
+  rice breeding.
+\newblock {\em Frontiers in Plant Science} {\bf 2025}, {\em 16}.
+\newblock {\url{https://doi.org/10.3389/fpls.2025.1681605}}.
+
+\bibitem[Mwanje et~al.(2026)Mwanje, Tusubira, Nakatumba-Nabende, Kanaabi,
+  Serebe, Shah, Swennen, Brown, and Nakato]{Mwanje2026Digital}
+Mwanje, G.; Tusubira, J.F.; Nakatumba-Nabende, J.; Kanaabi, R.; Serebe, C.;
+  Shah, T.; Swennen, R.; Brown, A.; Nakato, G.V.
+\newblock Digital assessment of banana (Musa spp.) genotype resistance to
+  banana weevil (Cosmopolites sordidus) compared with expert visual assessment.
+\newblock {\em PLOS One} {\bf 2026}, {\em 21},~e0352433.
+\newblock {\url{https://doi.org/10.1371/journal.pone.0352433}}.
+
+\bibitem[Whan et~al.(2014)Whan, Smith, Cavanagh, Ral, Shaw, Howitt, and
+  Bischof]{Whan2014Grainscan}
+Whan, A.P.; Smith, A.B.; Cavanagh, C.R.; Ral, J.P.F.; Shaw, L.M.; Howitt, C.A.;
+  Bischof, L.
+\newblock GrainScan: a low cost, fast method for grain size and colour
+  measurements.
+\newblock {\em Plant Methods} {\bf 2014}, {\em 10},~23.
+\newblock {\url{https://doi.org/10.1186/1746-4811-10-23}}.
+
+\bibitem[Reynolds et~al.(2019)Reynolds, Baret, Welcker, Bostrom, Ball, Cellini,
+  Lorence, Chawade, Khafif, Noshita, Mueller-Linow, Zhou, and
+  Tardieu]{Reynolds2019Costefficient}
+Reynolds, D.; Baret, F.; Welcker, C.; Bostrom, A.; Ball, J.; Cellini, F.;
+  Lorence, A.; Chawade, A.; Khafif, M.; Noshita, K.;  et~al.
+\newblock What is cost-efficient phenotyping? Optimizing costs for different
+  scenarios.
+\newblock {\em Plant Science} {\bf 2019}, {\em 282},~14–22.
+\newblock {\url{https://doi.org/10.1016/j.plantsci.2018.06.015}}.
+
+\bibitem[Jjagwe et~al.(2022)Jjagwe, Kibwika, Mazur, and
+  Sseguya]{Jjagwe2022Role}
+Jjagwe, G.; Kibwika, P.; Mazur, R.; Sseguya, H.
+\newblock The role of smallholder bean farmers in determining farm gate prices
+  for beans in Uganda.
+\newblock {\em Agriculture \& Food Security} {\bf 2022}, {\em 11}.
+\newblock {\url{https://doi.org/10.1186/s40066-022-00380-7}}.
+
+\bibitem[Harberger and Jenkins(2015)]{Harberger2015Musings}
+Harberger, A.C.; Jenkins, G.P.
+\newblock Musings on the Social Discount Rate.
+\newblock {\em Journal of Benefit-Cost Analysis} {\bf 2015}, {\em 6},~6–32.
+\newblock {\url{https://doi.org/10.1017/bca.2015.2}}.
+
+\bibitem[Groom et~al.(2022)Groom, Drupp, Freeman, and Nesje]{Groom2022Future}
+Groom, B.; Drupp, M.A.; Freeman, M.C.; Nesje, F.
+\newblock The Future, Now: A Review of Social Discounting.
+\newblock {\em Annual Review of Resource Economics} {\bf 2022}, {\em
+  14},~467–491.
+\newblock {\url{https://doi.org/10.1146/annurev-resource-111920-020721}}.
+
+\bibitem[Alene et~al.(2019)Alene, Yigezu, Ndjeunga, Labarta, Andrade, Diagne,
+  Muthoni, Simtowe, and Walker]{Alene2019Measuring}
+Alene, A.; Yigezu, Y.; Ndjeunga, J.; Labarta, R.; Andrade, R.; Diagne, A.;
+  Muthoni, R.; Simtowe, F.; Walker, T.
+\newblock Measuring the effectiveness of agricultural R\&D in sub-Saharan
+  Africa from the perspectives of varietal output and adoption--initial results
+  from the diffusion of improved varieties in Africa project.
+\newblock Gates Open Research,  2019.
+\newblock {\url{https://doi.org/10.21955/gatesopenres.1115554.1}}.
+
+\bibitem[Spielman and Smale(2019)]{Spielman2019Policy}
+Spielman, D.J.; Smale, M.
+\newblock Policy Options to Accelerate Variety Change among Smallholder Farmers
+  in South Asia and Africa South of the Sahara.
+\newblock Gates Open Research,  2019.
+\newblock {\url{https://doi.org/10.21955/gatesopenres.1115279.1}}.
+
+\bibitem[{Food and Agriculture Organization of the United
+  Nations}(2025)]{FAO2025FAOSTATQCL}
+{Food and Agriculture Organization of the United Nations}.
+\newblock {FAOSTAT}: Crops and Livestock Products ({QCL}); Item Beans, Dry
+  (176); Element Area Harvested (5312).
+\newblock FAO, Rome,  2025.
+\newblock Bulk download dated 23 December 2025; accessed 6 October 2026.
+
+\bibitem[Amongi et~al.(2023)Amongi, Kato, Male, Nakyanzi, Sebuliba, Kabwama,
+  Mbiu, Williams, Baguma, and Mukankusi]{Amongi2023Gain}
+Amongi, W.; Kato, F.; Male, A.; Nakyanzi, B.; Sebuliba, S.; Kabwama, A.; Mbiu,
+  J.; Williams, M.; Baguma, G.; Mukankusi, C.
+\newblock Gain and performance in yield and micronutrient concentration in
+  common bean improvement.
+\newblock {\em African Crop Science Journal} {\bf 2023}, {\em 31},~85–111.
+\newblock {\url{https://doi.org/10.4314/acsj.v31i1.8}}.
+
+\bibitem[Sobol'(2001)]{Sobol2001Global}
+Sobol', I.
+\newblock Global sensitivity indices for nonlinear mathematical models and
+  their Monte Carlo estimates.
+\newblock {\em Mathematics and Computers in Simulation} {\bf 2001}, {\em
+  55},~271–280.
+\newblock {\url{https://doi.org/10.1016/s0378-4754(00)00270-6}}.
+
+\bibitem[Pianosi et~al.(2016)Pianosi, Beven, Freer, Hall, Rougier, Stephenson,
+  and Wagener]{Pianosi2016Sensitivity}
+Pianosi, F.; Beven, K.; Freer, J.; Hall, J.W.; Rougier, J.; Stephenson, D.B.;
+  Wagener, T.
+\newblock Sensitivity analysis of environmental models: A systematic review
+  with practical workflow.
+\newblock {\em Environmental Modelling \& Software} {\bf 2016}, {\em
+  79},~214–232.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2016.02.008}}.
+
+\bibitem[Owen and Prieur(2017)]{Owen2017Shapley}
+Owen, A.B.; Prieur, C.
+\newblock On Shapley Value for Measuring Importance of Dependent Inputs.
+\newblock {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2017}, {\em
+  5},~986–1002.
+\newblock {\url{https://doi.org/10.1137/16m1097717}}.
+
+\bibitem[Song et~al.(2016)Song, Nelson, and Staum]{Song2016Shapley}
+Song, E.; Nelson, B.L.; Staum, J.
+\newblock Shapley Effects for Global Sensitivity Analysis: Theory and
+  Computation.
+\newblock {\em SIAM/ASA Journal on Uncertainty Quantification} {\bf 2016}, {\em
+  4},~1060–1083.
+\newblock {\url{https://doi.org/10.1137/15m1048070}}.
+
+\bibitem[Iooss and Prieur(2019)]{Iooss2019Shapley}
+Iooss, B.; Prieur, C.
+\newblock Shapley effects for sensitivity analysis with correlated inputs:
+  comparisons with Sobol’ indices, numerical estimation and applications.
+\newblock {\em International Journal for Uncertainty Quantification} {\bf
+  2019}, {\em 9},~493–514.
+\newblock
+  {\url{https://doi.org/10.1615/int.j.uncertaintyquantification.2019028372}}.
+
+\bibitem[Pianosi and Wagener(2015)]{Pianosi2015Simple}
+Pianosi, F.; Wagener, T.
+\newblock A simple and efficient method for global sensitivity analysis based
+  on cumulative distribution functions.
+\newblock {\em Environmental Modelling \& Software} {\bf 2015}, {\em
+  67},~1–11.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2015.01.004}}.
+
+\bibitem[Puy et~al.(2020)Puy, Lo~Piano, and Saltelli]{Puy2020Sensitivity}
+Puy, A.; Lo~Piano, S.; Saltelli, A.
+\newblock A sensitivity analysis of the PAWN sensitivity index.
+\newblock {\em Environmental Modelling \& Software} {\bf 2020}, {\em
+  127},~104679.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2020.104679}}.
+
+\bibitem[Constantine et~al.(2014)Constantine, Dow, and
+  Wang]{Constantine2014Active}
+Constantine, P.G.; Dow, E.; Wang, Q.
+\newblock Active Subspace Methods in Theory and Practice: Applications to
+  Kriging Surfaces.
+\newblock {\em SIAM Journal on Scientific Computing} {\bf 2014}, {\em
+  36},~A1500–A1524.
+\newblock {\url{https://doi.org/10.1137/130916138}}.
+
+\bibitem[Claxton et~al.(2001)Claxton, Neumann, Araki, and
+  Weinstein]{Claxton2001Bayesian}
+Claxton, K.; Neumann, P.J.; Araki, S.; Weinstein, M.C.
+\newblock Bayesian value-of-information analysis: an application to a policy
+  model of Alzheimer’s disease.
+\newblock {\em International Journal of Technology Assessment in Health Care}
+  {\bf 2001}, {\em 17},~38–55.
+\newblock {\url{https://doi.org/10.1017/s0266462301104058}}.
+
+\bibitem[Brennan et~al.(2007)Brennan, Kharroubi, O’Hagan, and
+  Chilcott]{Brennan2007Calculating}
+Brennan, A.; Kharroubi, S.; O’Hagan, A.; Chilcott, J.
+\newblock Calculating Partial Expected Value of Perfect Information via Monte
+  Carlo Sampling Algorithms.
+\newblock {\em Medical Decision Making} {\bf 2007}, {\em 27},~448–470.
+\newblock {\url{https://doi.org/10.1177/0272989x07302555}}.
+
+\bibitem[Strong et~al.(2013)Strong, Oakley, and Brennan]{Strong2013Estimating}
+Strong, M.; Oakley, J.E.; Brennan, A.
+\newblock Estimating Multiparameter Partial Expected Value of Perfect
+  Information from a Probabilistic Sensitivity Analysis Sample: A Nonparametric
+  Regression Approach.
+\newblock {\em Medical Decision Making} {\bf 2013}, {\em 34},~311–326.
+\newblock {\url{https://doi.org/10.1177/0272989x13505910}}.
+
+\bibitem[Heath et~al.(2017)Heath, Manolopoulou, and Baio]{Heath2017Review}
+Heath, A.; Manolopoulou, I.; Baio, G.
+\newblock A Review of Methods for Analysis of the Expected Value of
+  Information.
+\newblock {\em Medical Decision Making} {\bf 2017}, {\em 37},~747–758.
+\newblock {\url{https://doi.org/10.1177/0272989x17697692}}.
+
+\bibitem[Rothery et~al.(2020)Rothery, Strong, Koffijberg, Basu, Ghabri, Knies,
+  Murray, Sanders~Schmidler, Steuten, and Fenwick]{Rothery2020Value}
+Rothery, C.; Strong, M.; Koffijberg, H.E.; Basu, A.; Ghabri, S.; Knies, S.;
+  Murray, J.F.; Sanders~Schmidler, G.D.; Steuten, L.; Fenwick, E.
+\newblock Value of Information Analytical Methods: Report 2 of the ISPOR Value
+  of Information Analysis Emerging Good Practices Task Force.
+\newblock {\em Value in Health} {\bf 2020}, {\em 23},~277–286.
+\newblock {\url{https://doi.org/10.1016/j.jval.2020.01.004}}.
+
+\bibitem[Walter et~al.(2019)Walter, Edwards, Cai, McDonald, Miklavcic, and
+  Kuchel]{Walter2019Highthroughput}
+Walter, J.; Edwards, J.; Cai, J.; McDonald, G.; Miklavcic, S.J.; Kuchel, H.
+\newblock High-Throughput Field Imaging and Basic Image Analysis in a Wheat
+  Breeding Programme.
+\newblock {\em Frontiers in Plant Science} {\bf 2019}, {\em 10}.
+\newblock {\url{https://doi.org/10.3389/fpls.2019.00449}}.
+
+\bibitem[Chiorato et~al.(2010)Chiorato, Carbonell, Vencovsky, Fonseca~Júnior,
+  and Pinheiro]{Chiorato2010Genetic}
+Chiorato, A.F.; Carbonell, S.A.M.; Vencovsky, R.; Fonseca~Júnior, N.d.S.;
+  Pinheiro, J.B.
+\newblock Genetic gain in the breeding program of common beans at IAC from 1989
+  to 2007.
+\newblock {\em Crop Breeding and Applied Biotechnology} {\bf 2010}, {\em
+  10},~329–336.
+\newblock {\url{https://doi.org/10.1590/s1984-70332010000400007}}.
+
+\bibitem[de~Faria et~al.(2018)de~Faria, Melo, de~Souza, Pereira, and
+  Melo]{deFaria2018Efficiency}
+de~Faria, L.C.; Melo, P.G.S.; de~Souza, T.L.P.O.; Pereira, H.S.; Melo, L.C.
+\newblock Efficiency of methods for genetic progress estimation in common bean
+  breeding using database information.
+\newblock {\em Euphytica} {\bf 2018}, {\em 214}.
+\newblock {\url{https://doi.org/10.1007/s10681-018-2246-8}}.
+
+\bibitem[Zeffa et~al.(2020)Zeffa, Moda-Cirino, Medeiros, Freiria, Neto,
+  Ivamoto-Suzuki, Delfini, Scapim, and Gonçalves]{Zeffa2020Genetic}
+Zeffa, D.M.; Moda-Cirino, V.; Medeiros, I.A.; Freiria, G.H.; Neto, J.d.S.;
+  Ivamoto-Suzuki, S.T.; Delfini, J.; Scapim, C.A.; Gonçalves, L.S.A.
+\newblock Genetic Progress of Seed Yield and Nitrogen Use Efficiency of
+  Brazilian carioca Common Bean Cultivars Using Bayesian Approaches.
+\newblock {\em Frontiers in Plant Science} {\bf 2020}, {\em 11}.
+\newblock {\url{https://doi.org/10.3389/fpls.2020.01168}}.
+
+\bibitem[Gijare et~al.(2026)Gijare, S, Trivedi, Bhangare, Gobade, Sarode,
+  Khade, Oak, Pawar, and Patil]{Gijare2026Assessing}
+Gijare, S.; S, A.; Trivedi, P.; Bhangare, V.; Gobade, A.; Sarode, J.; Khade,
+  V.; Oak, M.D.; Pawar, D.; Patil, A.S.
+\newblock Assessing image based high throughput phenotyping for accurate
+  characterization of soybean seed morphology.
+\newblock Preprint,  2026.
+\newblock {\url{https://doi.org/10.21203/rs.3.rs-10685107/v1}}.
+
+\bibitem[Asea et~al.(2023)Asea, Kwemoi, Sneller, Kasozi, Das, Musundire,
+  Makumbi, Beyene, and Prasanna]{Asea2023Genetic}
+Asea, G.; Kwemoi, D.B.; Sneller, C.; Kasozi, C.L.; Das, B.; Musundire, L.;
+  Makumbi, D.; Beyene, Y.; Prasanna, B.M.
+\newblock Genetic trends for yield and key agronomic traits in pre-commercial
+  and commercial maize varieties between 2008 and 2020 in Uganda.
+\newblock {\em Frontiers in Plant Science} {\bf 2023}, {\em 14}.
+\newblock {\url{https://doi.org/10.3389/fpls.2023.1020667}}.
+
+\bibitem[Menkir et~al.(2022)Menkir, Dieng, Meseka, Bossey, Mengesha, Muhyideen,
+  Riberio, Coulibaly, Yacoubou, Bankole, Adu, and Ojo]{Menkir2022Estimating}
+Menkir, A.; Dieng, I.; Meseka, S.; Bossey, B.; Mengesha, W.; Muhyideen, O.;
+  Riberio, P.F.; Coulibaly, M.; Yacoubou, A.M.; Bankole, F.A.;  et~al.
+\newblock Estimating genetic gains for tolerance to stress combinations in
+  tropical maize hybrids.
+\newblock {\em Frontiers in Genetics} {\bf 2022}, {\em 13}.
+\newblock {\url{https://doi.org/10.3389/fgene.2022.1023318}}.
+
+\bibitem[Mukaro et~al.(2024)Mukaro, Chaingeni, Sneller, Cairns, Musundire,
+  Prasanna, Mavankeni, Das, Mulanya, Chivasa, Mhike, Ndhlela, Matongera,
+  Matova, Muungani, Mutimaamba, Wegary, Zaman-Allah, Magorokosho, Chingwara,
+  and Kutywayo]{Mukaro2024Genetic}
+Mukaro, R.; Chaingeni, D.; Sneller, C.; Cairns, J.E.; Musundire, L.; Prasanna,
+  B.M.; Mavankeni, B.O.; Das, B.; Mulanya, M.; Chivasa, W.;  et~al.
+\newblock Genetic trends in the Zimbabwe’s national maize breeding program
+  over two decades.
+\newblock {\em Frontiers in Plant Science} {\bf 2024}, {\em 15}.
+\newblock {\url{https://doi.org/10.3389/fpls.2024.1391926}}.
+
+\bibitem[Tarekegne et~al.(2023)Tarekegne, Wegary, Cairns, Zaman-Allah, Beyene,
+  Negera, Teklewold, Tesfaye, Jumbo, Das, Nhamucho, Simpasa, Kaonga,
+  Mashingaidze, Thokozile, Mhike, and Prasanna]{Tarekegne2024Genetic}
+Tarekegne, A.; Wegary, D.; Cairns, J.E.; Zaman-Allah, M.; Beyene, Y.; Negera,
+  D.; Teklewold, A.; Tesfaye, K.; Jumbo, M.B.; Das, B.;  et~al.
+\newblock Genetic gains in early maturing maize hybrids developed by the
+  International Maize and Wheat Improvement Center in Southern Africa during
+  2000–2018.
+\newblock {\em Frontiers in Plant Science} {\bf 2023}, {\em 14}.
+\newblock {\url{https://doi.org/10.3389/fpls.2023.1321308}}.
+
+\bibitem[Todeschini et~al.(2019)Todeschini, Milioli, Rosa, Dallacorte, Panho,
+  Marchese, and Benin]{Todeschini2019Soybean}
+Todeschini, M.H.; Milioli, A.S.; Rosa, A.C.; Dallacorte, L.V.; Panho, M.C.;
+  Marchese, J.A.; Benin, G.
+\newblock Soybean genetic progress in South Brazil: physiological, phenological
+  and agronomic traits.
+\newblock {\em Euphytica} {\bf 2019}, {\em 215}.
+\newblock {\url{https://doi.org/10.1007/s10681-019-2439-9}}.
+
+\bibitem[Yadav et~al.(2025)Yadav, Semwal, Amagnide, Pegalepo, Kobi, Adjah,
+  Amoah, El-Namaky, Zenna, Noumouha, Ndaw, Muhammad, Barry, Khouma, Menidiou,
+  Zhao, and Manneh]{Yadav2026Genetic}
+Yadav, S.; Semwal, V.K.; Amagnide, G.A.Y.G.; Pegalepo, E.; Kobi, K.O.; Adjah,
+  K.L.; Amoah, N.K.A.; El-Namaky, R.; Zenna, N.; Noumouha, E.N.G.;  et~al.
+\newblock Genetic progress in rice yield: preliminary insights from
+  historically released varieties in Sub-Saharan Africa.
+\newblock {\em Frontiers in Plant Science} {\bf 2025}, {\em 16}.
+\newblock {\url{https://doi.org/10.3389/fpls.2025.1670651}}.
+
+\bibitem[Banerjee et~al.(2021)Banerjee, Sharma, Spangenberg, and
+  Kant]{Banerjee2021Machine}
+Banerjee, B.P.; Sharma, V.; Spangenberg, G.; Kant, S.
+\newblock Machine Learning Regression Analysis for Estimation of Crop Emergence
+  Using Multispectral UAV Imagery.
+\newblock {\em Remote Sensing} {\bf 2021}, {\em 13},~2918.
+\newblock {\url{https://doi.org/10.3390/rs13152918}}.
+
+\bibitem[Fernandez-Gallego et~al.(2018)Fernandez-Gallego, Kefauver, Gutiérrez,
+  Nieto-Taladriz, and Araus]{FernandezGallego2018Wheat}
+Fernandez-Gallego, J.A.; Kefauver, S.C.; Gutiérrez, N.A.; Nieto-Taladriz,
+  M.T.; Araus, J.L.
+\newblock Wheat ear counting in-field conditions: high throughput and low-cost
+  approach using RGB images.
+\newblock {\em Plant Methods} {\bf 2018}, {\em 14}.
+\newblock {\url{https://doi.org/10.1186/s13007-018-0289-4}}.
+
+\bibitem[Guo et~al.(2025)Guo, Pan, Wang, Deng, Yang, Liu, Chen, and
+  Zhu]{Guo2025Dlmlpc}
+Guo, Y.; Pan, J.; Wang, X.; Deng, H.; Yang, M.; Liu, E.; Chen, Q.; Zhu, R.
+\newblock DLML-PC: an automated deep learning and metric learning approach for
+  precise soybean pod classification and counting in intact plants.
+\newblock {\em Frontiers in Plant Science} {\bf 2025}, {\em 16}.
+\newblock {\url{https://doi.org/10.3389/fpls.2025.1583526}}.
+
+\bibitem[Karisto et~al.(2017)Karisto, Hund, Yu, Anderegg, Walter, Mascher,
+  McDonald, and Mikaberidze]{Karisto2017Ranking}
+Karisto, P.; Hund, A.; Yu, K.; Anderegg, J.; Walter, A.; Mascher, F.; McDonald,
+  B.A.; Mikaberidze, A.
+\newblock Ranking quantitative resistance to Septoria tritici blotch in elite
+  wheat cultivars using automated image analysis.
+\newblock Preprint,  2017.
+\newblock {\url{https://doi.org/10.1101/129353}}.
+
+\bibitem[Makanza et~al.(2018)Makanza, Zaman-Allah, Cairns, Magorokosho,
+  Tarekegne, Olsen, and Prasanna]{Makanza2018Highthroughput}
+Makanza, R.; Zaman-Allah, M.; Cairns, J.; Magorokosho, C.; Tarekegne, A.;
+  Olsen, M.; Prasanna, B.
+\newblock High-Throughput Phenotyping of Canopy Cover and Senescence in Maize
+  Field Trials Using Aerial Digital Canopy Imaging.
+\newblock {\em Remote Sensing} {\bf 2018}, {\em 10},~330.
+\newblock {\url{https://doi.org/10.3390/rs10020330}}.
+
+\bibitem[Parrella et~al.(2013)Parrella, Santos, Parrella, and
+  Silva]{Parrella2013Evaluation}
+Parrella, R.A.d.C.; Santos, J.B.d.; Parrella, N.N.L.D.; Silva, D.V.F.e.
+\newblock Evaluation efficiency of severity of angular leaf spot in common bean
+  based on diseased and healthy leaf area.
+\newblock {\em Crop Breeding and Applied Biotechnology} {\bf 2013}, {\em
+  13},~178–185.
+\newblock {\url{https://doi.org/10.1590/s1984-70332013000300005}}.
+
+\bibitem[Sadeghi-Tehran et~al.(2019)Sadeghi-Tehran, Virlet, Ampe, Reyns, and
+  Hawkesford]{SadeghiTehran2019Deepcount}
+Sadeghi-Tehran, P.; Virlet, N.; Ampe, E.M.; Reyns, P.; Hawkesford, M.J.
+\newblock DeepCount: In-Field Automatic Quantification of Wheat Spikes Using
+  Simple Linear Iterative Clustering and Deep Convolutional Neural Networks.
+\newblock {\em Frontiers in Plant Science} {\bf 2019}, {\em 10}.
+\newblock {\url{https://doi.org/10.3389/fpls.2019.01176}}.
+
+\bibitem[Volpato et~al.(2023)Volpato, Wright, and Gomez]{Volpato2023Digital}
+Volpato, L.; Wright, E.M.; Gomez, F.E.
+\newblock Digital Phenotyping in Plant Breeding: Evaluating Relative Maturity,
+  Stand Count, and Plant Height in Dry Beans (Phaseolus vulgaris L.) via RGB
+  Drone-Based Imagery and Deep Learning Approaches.
+\newblock Preprint,  2023.
+\newblock {\url{https://doi.org/10.21203/rs.3.rs-3160633/v1}}.
+
+\bibitem[Zang et~al.(2022)Zang, Wang, Yang, He, Zhao, Zhou, Zheng, and
+  Li]{Zang2022Estimation}
+Zang, H.; Wang, Y.; Yang, X.; He, J.; Zhao, Q.; Zhou, M.; Zheng, G.; Li, G.
+\newblock Estimation of plant density and plant height of winter wheat breeding
+  material based on UAV digital images.
+\newblock Preprint,  2022.
+\newblock {\url{https://doi.org/10.21203/rs.3.rs-1469702/v1}}.
+
+\bibitem[Zang et~al.(2023)Zang, Jin, Zhang, Li, Mu, Li, Li, Wang, Su, and
+  Jiang]{Zang2023Fieldmeasured}
+Zang, J.; Jin, S.; Zhang, S.; Li, Q.; Mu, Y.; Li, Z.; Li, S.; Wang, X.; Su, Y.;
+  Jiang, D.
+\newblock Field-measured canopy height may not be as accurate and heritable as
+  believed: evidence from advanced 3D sensing.
+\newblock {\em Plant Methods} {\bf 2023}, {\em 19}.
+\newblock {\url{https://doi.org/10.1186/s13007-023-01012-2}}.
+
+\bibitem[DeBruin et~al.(2025)DeBruin, Aref, Tirado~Tolosa, Hensley, Underwood,
+  McGuire, Soman, Nystrom, Parkinson, Li, Moose, and
+  Chowdhary]{DeBruin2025Breaking}
+DeBruin, J.; Aref, T.; Tirado~Tolosa, S.; Hensley, R.; Underwood, H.; McGuire,
+  M.; Soman, C.; Nystrom, G.; Parkinson, E.; Li, C.;  et~al.
+\newblock Breaking the field phenotyping bottleneck in maize with autonomous
+  robots.
+\newblock {\em Communications Biology} {\bf 2025}, {\em 8}.
+\newblock {\url{https://doi.org/10.1038/s42003-025-07890-7}}.
+
+\bibitem[Haghighattalab et~al.(2016)Haghighattalab, González~Pérez, Mondal,
+  Singh, Schinstock, Rutkoski, Ortiz-Monasterio, Singh, Goodin, and
+  Poland]{Haghighattalab2016Application}
+Haghighattalab, A.; González~Pérez, L.; Mondal, S.; Singh, D.; Schinstock,
+  D.; Rutkoski, J.; Ortiz-Monasterio, I.; Singh, R.P.; Goodin, D.; Poland, J.
+\newblock Application of unmanned aerial systems for high throughput
+  phenotyping of large wheat breeding nurseries.
+\newblock {\em Plant Methods} {\bf 2016}, {\em 12}.
+\newblock {\url{https://doi.org/10.1186/s13007-016-0134-6}}.
+
+\bibitem[Komyshev et~al.(2016)Komyshev, Genaev, and
+  Afonnikov]{Komyshev2017Evaluation}
+Komyshev, E.; Genaev, M.; Afonnikov, D.
+\newblock Evaluation of the SeedCounter, A Mobile Application for Grain
+  Phenotyping.
+\newblock {\em Frontiers in Plant Science} {\bf 2016}, {\em 7}.
+\newblock {\url{https://doi.org/10.3389/fpls.2016.01990}}.
+
+\bibitem[Tanger et~al.(2017)Tanger, Klassen, Mojica, Lovell, Moyers, Baraoidan,
+  Naredo, McNally, Poland, Bush, Leung, Leach, and McKay]{Tanger2017Fieldbased}
+Tanger, P.; Klassen, S.; Mojica, J.P.; Lovell, J.T.; Moyers, B.T.; Baraoidan,
+  M.; Naredo, M.E.B.; McNally, K.L.; Poland, J.; Bush, D.R.;  et~al.
+\newblock Field-based high throughput phenotyping rapidly identifies genomic
+  regions controlling yield components in rice.
+\newblock {\em Scientific Reports} {\bf 2017}, {\em 7}.
+\newblock {\url{https://doi.org/10.1038/srep42839}}.
+
+\bibitem[Zu et~al.(2025)Zu, Liu, Zhu, Pan, Wang, Song, Yu, Dang, Yu, and
+  Zhang]{Zu2025Automated}
+Zu, Q.; Liu, T.; Zhu, W.; Pan, Y.; Wang, J.; Song, X.; Yu, J.; Dang, S.; Yu,
+  X.; Zhang, Z.
+\newblock Automated seed counting using image processing and deep learning.
+\newblock {\em Frontiers in Plant Science} {\bf 2025}, {\em 16}.
+\newblock {\url{https://doi.org/10.3389/fpls.2025.1659781}}.
+
+\bibitem[Jighly et~al.(2019)Jighly, Lin, Pembleton, Cogan, Spangenberg, Hayes,
+  and Daetwyler]{Jighly2019Boosting}
+Jighly, A.; Lin, Z.; Pembleton, L.W.; Cogan, N.O.I.; Spangenberg, G.C.; Hayes,
+  B.J.; Daetwyler, H.D.
+\newblock Boosting Genetic Gain in Allogamous Crops via Speed Breeding and
+  Genomic Selection.
+\newblock {\em Frontiers in Plant Science} {\bf 2019}, {\em 10}.
+\newblock {\url{https://doi.org/10.3389/fpls.2019.01364}}.
+
+\bibitem[Poland and Nelson(2011)]{Poland2011Beholder}
+Poland, J.A.; Nelson, R.J.
+\newblock In the Eye of the Beholder: The Effect of Rater Variability and
+  Different Rating Scales on QTL Mapping.
+\newblock {\em Phytopathology®} {\bf 2011}, {\em 101},~290–298.
+\newblock {\url{https://doi.org/10.1094/phyto-03-10-0087}}.
+
+\bibitem[Rutkoski(2019)]{Rutkoski2019Estimation}
+Rutkoski, J.E.
+\newblock Estimation of Realized Rates of Genetic Gain and Indicators for
+  Breeding Program Assessment.
+\newblock {\em Crop Science} {\bf 2019}, {\em 59},~981–993.
+\newblock {\url{https://doi.org/10.2135/cropsci2018.09.0537}}.
+
+\end{thebibliography}

@@ -1,0 +1,5 @@
+# Package versions of the cluster installation that ran the Layer-1 sweeps
+# (recorded from `packageVersion()` on the cluster, 2026-10-06).
+R: "4.4.0"
+AlphaSimR: "2.1.0"
+data.table: "1.18.2.1"

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it using the metadata from this file."
+type: software
+title: "Cycle Time versus Accuracy: Simulation and Economic Model of AI-Based Phenotyping in Smallholder Bean Breeding"
+abstract: >-
+  Code and data for a coupled breeding-simulation and economic model that values a
+  smartphone computer-vision phenotyping tool in a four-stage East African common-bean
+  breeding pipeline. Layer 1 is an AlphaSimR stochastic simulation over a factorial grid
+  of tool profiles; Layer 2 converts simulated genetic gain into adoption, net present
+  value, global sensitivity and value-of-information analyses. Includes the
+  meta-analysis extraction sheets and the scripts that generate every number, table and
+  figure in the manuscript.
+authors:
+  - family-names: Tang
+    given-names: Juk-Sen
+    orcid: "https://orcid.org/0009-0009-8849-874X"
+    affiliation: "Beijing Academy of Agriculture and Forestry Sciences; McGill University"
+  - family-names: Chen
+    given-names: Junhong
+    email: chenjunhong@baafs.net.cn
+    orcid: "https://orcid.org/0009-0007-7201-3408"
+    affiliation: "Beijing Academy of Agriculture and Forestry Sciences"
+keywords:
+  - smartphone phenotyping
+  - digital phenotyping
+  - Phaseolus vulgaris
+  - breeding cycle time
+  - genetic gain
+  - AlphaSimR
+  - stochastic simulation
+  - net present value
+  - global sensitivity analysis
+  - value of information
+license: MIT
+repository-code: "https://github.com/juksentang/bean-phenotyping-value"
+version: "1.0.0"
+date-released: "2026-10-06"

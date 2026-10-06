@@ -1,0 +1,17 @@
+# Robustness block: base heritability and on-station GxE correlation are
+# assumptions (no source reports them for this pipeline; see citation audit),
+# so they are varied here on a reduced tool grid at the baseline budget and
+# fixed cost.
+tool_grid:
+  error_reduction:   [0.0, 0.10, 0.20, 0.30, 0.50]
+  cost_reduction:    [0.10, 0.20, 0.50]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:    [10000]
+  total_budget:      [200000]
+genetic_grid:
+  h2_yield:          [0.15, 0.30, 0.50]
+  gxe_cor_onstation: [0.40, 0.60, 0.80]
+mc_reps_per_cell: 100
+mc_seed_base: 3000042
+output_subdir: "sweep_v2_robust"
+cell_filename_pattern: "cell_%05d.parquet"

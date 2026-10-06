@@ -1,0 +1,192 @@
+analysis,query_id,source,query_string,n_hits,date
+MA1,q1,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain common bean Phaseolus vulgaris grain yield breeding program,25,2026-10-05
+MA1,q2,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic progress common bean yield historical trials,20,2026-10-05
+MA1,q3,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain Phaseolus vulgaris era trial old new cultivars yield,25,2026-10-05
+MA1,q4,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",realized genetic gain common bean Africa,20,2026-10-05
+MA1,q5,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain cowpea grain yield breeding,23,2026-10-05
+MA1,q6,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain soybean Africa Brazil era study yield,25,2026-10-05
+MA1,q7,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain groundnut peanut breeding yield historical,25,2026-10-05
+MA1,q8,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain chickpea yield breeding,20,2026-10-05
+MA1,q9,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain dry bean breeding yield Michigan OR Canada OR Colombia,25,2026-10-05
+MA1,q10,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic improvement yield CGIAR sub-Saharan Africa rate of genetic gain kg/ha/year,25,2026-10-05
+MA1,q11,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain pulses cowpea Nigeria IITA breeding era,22,2026-10-05
+MA1,q12,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain Ethiopia improved varieties released yield trend legume haricot bean,19,2026-10-05
+MA1,q13,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain maize Africa breeding era yield percent per year,25,2026-10-05
+MA1,q14,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain rice Africa released varieties yield,23,2026-10-05
+MA1,q15,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain sorghum OR millet OR cassava OR wheat Africa breeding program yield per year,25,2026-10-05
+MA1,q16,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain soybean Africa IITA TGx varieties yield,18,2026-10-05
+MA1,q17,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic progress carioca common bean Brazil breeding yield,25,2026-10-05
+MA1,q18,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain cowpea Senegal OR Mali OR Burkina OR Ghana OR Tanzania OR Mozambique,22,2026-10-05
+MA1,q19,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain sorghum breeding era yield Africa,25,2026-10-05
+MA1,q20,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain cassava breeding yield per year Nigeria IITA,22,2026-10-05
+MA1,q21,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain wheat Ethiopia OR Kenya historical varieties yield,25,2026-10-05
+MA1,q22,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain pearl millet OR pigeonpea OR faba bean OR lentil breeding yield,25,2026-10-05
+MA1,q23,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",dry bean yield genetic gain cultivars released,failed,2026-10-05
+MA1,q24,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",common bean East Africa varieties yield progress genetic gain,failed,2026-10-05
+MA1,q25,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain grain legumes sub-Saharan Africa breeding programs,25,2026-10-05
+MA1,q26,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",realized genetic gain legume breeding program Latin America,25,2026-10-05
+MA1,q27,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic progress bean breeding Uganda,25,2026-10-05
+MA1,q28,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",soybean genetic gain Zambia OR Zimbabwe OR Nigeria varieties released over decades,failed,2026-10-05
+MA1,q29,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",groundnut genetic gain West Africa OR Malawi OR Uganda varieties,failed,2026-10-05
+MA1,q30,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain maize hybrids eastern Africa Ethiopia Kenya,failed,2026-10-05
+MA1,q31,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain sorghum Ethiopia OR Mali OR Sudan OR Tanzania,failed,2026-10-05
+MA1,q32,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",wheat Ethiopia genetic gain historical varieties grain yield,failed,2026-10-05
+MA1,q33,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",common bean yield trials mixed model genetic trend breeding value year of trial,9,2026-10-05
+MA1,q34,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain groundnut Africa,failed,2026-10-05
+MA1,q35,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain soybean Africa,failed,2026-10-05
+MA1,q36,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain maize Ethiopia,25,2026-10-05
+MA1,q37,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain sorghum Africa,failed,2026-10-05
+MA1,q38,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain bean Uganda,failed,2026-10-05
+MA1,q39,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain cowpea Nigeria,25,2026-10-05
+MA1,q40,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain in grain yield potential haricot bean Ethiopia,25,2026-10-05
+MA1,q41,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Phaseolus vulgaris breeding progress yield era cultivars,failed,2026-10-05
+MA1,r1,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",dry bean yield genetic gain cultivars released,failed,2026-10-05
+MA1,r2,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain groundnut Africa,25,2026-10-05
+MA1,r3,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain soybean Africa,25,2026-10-05
+MA1,r4,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain sorghum Africa,failed,2026-10-05
+MA1,r5,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic progress Phaseolus vulgaris cultivars era,failed,2026-10-05
+MA1,r6,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain bean Uganda,failed,2026-10-05
+MA1,r7,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain wheat Ethiopia,failed,2026-10-05
+MA1,r8,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain maize eastern Africa,failed,2026-10-05
+MA1,r9,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic gain yield cowpea Africa varieties,failed,2026-10-05
+MA1,r10,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",genetic trend soybean variety trials Africa,failed,2026-10-05
+MA2,q_01,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",smartphone image-based phenotyping common bean disease severity,25,2026-10-05
+MA2,q_02,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",deep learning common bean seed phenotyping manual measurement correlation,25,2026-10-05
+MA2,q_03,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",image-based disease severity phenotyping compared with visual rating correlation,25,2026-10-05
+MA2,q_04,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",dry bean unmanned aerial vehicle phenotyping field,25,2026-10-05
+MA2,q_05,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",soybean canopy coverage image heritability,25,2026-10-05
+MA2,q_06,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",wheat Septoria disease severity image analysis visual assessment,25,2026-10-05
+MA2,q_07,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",plant stand count UAV deep learning crop emergence,25,2026-10-05
+MA2,q_08,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",pod count deep learning soybean images,25,2026-10-05
+MA2,q_09,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",bean angular leaf spot rust image analysis severity,25,2026-10-05
+MA2,q_10,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",maize northern leaf blight image severity deep learning,25,2026-10-05
+MA2,q_11,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",smartphone application plant phenotyping crop field validation,25,2026-10-05
+MA2,q_12,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",seed morphology image analysis software crop validation manual measurement,25,2026-10-05
+MA2,q_13,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",chickpea lentil pea UAV phenotyping,25,2026-10-05
+MA2,q_14,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",faba bean UAV imaging heritability,25,2026-10-05
+MA2,q_15,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cowpea groundnut peanut image phenotyping,25,2026-10-05
+MA2,q_16,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",iron deficiency chlorosis soybean image-based visual score,25,2026-10-05
+MA2,q_17,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Fusarium head blight severity image-based visual breeding,25,2026-10-05
+MA2,q_18,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Canopeo green canopy cover smartphone,25,2026-10-05
+MA2,q_19,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",image-based senescence scoring wheat heritability visual,25,2026-10-05
+MA2,q_20,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",UAV plant height canopy cover heritability visual score breeding trial,25,2026-10-05
+MA2,q_21,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",common bean root rot image phenotyping,25,2026-10-05
+MA2,q_22,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",high-throughput phenotyping repeatability image-based versus manual same plots,25,2026-10-05
+MA2,q_23,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",computer vision seed count yield component phenotyping legumes,25,2026-10-05
+MA2,q_24,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Fusarium ear rot maize image disease severity machine learning,25,2026-10-05
+MA2,q_31,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",image analysis versus visual disease assessment soybean heritability,25,2026-10-05
+MA2,q_32,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",common bacterial blight image analysis quantitative resistance common bean,25,2026-10-05
+MA2,q_33,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",UAV-based disease score correlation with visual score breeding lines,25,2026-10-05
+MA2,q_34,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",image-based phenotyping higher heritability than visual scoring,25,2026-10-05
+MA2,q_35,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",deep learning wheat ear counting field images correlation with manual count,25,2026-10-05
+MA2,q_36,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",drone stand count deep learning plots manual count correlation,25,2026-10-05
+MA2,q_37,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",dry bean seed image analysis size weight,25,2026-10-05
+MA2,q_38,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",visual versus image-based lodging score,25,2026-10-05
+MA2,q_39,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",smartphone images plant disease severity quantification field validation visual estimates,25,2026-10-05
+MA2,q_40,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",heritability of image-derived traits compared with manually measured traits same plots,25,2026-10-05
+MA2,q_41,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Application of image analysis in studies of quantitative disease resistance common bacterial blight common bean,0,2026-10-05
+MA2,q_42,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",SmartGrain high-throughput phenotyping software seed shape image analysis,25,2026-10-05
+MA2,q_43,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Leaf Doctor portable application quantifying plant disease severity,25,2026-10-05
+MA2,q_44,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",Seed per pod estimation for plant breeding using deep learning,25,2026-10-05
+MA2,q_45,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",ranking quantitative resistance Septoria tritici blotch elite wheat cultivars automated image analysis,25,2026-10-05
+MA2,q_46,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",smartphone images seed counting mobile application accuracy manual count,25,2026-10-05
+MA2,q_47,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",PlantCV disease severity image analysis compared visual score field soybean resistance,25,2026-10-05
+MA2,q_48,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",common bean seed morphology image phenotyping genotypes,25,2026-10-05
+MA3,q1,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",high-throughput phenotyping cost time savings,25,2026-10-05
+MA3,q2,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",digital data collection plant breeding field trials time savings versus paper,25,2026-10-05
+MA3,q3,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",electronic data capture breeding trials cost reduction manual phenotyping,25,2026-10-05
+MA3,q4,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",UAV phenotyping cost per plot compared with manual scoring,failed,2026-10-05
+MA3,q5,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",smartphone app image-based phenotyping time per plot reduction manual scoring,25,2026-10-05
+MA3,q6,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cost of phenotyping per plot breeding program economics,25,2026-10-05
+MA3,q7,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",economic analysis of high-throughput phenotyping plant breeding cost-benefit,failed,2026-10-05
+MA3,q8,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",digital field book app data collection time saving plant breeding,25,2026-10-05
+MA3,q9,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",handheld computer barcode field data collection plant breeding time cost,20,2026-10-05
+MA3,q10,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",computer vision phenotyping labour reduction time per plot dry bean,25,2026-10-05
+MA3,q11,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cost-effectiveness UAV versus ground phenotyping breeding,failed,2026-10-05
+MA3,q12,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",phenotyping throughput plots per hour manual versus automated,25,2026-10-05
+MA3,q13,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",data collection time reduction mobile phenotyping common bean breeding Africa,25,2026-10-05
+MA3,q14,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cost of field phenotyping per plot wheat breeding,failed,2026-10-05
+MA3,q15,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",automated seed counting image analysis time saving compared with manual counting,25,2026-10-05
+MA3,q20,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",unmanned aerial system high throughput phenotyping large wheat breeding nurseries,25,2026-10-05
+MA3,q21,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",UAV plant height measurement compared with manual measurement time required plots,25,2026-10-05
+MA3,q22,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",image-based phenotyping reduces labor time compared with visual scoring breeding program,failed,2026-10-05
+MA3,q23,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",automated phenotyping time savings percent compared to manual measurement field trial,25,2026-10-05
+MA3,q24,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cost comparison manual versus UAV phenotyping field trial per plot,failed,2026-10-05
+MA3,q25,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",mobile application data collection plant breeding reduced data entry errors time,NA,2026-10-05
+MA3,q26,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",phenotyping bottleneck labour cost plots per day manual scoring,NA,2026-10-05
+MA3,q27,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",dry bean breeding trials UAV phenotyping,NA,2026-10-05
+MA3,q28,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",deep learning counting pods seeds soybean images faster than manual counting,NA,2026-10-05
+MA3,q29,"federated search (OpenAlex + Semantic Scholar + Crossref, --limit 25)",cost-effective phenotyping smartphone images field low-income breeding programs,NA,2026-10-05
+MA3,c1,Crossref REST /works (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,c2,Crossref REST /works (direct),NA (query string not saved on disk),8,2026-10-05
+MA3,c3,Crossref REST /works (direct),NA (query string not saved on disk),8,2026-10-05
+MA3,c4,Crossref REST /works (direct),NA (query string not saved on disk),6,2026-10-05
+MA3,c5,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c6,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c7,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c8,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c9,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c10,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c11,Crossref REST /works (direct),NA (query string not saved on disk),5,2026-10-05
+MA3,c12,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c13,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c14,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c15,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c16,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c17,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c18,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c19,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c20,Crossref REST /works (direct),NA (query string not saved on disk),10,2026-10-05
+MA3,c21,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c22,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c23,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c24,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c25,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c26,Crossref REST /works (direct),NA (query string not saved on disk),10,2026-10-05
+MA3,c27,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c28,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c29,Crossref REST /works (direct),NA (query string not saved on disk),5,2026-10-05
+MA3,c30,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c31,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c32,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c33,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c34,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c35,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c36,Crossref REST /works (direct),NA (query string not saved on disk),4,2026-10-05
+MA3,c37,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c38,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c39,Crossref REST /works (direct),NA (query string not saved on disk),12,2026-10-05
+MA3,c40,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c41,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c42,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c43,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c44,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c45,Crossref REST /works (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,c46,Crossref REST /works (direct),NA (query string not saved on disk),8,2026-10-05
+MA3,c47,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c48,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c49,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c50,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,c51,Crossref REST /works (direct),NA (query string not saved on disk),3,2026-10-05
+MA3,e1,Europe PMC REST (direct),NA (query string not saved on disk),20,2026-10-05
+MA3,e2,Europe PMC REST (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,e3,Europe PMC REST (direct),NA (query string not saved on disk),10,2026-10-05
+MA3,e4,Europe PMC REST (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,e5,Europe PMC REST (direct),NA (query string not saved on disk),15,2026-10-05
+MA3,e6,Europe PMC REST (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,e7,Europe PMC REST (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,e8,Europe PMC REST (direct),NA (query string not saved on disk),25,2026-10-05
+MA3,e9,Europe PMC REST (direct),NA (query string not saved on disk),11,2026-10-05
+MA3,e10,Europe PMC REST (direct),"(""times faster"" OR ""fold faster"" OR ""faster than manual"" OR ""faster than visual"") AND phenotyping AND (plots OR breeding) AND (plant OR crop OR wheat OR maize OR soybean OR rice OR sorghum OR bean) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e11,Europe PMC REST (direct),"(""reduced the time"" OR ""reduction in time"" OR ""time required"") AND (""manual measurement"" OR ""manual scoring"" OR ""visual scoring"" OR ""manual counting"") AND (UAV OR drone OR smartphone OR image) AND (plots OR breeding) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e12,Europe PMC REST (direct),"(""hours of labor"" OR ""hours of manual"" OR ""hours of human"" OR ""person-hours"" OR ""man-hours"") AND (""manual"" ) AND (phenotyping OR ""data collection"") AND (plots OR ""breeding trial"" OR ""field trial"") AND (plant OR crop) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e13,Europe PMC REST (direct),"(""cost per plot"" OR ""cost per data point"" OR ""cost per sample"") AND phenotyping AND (image OR UAV OR sensor OR robot) AND (plant OR crop) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e14,Europe PMC REST (direct),"(""labor savings"" OR ""labour savings"" OR ""labor cost"" OR ""labour cost"") AND phenotyping AND (UAV OR drone OR robot OR smartphone OR image-based) AND (breeding) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e15,Europe PMC REST (direct),"(""paper"" AND (""tablet"" OR ""electronic"" OR ""digital"") AND ""data collection"" AND (breeding OR ""field trial"" OR ""agronomic trial"") AND (""time"" AND ""error"")) AND (plant OR crop) AND OPEN_ACCESS:y",30,2026-10-05
+MA3,e16,Europe PMC REST (direct),"((""Field Book"" OR ""PhenoApps"" OR ""KoBoToolbox"" OR ""Open Data Kit"" OR ""ODK"" OR ""barcode"") AND (""data collection"" OR ""data entry"") AND (breeding OR ""field trial"" OR phenotyping OR agronomic) AND (time OR ""time-saving"" OR errors) AND OPEN_ACCESS:y)",30,2026-10-05
+MA3,e17,Europe PMC REST (direct),"(TITLE_ABS:(digital OR electronic OR tablet OR mobile) AND TITLE_ABS:(""data collection"") AND TITLE_ABS:(breeding OR ""breeding program"" OR ""variety trials"" OR ""on-farm trials"") AND TITLE_ABS:(efficiency OR time OR error OR cost))",25,2026-10-05
+MA3,e18,Europe PMC REST (direct),"(TITLE_ABS:(""computer vision"" OR ""deep learning"" OR ""image analysis"" OR ""machine learning"") AND TITLE_ABS:(bean OR cowpea OR legume OR cassava OR banana OR sorghum) AND TITLE_ABS:(phenotyping) AND TITLE_ABS:(""time"" OR ""labor"" OR ""labour"" OR ""cost"" OR ""faster"" OR ""efficiency""))",30,2026-10-05
+MA3,e19,Europe PMC REST (direct),"(TITLE_ABS:(smartphone OR ""mobile phone"" OR ""mobile device"" OR handheld) AND TITLE_ABS:(phenotyping OR ""disease scoring"" OR ""disease severity"" OR ""plant counting"") AND TITLE_ABS:(""time"" OR ""faster"" OR ""labor"" OR ""labour"" OR ""efficient"") AND OPEN_ACCESS:y)",30,2026-10-05
+MA3,e20,Europe PMC REST (direct),"((""Field Book"" OR ""tablet"" OR ""handheld"" OR ""PDA"" OR ""smartphone"") AND (""data entry"" OR ""data transcription"" OR ""paper"") AND (breeding OR ""field trial"" OR phenotyping) AND (""saved"" OR ""reduced"" OR ""faster"") AND (plot OR plots) AND OPEN_ACCESS:y AND (plant OR crop))",30,2026-10-05
+MA3,e21,Europe PMC REST (direct),(TITLE_ABS:(paper AND (tablet OR electronic OR digital OR smartphone)) AND TITLE_ABS:(agricultural OR crop OR farm OR plot OR breeding) AND TITLE_ABS:(time OR cost OR error OR efficiency)),30,2026-10-05
+MA3,e22,Europe PMC REST (direct),"(TITLE_ABS:(""visual"" AND (""image"" OR ""images"") AND (""time"" OR ""labor"" OR ""labour"") AND (rating OR scoring OR assessment) AND (bean OR ""Phaseolus"" OR cassava OR cowpea OR maize OR banana)))",8,2026-10-05

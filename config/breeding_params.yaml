@@ -1,0 +1,39 @@
+# ============================================================================
+# Common Bean Breeding Pipeline Parameters
+# ============================================================================
+# Structure based on East African (PABRA network) bean programs.
+# Beebe 2012, Plant Breed Rev 36:357 (10.1002/9781118358566.ch5)
+# Hillocks et al. 2006, Euphytica 150:215 (10.1007/s10681-006-9112-9)
+
+cycle_years: 10                # cross to release; traditional 8-12 years
+
+# --- Crossing ---
+n_crosses_per_cycle: 200       # Beebe 2012
+n_progeny_per_cross: 20        # F1 plants per cross
+
+# --- Generation advance (F1 -> F5 via SSD) ---
+n_ssd_generations: 4           # F1 -> F2 -> F3 -> F4 -> F5
+
+# --- Trial stages ---
+# Each stage: n_genotypes evaluated, reps per env, envs
+stages:
+  "ON":                        # Observation Nursery
+    n_genotypes: 3000          # Beebe 2012 (range 2000-5000)
+    reps: 1
+    envs: 1
+    selection_intensity: 0.10  # keep top 10% -> ~300 for PYT
+  PYT:                         # Preliminary Yield Trial
+    n_genotypes: 300           # Beebe 2012 (range 200-500)
+    reps: 2
+    envs: 3
+    selection_intensity: 0.17  # keep top ~17% -> ~50 for AYT
+  AYT:                         # Advanced Yield Trial
+    n_genotypes: 50            # Beebe 2012 (range 30-100)
+    reps: 3
+    envs: 6
+    selection_intensity: 0.30  # keep top 30% -> ~15 for NPT
+  NPT:                         # National Performance Trial
+    n_genotypes: 15            # Beebe 2012 + Hillocks et al. 2006 (range 10-25)
+    reps: 3
+    envs: 10
+    selection_intensity: 0.33  # keep top ~5 for release

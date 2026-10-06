@@ -1,0 +1,41 @@
+# ============================================================================
+# Economic Parameter Sweep Grid (Layer 2)
+# ============================================================================
+# Consumed by layer2_economics/R/07_sweep_economics.R to build the lookup
+# table of NPV values across (L1 cell × L2 economic grid).
+#
+# 4 dimensions × 5 points each = 625 L2 combinations per L1 cell.
+# Combined with 2993 successful L1 cells → ~1.87M rows in lookup_table.parquet.
+#
+# References:
+#   bean_price:       Nakazi et al. 2022, Ag & Food Sec 11:56 — Uganda median
+#                     $0.50/kg, regional range $0.30–0.80; high end extended
+#                     to $1.50 to cover drought / high-price scenarios.
+#   discount_rate:    Robinson et al. 2019 Harvard BCA Guidelines — Global
+#                     South central 8%, sensitivity 5–15%.
+#   adoption_ceiling: Larochelle et al. 2015 (10.1079/9781780644011.0314) —
+#                     Uganda 33.5%, Rwanda climbing bean >43%; range 0.20–0.60.
+#   total_area_ha:    FAOSTAT 2022 East Africa total ~5M ha; 3–7M covers
+#                     sub-regional deployment scenarios.
+
+econ_grid:
+  bean_price_usd_per_kg: [0.30, 0.50, 0.80, 1.10, 1.50]
+  discount_rate:         [0.05, 0.08, 0.10, 0.12, 0.15]
+  adoption_ceiling:      [0.20, 0.30, 0.40, 0.50, 0.60]
+  total_area_ha:         [3000000, 4000000, 5000000, 6000000, 7000000]
+
+# Sobol sampling uses only 3 L2 params (area fixed at base 5e6) to match
+# the "5 technical + 3 economic" decomposition.
+sobol_params:
+  fixed_area_ha: 5000000
+  l1_ranges:
+    error_reduction:   [0.00, 0.50]   # MA2: central ~0.10, compatible with 0
+    cost_reduction:    [0.05, 0.70]   # MA3: whole-plot central ~0.20 (0.05-0.35)
+    cycle_compression: [0, 3]
+    tool_fixed_cost:    [3000, 20000]
+    total_budget:      [100000, 500000]
+  l2_ranges:
+    bean_price_usd_per_kg: [0.30, 1.50]
+    discount_rate:         [0.05, 0.15]
+    adoption_ceiling:      [0.20, 0.60]
+  n_samples: 8192

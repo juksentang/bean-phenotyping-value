@@ -1,0 +1,41 @@
+\begin{table}[H]
+\caption{Meta-analysis results used to set model inputs.\textsuperscript{a}\label{tab:meta}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\fulllength}{>{\raggedright\arraybackslash}X>{\centering\arraybackslash}p{1.2cm}>{\centering\arraybackslash}p{1.3cm}>{\centering\arraybackslash}p{2.5cm}>{\centering\arraybackslash}p{2.5cm}>{\centering\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{2.7cm}}
+\toprule
+\textbf{Quantity} & \textbf{\emph{k}} & \textbf{Estimate} & \textbf{95\% CI} & \textbf{95\% PI} & \textbf{\emph{I}\textsuperscript{2} (\%)} & \textbf{Use in model}\\
+\midrule
+\multicolumn{7}{l}{\textit{MA1: realized genetic gain}}\\
+Realized gain, common bean, three-level model (\% of mean yield per year) & 8 (4) & 0.51 & 0.00 to 1.01 & $-$0.74 to 1.75 & 87 & Calibration target\\
+One estimate per program & 4 & 0.48 & $-$0.47 to 1.43 & $-$1.51 to 2.47 & 95 & Sensitivity\\
+Embrapa mixed-model estimate in place of the direct estimate & 8 (4) & 0.36 & $-$0.06 to 0.79 & $-$0.61 to 1.33 & 79 & Sensitivity\\
+Without IAC 1997 to 2007 & 7 (4) & 0.72 & 0.25 to 1.19 & $-$0.16 to 1.60 & 60 & Sensitivity\\
+With one added estimate whose standard error is imputed (rule A) & 9 (5) & 0.90 & 0.03 to 1.78 & $-$1.29 to 3.10 & 96 & Sensitivity\\
+Realized gain, maize and rice in Africa (context) & 4 & 1.12 & $-$0.25 to 2.49 & $-$1.80 to 4.04 & 95 & Context only\\
+\midrule
+\multicolumn{7}{l}{\textit{MA2: tool-manual agreement and implied error reduction}}\\
+Tool-manual correlation, all traits (\emph{r}) & 19 (14) & 0.86 & 0.73 to 0.93 & $-$0.11 to 0.99 & 99 & Reported\\
+Peer-reviewed studies only & 14 (10) & 0.89 & 0.79 to 0.94 & 0.29 to 0.99 & 98 & Sensitivity\\
+Plant height & 4 & 0.95 & 0.77 to 0.99 & 0.00 to 1.00 & 100 & Subgroup\\
+Plant count & 8 (4) & 0.85 & 0.69 to 0.93 & 0.26 to 0.98 & 88 & Subgroup\\
+Disease severity & 3 & 0.68 & $-$0.29 to 0.96 & $-$0.89 to 1.00 & 98 & Subgroup\\
+Manual-scoring reliability as entered (\emph{r}) & 3 & 0.90 & 0.56 to 0.98 & $-$0.17 to 1.00 & 92 & Used in T2 as entered\\
+Manual-scoring validity after conversion (\emph{r}) & 3 & 0.95 & 0.76 to 0.99 & 0.22 to 1.00 & 92 & Used in T2 converted\\
+Implied error reduction, reference error free, T1 (\%) & -- & $-$43 & $-$254 to 42\textsuperscript{b} & -- & -- & Evidence route\\
+Implied error reduction, T2 with the reliability as entered (\%) & -- & 24 & $-$203 to 96\textsuperscript{b} & -- & -- & Evidence route\\
+Implied error reduction, T2 with the converted validity (\%) & -- & $-$85 & $-$491 to 78\textsuperscript{b} & -- & -- & Evidence route\\
+Implied error reduction, heritability pairs (\%) & 4 & 11 & $-$405 to 13\textsuperscript{b} & -- & -- & Central value (rounded)\\
+\midrule
+\multicolumn{7}{l}{\textit{MA3: time and cost savings}}\\
+Time reduction, digital versus manual (\%) & 10 (7) & 95 & 87 to 98 & 7 to 100 & -- & Reported\\
+Time reduction, handheld tools in field plots, capture time (\%) & 2 & 67 & 56 to 79\textsuperscript{b} & -- & -- & Cost reduction\\
+Time reduction with the seed-counting null result added (\%) & 11 (7) & 93 & 81 to 97 & $-$101 to 100 & -- & Sensitivity\\
+Share of plot cost that is not plot handling (\%) & 3 (1) & 30 & 25 to 36\textsuperscript{b} & -- & -- & Cost reduction\\
+Implied whole-plot cost reduction, handheld tools (\%) & 6 & 20 & 14 to 29\textsuperscript{b} & -- & -- & Central cost reduction\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\noindent{\footnotesize{Estimates are pooled by restricted maximum likelihood; the interval for the Monte Carlo and descriptive rows is the 2.5 to 97.5 percentile range or the minimum to maximum, and the time reductions are unweighted because no study reports a variance. $k$: number of effects (number of programs or studies); CI: confidence interval; PI: prediction interval; $I^2$: heterogeneity. \textsuperscript{a} Included studies. MA1, common bean: \cite{Amongi2023Gain,Chiorato2010Genetic,deFaria2018Efficiency,Zeffa2020Genetic}; MA1, other crops: \cite{Asea2023Genetic,Menkir2022Estimating,Mukaro2024Genetic,Tarekegne2024Genetic,Todeschini2019Soybean,Yadav2026Genetic}; MA2: \cite{Banerjee2021Machine,FernandezGallego2018Wheat,Gijare2026Assessing,Guo2025Dlmlpc,Karisto2017Ranking,Liu2021Pocketmaize,Makanza2018Highthroughput,McDonald2022Automated,Mohammadi2024Enhancing,Parrella2013Evaluation,SadeghiTehran2019Deepcount,Volpato2023Digital,Zang2022Estimation,Zang2023Fieldmeasured}; MA3: \cite{DeBruin2025Breaking,Haghighattalab2016Application,Komyshev2017Evaluation,Mwanje2026Digital,Tanger2017Fieldbased,Walter2019Highthroughput,Zu2025Automated}. \textsuperscript{b} Descriptive: median with minimum to maximum, not pooled.}}
+\end{table}

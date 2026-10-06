@@ -1,0 +1,157 @@
+analysis,box,source,count,note
+MA1,Search queries attempted,federated search (OpenAlex+Semantic Scholar+Crossref),51,"q1-q41 and r1-r10, one result file each; prisma_log.json lists 49 (q1-q41, r1-r8); r9 and r10 appear only in rerun_summary.txt / rerun_search.sh. Run 2026-10-05"
+MA1,Search queries returning >=1 record,federated search (OpenAlex+Semantic Scholar+Crossref),31,31 non-empty result files
+MA1,Search queries failed (no usable output),federated search (OpenAlex+Semantic Scholar+Crossref),20,"Empty .json files: q23,q24,q28-q32,q34,q35,q37,q38,q41,r1,r4-r10. Of the 20 .err files, 11 hold a TimeoutError traceback, 7 only the ""discovery engine failed ... futures unfinished"" warning and 2 (q34,q35) are empty; the log labels all as timed out. Only q34->r2 and q35->r3 were successfully re-run"
+MA1,Records identified from databases/registers,federated search (OpenAlex+Semantic Scholar+Crossref),718,Sum of hits over 31 result files (limit 25 per query; each file already DOI-merged across the three sources). Matches prisma_log.json total_hits=718
+MA1,Records identified from databases/registers,Crossref REST (direct),0,Not used for identification; cr.py/cr.sh only verified known DOIs
+MA1,Records identified from databases/registers,Europe PMC,0,"Not searched for MA1 (no result files, no log entry)"
+MA1,Records identified from databases/registers,all,718,
+MA1,Records identified - provenance within federated search,federated: OpenAlex only,334,Attribution from the merge tag and url of the first-returned record; within-query DOI duplicates were merged before counting
+MA1,Records identified - provenance within federated search,federated: Crossref only,330,
+MA1,Records identified - provenance within federated search,federated: Semantic Scholar only,32,
+MA1,Records identified - provenance within federated search,"federated: OpenAlex + one of (Semantic Scholar, Crossref) [indeterminate]",9,
+MA1,Records identified - provenance within federated search,federated: OpenAlex + Crossref,2,
+MA1,Records identified - provenance within federated search,federated: Semantic Scholar + Crossref (no OpenAlex),11,
+MA1,Unique DOIs among identified records,database search,631,"Recount from raw files; every record has a DOI. Matches prisma_log.json unique_records=631. A title-based check gives 620 groups (11 more potential duplicates, not removed)"
+MA1,Records identified via other methods,other methods,4,Candidates in candidates_status.csv that are not in any MA1 result file
+MA1,Records identified via other methods,citation chasing (reference list),1,"Kefelegn 2020, 10.1155/2020/1315436: candidates_status.csv note ""found as a reference of Amongi 2023""; DOI also returned by citation_audit/q19_pabra.json. No citation-chasing log on disk"
+MA1,Records identified via other methods,other project searches,1,"Prasanna 2022, 10.1038/s41598-022-24536-4: absent from all MA1 result files; present in search/breeding_sim/q7.json, all_results.tsv and search/phenotyping/q16.json"
+MA1,Records identified via other methods,provenance not recorded,2,Menkir 2022 (10.3389/fgene.2022.1023318) and Asea 2023 (10.3389/fpls.2023.1020667): in cands3.txt only; found in no search result file on disk
+MA1,Duplicate records removed,database search,87,718 - 631 unique DOIs (DOI-only de-duplication)
+MA1,Records after duplicates removed,database search,631,
+MA1,Records screened,database search,NA,No screening file or log exists for MA1: prisma_log.json holds only query hits. 631 unique records were available for screening; how many were screened is not recorded
+MA1,Records excluded,database search,NA,"Not recorded. (If all 631 were screened and only the 40 traceable candidates advanced, 591 would be excluded; this is arithmetic on an unverified assumption, not a recorded count)"
+MA1,Reports sought for retrieval,database search,40,"Candidates in candidates_status.csv found in MA1 result files (incl. de Felipe 2016, 10.2135/cropsci2016.04.0214, found only in the re-run file r3.json)"
+MA1,Reports sought for retrieval,other methods,4,"Prasanna, Kefelegn, Menkir, Asea"
+MA1,Reports sought for retrieval,all,44,= 44 rows of candidates_status.csv (manuscript NumMAoneCandidates=44)
+MA1,Reports not retrieved,database search,20,"fulltext_read=0 and no PDF: legal_only fetch failed (Wiley, Crop Science, MDPI, AJOL, SSRN and others; reasons are per-study free text in candidates_status.csv note, not coded)"
+MA1,Reports not retrieved,other methods,1,Kefelegn 2020: fetch failed twice
+MA1,Reports not retrieved,all,21,
+MA1,Reports retrieved but not assessable,database search,1,"10.2135/cropsci2016.05.0395: PDF retrieved but corrupt (empty markdown), re-fetch failed; only abstract-level knowledge"
+MA1,Reports retrieved but not assessable,other methods,0,
+MA1,Reports retrieved but not assessable,all,1,
+MA1,Reports assessed for eligibility (full text read),database search,19,fulltext_read=1 among traceable candidates
+MA1,Reports assessed for eligibility (full text read),other methods,3,"Prasanna, Menkir, Asea"
+MA1,Reports assessed for eligibility (full text read),all,22,"22 PDFs listed in candidates_status.csv, all present in paper/lit/pdf"
+MA1,Reports excluded after full-text assessment,database search,5,
+MA1,Reports excluded after full-text assessment,other methods,0,"Prasanna, Menkir and Asea were all included"
+MA1,Reports excluded after full-text assessment,all,5,All five are database-flow reports; reasons below (from candidates_status.csv notes)
+MA1,Reports excluded after full-text assessment - reason,"simulation study, not an empirical realised-gain estimate",1,Lin 2023 (10.1007/s00122-023-04244-x)
+MA1,Reports excluded after full-text assessment - reason,review or secondary compilation without primary realised-gain estimate,2,Beaver 2009; Seck 2023
+MA1,Reports excluded after full-text assessment - reason,out of scope or no usable grain-yield gain estimate,2,"Houasli 2021 (chickpea Morocco, only 100-seed weight gain); Manze 2021 (cassava fresh-root yield, units unclear)"
+MA1,Studies included in review,database search,14,included_in_extraction=1
+MA1,Studies included in review,other methods,3,"Prasanna (sensitivity only), Menkir, Asea"
+MA1,Studies included in review,all,17,17 DOIs in extraction.csv and in meta_inputs_used.csv (family MA1). Includes context-only and sensitivity-only studies
+MA1,Effect rows extracted,all,53,extraction.csv rows = meta_inputs_used.csv family MA1 rows (a further 19 rows labelled MA1-allrows are sensitivity copies from 5 of the same DOIs)
+MA1,Studies with >=1 primary row in any MA1 stratum,all,10,"14 rows flagged primary=Y and included: 8 common bean, 1 other grain legume, 5 other crops; only the common bean stratum is the primary pooled model"
+MA1,Studies contributing to primary pooled model (MA1.CB.primary),all,4,"meta_results.csv k_clusters=4 programmes/studies: Chiorato 2010 (IAC), de Faria 2018 (Embrapa), Zeffa 2020, Amongi 2023 (PABRA); all four are in the database flow"
+MA1,Effects contributing to primary pooled model (MA1.CB.primary),all,8,meta_results.csv k_effects=8; equals the 8 common-bean primary rows in meta_inputs_used.csv
+MA2,Search queries attempted,federated search (OpenAlex+Semantic Scholar+Crossref),42,"q_01-q_24 and q_31-q_48 (ids 25-30 unused). queries_log.txt records the attempt on which each query first returned valid JSON; 172 attempts in total, 130 earlier attempts did not return valid JSON (retried up to 20 times)"
+MA2,Search queries returning >=1 record,federated search (OpenAlex+Semantic Scholar+Crossref),41,"Every one returned exactly 25 (the limit), so per-query hit counts are capped and do not measure database totals"
+MA2,Search queries failed (no usable output),federated search (OpenAlex+Semantic Scholar+Crossref),0,queries_log.txt has no FAILED line. Retries exhausted none
+MA2,Search queries with zero hits (valid empty response),federated search (OpenAlex+Semantic Scholar+Crossref),1,"q_41 returned {""results"": []} on attempt 4 (title-style query on common bacterial blight image analysis)"
+MA2,Records identified from databases/registers,federated search (OpenAlex+Semantic Scholar+Crossref),1025,41 x 25. Matches prisma_counts.json total=1025
+MA2,Records identified from databases/registers,Crossref REST (direct),0,Not used for identification
+MA2,Records identified from databases/registers,Europe PMC,0,Not used
+MA2,Records identified from databases/registers,all,1025,
+MA2,Records identified - provenance within federated search,federated: OpenAlex only,61,Attribution from merge tag and url of first-returned record. 948 Crossref-only records versus 61 OpenAlex-only suggests OpenAlex and Semantic Scholar often did not return in time (see .err warnings)
+MA2,Records identified - provenance within federated search,federated: Crossref only,948,
+MA2,Records identified - provenance within federated search,federated: Semantic Scholar only,1,
+MA2,Records identified - provenance within federated search,"federated: OpenAlex + one of (Semantic Scholar, Crossref) [indeterminate]",8,
+MA2,Records identified - provenance within federated search,federated: OpenAlex + Crossref,1,
+MA2,Records identified - provenance within federated search,federated: Semantic Scholar + Crossref (no OpenAlex),6,
+MA2,Unique DOIs among identified records,database search,929,"Recount; every record has a DOI; 906 have a title, 23 have none. Matches prisma_counts.json unique=929. Title-based check gives 894 groups (35 more potential duplicates, not removed)"
+MA2,Records identified via other methods,other methods,13,
+MA2,Records identified via other methods,found in other project searches,13,"Studies in studies_final.json that are in no MA2 result file: 8 included, 5 read-excluded. 9 of 13 are in MA3 result files (meta_pheno_cost); the other 4 (Mohammadi 2024, McDonald 2022, Gage 2018, Zhou 2021) only in search/phenotyping result files. No log states how they entered MA2"
+MA2,Duplicate records removed,database search,96,1025 - 929 unique DOIs (DOI-only)
+MA2,Records after duplicates removed,database search,929,
+MA2,Records screened,database search,929,screening.csv has one row per unique DOI. Decisions are rule-based (prisma.py): keyword regex on title plus hard-coded DOI lists; no per-record manual screening log exists
+MA2,Records excluded,database search,882,186 + 23 + 673; = 929 - 47 records advanced to full-text stage
+MA2,Records excluded - reason,off-topic by title keyword rule (no plant/crop/imaging term),186,Regex on title; screening.csv decision text
+MA2,Records excluded - reason,no title in record,23,Not screened on content
+MA2,Records excluded - reason,plant-related but not an image-vs-manual agreement or heritability study,673,Residual bucket: every title-flagged record not on a hard-coded full-text list; no record-level reasons
+MA2,Reports sought for retrieval,database search,48,"47 per screening.csv/prisma.py (24 ""full text sought"" + 23 read) + 1 (10.2134/agronj2018.08.0502, Xiong 2019) that studies_final.json lists as sought but screening.csv left in the title-excluded bucket"
+MA2,Reports sought for retrieval,other methods,13,All 13 were obtained and read
+MA2,Reports sought for retrieval,all,61,"= 61 studies in studies_final.json / studies_for_output.json (24 included, 12 read-excluded, 25 not read). Manuscript NumMAtwoFullText=24 does not correspond to this"
+MA2,Reports not retrieved,database search,21,"Reasons below (gen_output.py exclusion_reason text, cross-checked with getlogs)"
+MA2,Reports not retrieved,other methods,0,All 13 other-method reports were obtained
+MA2,Reports not retrieved,all,21,
+MA2,Reports not retrieved - reason,paywall / institutional access required,5,"Sankaran 2019, Escamilla 2023, El Jarroudi 2015, Pierz 2023, Miranda 2025"
+MA2,Reports not retrieved - reason,blocked by Cloudflare anti-bot,3,"Pang 2020, Uzal 2018, Yang 2024"
+MA2,Reports not retrieved - reason,no PDF found / not obtained / fetch failed,13,"Includes Volpato 2024 published version (preprint 10.21203/rs.3.rs-3160633/v1 of the same study is included, so 60 distinct studies)"
+MA2,Reports retrieved but not assessable,database search,4,"fulltext_read=False although a file exists: Xavier 2017 (obtained, not read), Pierroz 2023 (image-only PDF, no text), Cooper 2024 (preprint obtained, not extracted), Xiong 2019 (garbled PDF)"
+MA2,Reports retrieved but not assessable,other methods,0,
+MA2,Reports retrieved but not assessable,all,4,
+MA2,Reports assessed for eligibility (full text read),database search,23,"16 included + 7 excluded = prisma_counts.json ""full text read"" 23"
+MA2,Reports assessed for eligibility (full text read),other methods,13,8 included + 5 excluded
+MA2,Reports assessed for eligibility (full text read),all,36,fulltext_read=True in studies_final.json; prisma_counts.json/manuscript NumMAtwoRead=23 omit the 13 other-method reports
+MA2,Reports excluded after full-text assessment,database search,7,
+MA2,Reports excluded after full-text assessment,other methods,5,
+MA2,Reports excluded after full-text assessment,all,12,Reasons below (gen_output.py excl_read text)
+MA2,Reports excluded after full-text assessment - reason,no numeric image-vs-manual agreement statistic (figures only or absent from text),3,"Hu 2025, Zhou 2021, Zhang 2017"
+MA2,Reports excluded after full-text assessment - reason,no manual reference or no image-based measurement in the study,5,"10.1590/1678-992x-2017-0394 (visual scores only), Agronomy 2026 (10.3390/agronomy16151454), Zhang 2020 rapeseed (no independent manual count), 10.1186/s13007-026-01593-8, Whan 2014 (software vs software)"
+MA2,Reports excluded after full-text assessment - reason,"proxy or indirect trait, not a same-trait image-vs-manual comparison",2,10.1186/s13007-019-0519-4 (canopy coverage as secondary trait); 10.48130/tia-2022-0004 (Canopeo proxy for height/biomass)
+MA2,Reports excluded after full-text assessment - reason,"reference standard was LiDAR or spectroradiometer, not manual scoring",2,"Madec 2017, Haghighattalab 2016"
+MA2,Studies included in review,database search,16,
+MA2,Studies included in review,other methods,8,"Lasdun 2024, Mohammadi 2024, McDonald 2022, Fernandez-Gallego 2018, Sadeghi-Tehran 2019, Komyshev 2017, Gage 2018, Makanza 2018"
+MA2,Studies included in review,all,24,"24 DOIs in extraction.csv and meta_inputs_used.csv (family MA2); 5 study_ids are preprints (Volpato2023, Zang2022, Karisto2017, Gijare2026, Hudson2023)"
+MA2,Effect rows extracted,all,91,extraction.csv rows = meta_inputs_used.csv family MA2 rows
+MA2,Studies contributing to primary pooled model (MA2.primary),all,14,"meta_results.csv k_clusters=14; 9 are in the database flow and 5 (Mohammadi 2024, McDonald 2022, Fernandez-Gallego 2018, Sadeghi-Tehran 2019, Makanza 2018) come from other methods"
+MA2,Effects contributing to primary pooled model (MA2.primary),all,19,meta_results.csv k_effects=19; equals rows with analysis_set=primary (known n) in meta_inputs_used.csv
+MA3,Search queries attempted,federated search (OpenAlex+Semantic Scholar+Crossref),20,q1-q15 and q20-q24 have result files; query ids q16-q19 never defined
+MA3,Search queries attempted,Crossref REST (direct),51,"c1-c51, one result file each. Query strings were not saved on disk; failed calls (if any) left no file and are not logged"
+MA3,Search queries attempted,Europe PMC REST (direct),22,e1-e22. Query strings saved only for e10-e22 (epmc_multi*.py)
+MA3,Search queries returning >=1 record,federated search (OpenAlex+Semantic Scholar+Crossref),14,"q1,q2,q3,q5,q6,q8,q9,q10,q12,q13,q15,q20,q21,q23 (q9 returned 20, the rest 25). q1 only succeeded on the second attempt of batchq4.sh after 3 failed attempts in batchq.sh"
+MA3,Search queries failed (no usable output),federated search (OpenAlex+Semantic Scholar+Crossref),6,"q4,q7,q11,q14,q22 (logged FAILED after 3 attempts) and q24 (empty file, .err warning, no log line). q4,q7,q11 were re-queued (queries4.txt) but log4.txt shows no outcome"
+MA3,Search queries not run / not completed,federated search (OpenAlex+Semantic Scholar+Crossref),5,"q25-q29 are in queries2.txt but have no output files; prisma_log.txt: ""not completed (batch stopped)"""
+MA3,Records identified from databases/registers,federated search (OpenAlex+Semantic Scholar+Crossref),345,14 successful result files (13 x 25 + 20)
+MA3,Records identified from databases/registers,Crossref REST (direct),406,Items stored in c1-c51 (3-25 per file)
+MA3,Records identified from databases/registers,Europe PMC,544,"Records stored in e1-e22 (8-30 per file; 10 have no DOI). EPMC hitCount values were printed, not saved"
+MA3,Records identified from databases/registers,all,1295,345 + 406 + 544
+MA3,Records identified - provenance within federated search,federated: OpenAlex only,20,Attribution from merge tag and url of first-returned record
+MA3,Records identified - provenance within federated search,federated: Crossref only,309,
+MA3,Records identified - provenance within federated search,federated: Semantic Scholar only,15,
+MA3,Records identified - provenance within federated search,"federated: OpenAlex + one of (Semantic Scholar, Crossref) [indeterminate]",0,
+MA3,Records identified - provenance within federated search,federated: OpenAlex + Crossref,0,
+MA3,Records identified - provenance within federated search,federated: Semantic Scholar + Crossref (no OpenAlex),1,
+MA3,Unique DOIs within source,federated search (OpenAlex+Semantic Scholar+Crossref),313,"Matches the search log (313)"
+MA3,Unique DOIs within source,Crossref REST (direct),368,Matches prisma_log.txt
+MA3,Unique DOIs within source,Europe PMC,476,Matches prisma_log.txt; 10 further EPMC records have no DOI (distinct EPMC ids)
+MA3,Records identified via other methods,other methods,5,Studies in studies_assessed.csv absent from all MA3 result files
+MA3,Records identified via other methods,found in other project searches,4,"Das 2025 (breeding_sim), Chaingeni 2025 (econ), McDonald 2022 (phenotyping), Liu 2021 (phenotyping; also in MA2 result files). All four were read and excluded"
+MA3,Records identified via other methods,provenance not recorded,1,"Juliana 2018 (10.1007/s00122-018-3206-3): in no search result file on disk; prisma_log.txt says it was added separately. Included (class E, context)"
+MA3,Duplicate records removed,database search,208,1285 records with a DOI - 1077 unique DOIs. Within source: 32 federated + 38 Crossref REST + 58 EPMC = 128; across sources: 80 (313+368+476-1077). DOI-only; the 10 EPMC records without a DOI cannot be de-duplicated this way
+MA3,Records after duplicates removed,database search,1077,"Unique DOIs across the three sources; matches prisma_log.txt. A further 10 EPMC records without DOI sit outside this count (1087 if included). Title-based check on DOI-bearing records gives 1033 groups (44 more potential duplicates, not removed)"
+MA3,Records screened,database search,1077,"Per prisma_log.txt (""records screened 1,077; title/abstract-snippet""); the denominator is reproducible from raw files but no per-record screening decisions are on disk"
+MA3,Records excluded,database search,NA,"Not recorded. The log says only ""shortlisted ~75 for retrieval"". If the 62 traceable reports in studies_assessed.csv were the only ones advanced, 1015 would be excluded; the log's ~75 and 9 extra failed fetch attempts (below) make this unverifiable"
+MA3,Reports sought for retrieval,database search,62,"studies_assessed.csv rows found in MA3 result files (59 with fetch logs; Cobb 2019, Zaman-Allah 2015 and Hu 2025 were taken from the local library without a fetch log)"
+MA3,Reports sought for retrieval,other methods,5,"Juliana 2018 (added separately) and Das, Chaingeni, McDonald, Liu (local library, already read)"
+MA3,Reports sought for retrieval,all,67,"= 67 rows of studies_assessed.csv (manuscript NumMAthreeAssessed=67). Fetch logs also show 9 further DOIs attempted and never recorded in studies_assessed.csv (all failed); 7 are MA3-type, 2 (10.1007/s10658-013-0371-8, 10.1094/pdis-03-15-0319-re) are MA2 candidates. With the 7, sought would be 74 (log text says ~75)"
+MA3,Reports not retrieved,database search,26,fulltext_read=False in studies_assessed.csv; all database-flow
+MA3,Reports not retrieved,other methods,0,All 5 other-method reports were already in the local library
+MA3,Reports not retrieved,all,26,
+MA3,Reports not retrieved - reason,no legal full text / no PDF found,19,"17 ""legal full text not obtainable"" + 2 variants"
+MA3,Reports not retrieved - reason,paywall / institutional access required,4,
+MA3,Reports not retrieved - reason,timeout (publisher site or fetch),2,
+MA3,Reports not retrieved - reason,blocked by Cloudflare anti-bot,1,
+MA3,Reports retrieved but not assessable,database search,0,
+MA3,Reports retrieved but not assessable,other methods,0,
+MA3,Reports retrieved but not assessable,all,0,None recorded
+MA3,Reports assessed for eligibility (full text read),database search,36,33 fetched in session + 3 from local library
+MA3,Reports assessed for eligibility (full text read),other methods,5,
+MA3,Reports assessed for eligibility (full text read),all,41,Matches prisma_log.txt (41 = 33 fetched + Juliana + 7 pre-existing local files)
+MA3,Reports excluded after full-text assessment,database search,25,
+MA3,Reports excluded after full-text assessment,other methods,4,"Das, Chaingeni, McDonald, Liu"
+MA3,Reports excluded after full-text assessment,all,29,Reasons below (my coding of the free-text exclusion_reason in studies_assessed.csv)
+MA3,Reports excluded after full-text assessment - reason,no quantified time or cost comparison reported,14,"Naik 2017, Zhang 2017, Shabannejad 2020, Fernandez-Gallego 2018, Dobbels 2019, Pun Magar 2025, Panigrahi 2025, Hu 2025, Liu 2021, Raubach 2022, Selvaraj 2020, Ayalde 2024, Kohl 2015, Morales 2022"
+MA3,Reports excluded after full-text assessment - reason,"qualitative statements only (incl. reviews), no numbers",4,"Bock 2020, Chawade 2019, Zaman-Allah 2015, Raubach 2026"
+MA3,Reports excluded after full-text assessment - reason,"tool speed or effort only, no manual-time baseline",6,"Tanabata 2012, McDonald 2022, Sadeghi-Tehran 2019, Gomez 2024, Madec 2017, Makanza 2018"
+MA3,Reports excluded after full-text assessment - reason,digital-vs-digital comparison only,1,Elliott 2022
+MA3,Reports excluded after full-text assessment - reason,"platform development, no manual comparison",1,Khak Pour 2021
+MA3,Reports excluded after full-text assessment - reason,programme costing or review without a phenotyping-technology comparison,3,"Das 2025, Chaingeni 2025, Cobb 2019"
+MA3,Studies included in review,database search,11,
+MA3,Studies included in review,other methods,1,Juliana 2018
+MA3,Studies included in review,all,12,"12 DOIs in studies_assessed.csv (included=True), extraction.csv and meta_inputs_used.csv (family MA3). Whan 2014 is included as class D (digital-vs-digital) despite carrying an exclusion_reason text"
+MA3,Effect rows extracted,all,29,extraction.csv and meta_inputs_used.csv; prisma_log.txt says 28 (stale: E04b added later)
+MA3,Studies contributing to primary pooled model (MA3.time.primary),all,7,"meta_results.csv k_clusters=7 papers (Walter, Tanger, DeBruin, Mwanje, Komyshev, Zu, Haghighattalab); all in the database flow. 5 included papers (Lasdun, Tattaris, Reynolds, Juliana, Whan) carry only class B-E rows"
+MA3,Effects contributing to primary pooled model (MA3.time.primary),all,10,"meta_results.csv k_effects=10 = paper x tool units, built from 14 class-A rows (15 class-A rows less E14, Komyshev count row with no numeric manual baseline)"

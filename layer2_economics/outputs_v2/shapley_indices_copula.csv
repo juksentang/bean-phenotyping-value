@@ -1,0 +1,9 @@
+param,shapley_effect,group
+cycle_compression,0.432117528949665,L1 technical
+discount_rate,0.211502778871557,L2 economic
+bean_price,0.207537990904033,L2 economic
+adoption_ceiling,0.122242478049563,L2 economic
+error_reduction,0.0221890121669995,L1 technical
+total_budget,0.00378512584700553,L1 technical
+cost_reduction,0.000404917867079478,L1 technical
+tool_fixed_cost,0.000220167344097624,L1 technical

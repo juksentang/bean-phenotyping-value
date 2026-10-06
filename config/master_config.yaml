@@ -1,0 +1,32 @@
+# ============================================================================
+# Phenotyping-Tool Economic Valuation — Master Configuration
+# ============================================================================
+# All scenario definitions and cross-layer parameters.
+# Individual layer configs are in genetic_params.yaml, breeding_params.yaml,
+# and economic_params.yaml.
+
+scenarios:
+  traditional:
+    cost_per_plot: 10.0        # USD — Juliana et al. 2019 (10.1007/s00122-018-3206-3)
+    error_reduction: 0.0       # no measurement error improvement
+    cycle_compression: 0       # years
+    fixed_cost: 0              # USD
+  tool:
+    cost_per_plot: 5.0         # USD — 50% reduction (sensitivity 30-70%)
+    error_reduction: 0.30      # 30% measurement error reduction (sensitivity 10-50%)
+    cycle_compression: 1       # years (sensitivity 0-3)
+    fixed_cost: 10000          # USD — equipment + training (sensitivity 3K-20K)
+
+total_budget: 200000           # USD per breeding cycle
+mc_reps: 1000                  # Monte Carlo repetitions (use 5 for smoke tests)
+mc_seed: 42
+
+# Sensitivity analysis ranges (used by Layer 2)
+sensitivity:
+  discount_rate: [0.05, 0.15]
+  accuracy_improvement: [0.10, 0.50]
+  cost_reduction: [0.30, 0.70]
+  cycle_compression: [0, 3]
+  bean_price: [0.30, 1.50]
+  tool_fixed_cost: [3000, 20000]
+  ceiling_adoption: [0.20, 0.60]

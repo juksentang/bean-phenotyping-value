@@ -1,0 +1,14 @@
+# Stress block of the v2 sweep: a tool that is noisier than manual scoring (error_reduction < 0),
+# at zero compression (compression leaves the simulated selection unchanged, so Layer 2 reuses
+# these gains at every compression level). Added in the revision to give the sweep a profile
+# whose per-cycle effect can be negative. Not part of the main lookup table.
+tool_grid:
+  error_reduction:   [-0.20]
+  cost_reduction:    [0.05, 0.20]
+  cycle_compression: [0]
+  tool_fixed_cost:    [10000]
+  total_budget:      [100000, 200000, 500000]
+mc_reps_per_cell: 100
+mc_seed_base: 5000042
+output_subdir: "sweep_v2_stress"
+cell_filename_pattern: "cell_%05d.parquet"

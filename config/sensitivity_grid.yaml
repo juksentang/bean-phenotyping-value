@@ -1,0 +1,27 @@
+# ============================================================================
+# Sensitivity Sweep — Joint grid over Layer 1 tool-defining parameters
+# ============================================================================
+# Consumed by layer1_genetic_sim/R/07_param_sweep.R.
+# 5 x 5 x 4 x 6 x 5 = 3000 cells; each cell runs `mc_reps_per_cell` full
+# AlphaSimR replications of traditional + tool scenarios under the budget
+# optimizer, then writes one parquet file per cell.
+#
+# Grid ordering matches expand.grid() column order. Cell indices are
+# 0-based to match SLURM_ARRAY_TASK_ID convention.
+
+tool_grid:
+  error_reduction:   [0.10, 0.20, 0.30, 0.40, 0.50]    # 5
+  cost_reduction:    [0.30, 0.40, 0.50, 0.60, 0.70]    # 5
+  cycle_compression: [0, 1, 2, 3]                      # 4
+  tool_fixed_cost:    [3000, 6500, 10000, 13500, 17000, 20000]  # 6
+  total_budget:      [100000, 150000, 200000, 300000, 500000]  # 5
+
+mc_reps_per_cell: 250
+mc_seed_base: 42
+
+# Output layout
+# "sweep_v2" = corrected model (model_version 2). The v1 results live in
+# "sweep" and must never be overwritten; override per-run (e.g. smoke tests)
+# with the TOOL_SWEEP_SUBDIR env var.
+output_subdir: "sweep_v2"
+cell_filename_pattern: "cell_%05d.parquet"

@@ -1,0 +1,33 @@
+\begin{table}[H]
+\caption{Appraisal of the effects pooled in MA2: crop, trait, platform, type of manual reference, unit of observation (which defines $n$ in the Fisher $z$ variance $1/(n-3)$) and preprint status.\label{tab:ma2appraisal}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\fulllength}{>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{1.2cm}}
+\toprule
+\textbf{Study} & \textbf{Crop} & \textbf{Trait} & \textbf{Platform} & \textbf{Manual reference} & \textbf{Unit} & \textbf{Correlation entered} & \textbf{\emph{n}} & \textbf{Preprint}\\
+\midrule
+\cite{Volpato2023Digital} & dry bean & plant count & UAV camera & manual count & plot & 0.79 (Pearson) & 132 & yes\\
+\cite{Mohammadi2024Enhancing} & faba bean & height & UAV camera & instrument measurement & plot & 0.93 (Pearson) & 152 & no\\
+\cite{Guo2025Dlmlpc} & soybean & seed/pod count & smartphone & manual count & plant & 0.97 (Pearson) & 50 & no\\
+\cite{McDonald2022Automated} & soybean & disease severity & camera or scanner & visual score & plant & 0.85 (Spearman $\rho$) & 2096 & no\\
+\cite{Liu2021Pocketmaize} & maize & height & smartphone & instrument measurement & plant & 0.98 ($\sqrt{R^2}$) & 90 & no\\
+\cite{Zang2023Fieldmeasured} & wheat & height & UAV camera & instrument measurement & plot-stage & 0.83 (Pearson) & 1920 & no\\
+\cite{Zang2022Estimation} & winter wheat & height & UAV camera & instrument measurement & plot-stage & 0.98 ($\sqrt{R^2}$) & 2004 & yes\\
+\cite{Banerjee2021Machine} & wheat & plant count & UAV camera & manual count & row-plot & 0.93 ($\sqrt{R^2}$) & 80 & no\\
+\cite{FernandezGallego2018Wheat} & durum wheat & plant count & camera or scanner & manual count & image & 0.79 (Pearson) & 72 & no\\
+\cite{FernandezGallego2018Wheat} & durum wheat & plant count & camera or scanner & manual count & image & 0.72 (Pearson) & 24 & no\\
+\cite{FernandezGallego2018Wheat} & durum wheat & plant count & camera or scanner & manual count & image & 0.87 (Pearson) & 24 & no\\
+\cite{FernandezGallego2018Wheat} & durum wheat & plant count & camera or scanner & manual count & image & 0.42 (Pearson) & 24 & no\\
+\cite{SadeghiTehran2019Deepcount} & wheat & plant count & camera or scanner & manual count & plot & 0.94 ($\sqrt{R^2}$) & 54 & no\\
+\cite{SadeghiTehran2019Deepcount} & wheat & plant count & camera or scanner & manual count & plot & 0.84 ($\sqrt{R^2}$) & 72 & no\\
+\cite{Karisto2017Ranking} & winter wheat & disease severity & camera or scanner & visual score & cultivar & 0.38 (Spearman $\rho$) & 335 & yes\\
+\cite{Parrella2013Evaluation} & common bean & disease severity & camera or scanner & visual score & line / plot & 0.69 (Pearson) & 12 & no\\
+\cite{Gijare2026Assessing} & soybean & seed size & smartphone & instrument measurement & accession & 0.26 ($\sqrt{R^2}$) & 192 & yes\\
+\cite{Gijare2026Assessing} & soybean & seed size & smartphone & instrument measurement & accession & 0.19 ($\sqrt{R^2}$) & 192 & yes\\
+\cite{Makanza2018Highthroughput} & maize & senescence & UAV camera & visual score & plot & 0.64 (Pearson) & 150 & no\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\noindent{\footnotesize{Manual-reference types were coded from the description of the reference in each source. The first column gives the study, and the unit column gives what $n$ counts (plots, plants, images, accessions, lines or cultivars), so $n$ is not the number of independent genotypes. Correlations are entered as reported, with square roots of $R^2$ and Spearman coefficients treated as correlations.}}
+\end{table}

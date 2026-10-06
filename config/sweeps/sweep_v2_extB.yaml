@@ -1,0 +1,12 @@
+# Extension block B of the v2 sweep: low whole-plot cost reductions
+# (MA3 meta-analysis: central ~0.20, range 0.05-0.35) for error_reduction > 0.
+tool_grid:
+  error_reduction:   [0.10, 0.20, 0.30, 0.40, 0.50]
+  cost_reduction:    [0.05, 0.10, 0.20]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:    [3000, 6500, 10000, 13500, 17000, 20000]
+  total_budget:      [100000, 150000, 200000, 300000, 500000]
+mc_reps_per_cell: 100
+mc_seed_base: 2000042
+output_subdir: "sweep_v2_extB"
+cell_filename_pattern: "cell_%05d.parquet"

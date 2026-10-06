@@ -1,0 +1,41 @@
+# ============================================================================
+# Common Bean (Phaseolus vulgaris) Genetic Parameters
+# ============================================================================
+# Sources checked against Crossref + full text (paper/lit, citation audit). Values
+# marked ASSUMPTION are not reported by the cited work; h2_yield and gxe_cor_onstation
+# are varied in the robustness sweep (config/sweeps/sweep_v2_robust.yaml).
+
+# --- Genome structure ---
+n_chr: 11                      # Schmutz et al. 2014, Nat Genet 46:707 (10.1038/ng.3008)
+seg_sites_per_chr: 1000        # segregating sites for founder simulation
+
+# --- Founder population ---
+n_founders: 200                # Beebe 2012, Plant Breed Rev 36:357 (10.1002/9781118358566.ch5)
+                               # breeding programs use 30-80 elite parents; 200 provides adequate diversity
+
+# --- Trait architecture: YIELD ---
+n_qtl_per_chr: 100             # ASSUMPTION (polygenic yield); cf. Kamfwa et al. 2015, Plant Genome 8:1 (10.3835/plantgenome2014.09.0059)
+                               # yield is highly polygenic; 5-20+ QTL per mapping population
+mean_yield_kgha: 800           # FAOSTAT 2022 East Africa on-farm average
+var_yield_additive: 22500      # ASSUMPTION: sigma_A = 150 kg/ha (~19% CV); absolute gain is
+                               # recalibrated in Layer 2 (gain_target_pct_per_yr)
+
+# --- Heritability ---
+h2_yield: 0.30                 # ASSUMPTION (plot-level yield h2); robustness sweep 0.15/0.30/0.50
+h2_disease: 0.60               # ASSUMPTION (unused in yield model); cf. Miklas et al. 2006, Euphytica 147:105 (10.1007/s10681-006-4600-5)
+h2_maturity: 0.65              # ASSUMPTION (unused); cf. Koinange et al. 1996, unverified
+h2_seed_weight: 0.80           # ASSUMPTION (unused)
+
+# --- GxE interaction ---
+n_env_default: 4               # default number of test environments
+gxe_cor_onstation: 0.60        # ASSUMPTION; robustness sweep 0.40/0.60/0.80
+                               # genetic correlation between on-station environments
+gxe_cor_onfarm: 0.40           # ASSUMPTION (on-farm vs on-station; unused in the sweep)
+
+# --- Genetic-gain baseline (Layer 1 reporting) ---
+# gain_baseline selects the reference that the primary delta_g is measured against:
+#   check_topk   - mean true genetic value of the top-k founders, k = number of
+#                  released lines (= the elite varieties farmers already grow)
+#   founder_mean - mean of the whole founder population (v1 definition; always
+#                  reported separately as delta_g_vs_base)
+gain_baseline: check_topk

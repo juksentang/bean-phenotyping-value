@@ -1,0 +1,14 @@
+# Extension block A of the v2 sweep: error_reduction = 0 (accuracy no better
+# than manual — compatible with the MA2 meta-analysis) across the extended
+# cost_reduction range. Union with sweep_v2 + extB gives the full Cartesian
+# grid err {0,.1..,.5} x cost {.05,.1,.2,.3..,.7} x cyc x fixed x budget.
+tool_grid:
+  error_reduction:   [0.0]
+  cost_reduction:    [0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:    [3000, 6500, 10000, 13500, 17000, 20000]
+  total_budget:      [100000, 150000, 200000, 300000, 500000]
+mc_reps_per_cell: 100
+mc_seed_base: 1000042
+output_subdir: "sweep_v2_extA"
+cell_filename_pattern: "cell_%05d.parquet"

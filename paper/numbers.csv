@@ -1,0 +1,605 @@
+name,value,raw,source
+CfgCycleYears,10,10,breeding_params.yaml
+CfgMeanYield,800,800,economic_params.yaml
+CfgSigmaA,150,150,economic_params.yaml
+CfgHtwoYield,0.30,0.3,genetic_params.yaml
+CfgHorizon,25,25,economic_params.yaml
+GainTargetPct,0.5,0.5,economic_params.yaml
+GainScale,0.13,0.132952656419362,load_l1_summaries()
+DGtradPerYearCal,4.0,4,load_l1_summaries()
+NcellsOK,"5,760","5,760",sweep_v2+sweep_v2_extA+sweep_v2_extB
+NrepsPerCell,100,100,sweep_v2+sweep_v2_extA+sweep_v2_extB
+NcellsNegDiff,345,345,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGtradPerCycle,301,300.858975497497,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGtradPerYear,30.1,30.0858975497497,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffPerCycle,8.0,8.04094116133873,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffPct,2.7,2.67266121877944,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGvsBaseTradPerCycle,647,646.500701077478,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffSE,2.5,2.5116580661683,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrZero,2.4,2.36875528755427,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrTen,4.5,4.53544277994706,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrTwenty,6.7,6.73914851509439,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrThirty,9.2,9.24213460684923,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrForty,11.4,11.4422098534059,sweep_v2+sweep_v2_extA+sweep_v2_extB
+DGdiffErrFifty,13.9,13.9179559251815,sweep_v2+sweep_v2_extA+sweep_v2_extB
+NlookupRows,"3,600,000","3,600,000",lookup_table.parquet
+PrNPVpos,98.4,98.4201388888889,lookup_table.parquet
+BasePrice,0.50,0.5,baseline_slice()
+BaseDisc,8,8,baseline_slice()
+BaseAdopt,30,30,baseline_slice()
+BaseArea,5,5,baseline_slice()
+EAAcycZero,0.01,0.0113962761327796,baseline_slice()
+NPVcycZero,0.6,0.608263485503878,baseline_slice()
+PrPosCycZero,93.7,93.6805555555556,baseline_slice()
+EAAcycOne,0.13,0.125169138743671,baseline_slice()
+NPVcycOne,6.7,6.68076270903539,baseline_slice()
+PrPosCycOne,100.0,100,baseline_slice()
+EAAcycTwo,0.25,0.251672574656134,baseline_slice()
+NPVcycTwo,13.4,13.4327420363004,baseline_slice()
+PrPosCycTwo,100.0,100,baseline_slice()
+EAAcycThree,0.39,0.391176404534738,baseline_slice()
+NPVcycThree,20.9,20.8786028433256,baseline_slice()
+PrPosCycThree,100.0,100,baseline_slice()
+EAAperYearCompressed,0.13,0.126593376133986,baseline_slice()
+StressMedianNPV,0.8,0.766356267487007,stressed_slice()
+StressMinMarginalNPV,0.010,0.0102824605617798,break_even_marginals_stressed.csv
+ConsEAAmean,0.012,0.0119279275167911,baseline_slice() cyc=0
+ConsEAAsd,0.008,0.00837681549357653,baseline_slice() cyc=0
+SobolSoneCyc,0.29,0.29,sobol_indices_full.csv (exact)
+SobolSTCyc,0.53,0.53,sobol_indices_full.csv (exact)
+SobolSoneDisc,0.16,0.16,sobol_indices_full.csv (exact)
+SobolSTDisc,0.35,0.35,sobol_indices_full.csv (exact)
+SobolSonePrice,0.14,0.14,sobol_indices_full.csv (exact)
+SobolSTPrice,0.32,0.32,sobol_indices_full.csv (exact)
+SobolSoneAdopt,0.07,0.07,sobol_indices_full.csv (exact)
+SobolSTAdopt,0.17,0.17,sobol_indices_full.csv (exact)
+SobolSoneErrRed,0.001,0.001,sobol_indices_full.csv (exact)
+SobolSTErrRed,0.003,0.003,sobol_indices_full.csv (exact)
+SobolSoneCostRed,$<$0.001,$<$0.001,sobol_indices_full.csv (exact)
+SobolSTCostRed,0.001,0.001,sobol_indices_full.csv (exact)
+SobolSoneBudget,$<$0.001,$<$0.001,sobol_indices_full.csv (exact)
+SobolSTBudget,0.001,0.001,sobol_indices_full.csv (exact)
+SobolSoneFixCost,$<$0.001,$<$0.001,sobol_indices_full.csv (exact)
+SobolSTFixCost,0.001,0.001,sobol_indices_full.csv (exact)
+SobolSumSone,0.67,0.673340107274273,sobol_indices_full.csv
+SobolSumST,1.38,1.38127417753934,sobol_indices_full.csv
+SobolEconST,0.84,0.842548865414151,sobol_indices_full.csv
+SobolMinorSTmax,0.003,0.00296228889255523,sobol_indices_full.csv
+SobolMinorSTsum,0.006,0.00640705901771009,sobol_indices_full.csv
+SobolBootMaxShift,0.001,0.00078807389122341,sobol_bootstrap_layer1.csv (largest shift of any total index)
+BootB,120,120,exact_gsa_run.log
+NexactGrid,"720,000","720,000",exact_gsa_run.log
+SobolCycZeroSTDisc,0.43,0.433692199152922,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTErrRed,0.35,0.354126030005235,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTPrice,0.31,0.309859979641724,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTBudget,0.20,0.19613883505221,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTAdopt,0.17,0.167614316472863,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTCostRed,0.15,0.152078791582394,sobol_indices_cyc0.csv (exact)
+SobolCycZeroSTFixCost,0.10,0.0983441245146223,sobol_indices_cyc0.csv (exact)
+ShapleyCyc,0.43,0.43,shapley_indices_copula.csv (exact)
+ShapleyDisc,0.21,0.21,shapley_indices_copula.csv (exact)
+ShapleyPrice,0.21,0.21,shapley_indices_copula.csv (exact)
+ShapleyAdopt,0.12,0.12,shapley_indices_copula.csv (exact)
+ShapleyErrRed,0.02,0.02,shapley_indices_copula.csv (exact)
+ShapleyBudget,0.004,0.004,shapley_indices_copula.csv (exact)
+ShapleyCostRed,$<$0.001,$<$0.001,shapley_indices_copula.csv (exact)
+ShapleyFixCost,$<$0.001,$<$0.001,shapley_indices_copula.csv (exact)
+PawnCyc,0.308,0.307906944444444,pawn_indices.csv (exact)
+PawnPrice,0.149,0.148776388888889,pawn_indices.csv (exact)
+PawnDisc,0.115,0.115404166666667,pawn_indices.csv (exact)
+PawnAdopt,0.100,0.100356944444444,pawn_indices.csv (exact)
+PawnErrRed,0.043,0.0434645833333333,pawn_indices.csv (exact)
+PawnBudget,0.018,0.0175611111111111,pawn_indices.csv (exact)
+PawnCostRed,0.017,0.0167291666666667,pawn_indices.csv (exact)
+PawnFixCost,0.004,0.00372152777777778,pawn_indices.csv (exact)
+ASshareOne,73.9,73.8616359912338,active_subspace_eigenvalues.csv
+AScumTwo,96.5,96.5101789713225,active_subspace_eigenvalues.csv
+DynSTCycYearFive,0.73,0.727918601803931,dynamic_sensitivity_ST_wide.csv
+DynSTCycFinal,0.53,0.532318253107475,dynamic_sensitivity_ST_wide.csv
+EVprior,20,19.8314244478451,lookup_table.parquet
+EVPPIIndiffCyc,6.4,6.42630103821499,evppi.csv
+EVPPIIndiffDisc,4.5,4.48734861333524,evppi.csv
+EVPPIIndiffPrice,4.3,4.34632516887371,evppi.csv
+EVPPIIndiffAdopt,3.0,2.97628788738092,evppi.csv
+EVPPIIndiffErrRed,0.4,0.366654518839981,evppi.csv
+EVPPIIndiffCostRed,0.1,0.123249495380539,evppi.csv
+EVPPIIndiffBudget,0.1,0.0960430904542282,evppi.csv
+EVPPIIndiffFixCost,0.0,0.0184084662231207,evppi.csv
+ScnPessimisticProb,3.2,3.2,scenario_decomposition.csv
+ScnPessimisticMean,1.0,1.01023381740358,scenario_decomposition.csv
+ScnPessimisticMedian,0.6,0.563463044363237,scenario_decomposition.csv
+ScnPessimisticPrNeg,2.9,2.88194444444444,scenario_decomposition.csv
+ScnOtherProb,93.6,93.6,scenario_decomposition.csv
+ScnOtherMean,17.4,17.4435711542715,scenario_decomposition.csv
+ScnOtherMedian,9.9,9.94660711993681,scenario_decomposition.csv
+ScnOtherPrNeg,1.4,1.44097222222222,scenario_decomposition.csv
+ScnOptimisticProb,3.2,3.2,scenario_decomposition.csv
+ScnOptimisticMean,108.5,108.497323915315,scenario_decomposition.csv
+ScnOptimisticMedian,98.1,98.077120961728,scenario_decomposition.csv
+ScnOptimisticPrNeg,0.0,0,scenario_decomposition.csv
+CfgNcrosses,200,200,breeding_params.yaml
+CfgNprogeny,20,20,breeding_params.yaml
+CfgNssd,4,4,breeding_params.yaml
+CfgStageONLines,"3,000","3,000",breeding_params.yaml
+CfgStageONReps,1,1,breeding_params.yaml
+CfgStageONEnvs,1,1,breeding_params.yaml
+CfgStageONSelFrac,10,10,breeding_params.yaml
+CfgStagePYTLines,300,300,breeding_params.yaml
+CfgStagePYTReps,2,2,breeding_params.yaml
+CfgStagePYTEnvs,3,3,breeding_params.yaml
+CfgStagePYTSelFrac,17,17,breeding_params.yaml
+CfgStageAYTLines,50,50,breeding_params.yaml
+CfgStageAYTReps,3,3,breeding_params.yaml
+CfgStageAYTEnvs,6,6,breeding_params.yaml
+CfgStageAYTSelFrac,30,30,breeding_params.yaml
+CfgStageNPTLines,15,15,breeding_params.yaml
+CfgStageNPTReps,3,3,breeding_params.yaml
+CfgStageNPTEnvs,10,10,breeding_params.yaml
+CfgStageNPTSelFrac,33,33,breeding_params.yaml
+CfgNreleased,5,5,03_budget_optimizer.R rule applied to breeding_params.yaml
+CfgNfounders,200,200,genetic_params.yaml
+CfgSegSites,"1,000","1,000",genetic_params.yaml
+CfgQTLperChr,100,100,genetic_params.yaml
+CfgGxEOnstation,0.60,0.6,genetic_params.yaml
+CfgCostPerPlot,10,10,economic_params.yaml
+CfgDiffK,0.30,0.3,economic_params.yaml
+CfgDiffMid,12,12,economic_params.yaml
+CfgPYTmin,100,100,03_budget_optimizer.R n_grid
+CfgPYTmax,"3,000","3,000",03_budget_optimizer.R n_grid
+CfgPYTstep,50,50,03_budget_optimizer.R n_grid
+CfgPYTenvMax,20,20,03_budget_optimizer.R e_grid
+CfgONmult,10,10,03_budget_optimizer.R
+CfgONcap,"5,000","5,000",03_budget_optimizer.R
+CfgErrRedCentral,10,10,economic_params.yaml
+CfgCostRedCentral,20,20,economic_params.yaml
+CfgCycCompCentral,1,1,economic_params.yaml
+CfgFixCostCentral,"10,000","10,000",economic_params.yaml
+CfgBudgetCentral,"200,000","200,000",master_config.yaml
+CfgErrRedMin,0,0,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgErrRedMax,50,50,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgCostRedMin,5,5,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgCostRedMax,70,70,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgErrRedRange,0 to 50,0 to 50,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgCostRedRange,5 to 70,5 to 70,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgCycRange,0 to 3,0 to 3,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgFixCostRange,"3,000 to 20,000","3,000 to 20,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgBudgetRange,"100,000 to 500,000","100,000 to 500,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgRobHtwoLevels,"0.15, 0.30 and 0.50","0.15, 0.30 and 0.50",layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+CfgRobGxELevels,"0.40, 0.60 and 0.80","0.40, 0.60 and 0.80",layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+CfgRobHtwoLow,0.15,0.15,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+CfgRobHtwoHigh,0.50,0.5,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+CfgPriceRange,0.30 to 1.50,0.30 to 1.50,econ_sweep_grid.yaml
+CfgDiscRange,5 to 15,5 to 15,econ_sweep_grid.yaml
+CfgAdoptRange,20 to 60,20 to 60,econ_sweep_grid.yaml
+CfgAreaRange,3 to 7,3 to 7,econ_sweep_grid.yaml
+NcellsMain,"3,000","3,000",layer1_genetic_sim/outputs/sweep_v2/cell_summaries.csv
+NcellsExtA,960,960,layer1_genetic_sim/outputs/sweep_v2_extA/cell_summaries.csv
+NcellsExtB,"1,800","1,800",layer1_genetic_sim/outputs/sweep_v2_extB/cell_summaries.csv
+NcellsRobust,540,540,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+NeconStates,625,625,lookup_table.parquet
+CycOneYearPct,11.1,11.1111111111111,"closed form, 100 (L/(L-1) - 1)"
+DGtradPctPerYearRaw,3.8,3.76073719371871,cell_summaries.csv (main grid and extensions)
+NcellsNegDiffErrZero,241,241,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycZero,3,2.54407989898485,cell_summaries.csv (main grid and extensions)
+AnnUpliftMetaCycZero,1,1.17386458439761,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycOne,14,13.8978552906937,cell_summaries.csv (main grid and extensions)
+AnnUpliftMetaCycOne,12,12.4545838992475,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycTwo,28,28.1724722100268,cell_summaries.csv (main grid and extensions)
+AnnUpliftMetaCycTwo,27,26.7458740682788,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycThree,47,46.6101562949583,cell_summaries.csv (main grid and extensions)
+AnnUpliftMetaCycThree,45,44.5496768487643,cell_summaries.csv (main grid and extensions)
+UpliftMeta,1.2,1.21916996662932,cell_summaries.csv (main grid and extensions)
+UpliftErrZero,0.7,0.672185710926037,cell_summaries.csv (main grid and extensions)
+UpliftErrTen,1.4,1.39194326394735,cell_summaries.csv (main grid and extensions)
+UpliftErrTwenty,2.1,2.06301669331429,cell_summaries.csv (main grid and extensions)
+UpliftErrThirty,2.9,2.93768839470795,cell_summaries.csv (main grid and extensions)
+UpliftErrForty,3.6,3.57471079446452,cell_summaries.csv (main grid and extensions)
+UpliftErrFifty,4.5,4.46126071060197,cell_summaries.csv (main grid and extensions)
+UpliftCostFive,2.0,1.97417589083078,cell_summaries.csv (main grid and extensions)
+UpliftCostTen,2.0,2.04574874959621,cell_summaries.csv (main grid and extensions)
+UpliftCostTwenty,2.1,2.13250849021211,cell_summaries.csv (main grid and extensions)
+UpliftCostThirty,2.5,2.45321083278808,cell_summaries.csv (main grid and extensions)
+UpliftCostForty,2.6,2.62137279095927,cell_summaries.csv (main grid and extensions)
+UpliftCostFifty,2.8,2.76780243889814,cell_summaries.csv (main grid and extensions)
+UpliftCostSixty,3.0,3.01493322568361,cell_summaries.csv (main grid and extensions)
+UpliftCostSeventy,3.1,3.11132551529603,cell_summaries.csv (main grid and extensions)
+UpliftBudgetLow,4.1,4.09004037993743,cell_summaries.csv (main grid and extensions)
+UpliftBudgetHigh,2.0,2.04699164790801,cell_summaries.csv (main grid and extensions)
+RobUpliftHtwoLowErrZero,1.7,1.71469451570445,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobUpliftHtwoLowErrFifty,11.4,11.4422409529079,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoLowErrTen,3.5,3.53402060137079,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoLowErrFifty,12.3,12.3189100858185,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobUpliftHtwoMidErrZero,-0.1,-0.0538763761079829,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobUpliftHtwoMidErrFifty,4.0,3.97776267199154,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoMidErrTen,0.9,0.915835230656278,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoMidErrFifty,4.6,4.59068937141915,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobUpliftHtwoHighErrZero,0.1,0.0898070163551636,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobUpliftHtwoHighErrFifty,1.7,1.68778148078261,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoHighErrTen,0.6,0.60960539266064,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+ExchMoHtwoHighErrFifty,2.0,1.99164845286983,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+NPVallCycZero,0.6,0.622347457897549,lookup_table.parquet
+NPVmetaCycZero,0.3,0.297035537908285,lookup_table.parquet
+NPVallCycOne,8.5,8.47021161924065,lookup_table.parquet
+NPVmetaCycOne,7.9,7.88692054350705,lookup_table.parquet
+NPVallCycTwo,17.2,17.2050295417924,lookup_table.parquet
+NPVmetaCycTwo,16.6,16.6234507972501,lookup_table.parquet
+NPVallCycThree,27.0,27.0058181677441,lookup_table.parquet
+NPVmetaCycThree,26.2,26.2307837539795,lookup_table.parquet
+PrPosAllCycZero,93.7,93.6805555555556,lookup_table.parquet
+EAAcycThreePriceLow,0.23,0.234529456327202,lookup_table.parquet
+EAAcycThreePriceHigh,1.17,1.17421978366091,lookup_table.parquet
+DynSTCycPeak,0.85,0.853605994936139,dynamic_sensitivity_ST_wide.csv
+DynSTCycPeakYear,7,7,dynamic_sensitivity_ST_wide.csv
+DynSTBudgetYearFive,0.44,0.444551011258963,dynamic_sensitivity_ST_wide.csv
+ShapleyIndepCyc,0.41,0.41,shapley_indices_indep.csv (exact)
+ShapleyIndepDisc,0.25,0.25,shapley_indices_indep.csv (exact)
+ShapleyIndepPrice,0.23,0.23,shapley_indices_indep.csv (exact)
+ShapleyIndepAdopt,0.12,0.12,shapley_indices_indep.csv (exact)
+ShapleyIndepErrRed,0.002,0.002,shapley_indices_indep.csv (exact)
+ShapleyIndepCostRed,$<$0.001,$<$0.001,shapley_indices_indep.csv (exact)
+ShapleyIndepBudget,$<$0.001,$<$0.001,shapley_indices_indep.csv (exact)
+ShapleyIndepFixCost,$<$0.001,$<$0.001,shapley_indices_indep.csv (exact)
+ShapleyBracketN,8,8,shapley_indices_indep.csv
+ASloadCycOne,0.93,0.93079178885948,active_subspace_W.csv
+CfgCopRhoPriceDisc,0.4,0.4,shapley_correlation_matrix.csv
+CfgCopRhoAdoptBudget,0.3,0.3,shapley_correlation_matrix.csv
+CfgCopRhoCycErr,0.3,0.3,shapley_correlation_matrix.csv
+CfgCopRhoCostFix,-0.2,-0.2,shapley_correlation_matrix.csv
+CfgASN,500,500,active_sub_run.log
+CfgASstep,0.04,0.04,active_sub_run.log
+CfgHurdleMaxMult,3,3,15_decision_voi.R hurdle_mult
+MAoneEst,0.51,0.5054,meta_results.csv MA1.CB.primary
+MAoneCIlo,0.00,0.0027,meta_results.csv MA1.CB.primary
+MAoneCIhi,1.01,1.008,meta_results.csv MA1.CB.primary
+MAonePIlo,-0.74,-0.7418,meta_results.csv MA1.CB.primary
+MAonePIhi,1.75,1.7525,meta_results.csv MA1.CB.primary
+MAoneItwo,87,86.9988,meta_results.csv MA1.CB.primary
+MAoneK,8,8,meta_results.csv MA1.CB.primary
+MAoneKclus,4,4,meta_results.csv MA1.CB.primary
+MAoneSensLo,0.36,0.3639,meta_results.csv MA1.CB sensitivity rows
+MAoneSensHi,0.90,0.9045,meta_results.csv MA1.CB sensitivity rows
+MAoneLOOmin,0.36,0.362592242675294,meta_leave_one_out.csv
+MAoneLOOmax,0.68,0.675898445203581,meta_leave_one_out.csv
+MAtwoR,0.86,0.8569,meta_results.csv MA2.primary
+MAtwoCIlo,0.73,0.7263,meta_results.csv MA2.primary
+MAtwoCIhi,0.93,0.9278,meta_results.csv MA2.primary
+MAtwoPIlo,-0.11,-0.1092,meta_results.csv MA2.primary
+MAtwoPIhi,0.99,0.9905,meta_results.csv MA2.primary
+MAtwoItwo,99,99.2718,meta_results.csv MA2.primary
+MAtwoK,19,19,meta_results.csv MA2.primary
+MAtwoKclus,14,14,meta_results.csv MA2.primary
+MAtwoNoPre,0.89,0.8854,meta_results.csv MA2.nopreprint
+MAtwoHeight,0.95,0.9502,meta_results.csv MA2.trait.height
+MAtwoCounts,0.85,0.8479,meta_results.csv MA2.trait.plant_count
+MAtwoDisease,0.68,0.6831,meta_results.csv MA2.trait.disease_severity
+MAtwoManualRel,0.90,0.9021,meta_results.csv MA2.manualrel
+ERtOne,-43,-42.57,meta_results.csv MA2.ER.T1 (median of Monte Carlo draws)
+ERtTwo,24,23.86,meta_results.csv MA2.ER.T2 (median of Monte Carlo draws)
+ERhtwoMedian,11,10.99,meta_results.csv MA2.ER.h2.median
+MAthreeK,10,10,meta_results.csv MA3.time.primary
+MAthreeTime,95,94.5466,meta_results.csv MA3.time.primary
+MAthreeTimeCIlo,87,87.1545,meta_results.csv MA3.time.primary
+MAthreeTimeCIhi,98,97.6848,meta_results.csv MA3.time.primary
+MAthreeHandheldLo,56,55.5556,meta_results.csv MA3.time.fieldhandheld_withC (min)
+MAthreeHandheldHi,79,79.1667,meta_results.csv MA3.time.fieldhandheld_withC (max)
+MAthreeHandheldK,2,2,meta_results.csv MA3.time.fieldhandheld_withC
+MAthreeCostRed,20,20.22,meta_results.csv MA3.cost.implied_handheld
+MAthreeCostRedLo,14,13.9,meta_results.csv MA3.cost.implied_handheld
+MAthreeCostRedHi,29,28.75,meta_results.csv MA3.cost.implied_handheld
+CfgNchr,11,11,genetic_params.yaml
+CfgCycMax,3,3,sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgFixCostMin,"3,000","3,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgFixCostMax,"20,000","20,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgBudgetMin,"100,000","100,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgBudgetMax,"500,000","500,000",sweep_v2+sweep_v2_extA+sweep_v2_extB
+CfgPriceMin,0.30,0.3,econ_sweep_grid.yaml
+CfgPriceMax,1.50,1.5,econ_sweep_grid.yaml
+CfgDiscMin,5,5,econ_sweep_grid.yaml
+CfgDiscMax,15,15,econ_sweep_grid.yaml
+CfgAdoptMin,20,20,econ_sweep_grid.yaml
+CfgAdoptMax,60,60,econ_sweep_grid.yaml
+CfgAreaMin,3,3,econ_sweep_grid.yaml
+CfgAreaMax,7,7,econ_sweep_grid.yaml
+CfgRobGxELow,0.40,0.4,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+CfgRobGxEHigh,0.80,0.8,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+AnnUpliftCycZeroQone,1,1.28063808385842,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycZeroQthree,4,3.95225119210798,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycOneQone,13,12.6345570838104,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycOneQthree,15,15.4504555878825,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycTwoQone,27,26.7218775024296,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycTwoQthree,30,29.8237587607773,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycThreeQone,45,44.8588152630754,cell_summaries.csv (main grid and extensions)
+AnnUpliftCycThreeQthree,48,48.3983538962474,cell_summaries.csv (main grid and extensions)
+ASloadDiscTwo,0.68,0.678315510642361,active_subspace_W.csv
+EVPPIzeroHurdleCyc,0.0,0,evppi.csv
+EVPPItwoXCyc,0.03,0.0299273704899848,evppi.csv
+MAoneOneper,0.48,0.4811,meta_results.csv MA1.CB.clustercollapsed
+MAoneEmbrapa,0.36,0.3639,meta_results.csv MA1.CB.embrapaB08
+MAoneExIAC,0.72,0.7167,meta_results.csv MA1.CB.exB02
+MAoneImputed,0.90,0.9045,meta_results.csv MA1.CB.imputedA
+MAoneOther,1.12,1.122,meta_results.csv MA1.OC.primary
+MAtwoLegume,0.83,0.8302,meta_results.csv MA2.legume
+MAtwoNonLegume,0.88,0.8752,meta_results.csv MA2.nonlegume
+MAtwoEggerP,0.47,0.4674,meta_results.csv MA2.egger (p of the asymmetry test)
+MAtwoRankP,0.08,0.0795,meta_results.csv MA2.ranktest (p of the rank test)
+MAthreeWalter,56,55.5556,meta_results.csv MA3.time.fieldhandheld
+MAthreeNonHandShareLo,25,25,meta_results.csv MA3.cost.share_nonhandling (min)
+MAthreeNonHandShareHi,36,36.3,meta_results.csv MA3.cost.share_nonhandling (max)
+PrismaOneQueries,51,51,search_queries.csv
+PrismaOneRecords,718,718,prisma_flow.csv
+PrismaOneUnique,631,631,prisma_flow.csv
+PrismaOneOther,4,4,prisma_flow.csv
+PrismaOneSought,44,44,prisma_flow.csv
+PrismaOneAssessed,22,22,prisma_flow.csv
+PrismaOneIncluded,17,17,prisma_flow.csv
+PrismaTwoQueries,42,42,search_queries.csv
+PrismaTwoRecords,"1,025","1,025",prisma_flow.csv
+PrismaTwoUnique,929,929,prisma_flow.csv
+PrismaTwoOther,13,13,prisma_flow.csv
+PrismaTwoSought,61,61,prisma_flow.csv
+PrismaTwoAssessed,36,36,prisma_flow.csv
+PrismaTwoIncluded,24,24,prisma_flow.csv
+PrismaThreeQueries,98,98,search_queries.csv
+PrismaThreeRecords,"1,295","1,295",prisma_flow.csv
+PrismaThreeUnique,"1,077","1,077",prisma_flow.csv
+PrismaThreeOther,5,5,prisma_flow.csv
+PrismaThreeSought,67,67,prisma_flow.csv
+PrismaThreeAssessed,41,41,prisma_flow.csv
+PrismaThreeIncluded,12,12,prisma_flow.csv
+FaoYearFrom,2020,2020,FAOSTAT QCL extract
+FaoYearTo,2023,2023,FAOSTAT QCL extract
+FaoSixMin,5.1,5.061008,FAOSTAT QCL extract (six countries)
+FaoSixMax,5.4,5.383343,FAOSTAT QCL extract (six countries)
+FaoEAMin,6.6,6.634045,FAOSTAT QCL extract (area 5101)
+FaoEAMax,7.0,6.989836,FAOSTAT QCL extract (area 5101)
+NoveltyDate,6 October 2026,6 October 2026,novelty_search_log.csv
+NoveltyQueries,110,110,novelty_search_log.csv (queries run in both the federated search and Crossref)
+NatCostMin,"26,781","26,781",cost_anchors.csv
+NatCostMax,"85,660","85,660",cost_anchors.csv
+NetProgMin,1,1.16740602381508,budget grid / largest national cost
+NetProgMax,19,18.6699525783205,budget grid / smallest national cost
+SearchDate,5 October 2026,5 October 2026,search_queries.csv
+MAtwoMCdraws,"100,000","100,000",meta_analysis.R
+RVersionMA,4.3.3,4.3.3,sessionInfo.txt
+metaforVersion,5.2.1,5.2.1,sessionInfo.txt
+RVersionLocal,4.3.3,4.3.3,R.version of the session that ran export_numbers.R
+RVersionHPC,4.4.0,4.4.0,slurm/sweep_v2_array.sbatch
+AlphaSimRVersionHPC,2.1.0,2.1.0,config/software_versions_hpc.yaml
+EVPPIzeroHurdleMax,0.0,0,"evppi.csv (all inputs, hurdle 0)"
+EVPPIratioCycErr,18,17.5268562311641,evppi.csv
+NegNPVnonzeroComp,0,0,lookup_table.parquet
+NgridTech,"1,440","1,440",sweep_v2+sweep_v2_extA+sweep_v2_extB
+NgridEcon,125,125,lookup_table.parquet
+BECostCycZero,0.06,0.0569813806638978,baseline_slice() EAA x area
+BECostCycOne,0.63,0.625845693718355,baseline_slice() EAA x area
+BECostCycTwo,1.26,1.25836287328067,baseline_slice() EAA x area
+BECostCycThree,1.96,1.95588202267369,baseline_slice() EAA x area
+RobManualGainPctMin,3.3,3.27019501151955,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobManualGainPctMax,4.0,4.02368221842201,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv
+RobManualGainFoldMin,7,6.54039002303909,layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv / gain target
+BECompCostLow,0.8,0.8,"interpolation of the break-even running cost between integer compression levels, baseline state"
+BECompCostMid,1.6,1.6,"interpolation of the break-even running cost between integer compression levels, baseline state"
+BECompCostHigh,$>$3,$>$3,"interpolation of the break-even running cost between integer compression levels, baseline state"
+ERintTOneLo,-254,-253.52,meta_results.csv MA2.ER.T1
+ERintTOneHi,42,42.02,meta_results.csv MA2.ER.T1
+ERprTOnePos,22,22,meta_results.csv MA2.ER.T1 notes
+ERintTTwoLo,-203,-202.62,meta_results.csv MA2.ER.T2
+ERintTTwoHi,96,96.23,meta_results.csv MA2.ER.T2
+ERprTTwoPos,62,62,meta_results.csv MA2.ER.T2 notes
+ERintTTwoVLo,-491,-490.63,meta_results.csv MA2.ER.T2v
+ERintTTwoVHi,78,78.35,meta_results.csv MA2.ER.T2v
+ERprTTwoVPos,22,22,meta_results.csv MA2.ER.T2v notes
+ERintHtwoLo,-405,-405.06,meta_results.csv MA2.ER.h2.median
+ERintHtwoHi,13,13.14,meta_results.csv MA2.ER.h2.median
+ERtTwoV,-85,-85.11,meta_results.csv MA2.ER.T2v (median of Monte Carlo draws)
+MAtwoManualRelV,0.95,0.9483,meta_results.csv MA2.manualrel.validity
+MAtwoManualRelVLo,0.76,0.7584,meta_results.csv MA2.manualrel.validity
+MAtwoManualRelVHi,0.99,0.9898,meta_results.csv MA2.manualrel.validity
+MAtwoManualRelLo,0.56,0.5569,meta_results.csv MA2.manualrel
+MAtwoManualRelHi,0.98,0.9816,meta_results.csv MA2.manualrel
+MAtwoBreakEvenRel,0.93,0.92568893263342,sqrt of pooled correlation (break-even manual validity under T2)
+MAtwoManualTruthOnly,0.93,0.9327,meta_results.csv MA2.manualrel.truthonly
+RvEVBase,19.8,19.8314244478451,scenario_summary.csv Base
+RvPrPosBase,98.4,98.4201388888885,scenario_summary.csv Base
+RvSTCycBase,0.53,0.532318253107475,scenario_summary.csv Base
+RvSTErrBase,0.003,0.003,scenario_summary.csv Base
+RvSTDiscBase,0.35,0.349208949929093,scenario_summary.csv Base
+RvEVPPICycBase,6.4,6.42630103821499,scenario_summary.csv Base
+RvEVPPIErrBase,0.4,0.366654518839981,scenario_summary.csv Base
+RvEVPriorZeroOne,7.0,6.97882237141514,scenario_summary.csv PriorZeroOne
+RvPrPosPriorZeroOne,96.8,96.8402777777777,scenario_summary.csv PriorZeroOne
+RvSTCycPriorZeroOne,0.58,0.583730485748595,scenario_summary.csv PriorZeroOne
+RvSTErrPriorZeroOne,0.01,0.01,scenario_summary.csv PriorZeroOne
+RvSTDiscPriorZeroOne,0.35,0.353430366205465,scenario_summary.csv PriorZeroOne
+RvEVPPICycPriorZeroOne,2.9,2.88510614146615,scenario_summary.csv PriorZeroOne
+RvEVPPIErrPriorZeroOne,0.3,0.296610175888788,scenario_summary.csv PriorZeroOne
+RvEVPriorZeroMass,13.6,13.6238196613911,scenario_summary.csv PriorZeroMass
+RvPrPosPriorZeroMass,96.8,96.840277777778,scenario_summary.csv PriorZeroMass
+RvSTCycPriorZeroMass,0.71,0.713274105037031,scenario_summary.csv PriorZeroMass
+RvSTErrPriorZeroMass,0.003,0.003,scenario_summary.csv PriorZeroMass
+RvSTDiscPriorZeroMass,0.30,0.300248718958173,scenario_summary.csv PriorZeroMass
+RvEVPPICycPriorZeroMass,6.4,6.35340228762806,scenario_summary.csv PriorZeroMass
+RvEVPPIErrPriorZeroMass,0.3,0.331626163169732,scenario_summary.csv PriorZeroMass
+RvEVPriorZeroHeavy,4.7,4.67073745824222,scenario_summary.csv PriorZeroHeavy
+RvPrPosPriorZeroHeavy,95.6,95.576388888889,scenario_summary.csv PriorZeroHeavy
+RvSTCycPriorZeroHeavy,0.71,0.714676778815801,scenario_summary.csv PriorZeroHeavy
+RvSTErrPriorZeroHeavy,0.02,0.02,scenario_summary.csv PriorZeroHeavy
+RvSTDiscPriorZeroHeavy,0.32,0.315922837487551,scenario_summary.csv PriorZeroHeavy
+RvEVPPICycPriorZeroHeavy,2.4,2.42348915883154,scenario_summary.csv PriorZeroHeavy
+RvEVPPIErrPriorZeroHeavy,0.3,0.282593886264925,scenario_summary.csv PriorZeroHeavy
+RvEVPriorSeason,6.8,6.8238183928983,scenario_summary.csv PriorSeason
+RvPrPosPriorSeason,98.6,98.5648148148144,scenario_summary.csv PriorSeason
+RvSTCycPriorSeason,0.49,0.488703685833194,scenario_summary.csv PriorSeason
+RvSTErrPriorSeason,0.01,0.01,scenario_summary.csv PriorSeason
+RvSTDiscPriorSeason,0.38,0.379526902640919,scenario_summary.csv PriorSeason
+RvEVPPICycPriorSeason,1.9,1.91988037579741,scenario_summary.csv PriorSeason
+RvEVPPIErrPriorSeason,0.3,0.286809055866706,scenario_summary.csv PriorSeason
+RvEVSeasonRef,6.9,6.87827026764994,scenario_summary.csv SeasonRef
+RvPrPosSeasonRef,97.8,97.847222222222,scenario_summary.csv SeasonRef
+RvSTCycSeasonRef,0.59,0.58615568355115,scenario_summary.csv SeasonRef
+RvSTErrSeasonRef,0.009,0.009,scenario_summary.csv SeasonRef
+RvSTDiscSeasonRef,0.35,0.351400377341631,scenario_summary.csv SeasonRef
+RvEVPPICycSeasonRef,2.9,2.85259462632031,scenario_summary.csv SeasonRef
+RvEVPPIErrSeasonRef,0.3,0.287117362026501,scenario_summary.csv SeasonRef
+RvEVRampStep,19.0,18.9654740281188,scenario_summary.csv RampStep
+RvPrPosRampStep,98.4,98.4201388888885,scenario_summary.csv RampStep
+RvSTCycRampStep,0.53,0.530339317104839,scenario_summary.csv RampStep
+RvSTErrRampStep,0.004,0.004,scenario_summary.csv RampStep
+RvSTDiscRampStep,0.34,0.340887136788279,scenario_summary.csv RampStep
+RvEVPPICycRampStep,6.1,6.0837950032826,scenario_summary.csv RampStep
+RvEVPPIErrRampStep,0.4,0.396549999507315,scenario_summary.csv RampStep
+RvEVRecurrent,48.1,48.1341965832538,scenario_summary.csv Recurrent
+RvPrPosRecurrent,98.4,98.4201388888885,scenario_summary.csv Recurrent
+RvSTCycRecurrent,0.58,0.577188482762842,scenario_summary.csv Recurrent
+RvSTErrRecurrent,0.001,0.001,scenario_summary.csv Recurrent
+RvSTDiscRecurrent,0.39,0.389213306408961,scenario_summary.csv Recurrent
+RvEVPPICycRecurrent,17.3,17.280351356907,scenario_summary.csv Recurrent
+RvEVPPIErrRecurrent,0.6,0.588279527093798,scenario_summary.csv Recurrent
+RvEVHorizonForty,23.6,23.6222113126893,scenario_summary.csv HorizonForty
+RvPrPosHorizonForty,98.4,98.4201388888885,scenario_summary.csv HorizonForty
+RvSTCycHorizonForty,0.47,0.467276186545005,scenario_summary.csv HorizonForty
+RvSTErrHorizonForty,0.01,0.01,scenario_summary.csv HorizonForty
+RvSTDiscHorizonForty,0.40,0.400248748724935,scenario_summary.csv HorizonForty
+RvEVPPICycHorizonForty,7.0,7.02707141663374,scenario_summary.csv HorizonForty
+RvEVPPIErrHorizonForty,0.8,0.777054055744734,scenario_summary.csv HorizonForty
+RvEVKTen,24.0,23.9802542275536,scenario_summary.csv KTen
+RvPrPosKTen,98.4,98.4201388888885,scenario_summary.csv KTen
+RvSTCycKTen,0.55,0.55395906672586,scenario_summary.csv KTen
+RvSTErrKTen,0.004,0.004,scenario_summary.csv KTen
+RvSTDiscKTen,0.26,0.259956940743617,scenario_summary.csv KTen
+RvEVPPICycKTen,7.7,7.72048487708736,scenario_summary.csv KTen
+RvEVPPIErrKTen,0.5,0.49018789989746,scenario_summary.csv KTen
+RvEVKFifteen,22.5,22.4583968395073,scenario_summary.csv KFifteen
+RvPrPosKFifteen,98.4,98.4201388888885,scenario_summary.csv KFifteen
+RvSTCycKFifteen,0.55,0.547284429371221,scenario_summary.csv KFifteen
+RvSTErrKFifteen,0.004,0.004,scenario_summary.csv KFifteen
+RvSTDiscKFifteen,0.29,0.286048982699976,scenario_summary.csv KFifteen
+RvEVPPICycKFifteen,7.2,7.23943097515211,scenario_summary.csv KFifteen
+RvEVPPIErrKFifteen,0.4,0.448549113772396,scenario_summary.csv KFifteen
+RvEVConservative,26.7,26.6896725435122,scenario_summary.csv Conservative
+RvPrPosConservative,98.4,98.4201388888885,scenario_summary.csv Conservative
+RvSTCycConservative,0.50,0.49687058118121,scenario_summary.csv Conservative
+RvSTErrConservative,0.01,0.01,scenario_summary.csv Conservative
+RvSTDiscConservative,0.27,0.270968773052771,scenario_summary.csv Conservative
+RvEVPPICycConservative,7.8,7.82213003185971,scenario_summary.csv Conservative
+RvEVPPIErrConservative,1.0,0.967243988267895,scenario_summary.csv Conservative
+RvEVConservativeZeroOne,11.0,11.0454124797928,scenario_summary.csv ConservativeZeroOne
+RvPrPosConservativeZeroOne,96.8,96.8402777777777,scenario_summary.csv ConservativeZeroOne
+RvSTCycConservativeZeroOne,0.44,0.444005391409367,scenario_summary.csv ConservativeZeroOne
+RvSTErrConservativeZeroOne,0.06,0.06,scenario_summary.csv ConservativeZeroOne
+RvSTDiscConservativeZeroOne,0.32,0.323199294872213,scenario_summary.csv ConservativeZeroOne
+RvEVPPICycConservativeZeroOne,3.6,3.59528853266227,scenario_summary.csv ConservativeZeroOne
+RvEVPPIErrConservativeZeroOne,0.9,0.880108307721151,scenario_summary.csv ConservativeZeroOne
+RvEVTargetQuarter,9.9,9.91046482324205,scenario_summary.csv TargetQuarter
+RvPrPosTargetQuarter,98.4,98.4201388888885,scenario_summary.csv TargetQuarter
+RvSTCycTargetQuarter,0.53,0.532147250991171,scenario_summary.csv TargetQuarter
+RvSTErrTargetQuarter,0.003,0.003,scenario_summary.csv TargetQuarter
+RvSTDiscTargetQuarter,0.35,0.349384321553871,scenario_summary.csv TargetQuarter
+RvEVPPICycTargetQuarter,3.2,3.21136538041495,scenario_summary.csv TargetQuarter
+RvEVPPIErrTargetQuarter,0.2,0.183327259419993,scenario_summary.csv TargetQuarter
+RvEVTargetOne,39.7,39.6733436970511,scenario_summary.csv TargetOne
+RvPrPosTargetOne,98.4,98.4201388888885,scenario_summary.csv TargetOne
+RvSTCycTargetOne,0.53,0.532403745316957,scenario_summary.csv TargetOne
+RvSTErrTargetOne,0.003,0.003,scenario_summary.csv TargetOne
+RvSTDiscTargetOne,0.35,0.349121255897114,scenario_summary.csv TargetOne
+RvEVPPICycTargetOne,12.9,12.8561723538151,scenario_summary.csv TargetOne
+RvEVPPIErrTargetOne,0.7,0.733309037679963,scenario_summary.csv TargetOne
+RvEVCostLow,14.5,14.5161195508253,scenario_summary.csv RunCost0.5
+RvPrPosCostLow,67.2,67.1820833333331,scenario_summary.csv RunCost0.5
+RvSTCycCostLow,0.55,0.553111250288338,scenario_summary.csv RunCost0.5
+RvSTErrCostLow,0.003,0.003,scenario_summary.csv RunCost0.5
+RvSTDiscCostLow,0.32,0.323788261477286,scenario_summary.csv RunCost0.5
+RvEVPPICycCostLow,6.4,6.42630103821499,scenario_summary.csv RunCost0.5
+RvEVPPIErrCostLow,0.4,0.366654518839981,scenario_summary.csv RunCost0.5
+RvEVCostMid,9.2,9.2008146538056,scenario_summary.csv RunCost1.0
+RvPrPosCostMid,51.8,51.7591666666666,scenario_summary.csv RunCost1.0
+RvSTCycCostMid,0.57,0.572561605852033,scenario_summary.csv RunCost1.0
+RvSTErrCostMid,0.003,0.003,scenario_summary.csv RunCost1.0
+RvSTDiscCostMid,0.30,0.30000903307838,scenario_summary.csv RunCost1.0
+RvEVPPICycCostMid,6.4,6.42630103821498,scenario_summary.csv RunCost1.0
+RvEVPPIErrCostMid,0.4,0.366654518839981,scenario_summary.csv RunCost1.0
+RvEVCostHigh,-1.4,-1.42979514023387,scenario_summary.csv RunCost2.0
+RvPrPosCostHigh,30.7,30.7051388888889,scenario_summary.csv RunCost2.0
+RvSTCycCostHigh,0.61,0.605579205567158,scenario_summary.csv RunCost2.0
+RvSTErrCostHigh,0.003,0.003,scenario_summary.csv RunCost2.0
+RvSTDiscCostHigh,0.26,0.259643033483231,scenario_summary.csv RunCost2.0
+RvEVPPICycCostHigh,6.4,6.42630103821497,scenario_summary.csv RunCost2.0
+RvEVPPIErrCostHigh,0.4,0.36665451883998,scenario_summary.csv RunCost2.0
+RvNPVCycZeroBase,0.6,0.608263485503876,scenario_summary.csv Base
+RvNPVCycOneBase,6.7,6.68076270903539,scenario_summary.csv Base
+RvNPVCycThreeBase,20.9,20.8786028433256,scenario_summary.csv Base
+RvNPVCycZeroRampStep,0.7,0.689382180830537,scenario_summary.csv RampStep
+RvNPVCycOneRampStep,6.4,6.37319577747893,scenario_summary.csv RampStep
+RvNPVCycThreeRampStep,19.8,19.8206202987708,scenario_summary.csv RampStep
+RvNPVCycZeroRecurrent,0.8,0.764181562840539,scenario_summary.csv Recurrent
+RvNPVCycOneRecurrent,13.5,13.4608000840401,scenario_summary.csv Recurrent
+RvNPVCycThreeRecurrent,55.9,55.8752861115034,scenario_summary.csv Recurrent
+RvNPVCycZeroHorizonForty,1.5,1.47837700011415,scenario_summary.csv HorizonForty
+RvNPVCycOneHorizonForty,8.3,8.30388152185597,scenario_summary.csv HorizonForty
+RvNPVCycThreeHorizonForty,23.6,23.6428283754247,scenario_summary.csv HorizonForty
+RvNPVCycZeroKTen,0.8,0.845190110284077,scenario_summary.csv KTen
+RvNPVCycOneKTen,8.0,7.99466915748196,scenario_summary.csv KTen
+RvNPVCycThreeKTen,24.9,24.9129392653234,scenario_summary.csv KTen
+RvNPVCycZeroKFifteen,0.8,0.767066013103764,scenario_summary.csv KFifteen
+RvNPVCycOneKFifteen,7.5,7.51517721807816,scenario_summary.csv KFifteen
+RvNPVCycThreeKFifteen,23.4,23.4174132925931,scenario_summary.csv KFifteen
+RvNPVCycZeroConservative,1.9,1.89070468133216,scenario_summary.csv Conservative
+RvNPVCycOneConservative,9.2,9.22021068464811,scenario_summary.csv Conservative
+RvNPVCycThreeConservative,25.9,25.8770833391202,scenario_summary.csv Conservative
+RvNPVCycZeroTargetQuarter,0.3,0.304131742751938,scenario_summary.csv TargetQuarter
+RvNPVCycOneTargetQuarter,3.3,3.3376517360206,scenario_summary.csv TargetQuarter
+RvNPVCycThreeTargetQuarter,10.4,10.4259012140481,scenario_summary.csv TargetQuarter
+RvNPVCycZeroTargetOne,1.2,1.21652697100775,scenario_summary.csv TargetOne
+RvNPVCycOneTargetOne,13.4,13.3657201160136,scenario_summary.csv TargetOne
+RvNPVCycThreeTargetOne,41.8,41.7767773120259,scenario_summary.csv TargetOne
+RvNscenarios,18,18,scenario_summary.csv
+RvSTCycMin,0.44,0.444005391409367,scenario_summary.csv
+RvSTCycMax,0.71,0.714676778815801,scenario_summary.csv
+RvSTErrMin,0.001,0.001,scenario_summary.csv
+RvSTErrMax,0.058,0.0582548050668559,scenario_summary.csv
+RvRatioMin,8,7.62178142901355,scenario_summary.csv (smallest ratio of the two total-order indices)
+RvGainScaleTargetQuarter,0.066,0.0664763282096811,scenario_summary.csv
+RvGainScaleTargetOne,0.27,0.265905312838724,scenario_summary.csv
+CfgRunCostLow,0.5,0.5,economic_params.yaml tool_running_cost_scenarios_usd_per_yr
+RvEVPPIzeroCycCostLow,1.0,1.02667370213422,scenario_summary.csv RunCost0.5
+RvEVPPIzeroDiscCostLow,0.0,0,scenario_summary.csv RunCost0.5
+RvEVPPIzeroPriceCostLow,0.0,0,scenario_summary.csv RunCost0.5
+RvEVPPIzeroErrCostLow,0.0,0,scenario_summary.csv RunCost0.5
+RvNPVCycOneCostLow,0.8,0.843374614741107,scenario_summary.csv RunCost0.5
+RvNPVCycThreeCostLow,15.0,15.0412147490313,scenario_summary.csv RunCost0.5
+CfgRunCostMid,1.0,1,economic_params.yaml tool_running_cost_scenarios_usd_per_yr
+RvEVPPIzeroCycCostMid,2.4,2.35549992638915,scenario_summary.csv RunCost1.0
+RvEVPPIzeroDiscCostMid,0.0,1.86264514923096e-15,scenario_summary.csv RunCost1.0
+RvEVPPIzeroPriceCostMid,0.7,0.710940972708229,scenario_summary.csv RunCost1.0
+RvEVPPIzeroErrCostMid,0.0,0,scenario_summary.csv RunCost1.0
+RvNPVCycOneCostMid,-5.0,-4.99401347955318,scenario_summary.csv RunCost1.0
+RvNPVCycThreeCostMid,9.2,9.20382665473701,scenario_summary.csv RunCost1.0
+CfgRunCostHigh,2.0,2,economic_params.yaml tool_running_cost_scenarios_usd_per_yr
+RvEVPPIzeroCycCostHigh,5.7,5.71140346809804,scenario_summary.csv RunCost2.0
+RvEVPPIzeroDiscCostHigh,1.7,1.71798751037211,scenario_summary.csv RunCost2.0
+RvEVPPIzeroPriceCostHigh,3.8,3.77440711278016,scenario_summary.csv RunCost2.0
+RvEVPPIzeroErrCostHigh,0.0,0,scenario_summary.csv RunCost2.0
+RvNPVCycOneCostHigh,-16.7,-16.6687896681418,scenario_summary.csv RunCost2.0
+RvNPVCycThreeCostHigh,-2.5,-2.47094953385157,scenario_summary.csv RunCost2.0
+RvNPVErrZero,0.16,0.156186399242557,scenario_summary.csv ValueOfAccuracy
+RvNPVErrFifty,1.08,1.08172858979693,scenario_summary.csv ValueOfAccuracy
+RvNPVCycOneErrZero,6.1,6.12339932198985,scenario_summary.csv ValueOfAccuracy
+CfgHorizonLong,40,40,revision_scenarios.yaml
+CfgKLow,0.10,0.1,revision_scenarios.yaml
+CfgKMid,0.15,0.15,revision_scenarios.yaml
+CfgTargetLow,0.25,0.25,revision_scenarios.yaml
+CfgTargetHigh,1.0,1,revision_scenarios.yaml
+CfgZeroMassA,0.5,0.5,revision_scenarios.yaml
+CfgZeroMassB,0.7,0.7,revision_scenarios.yaml
+CfgSeasonStep,0.5,0.5,revision_scenarios.yaml
+CfgSeasonMid,0.5,0.5,revision_scenarios.yaml
+MAthreeWalterTotal,38.5,38.5,meta_inputs_used.csv Walter2019_handheld_total (image-analysis time counted)
+CfgStressErr,-20,-20,layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv
+NcellsStress,6,6,layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv
+StressUpliftPct,-0.7,-0.713650658038047,stress_block_summary.csv
+StressNPVCycZero,-0.1,-0.130373402771442,stress_block_summary.csv
+StressPrPosCycZero,17,16.6666666666667,stress_block_summary.csv
+StressNPVCycOne,7.6,7.62467780431212,stress_block_summary.csv
+StressPrPosCycOne,100,100,stress_block_summary.csv
+StressDiffMin,-2.0,-2.03168212685795,layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv
+StressDiffMax,0.3,0.343323698972098,layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv

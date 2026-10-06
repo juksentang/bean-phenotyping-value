@@ -1,0 +1,6 @@
+source_key,program,crop,country,usd_per_cycle,basis,location
+Das2025Costing,NARO,maize,Uganda,85660,pipeline operational cost per cycle; fixed costs excluded,Results 3.1 and cost summary table (NARES breeding pipeline total cost)
+Das2025Costing,ZARI,maize,Zambia,29500,pipeline operational cost per cycle; fixed costs excluded,Results 3.1 and cost summary table
+Das2025Costing,DR&SS,maize,Zimbabwe,48902,pipeline operational cost per cycle; fixed costs excluded,Results 3.1 and cost summary table
+Katiyar2026Unified,national rice programs (min; Ghana),rice,Ghana,26781,total pipeline expenditure,comparative cost analysis paragraph (four national programs)
+Katiyar2026Unified,national rice programs (max; Nepal),rice,Nepal,39221.6,total pipeline expenditure,comparative cost analysis paragraph (four national programs)
