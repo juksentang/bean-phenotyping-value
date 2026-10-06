@@ -32,6 +32,7 @@ keywords:
   - global sensitivity analysis
   - value of information
 license: MIT
+doi: "10.5281/zenodo.23197205"
 repository-code: "https://github.com/juksentang/bean-phenotyping-value"
 version: "1.0.0"
 date-released: "2026-10-06"
