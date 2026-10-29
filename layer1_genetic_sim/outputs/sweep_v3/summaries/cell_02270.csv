@@ -1,0 +1,2 @@
+cell_id,model_version,error_reduction,cost_reduction,cycle_compression,tool_fixed_cost,total_budget,h2_yield,gxe_cor_onstation,n_reps,mean_dg_trad,mean_dg_tool,mean_dg_diff,sd_dg_diff,p_tool_gt_trad,mean_dg_vs_base_trad,mean_dg_vs_base_tool,h2_plot_trad,h2_plot_tool,elapsed_s
+2270,2,0.1,0.7,2,17000,300000,0.1,-0.5,100,230.018579286016,255.887502381246,25.8689230952301,54.3037963436713,0.67,575.635664957478,601.504588052708,0.1,0.10989010989011,748.436329364777

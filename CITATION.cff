@@ -1,15 +1,17 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it using the metadata from this file."
 type: software
-title: "Cycle Time versus Accuracy: Simulation and Economic Model of AI-Based Phenotyping in Smallholder Bean Breeding"
+title: "Faster, cheaper or more accurate? Simulation and economic model of smartphone phenotyping in East African bean breeding"
 abstract: >-
   Code and data for a coupled breeding-simulation and economic model that values a
   smartphone computer-vision phenotyping tool in a four-stage East African common-bean
-  breeding pipeline. Layer 1 is an AlphaSimR stochastic simulation over a factorial grid
-  of tool profiles; Layer 2 converts simulated genetic gain into adoption, net present
-  value, global sensitivity and value-of-information analyses. Includes the
-  meta-analysis extraction sheets and the scripts that generate every number, table and
-  figure in the manuscript.
+  breeding pipeline. Genetic parameters are estimated from public East African
+  multi-environment bean trials. Layer 1 is an AlphaSimR stochastic simulation over a
+  factorial grid of tool profiles, with a comparison against the breeder's equation;
+  Layer 2 converts simulated genetic gain into adoption, net present value, global
+  sensitivity and value-of-information analyses. Includes the variance-component
+  analyses, the meta-analysis extraction sheets and the scripts that generate every
+  number, table and figure in the manuscript and supplementary material.
 authors:
   - family-names: Tang
     given-names: Juk-Sen
@@ -24,6 +26,7 @@ keywords:
   - smartphone phenotyping
   - digital phenotyping
   - Phaseolus vulgaris
+  - genotype-by-environment interaction
   - breeding cycle time
   - genetic gain
   - AlphaSimR
@@ -34,5 +37,27 @@ keywords:
 license: MIT
 doi: "10.5281/zenodo.23197205"
 repository-code: "https://github.com/juksentang/bean-phenotyping-value"
-version: "1.0.0"
-date-released: "2026-10-06"
+version: "2.0.0"
+date-released: "2026-10-29"
+preferred-citation:
+  type: article
+  title: "Faster, cheaper or more accurate? Valuing smartphone phenotyping in East African bean breeding with a simulation calibrated to public trial data"
+  journal: "Agricultural Systems"
+  status: submitted
+  year: 2026
+  authors:
+    - family-names: Tang
+      given-names: Juk-Sen
+      orcid: "https://orcid.org/0009-0009-8849-874X"
+    - family-names: Wu
+      given-names: Modi
+      orcid: "https://orcid.org/0009-0002-4062-5294"
+    - family-names: Liang
+      given-names: Weiwen
+      orcid: "https://orcid.org/0009-0002-8387-4311"
+    - family-names: Gong
+      given-names: Jing
+      orcid: "https://orcid.org/0009-0001-5570-0819"
+    - family-names: Chen
+      given-names: Junhong
+      orcid: "https://orcid.org/0009-0007-7201-3408"

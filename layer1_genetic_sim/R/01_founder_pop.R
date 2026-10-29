@@ -58,7 +58,12 @@ create_founder_population_gxe <- function(gen_cfg = NULL, n_envs = NULL,
     gen_cfg$gxe_cor_onstation
   }
 
-  # Build genetic correlation matrix (compound symmetry)
+  # Build genetic correlation matrix (compound symmetry). The sweep reads
+  # gxe_cor_onstation as 1 - sigma2_GE / sigma2_A, which is negative for GxE
+  # variance above the genetic variance; that value is not a correlation.
+  if (gxe_cor < 0 || gxe_cor > 1)
+    stop("gxe_cor = ", gxe_cor, " is not a between-environment correlation; ",
+         "use rho = sigma2_A / (sigma2_A + sigma2_GE) = 1 / (2 - gxe_cor_onstation)")
   corA <- matrix(gxe_cor, nrow = n_envs, ncol = n_envs)
   diag(corA) <- 1.0
 

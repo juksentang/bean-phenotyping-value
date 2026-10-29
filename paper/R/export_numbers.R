@@ -11,8 +11,8 @@ suppressMessages({
 })
 source(file.path(getwd(), "layer2_economics/R/08_break_even.R"))  # load_config, baseline_slice, stressed_slice
 
-out_dir  <- l2_out_dir()        # 00_paths.R: TOOL_L2_OUT (default outputs_v2)
-l1_path  <- l1_summary_path()   # 00_paths.R: TOOL_L1_SUBDIR (default sweep_v2)
+out_dir  <- l2_out_dir()        # 00_paths.R: TOOL_L2_OUT (default outputs_v3)
+l1_path  <- l1_summary_path()   # 00_paths.R: TOOL_L1_SUBDIR (default sweep_v3)
 l1_files <- l1_path             # kept: l1_path is overwritten with a label below
 tex_path <- "paper/numbers.tex"
 csv_path <- "paper/numbers.csv"
@@ -188,7 +188,7 @@ for (s in c("pessimistic", "other", "optimistic")) {
 read_src <- function(f) paste(readLines(f, warn = FALSE), collapse = "\n")
 grab    <- function(txt, pat, i = 1) regmatches(txt, regexec(pat, txt))[[1]][i + 1]
 sweep_dir <- file.path("layer1_genetic_sim/outputs")
-rb_path   <- file.path(sweep_dir, "sweep_v2_robust/cell_summaries.csv")
+rb_path   <- robust_summary_path()   # 00_paths.R: TOOL_ROBUST_SUBDIR
 rb <- fread(rb_path)
 master <- load_config("master_config")
 
@@ -244,6 +244,22 @@ put("CfgRobHtwoLevels",   lvls(rb$h2_yield),           src = rb_path)
 put("CfgRobGxELevels",  lvls(rb$gxe_cor_onstation),  src = rb_path)
 put("CfgRobHtwoLow",    min(rb$h2_yield), "%.2f", rb_path)
 put("CfgRobHtwoHigh",   max(rb$h2_yield), "%.2f", rb_path)
+# Published variance components for yield in East African bean multi-environment trials:
+# plot-level heritability Vg/(Vg+Vge+Ve) and the genetic correlation between environments
+# Vg/(Vg+Vge), compared with the lowest robustness levels (rho = 1/(2 - rho_GE), Methods)
+pub <- fread("paper/lit/extract/h2_published.csv")
+pub[, h2_plot := var_g / (var_g + var_gxe + var_error)]
+pub[, rho_env := var_g / (var_g + var_gxe)]
+put("PubHtwoPlotMin", min(pub$h2_plot), "%.2f", "h2_published.csv")
+put("PubHtwoPlotMax", max(pub$h2_plot), "%.2f", "h2_published.csv")
+put("PubRhoMin", min(pub$rho_env), "%.2f", "h2_published.csv")
+put("PubRhoMax", max(pub$rho_env), "%.2f", "h2_published.csv")
+put("CfgRobRhoLow", 1 / (2 - min(rb$gxe_cor_onstation)), "%.2f", paste(rb_path, "+ closed form"))
+# GxE-to-genetic variance ratio kappa = sigma2_GE / sigma2_A = 1 - gxe_cor_onstation (07_param_sweep.R)
+put("CfgKappa",          1 - gen$gxe_cor_onstation, "%.2f", "genetic_params.yaml (1 - gxe_cor_onstation)")
+put("CfgRobKappaLevels", lvls(1 - rb$gxe_cor_onstation), src = rb_path)
+put("CfgRobKappaLow",    min(1 - rb$gxe_cor_onstation), "%.2f", rb_path)
+put("CfgRobKappaHigh",   max(1 - rb$gxe_cor_onstation), "%.2f", rb_path)
 
 # --- Economic grid ranges ---------------------------------------------------
 put("CfgPriceRange", rng(grid$econ_grid$bean_price_usd_per_kg, digits = 2),     src = "econ_sweep_grid.yaml")
@@ -287,7 +303,8 @@ put("UpliftBudgetHigh", median(l1[total_budget == max(total_budget)]$uplift), "%
 rb[, uplift := 100 * mean_dg_diff / mean_dg_trad]
 rbt <- rb[, .(uplift = mean(uplift)), by = .(h2_yield, gxe_cor_onstation, error_reduction)]
 rbt[, years := L - L / (1 + uplift / 100)]
-h2_lv <- sort(unique(rb$h2_yield)); h2_nm <- c("Low", "Mid", "High")
+h2_lv <- sort(unique(rb$h2_yield)); h2_nm <- word_of(100 * h2_lv)   # macro stem per level (HtwoTen, ...)
+stopifnot(!anyNA(h2_nm), any(abs(h2_lv - gen$h2_yield) < 1e-9))
 e_lo <- min(rb$error_reduction); e_hi <- max(rb$error_reduction)
 e_ev <- econ$tool_error_reduction_frac
 for (i in seq_along(h2_lv)) {
@@ -297,6 +314,16 @@ for (i in seq_along(h2_lv)) {
   put(paste0("ExchMoHtwo", h2_nm[i], "ErrTen"),   12 * mean(d[abs(error_reduction - e_ev) < 1e-9]$years), "%.1f", rb_path)
   put(paste0("ExchMoHtwo", h2_nm[i], "ErrFifty"), 12 * mean(d[abs(error_reduction - e_hi) < 1e-9]$years), "%.1f", rb_path)
 }
+# Pass-through: share of the breeder's-equation gain of one year of compression, L/(L-1) - 1,
+# that must be realized for it to match the annual-gain effect of an error-reduction profile
+# (equivalent compression e years, annual uplift L/(L-e) - 1), at the central plot-level h2
+d_mid <- rbt[abs(h2_yield - gen$h2_yield) < 1e-9]
+pass_need <- function(e_red) {
+  e <- mean(d_mid[abs(error_reduction - e_red) < 1e-9]$years)
+  100 * (L / (L - e) - 1) / (L / (L - 1) - 1)
+}
+put("PassNeedErrTen",   pass_need(e_ev), "%.0f", paste(rb_path, "+ closed form"))
+put("PassNeedErrFifty", pass_need(e_hi), "%.0f", paste(rb_path, "+ closed form"))
 
 # --- Layer 2: NPV by compression (all profiles and states), evidence-based profile, price slice ---
 lk[, meta := abs(error_reduction - econ$tool_error_reduction_frac) < 1e-9 &
@@ -558,24 +585,28 @@ for (id in c("Base", "RampStep", "Recurrent", "HorizonForty", "KTen", "KFifteen"
   put(paste0("RvNPVCycOne", k),  sv(id, "NPVbase_c1"), "%.1f", paste0("scenario_summary.csv ", id))
   put(paste0("RvNPVCycThree", k), sv(id, "NPVbase_c3"), "%.1f", paste0("scenario_summary.csv ", id))
 }
-# compression keeps the first rank on the total-order index in every scenario; range of the indices across scenarios
+# Rank of compression on the total-order index across scenarios, and the scenarios where
+# another input ranks first; range of the indices across scenarios
 sc_ids <- names(scen_key)
 st_cyc <- vapply(sc_ids, function(i) sv(i, "ST_cycle_compression"), 0)
 st_err <- vapply(sc_ids, function(i) sv(i, "ST_error_reduction"), 0)
-for (i in sc_ids) {
+st_top <- vapply(sc_ids, function(i) {
   stm <- sc[scenario == i & grepl("^ST_", metric)]
-  stopifnot(stm[which.max(value)]$metric == "ST_cycle_compression")
-}
+  sub("^ST_", "", stm[which.max(value)]$metric)
+}, "")
 put("RvNscenarios", length(sc_ids), "%d", "scenario_summary.csv")
+put("RvNcycFirst", sum(st_top == "cycle_compression"), "%d", "scenario_summary.csv (scenarios with compression ranked first on ST)")
+put("RvNdiscFirst", sum(st_top == "discount_rate"), "%d", "scenario_summary.csv (scenarios with the discount rate ranked first on ST)")
+stopifnot(all(st_top %in% c("cycle_compression", "discount_rate")))   # the text names only these two
 put("RvSTCycMin", min(st_cyc), "%.2f", "scenario_summary.csv"); put("RvSTCycMax", max(st_cyc), "%.2f", "scenario_summary.csv")
 put("RvSTErrMin", f3(min(st_err)), src = "scenario_summary.csv"); put("RvSTErrMax", max(st_err), "%.3f", "scenario_summary.csv")
-put("RvRatioMin", min(st_cyc / st_err), "%.0f", "scenario_summary.csv (smallest ratio of the two total-order indices)")
+put("RvRatioMin", min(st_cyc / st_err), "%.1f", "scenario_summary.csv (smallest ratio of the two total-order indices)")
 put("RvGainScaleTargetQuarter", sv("TargetQuarter", "GainScale"), "%.3f", "scenario_summary.csv")
 put("RvGainScaleTargetOne", sv("TargetOne", "GainScale"), "%.2f", "scenario_summary.csv")
 for (id in c("RunCost0.5", "RunCost1.0", "RunCost2.0")) {
   k <- scen_key[[id]]
   put(paste0("CfgRun", k), sv(id, "RunCostM"), "%.1f", "economic_params.yaml tool_running_cost_scenarios_usd_per_yr")
-  put(paste0("RvEVPPIzeroCyc", k),  sv(id, "EVPPIzero_cycle_compression"), "%.1f", paste0("scenario_summary.csv ", id))
+  put(paste0("RvEVPPIzeroCyc", k),  max(sv(id, "EVPPIzero_cycle_compression"), 0), "%.1f", paste0("scenario_summary.csv ", id))
   put(paste0("RvEVPPIzeroDisc", k), max(sv(id, "EVPPIzero_discount_rate"), 0),     "%.1f", paste0("scenario_summary.csv ", id))
   put(paste0("RvEVPPIzeroPrice", k), max(sv(id, "EVPPIzero_bean_price"), 0),       "%.1f", paste0("scenario_summary.csv ", id))
   put(paste0("RvEVPPIzeroErr", k),  max(sv(id, "EVPPIzero_error_reduction"), 0), "%.1f", paste0("scenario_summary.csv ", id))
@@ -600,8 +631,97 @@ put("CfgSeasonMid",  scnc$seasonal_compression_years[[2]], "%.1f", "revision_sce
 mi_used <- fread("paper/lit/meta_inputs_used.csv")
 put("MAthreeWalterTotal", mi_used[unit == "Walter2019_handheld_total"]$pct_reduction[1], "%.1f", "meta_inputs_used.csv Walter2019_handheld_total (image-analysis time counted)")
 
-# --- Stress block: a tool noisier than manual scoring (sweep_v2_stress) ---
-stp <- file.path("layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv")
+# --- Environment-cost block: fixed cost per environment and stage (TOOL_ENVCOST_SUBDIR) ---
+# Per-cycle uplift per 10-point error or cost reduction (OLS slope with compression as a covariate)
+ecp <- file.path(getwd(), "layer1_genetic_sim/outputs",
+                 Sys.getenv("TOOL_ENVCOST_SUBDIR", unset = "sweep_v3_envcost"), "cell_summaries.csv")
+if (file.exists(ecp)) {
+  ecd <- fread(ecp)[, uplift := 100 * mean_dg_diff / mean_dg_trad]
+  ec_word <- c(`0` = "Zero", `1000` = "OneK", `2500` = "TwoHalfK", `5000` = "FiveK")
+  put("CfgEnvCostLevels", lvls(ecd$cost_per_env, 0), src = ecp)
+  put("NcellsEnvCost", int(nrow(ecd)), src = ecp)
+  for (lv in sort(unique(ecd$cost_per_env))) {
+    cf <- coef(lm(uplift ~ error_reduction + cost_reduction + cycle_compression, ecd[cost_per_env == lv]))
+    nm <- ec_word[[as.character(lv)]]
+    put(paste0("EnvCost", nm, "ErrSlope"),  cf[["error_reduction"]] / 10, "%.1f", ecp)
+    put(paste0("EnvCost", nm, "CostSlope"), cf[["cost_reduction"]] / 10,  "%.1f", ecp)
+  }
+}
+
+# --- Public East African bean trials: variance components (empirical/) ------------------
+# Within-environment plot heritability h2_w = Vg/(Vg+Ve) and kappa = Vge/Vg (the model's
+# parameterization), per-trial h2 (includes that trial's GxE) and the stand-covariate channel
+emp <- "empirical/outputs"
+tz  <- fread(file.path(emp, "tsezvg_varcomp.csv"))
+tzp <- function(h) tz[set_type == "pooled" & growth_habit == h]
+put("EmpTZHtwoAll",     tzp("All")$h2_w,        "%.2f", "tsezvg_varcomp.csv (pooled, all trials)")
+put("EmpTZKappaAll",    tzp("All")$kappa,       "%.1f", "tsezvg_varcomp.csv (pooled, all trials)")
+put("EmpTZNenvAll",     tzp("All")$n_env,       "%d",   "tsezvg_varcomp.csv (pooled, all trials)")
+put("EmpTZHtwoBush",    tzp("Bush")$h2_w,       "%.2f", "tsezvg_varcomp.csv (pooled, bush)")
+put("EmpTZKappaBush",   tzp("Bush")$kappa,      "%.1f", "tsezvg_varcomp.csv (pooled, bush)")
+put("EmpTZHtwoClimb",   tzp("Climbing")$h2_w,   "%.2f", "tsezvg_varcomp.csv (pooled, climbing)")
+put("EmpTZKappaClimb",  tzp("Climbing")$kappa,  "%.1f", "tsezvg_varcomp.csv (pooled, climbing)")
+tzs <- tz[set_type != "pooled"]
+put("EmpTZHtwoSetMin",  min(tzs$h2_w),  "%.2f", "tsezvg_varcomp.csv (connected sets and balanced cores)")
+put("EmpTZHtwoSetMax",  max(tzs$h2_w),  "%.2f", "tsezvg_varcomp.csv (connected sets and balanced cores)")
+put("EmpTZKappaSetMin", min(tzs$kappa), "%.1f", "tsezvg_varcomp.csv (connected sets and balanced cores)")
+put("EmpTZKappaSetMax", max(tzs$kappa), "%.1f", "tsezvg_varcomp.csv (connected sets and balanced cores)")
+zd <- fread(file.path(emp, "zudpep_varcomp.csv"))
+put("EmpZDHtwoMin", min(zd$h2_w), "%.2f", "zudpep_varcomp.csv"); put("EmpZDHtwoMax", max(zd$h2_w), "%.2f", "zudpep_varcomp.csv")
+# ZUDPEP kappa is not exported: Vg sits at or near the boundary in these sets, so the ratio is unstable
+pv <- fread(file.path(emp, "published_varcomp.csv"))
+put("PubHtwoWMin",  min(pv$h2_w),  "%.2f", "published_varcomp.csv (Amongi et al. 2023, 2025)")
+put("PubHtwoWMax",  max(pv$h2_w),  "%.2f", "published_varcomp.csv (Amongi et al. 2023, 2025)")
+put("PubKappaMin",  min(pv$kappa), "%.1f", "published_varcomp.csv (Amongi et al. 2023, 2025)")
+put("PubKappaMax",  max(pv$kappa), "%.1f", "published_varcomp.csv (Amongi et al. 2023, 2025)")
+put("PubHtwoWSpatialMin", min(pv$h2_w_incl_spatial, na.rm = TRUE), "%.2f", "published_varcomp.csv (spatial terms counted as noise)")
+pt <- fread(file.path(emp, "per_trial_h2_by_source.csv"))
+for (src in list(c("ZD", "ZUDPEP"), c("TZ", "TSEZVG"), c("DR", "Dryad")))
+  put(paste0("EmpTrialHtwoMed", src[1]), median(pt[grepl(src[2], source)]$h2_w), "%.2f", "per_trial_h2_by_source.csv")
+put("EmpNtrials", int(nrow(pt)), src = "per_trial_h2_by_source.csv")
+sc_emp <- fread(file.path(emp, "stand_covariate.csv"))
+q <- quantile(sc_emp$delta_e_within, c(0.25, 0.5, 0.75))
+put("StandDeltaEMed", q[[2]], "%.2f", "stand_covariate.csv (within-genotype stand, per trial)")
+put("StandDeltaELo",  q[[1]], "%.2f", "stand_covariate.csv (within-genotype stand, per trial)")
+put("StandDeltaEHi",  q[[3]], "%.2f", "stand_covariate.csv (within-genotype stand, per trial)")
+put("StandNtrials",   nrow(sc_emp), "%d", "stand_covariate.csv")
+put("StandHtwoMed",   median(sc_emp$h2_stand), "%.2f", "stand_covariate.csv (stand heritability)")
+put("StandRgMed",     median(sc_emp$r_g_stand_yield, na.rm = TRUE), "%.2f", "stand_covariate.csv (r_g stand-yield)")
+put("StandDeltaGNaiveMed", median(sc_emp[vg_unadj_boundary == FALSE]$delta_g), "%.2f", "stand_covariate.csv (share of Vg removed by the phenotypic adjustment)")
+
+# Method constants of the variance-component scripts (read from the sources)
+z_src <- read_src("empirical/R/01_zudpep_clean.R"); u_src <- read_src("empirical/R/varcomp_utils.R")
+put("EmpOutlierZ",     as.numeric(grab(read_src("empirical/R/03_tsezvg_varcomp.R"), "OUTLIER_Z <- ([0-9.]+)")), "%.1f", "03_tsezvg_varcomp.R OUTLIER_Z")
+put("EmpMinPlants",    as.numeric(grab(z_src, "MIN_PLANTS *<- *([0-9]+)")), "%d", "01_zudpep_clean.R MIN_PLANTS")
+put("EmpMinStandRel",  pct(as.numeric(grab(z_src, "MIN_STAND_REL *<- *([0-9.]+)"))), "%.0f", "01_zudpep_clean.R MIN_STAND_REL")
+put("EmpLinkShared",   as.numeric(grab(u_src, "min_shared = ([0-9]+)")), "%d", "varcomp_utils.R connected_sets()")
+put("EmpLinkFrac",     pct(as.numeric(grab(u_src, "min_frac = ([0-9.]+)"))), "%.0f", "varcomp_utils.R connected_sets()")
+put("EmpNboot",        as.numeric(grab(u_src, "analyze_set <- function\\(d, set_name, nsim = ([0-9]+)")), "%d", "varcomp_utils.R analyze_set()")
+
+# --- Breeder's equation versus the simulation (08_breeders_equation_check.R) ----------------
+bvp <- file.path(dirname(rb_path), "be_vs_sim.csv")
+if (file.exists(bvp)) {
+  bv <- fread(bvp)
+  be_err_min <- 0.3       # accuracy effects are averaged over error reductions of at least this size
+  for (h in sort(unique(bv$h2_yield))) {
+    d <- bv[abs(h2_yield - h) < 1e-9 & error_reduction >= be_err_min - 1e-9]
+    put(paste0("BEratioHtwo", word_of(100 * h)), mean(d$sim_acc) / mean(d$be_fixed), "%.2f",
+        "be_vs_sim.csv (simulated / breeder's-equation accuracy effect, error reduction >= 0.3)")
+  }
+  put("BEerrMin", pct(be_err_min), "%.0f", "export_numbers.R (lower bound of the error reductions averaged in BEratio*)")
+  rr <- bv[, .(r = cor(be_opt, sim_vsbase)), by = h2_yield]
+  put("BEcorMin", min(rr$r), "%.2f", "be_vs_sim.csv (correlation within h2)")
+  put("BEcorMax", max(rr$r), "%.2f", "be_vs_sim.csv (correlation within h2)")
+  ck <- bv[error_reduction == 0 & abs(cost_reduction - max(cost_reduction)) < 1e-9 & abs(h2_yield - gen$h2_yield) < 1e-9]
+  put("BEcostKappaLoSim", ck[which.min(kappa)]$sim_vsbase, "%.1f", "be_vs_sim.csv (cost channel, lowest kappa, central h2)")
+  put("BEcostKappaHiSim", ck[which.max(kappa)]$sim_vsbase, "%.1f", "be_vs_sim.csv (cost channel, highest kappa, central h2)")
+  put("BEcostKappaLoBE",  ck[which.min(kappa)]$be_opt,     "%.1f", "be_vs_sim.csv (cost channel, lowest kappa, central h2)")
+  put("BEcostKappaHiBE",  ck[which.max(kappa)]$be_opt,     "%.1f", "be_vs_sim.csv (cost channel, highest kappa, central h2)")
+  put("BEcostRedMax", pct(max(bv$cost_reduction)), "%.0f", "be_vs_sim.csv")
+}
+
+# --- Stress block: a tool noisier than manual scoring (TOOL_STRESS_SUBDIR) ---
+stp <- stress_summary_path()
 st_cells <- fread(stp); st_sum <- fread(file.path(out_dir, "stress_block_summary.csv"))
 put("CfgStressErr", pct(unique(st_cells$error_reduction)), "%.0f", stp)
 put("NcellsStress", int(nrow(st_cells)), "%d", stp)
@@ -612,6 +732,193 @@ put("StressNPVCycOne", st_sum[compression == 1]$medNPV, "%.1f", "stress_block_su
 put("StressPrPosCycOne", st_sum[compression == 1]$PrPos, "%.0f", "stress_block_summary.csv")
 put("StressDiffMin", min(st_cells$mean_dg_diff / st_cells$mean_dg_trad) * 100, "%.1f", stp)
 put("StressDiffMax", max(st_cells$mean_dg_diff / st_cells$mean_dg_trad) * 100, "%.1f", stp)
+
+# ============================================================================
+# Selection chain: measurement error -> heritability of a line mean ->
+# selection accuracy -> selection decisions -> per-cycle gain   (macros Chain*)
+# ============================================================================
+# Follows the tool's error reduction through Equations (heff) and (htool) of the
+# Methods, stage by stage, for the manual program's optimal allocation at the
+# central budget. That allocation is held fixed for the tool program, so the
+# differences isolate the accuracy effect; the simulated sweep re-optimizes the
+# allocation for every tool profile. Plot-level heritability and the GxE parameter
+# take their central values (genetic_params.yaml). Three arms: manual (zero error
+# reduction), the evidence-based error reduction (economic_params.yaml) and the
+# largest error reduction of the main grid.
+#
+#   1. h2_eff and selection accuracy sqrt(h2_eff) per stage (calc_h2_eff()).
+#   2. Hit rate per stage: with truncation selection of the stage's selected
+#      fraction p, the expected share (in percent) of selected lines that belong to
+#      the true top p, from the bivariate normal distribution of a line's true
+#      value and its phenotypic mean (correlation sqrt(h2_eff)). Random selection
+#      gives p.
+#   3. Breeder's-equation approximation of the per-cycle gain uplift from accuracy
+#      alone, sum_s i_s * sqrt(h2_eff,s) (approx_delta_g(), the function that
+#      drives the allocation search).
+#   4. Simulated per-cycle uplift at the lowest cost reduction of the sweep, so
+#      that the cost channel is minimal, averaged over cycle compression, fixed cost
+#      and budget; the zero-error-reduction cells at the same cost reduction give the
+#      cost-only floor, and the difference isolates error reduction (with the
+#      allocation re-optimized, as in the sweep).
+#   5. Sequential-selection check: seeded Monte Carlo of the four stages in a
+#      normal model, with the error variance of each stage fixed on the F5-line
+#      basis, as in phenotype_and_select().
+#
+# Idealizations: steps 1-3 treat each stage's candidates as an unselected normal
+# pool whose heritability is h2_eff (the F5-line basis of Equation heff). In the
+# simulation the plot error stays constant while selection depletes genetic
+# variance, so realized accuracy at later stages is lower than sqrt(h2_eff).
+local({
+  opt_env <- new.env()
+  sys.source(file.path(getwd(), "layer1_genetic_sim/R/03_budget_optimizer.R"), envir = opt_env)
+
+  src_alloc <- "03_budget_optimizer.R optimize_allocation(), manual program, central budget"
+  src_h2    <- "utils.R calc_h2_eff() on the manual allocation"
+  src_be    <- "03_budget_optimizer.R approx_delta_g() on the manual allocation"
+  alloc  <- opt_env$optimize_allocation(master, gen, breed, "traditional")$best_allocation
+  stages <- names(alloc)                              # ON, PYT, AYT, NPT
+  gxe    <- gen$gxe_cor_onstation
+  p_sel  <- vapply(alloc, function(a) a$n_select / a$n_genotypes, 0)
+
+  # Arms: error reduction of the manual program (0), the evidence-based value and the grid maximum
+  d_tool <- c(econ$tool_error_reduction_frac, max(l1$error_reduction))
+  arms   <- c(Man = 0, setNames(d_tool, paste0("Err", word_of(pct(d_tool)))))
+  stopifnot(identical(names(arms), c("Man", "ErrTen", "ErrFifty")), !anyNA(names(arms)))
+  tool_arms <- names(arms)[-1]
+
+  # Stage definition of the allocation
+  for (s in stages) {
+    a <- alloc[[s]]
+    put(paste0("Chain", s, "Lines"),  int(a$n_genotypes), src = src_alloc)
+    put(paste0("Chain", s, "Keep"),   int(a$n_select),    src = src_alloc)
+    put(paste0("Chain", s, "Envs"),   a$envs, "%d",       src_alloc)
+    put(paste0("Chain", s, "Reps"),   a$reps, "%d",       src_alloc)
+    put(paste0("Chain", s, "SelPct"), pct(p_sel[[s]]), "%.3g", src_alloc)   # selected fraction = hit rate of random selection
+  }
+
+  # 1. Plot-level heritability after error reduction, h2_eff and accuracy per stage
+  h2_plot <- vapply(arms, function(d) apply_error_reduction(gen$h2_yield, d), 0)
+  h2_eff  <- vapply(names(arms), function(m)
+    vapply(stages, function(s) calc_h2_eff(h2_plot[[m]], alloc[[s]]$reps, alloc[[s]]$envs, gxe), 0), numeric(length(stages)))
+  rownames(h2_eff) <- stages
+  acc <- sqrt(h2_eff)
+  for (m in names(arms)) {
+    put(paste0("ChainHtwoPlot", m), h2_plot[[m]], "%.3f", "utils.R apply_error_reduction()")
+    for (s in stages) {
+      put(paste0("ChainHtwo", s, m), h2_eff[s, m], "%.3f", src_h2)
+      put(paste0("ChainAcc",  s, m), acc[s, m],    "%.3f", src_h2)
+    }
+  }
+  for (m in tool_arms) for (s in stages)
+    put(paste0("ChainAccRel", s, m), pct(acc[s, m] / acc[s, "Man"] - 1), "%.1f", src_h2)  # relative gain in accuracy, percent
+
+  # 2. Hit rate (percent): P(selected line is in the true top p) = P(G > q, P > q) / p,
+  #    with (G, P) bivariate standard normal, correlation = accuracy, q = qnorm(1 - p)
+  stopifnot(requireNamespace("mvtnorm", quietly = TRUE))
+  hit_rate <- function(p, rho) {
+    q <- qnorm(1 - p)
+    as.numeric(mvtnorm::pmvnorm(lower = c(q, q), upper = c(Inf, Inf),
+                                corr = matrix(c(1, rho, rho, 1), 2),
+                                algorithm = mvtnorm::Miwa())) / p
+  }
+  hit_check <- function(p, rho) {   # same probability by one-dimensional numerical integration
+    q <- qnorm(1 - p)
+    integrate(function(g) dnorm(g) * pnorm((rho * g - q) / sqrt(1 - rho^2)), q, Inf, rel.tol = 1e-10)$value / p
+  }
+  hit <- vapply(names(arms), function(m)
+    vapply(stages, function(s) hit_rate(p_sel[[s]], acc[s, m]), 0), numeric(length(stages)))
+  rownames(hit) <- stages
+  for (m in names(arms)) for (s in stages) {
+    stopifnot(abs(hit[s, m] - hit_check(p_sel[[s]], acc[s, m])) < 1e-6)
+    put(paste0("ChainHit", s, m), pct(hit[s, m]), "%.1f", "mvtnorm::pmvnorm(), bivariate normal truncation selection")
+  }
+  for (m in tool_arms) for (s in stages)
+    put(paste0("ChainHitGain", s, m), pct(hit[s, m] - hit[s, "Man"]), "%.1f", "mvtnorm::pmvnorm(); percentage points over manual")
+
+  # 2b. Accuracy and hit-rate gains at the lowest plot-level heritability of the robustness block,
+  #     on the same manual allocation (macros ChainLowAccRel*, ChainLowHitGain*)
+  h2_low  <- min(rb$h2_yield)
+  src_low <- "utils.R calc_h2_eff() and mvtnorm::pmvnorm() on the manual allocation, lowest robustness h2"
+  acc_low <- function(d, s) sqrt(calc_h2_eff(apply_error_reduction(h2_low, d), alloc[[s]]$reps, alloc[[s]]$envs, gxe))
+  for (m in tool_arms) for (s in stages) {
+    a0 <- acc_low(0, s)
+    a1 <- acc_low(arms[[m]], s)
+    put(paste0("ChainLowAccRel", s, m), pct(a1 / a0 - 1), "%.1f", src_low)
+    put(paste0("ChainLowHitGain", s, m), pct(hit_rate(p_sel[[s]], a1) - hit_rate(p_sel[[s]], a0)), "%.1f", src_low)
+  }
+
+  # 3. Breeder's-equation approximation of the per-cycle uplift from accuracy alone (sigma_A and cycle length cancel)
+  be <- vapply(arms, function(d)
+    opt_env$approx_delta_g(alloc, apply_error_reduction(gen$h2_yield, d), sigma_a = 1, gxe_cor = gxe, cycle_years = 1), 0)
+  be_sum <- vapply(names(arms), function(m)
+    sum(vapply(stages, function(s) selection_intensity(p_sel[[s]]) * acc[s, m], 0)), 0)
+  stopifnot(isTRUE(all.equal(unname(be), unname(be_sum))))
+  for (m in tool_arms)
+    put(paste0("ChainBEUplift", m), pct(be[[m]] / be[["Man"]] - 1), "%.2f", src_be)
+
+  # 4. Simulated uplift at the lowest cost reduction of the sweep (raw, uncalibrated gains; same
+  #    stacking of blocks as DGdiffPct). `check` divides by the manual gain over the check varieties,
+  #    the basis of DGdiffPct; `vsbase` divides by the manual gain over the founder mean, the basis
+  #    of the breeder's-equation sum. The paired differences are identical under both baselines.
+  stopifnot(all(c("mean_dg_vs_base_trad", "sd_dg_diff", "n_reps") %in% names(l1)))
+  cost_min <- min(l1$cost_reduction)
+  src_sim  <- paste0(l1_path, " (cost reduction at its minimum)")
+  n_other  <- uniqueN(l1$cycle_compression) * uniqueN(l1$tool_fixed_cost) * uniqueN(l1$total_budget)
+  sim_cell <- function(d) {
+    s <- l1[abs(error_reduction - d) < 1e-9 & abs(cost_reduction - cost_min) < 1e-9]
+    stopifnot(nrow(s) == n_other)
+    v <- sqrt(sum(s$sd_dg_diff^2 / s$n_reps)) / nrow(s)     # Monte Carlo SE of the mean paired difference
+    list(check  = 100 * mean(s$mean_dg_diff) / mean(s$mean_dg_trad),
+         vsbase = 100 * mean(s$mean_dg_diff) / mean(s$mean_dg_vs_base_trad),
+         se_check  = 100 * v / mean(s$mean_dg_trad),
+         se_vsbase = 100 * v / mean(s$mean_dg_vs_base_trad))
+  }
+  sim <- c(list(Zero = sim_cell(0)), setNames(lapply(d_tool, sim_cell), tool_arms))
+  put("ChainSimCostRed", pct(cost_min), "%.0f", src_sim)
+  put("ChainSimNcells",  n_other, "%d", src_sim)
+  for (m in names(sim)) {
+    nm <- if (m == "Zero") "ErrZero" else m
+    put(paste0("ChainSimUplift", nm), sim[[m]]$check,    "%.2f", src_sim)
+    put(paste0("ChainSimSE",     nm), sim[[m]]$se_check, "%.2f", src_sim)
+  }
+  for (m in tool_arms) {   # error-reduction effect net of the cost-only floor
+    put(paste0("ChainSimNet", m), sim[[m]]$check - sim$Zero$check, "%.2f", src_sim)
+    put(paste0("ChainSimNetSE", m), sqrt(sim[[m]]$se_check^2 + sim$Zero$se_check^2), "%.2f", src_sim)
+    put(paste0("ChainSimNetVsBase", m), sim[[m]]$vsbase - sim$Zero$vsbase, "%.2f", src_sim)
+    put(paste0("ChainSimNetVsBaseSE", m), sqrt(sim[[m]]$se_vsbase^2 + sim$Zero$se_vsbase^2), "%.2f", src_sim)
+  }
+
+  # 5. Sequential-selection check: four truncation stages on N(0, 1) true values, one independent
+  #    phenotype per stage with error variance 1 / h2_eff - 1 (constant plot error on the F5-line
+  #    basis), common random numbers across arms, seeded; the global generator state is restored.
+  n_rep <- 5000
+  ve    <- 1 / h2_eff - 1
+  keep  <- vapply(alloc, function(a) a$n_select, 0)
+  n0    <- alloc[[stages[1]]]$n_genotypes
+  has_seed <- exists(".Random.seed", envir = globalenv(), inherits = FALSE)
+  if (has_seed) old_seed <- get(".Random.seed", envir = globalenv())
+  set.seed(20240601)
+  seq_gain <- matrix(NA_real_, n_rep, length(arms), dimnames = list(NULL, names(arms)))
+  for (r in seq_len(n_rep)) {
+    g <- rnorm(n0)
+    z <- matrix(rnorm(n0 * length(stages)), n0)
+    for (m in names(arms)) {
+      idx <- seq_len(n0)
+      for (j in seq_along(stages)) {
+        ph  <- g[idx] + sqrt(ve[j, m]) * z[idx, j]
+        idx <- idx[order(ph, decreasing = TRUE)[seq_len(keep[j])]]
+      }
+      seq_gain[r, m] <- mean(g[idx])
+    }
+  }
+  if (has_seed) assign(".Random.seed", old_seed, envir = globalenv()) else rm(".Random.seed", envir = globalenv())
+  src_seq <- "normal-model sequential truncation selection, seeded Monte Carlo (5000 replicates), manual allocation"
+  for (m in tool_arms) {
+    dd <- seq_gain[, m] - seq_gain[, "Man"]
+    put(paste0("ChainSeqUplift", m),   100 * mean(dd) / mean(seq_gain[, "Man"]), "%.2f", src_seq)
+    put(paste0("ChainSeqUpliftSE", m), 100 * sd(dd) / sqrt(n_rep) / mean(seq_gain[, "Man"]), "%.2f", src_seq)
+  }
+})
 
 # --- Write ------------------------------------------------------------------
 tab <- rbindlist(reg$rows)

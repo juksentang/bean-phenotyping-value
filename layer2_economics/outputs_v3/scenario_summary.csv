@@ -1,0 +1,561 @@
+scenario,label,metric,value
+Base,"Published structure, equal weight on the four compression levels",EV,25.9067958594759
+Base,"Published structure, equal weight on the four compression levels",PrPos,98.9409722222218
+Base,"Published structure, equal weight on the four compression levels",ST_error_reduction,0.0218420536819137
+Base,"Published structure, equal weight on the four compression levels",ST_cost_reduction,0.0162043219311204
+Base,"Published structure, equal weight on the four compression levels",ST_cycle_compression,0.427625632923347
+Base,"Published structure, equal weight on the four compression levels",ST_tool_fixed_cost,0.00419936272677446
+Base,"Published structure, equal weight on the four compression levels",ST_total_budget,0.00726788979388537
+Base,"Published structure, equal weight on the four compression levels",ST_bean_price,0.335264898891868
+Base,"Published structure, equal weight on the four compression levels",ST_discount_rate,0.379818847598194
+Base,"Published structure, equal weight on the four compression levels",ST_adoption_ceiling,0.181356743552619
+Base,"Published structure, equal weight on the four compression levels",S1_error_reduction,0.00836707958985718
+Base,"Published structure, equal weight on the four compression levels",S1_cost_reduction,0.00546319674699695
+Base,"Published structure, equal weight on the four compression levels",S1_cycle_compression,0.233303282777938
+Base,"Published structure, equal weight on the four compression levels",S1_tool_fixed_cost,8.45687664008829e-05
+Base,"Published structure, equal weight on the four compression levels",S1_total_budget,0.000189014638142614
+Base,"Published structure, equal weight on the four compression levels",S1_bean_price,0.163386204846652
+Base,"Published structure, equal weight on the four compression levels",S1_discount_rate,0.196517572184339
+Base,"Published structure, equal weight on the four compression levels",S1_adoption_ceiling,0.0790058293172954
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_error_reduction,1.30796077128783
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_cost_reduction,1.05061139937443
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_cycle_compression,7.03967113049005
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_tool_fixed_cost,0.12470793169361
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_total_budget,0.176330754587565
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_bean_price,5.67712081142143
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_discount_rate,6.0181827871035
+Base,"Published structure, equal weight on the four compression levels",EVPPIind_adoption_ceiling,3.88759359912555
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_error_reduction,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_cost_reduction,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_cycle_compression,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_tool_fixed_cost,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_total_budget,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_bean_price,0
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_discount_rate,-3.72529029846191e-15
+Base,"Published structure, equal weight on the four compression levels",EVPPIzero_adoption_ceiling,0
+Base,"Published structure, equal weight on the four compression levels",NPVbase_c0,2.8503252658956
+Base,"Published structure, equal weight on the four compression levels",NPVbase_c1,9.54718037795476
+Base,"Published structure, equal weight on the four compression levels",NPVbase_c2,17.146457647106
+Base,"Published structure, equal weight on the four compression levels",NPVbase_c3,25.2936195444928
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EV,11.8274535984959
+PriorZeroOne,"Compression 0 or 1 year, equal weight",PrPos,97.8819444444443
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_error_reduction,0.0653460508455824
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_cost_reduction,0.0489543646471998
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_cycle_compression,0.332649777075424
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_tool_fixed_cost,0.0129318388521125
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_total_budget,0.0262675334917381
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_bean_price,0.331792423005498
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_discount_rate,0.41524605607487
+PriorZeroOne,"Compression 0 or 1 year, equal weight",ST_adoption_ceiling,0.179478357473735
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_error_reduction,0.0249626639857264
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_cost_reduction,0.0164630218996159
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_cycle_compression,0.174861400986221
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_tool_fixed_cost,0.000201266035379459
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_total_budget,0.00401856952758745
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_bean_price,0.159026315181251
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_discount_rate,0.216456285542146
+PriorZeroOne,"Compression 0 or 1 year, equal weight",S1_adoption_ceiling,0.076897593196197
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_error_reduction,1.04609307583074
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_cost_reduction,0.8412871718289
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_cycle_compression,3.1537699787923
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_tool_fixed_cost,0.0916785508450344
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_total_budget,0.430302069848536
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_bean_price,2.59151028987615
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_discount_rate,2.91656382742637
+PriorZeroOne,"Compression 0 or 1 year, equal weight",EVPPIind_adoption_ceiling,1.77462117676302
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EV,19.1111684532878
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",PrPos,97.8819444444447
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_error_reduction,0.0237050969453017
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_cost_reduction,0.0176785102329202
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_cycle_compression,0.57819857959055
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_tool_fixed_cost,0.00470185719090588
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_total_budget,0.00891841826351081
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_bean_price,0.297220186645064
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_discount_rate,0.338557626408927
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",ST_adoption_ceiling,0.160777001547769
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_error_reduction,0.00882074928314464
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_cost_reduction,0.00578282017283533
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_cycle_compression,0.314918136013459
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_tool_fixed_cost,9.20039178886565e-05
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_total_budget,0.0004910617044056
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_bean_price,0.115482437477351
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_discount_rate,0.142635583465266
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",S1_adoption_ceiling,0.0558418365433245
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_error_reduction,1.17925833415979
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_cost_reduction,0.948427831758399
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_cycle_compression,6.95832322238949
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_tool_fixed_cost,0.114335804418627
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_total_budget,0.269475028835997
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_bean_price,4.18778852107771
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_discount_rate,4.4965498663961
+PriorZeroMass,"Compression 0 with probability 0.5, 1 to 3 years share the rest",EVPPIind_adoption_ceiling,2.86772474812932
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EV,9.30443761546205
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",PrPos,97.0347222222223
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_error_reduction,0.0816641414524719
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_cost_reduction,0.061515748717484
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_cycle_compression,0.381074451425344
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_tool_fixed_cost,0.0168514395473033
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_total_budget,0.0369402506160463
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_bean_price,0.31207320669493
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_discount_rate,0.396577333789259
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",ST_adoption_ceiling,0.168811529937316
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_error_reduction,0.0308396109876822
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_cost_reduction,0.020377613823352
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_cycle_compression,0.200316419996226
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_tool_fixed_cost,0.000282611919997737
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_total_budget,0.00702075201685407
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_bean_price,0.13419972226218
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_discount_rate,0.188850097672778
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",S1_adoption_ceiling,0.0648926288570412
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_error_reduction,0.996397229459861
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_cost_reduction,0.802396581707807
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_cycle_compression,2.6491667821855
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_tool_fixed_cost,0.0906582480855882
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_total_budget,0.485118193707138
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_bean_price,2.03855575008171
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_discount_rate,2.33125190644825
+PriorZeroHeavy,"Compression 0 with probability 0.7, 1 year with the rest",EVPPIind_adoption_ceiling,1.39596752451248
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EV,11.5444384442095
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",PrPos,98.9583333333329
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_error_reduction,0.0639953174836359
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_cost_reduction,0.0459536370457992
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_cycle_compression,0.25220933467588
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_tool_fixed_cost,0.00651885817546627
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_total_budget,0.02080268273618
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_bean_price,0.348335559446654
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_discount_rate,0.435839522537497
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",ST_adoption_ceiling,0.188427130110032
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_error_reduction,0.0279008298600424
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_cost_reduction,0.0184613519866409
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_cycle_compression,0.135325734879252
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_tool_fixed_cost,0.000270637430251765
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_total_budget,0.00439830204921407
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_bean_price,0.179857300454831
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_discount_rate,0.2432818879898
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",S1_adoption_ceiling,0.0869704709436191
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_error_reduction,1.01500944077741
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_cost_reduction,0.820174631570332
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_cycle_compression,2.09867354565734
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_tool_fixed_cost,0.0943985742843822
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_total_budget,0.413901014019426
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_bean_price,2.52949493570553
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_discount_rate,2.83850901460484
+PriorSeason,"Compression 0, 0.5 or 1 year (half-year steps), equal weight",EVPPIind_adoption_ceiling,1.73215414075488
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EV,11.6039599165043
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),PrPos,98.4374999999998
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_error_reduction,0.0569127150470891
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_cost_reduction,0.0408620589439529
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_cycle_compression,0.334392009509282
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_tool_fixed_cost,0.00579976044367403
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_total_budget,0.0187332241027782
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_bean_price,0.333088762354774
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_discount_rate,0.413284737337554
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),ST_adoption_ceiling,0.180179593671442
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_error_reduction,0.0247207048061639
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_cost_reduction,0.016356497046419
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_cycle_compression,0.179414190308207
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_tool_fixed_cost,0.000239843380544339
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_total_budget,0.0038644664736947
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_bean_price,0.160656634442252
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_discount_rate,0.216293761022407
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),S1_adoption_ceiling,0.0776859383651677
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_error_reduction,1.01610179886908
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_cost_reduction,0.82104797512763
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_cycle_compression,3.11824958233866
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_tool_fixed_cost,0.0945175288222618
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_total_budget,0.412587578356666
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_bean_price,2.54253659319132
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_discount_rate,2.8466594776767
+SeasonRef,Compression 0 or 1 year with half-year steps (reference for the seasonal prior),EVPPIind_adoption_ceiling,1.74108484098971
+RampStep,No ramp: full per-cycle gain from release,EV,25.5309282497833
+RampStep,No ramp: full per-cycle gain from release,PrPos,98.9409722222218
+RampStep,No ramp: full per-cycle gain from release,ST_error_reduction,0.0267032683300132
+RampStep,No ramp: full per-cycle gain from release,ST_cost_reduction,0.0198597260035641
+RampStep,No ramp: full per-cycle gain from release,ST_cycle_compression,0.409245640002633
+RampStep,No ramp: full per-cycle gain from release,ST_tool_fixed_cost,0.00516430483846642
+RampStep,No ramp: full per-cycle gain from release,ST_total_budget,0.00880118850601741
+RampStep,No ramp: full per-cycle gain from release,ST_bean_price,0.34085483887262
+RampStep,No ramp: full per-cycle gain from release,ST_discount_rate,0.374224317400656
+RampStep,No ramp: full per-cycle gain from release,ST_adoption_ceiling,0.184380541495423
+RampStep,No ramp: full per-cycle gain from release,S1_error_reduction,0.0104864188033947
+RampStep,No ramp: full per-cycle gain from release,S1_cost_reduction,0.00686245107177589
+RampStep,No ramp: full per-cycle gain from release,S1_cycle_compression,0.224738471245461
+RampStep,No ramp: full per-cycle gain from release,S1_tool_fixed_cost,0.000105090090518536
+RampStep,No ramp: full per-cycle gain from release,S1_total_budget,0.00034874649506024
+RampStep,No ramp: full per-cycle gain from release,S1_bean_price,0.170421095998531
+RampStep,No ramp: full per-cycle gain from release,S1_discount_rate,0.196169674602291
+RampStep,No ramp: full per-cycle gain from release,S1_adoption_ceiling,0.0824075694466582
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_error_reduction,1.41319418358687
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_cost_reduction,1.13619388579202
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_cycle_compression,6.66686730676802
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_tool_fixed_cost,0.133966406812005
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_total_budget,0.22657222814887
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_bean_price,5.59478790644113
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_discount_rate,5.80250914677348
+RampStep,No ramp: full per-cycle gain from release,EVPPIind_adoption_ceiling,3.83121345767165
+RampStep,No ramp: full per-cycle gain from release,NPVbase_c0,3.23044781531105
+RampStep,No ramp: full per-cycle gain from release,NPVbase_c1,9.47275325451171
+RampStep,No ramp: full per-cycle gain from release,NPVbase_c2,16.6709831619681
+RampStep,No ramp: full per-cycle gain from release,NPVbase_c3,24.3777186564137
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EV,57.9352602322275
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",PrPos,98.9409722222218
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_error_reduction,0.00982002907555246
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_cost_reduction,0.00723447271536937
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_cycle_compression,0.523655761952481
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_tool_fixed_cost,0.00191030722897312
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_total_budget,0.00460750120159192
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_bean_price,0.306057557456861
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_discount_rate,0.402886765030763
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",ST_adoption_ceiling,0.165557450671109
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_error_reduction,0.00337862185078098
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_cost_reduction,0.00218582522414352
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_cycle_compression,0.268868114122907
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_tool_fixed_cost,3.53229315013871e-05
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_total_budget,0.00026877148014042
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_bean_price,0.126470574094284
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_discount_rate,0.183329404903915
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",S1_adoption_ceiling,0.061155178920591
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_error_reduction,2.11153480068482
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_cost_reduction,1.69040289726748
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_cycle_compression,18.9114689303869
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_tool_fixed_cost,0.205848212430105
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_total_budget,0.6104653573668
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_bean_price,12.702073703228
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_discount_rate,14.731422798951
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",EVPPIind_adoption_ceiling,8.69815916634091
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",NPVbase_c0,3.58095803579532
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",NPVbase_c1,17.6721255311254
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",NPVbase_c2,37.3157269362966
+Recurrent,"Recurrent cycles: gain accrues every cycle, spending continues",NPVbase_c3,64.4170716506713
+HorizonForty,Horizon of 40 years,EV,36.4564298016074
+HorizonForty,Horizon of 40 years,PrPos,98.9374999999996
+HorizonForty,Horizon of 40 years,ST_error_reduction,0.0556137306383719
+HorizonForty,Horizon of 40 years,ST_cost_reduction,0.0417516556364065
+HorizonForty,Horizon of 40 years,ST_cycle_compression,0.26791999318233
+HorizonForty,Horizon of 40 years,ST_tool_fixed_cost,0.0111681462383286
+HorizonForty,Horizon of 40 years,ST_total_budget,0.0208099115091602
+HorizonForty,Horizon of 40 years,ST_bean_price,0.333882998705051
+HorizonForty,Horizon of 40 years,ST_discount_rate,0.482781814744753
+HorizonForty,Horizon of 40 years,ST_adoption_ceiling,0.180609224445714
+HorizonForty,Horizon of 40 years,S1_error_reduction,0.0186090154384235
+HorizonForty,Horizon of 40 years,S1_cost_reduction,0.0122542094741276
+HorizonForty,Horizon of 40 years,S1_cycle_compression,0.139784211722836
+HorizonForty,Horizon of 40 years,S1_tool_fixed_cost,0.000182174461375144
+HorizonForty,Horizon of 40 years,S1_total_budget,0.00205174618150452
+HorizonForty,Horizon of 40 years,S1_bean_price,0.161672090291525
+HorizonForty,Horizon of 40 years,S1_discount_rate,0.27237566819141
+HorizonForty,Horizon of 40 years,S1_adoption_ceiling,0.078176964713336
+HorizonForty,Horizon of 40 years,EVPPIind_error_reduction,2.76106374518818
+HorizonForty,Horizon of 40 years,EVPPIind_cost_reduction,2.22548297922373
+HorizonForty,Horizon of 40 years,EVPPIind_cycle_compression,7.71581740922318
+HorizonForty,Horizon of 40 years,EVPPIind_tool_fixed_cost,0.257562054128028
+HorizonForty,Horizon of 40 years,EVPPIind_total_budget,0.93564513665913
+HorizonForty,Horizon of 40 years,EVPPIind_bean_price,7.98799300826928
+HorizonForty,Horizon of 40 years,EVPPIind_discount_rate,9.89604247784558
+HorizonForty,Horizon of 40 years,EVPPIind_adoption_ceiling,5.47003869044527
+HorizonForty,Horizon of 40 years,NPVbase_c0,6.92768087575336
+HorizonForty,Horizon of 40 years,NPVbase_c1,14.3347286580943
+HorizonForty,Horizon of 40 years,NPVbase_c2,22.789667865357
+HorizonForty,Horizon of 40 years,NPVbase_c3,31.4435339526492
+KTen,Adoption rate k = 0.10,EV,32.0973813947251
+KTen,Adoption rate k = 0.10,PrPos,98.9409722222218
+KTen,Adoption rate k = 0.10,ST_error_reduction,0.027581573000384
+KTen,Adoption rate k = 0.10,ST_cost_reduction,0.020511772527677
+KTen,Adoption rate k = 0.10,ST_cycle_compression,0.429516468048798
+KTen,Adoption rate k = 0.10,ST_tool_fixed_cost,0.00533504545983488
+KTen,Adoption rate k = 0.10,ST_total_budget,0.009125873809817
+KTen,Adoption rate k = 0.10,ST_bean_price,0.355713350965882
+KTen,Adoption rate k = 0.10,ST_discount_rate,0.299604624399345
+KTen,Adoption rate k = 0.10,ST_adoption_ceiling,0.192418040727158
+KTen,Adoption rate k = 0.10,S1_error_reduction,0.0112575979922877
+KTen,Adoption rate k = 0.10,S1_cost_reduction,0.00736432657432676
+KTen,Adoption rate k = 0.10,S1_cycle_compression,0.254419050335565
+KTen,Adoption rate k = 0.10,S1_tool_fixed_cost,0.000112976804031681
+KTen,Adoption rate k = 0.10,S1_total_budget,0.000345996354608723
+KTen,Adoption rate k = 0.10,S1_bean_price,0.189121997687064
+KTen,Adoption rate k = 0.10,S1_discount_rate,0.159705343457231
+KTen,Adoption rate k = 0.10,S1_adoption_ceiling,0.0914504396710472
+KTen,Adoption rate k = 0.10,EVPPIind_error_reduction,1.74724283103962
+KTen,Adoption rate k = 0.10,EVPPIind_cost_reduction,1.40455554790947
+KTen,Adoption rate k = 0.10,EVPPIind_cycle_compression,8.45970103797714
+KTen,Adoption rate k = 0.10,EVPPIind_tool_fixed_cost,0.165790520141631
+KTen,Adoption rate k = 0.10,EVPPIind_total_budget,0.27239526182178
+KTen,Adoption rate k = 0.10,EVPPIind_bean_price,7.03315383342839
+KTen,Adoption rate k = 0.10,EVPPIind_discount_rate,6.27378191258204
+KTen,Adoption rate k = 0.10,EVPPIind_adoption_ceiling,4.81618142941292
+KTen,Adoption rate k = 0.10,NPVbase_c0,3.96056443176455
+KTen,Adoption rate k = 0.10,NPVbase_c1,11.8255462975344
+KTen,Adoption rate k = 0.10,NPVbase_c2,20.8549503400507
+KTen,Adoption rate k = 0.10,NPVbase_c3,30.5737154528459
+KFifteen,Adoption rate k = 0.15,EV,29.8870336931286
+KFifteen,Adoption rate k = 0.15,PrPos,98.9409722222218
+KFifteen,Adoption rate k = 0.15,ST_error_reduction,0.0260436102657109
+KFifteen,Adoption rate k = 0.15,ST_cost_reduction,0.0193568960774819
+KFifteen,Adoption rate k = 0.15,ST_cycle_compression,0.427920257171074
+KFifteen,Adoption rate k = 0.15,ST_tool_fixed_cost,0.00502925477040406
+KFifteen,Adoption rate k = 0.15,ST_total_budget,0.00860753528579517
+KFifteen,Adoption rate k = 0.15,ST_bean_price,0.349873304217404
+KFifteen,Adoption rate k = 0.15,ST_discount_rate,0.323236600727364
+KFifteen,Adoption rate k = 0.15,ST_adoption_ceiling,0.189258951111754
+KFifteen,Adoption rate k = 0.15,S1_error_reduction,0.0104533514481637
+KFifteen,Adoption rate k = 0.15,S1_cost_reduction,0.00683535263583008
+KFifteen,Adoption rate k = 0.15,S1_cycle_compression,0.247842023917836
+KFifteen,Adoption rate k = 0.15,S1_tool_fixed_cost,0.000105072867505859
+KFifteen,Adoption rate k = 0.15,S1_total_budget,0.000296896543761465
+KFifteen,Adoption rate k = 0.15,S1_bean_price,0.181771497751972
+KFifteen,Adoption rate k = 0.15,S1_discount_rate,0.170862918379665
+KFifteen,Adoption rate k = 0.15,S1_adoption_ceiling,0.0878960860840127
+KFifteen,Adoption rate k = 0.15,EVPPIind_error_reduction,1.59910141542334
+KFifteen,Adoption rate k = 0.15,EVPPIind_cost_reduction,1.2852441514531
+KFifteen,Adoption rate k = 0.15,EVPPIind_cycle_compression,7.93207509934076
+KFifteen,Adoption rate k = 0.15,EVPPIind_tool_fixed_cost,0.151897967285361
+KFifteen,Adoption rate k = 0.15,EVPPIind_total_budget,0.241794250597112
+KFifteen,Adoption rate k = 0.15,EVPPIind_bean_price,6.54898243212629
+KFifteen,Adoption rate k = 0.15,EVPPIind_discount_rate,6.15625415432714
+KFifteen,Adoption rate k = 0.15,EVPPIind_adoption_ceiling,4.48462927417345
+KFifteen,Adoption rate k = 0.15,NPVbase_c0,3.59447458192938
+KFifteen,Adoption rate k = 0.15,NPVbase_c1,11.033574626903
+KFifteen,Adoption rate k = 0.15,NPVbase_c2,19.5171670583535
+KFifteen,Adoption rate k = 0.15,NPVbase_c3,28.6466034290056
+Conservative,"No ramp, k = 0.10, horizon 40 years",EV,42.6596925061446
+Conservative,"No ramp, k = 0.10, horizon 40 years",PrPos,98.9340277777774
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_error_reduction,0.0688708392400088
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_cost_reduction,0.0517801769858765
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_cycle_compression,0.270298256424708
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_tool_fixed_cost,0.013929373592369
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_total_budget,0.0266577890343475
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_bean_price,0.365575956091654
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_discount_rate,0.368281859927271
+Conservative,"No ramp, k = 0.10, horizon 40 years",ST_adoption_ceiling,0.197753075663614
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_error_reduction,0.0262274431556565
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_cost_reduction,0.0172886993830152
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_cycle_compression,0.157901112145093
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_tool_fixed_cost,0.000255772142059782
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_total_budget,0.00338937452963348
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_bean_price,0.201554938801707
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_discount_rate,0.210069064752026
+Conservative,"No ramp, k = 0.10, horizon 40 years",S1_adoption_ceiling,0.0974624210652993
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_error_reduction,3.4353693890014
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_cost_reduction,2.7701663377753
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_cycle_compression,8.59367938022325
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_tool_fixed_cost,0.319605158492111
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_total_budget,1.26492175943099
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_bean_price,9.34680293402504
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_discount_rate,9.15684443417983
+Conservative,"No ramp, k = 0.10, horizon 40 years",EVPPIind_adoption_ceiling,6.40052809612585
+Conservative,"No ramp, k = 0.10, horizon 40 years",NPVbase_c0,8.85985013399887
+Conservative,"No ramp, k = 0.10, horizon 40 years",NPVbase_c1,16.7708305835601
+Conservative,"No ramp, k = 0.10, horizon 40 years",NPVbase_c2,26.0048712279604
+Conservative,"No ramp, k = 0.10, horizon 40 years",NPVbase_c3,35.4949038902586
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EV,25.4723337456982
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",PrPos,97.8680555555554
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_error_reduction,0.143144057523795
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_cost_reduction,0.107729374474551
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_cycle_compression,0.124174033119777
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_tool_fixed_cost,0.0293165339187695
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_total_budget,0.0682333829592308
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_bean_price,0.345894608271763
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_discount_rate,0.444946866286566
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",ST_adoption_ceiling,0.187106732544667
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_error_reduction,0.0529402290153433
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_cost_reduction,0.0350432678453499
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_cycle_compression,0.0652151389002078
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_tool_fixed_cost,0.000419075307806388
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_total_budget,0.0140849089720528
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_bean_price,0.176800077093919
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_discount_rate,0.245895865518028
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",S1_adoption_ceiling,0.0854921425421252
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_error_reduction,3.11000698956212
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_cost_reduction,2.50710720171817
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_cycle_compression,3.93334502378537
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_tool_fixed_cost,0.270293200605806
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_total_budget,1.64542749581746
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_bean_price,5.58038879831096
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_discount_rate,6.28340425197329
+ConservativeZeroOne,"No ramp, k = 0.10, horizon 40 years, compression 0 or 1 year",EVPPIind_adoption_ceiling,3.82135319884339
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EV,12.9481505290575
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),PrPos,98.9409722222218
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_error_reduction,0.0218456323505886
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_cost_reduction,0.0162069768966349
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_cycle_compression,0.427477494040023
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_tool_fixed_cost,0.0042000507631681
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_total_budget,0.00726240844623516
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_bean_price,0.335319829715173
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_discount_rate,0.379961137659246
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),ST_adoption_ceiling,0.181386457594465
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_error_reduction,0.0083684504776896
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_cost_reduction,0.00546409185381005
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_cycle_compression,0.233104847392071
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_tool_fixed_cost,8.45826224054323e-05
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_total_budget,0.000188724455039248
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_bean_price,0.163412974540642
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_discount_rate,0.196604612016691
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),S1_adoption_ceiling,0.0790187738732708
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_error_reduction,0.653980385643916
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_cost_reduction,0.525305699687216
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_cycle_compression,3.51805042655248
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_tool_fixed_cost,0.0623539658468049
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_total_budget,0.0881653772937823
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_bean_price,2.83856040571072
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_discount_rate,3.00951674757006
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),EVPPIind_adoption_ceiling,1.94379679956277
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),NPVbase_c0,1.4251626329478
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),NPVbase_c1,4.7686708498276
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),NPVbase_c2,8.56045195697367
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),NPVbase_c3,12.6363746901239
+TargetQuarter,Calibration target 0.25 percent per year (scale 0.090),GainScale,0.0903157684593571
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EV,51.8240865203129
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),PrPos,98.9409722222218
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_error_reduction,0.0218402628117186
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_cost_reduction,0.0162029933089312
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_cycle_compression,0.427699707253074
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_tool_fixed_cost,0.00419901841329284
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_total_budget,0.00727066990622594
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_bean_price,0.335237409905547
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_discount_rate,0.379747691840255
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),ST_adoption_ceiling,0.181341873779316
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_error_reduction,0.00836639355759687
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_cost_reduction,0.00546274880943731
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_cycle_compression,0.233402500011395
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_tool_fixed_cost,8.4561832452024e-05
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_total_budget,0.000189184547977955
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_bean_price,0.163372808510904
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_discount_rate,0.196474048074229
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),S1_adoption_ceiling,0.078999351483891
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_error_reduction,2.61592154257567
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_cost_reduction,2.10122279874887
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_cycle_compression,14.0829125383652
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_tool_fixed_cost,0.24941586338722
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_total_budget,0.352661509175129
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_bean_price,11.3542416228429
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_discount_rate,12.0355148661704
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),EVPPIind_adoption_ceiling,7.7751871982511
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),NPVbase_c0,5.70065053179119
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),NPVbase_c1,19.1023439467031
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),NPVbase_c2,34.3137194439703
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),NPVbase_c3,50.6042330408957
+TargetOne,Calibration target 1.00 percent per year (scale 0.361),GainScale,0.361263073837428
+RunCost0.5,Incremental running cost 0.50 million USD per year,EV,20.5914909624562
+RunCost0.5,Incremental running cost 0.50 million USD per year,PrPos,78.1577777777775
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_error_reduction,0.0226112863086285
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_cost_reduction,0.0167750051326514
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_cycle_compression,0.442685736412453
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_tool_fixed_cost,0.00434725572566019
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_total_budget,0.0075238500638416
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_bean_price,0.34707224551667
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_discount_rate,0.357977331051784
+RunCost0.5,Incremental running cost 0.50 million USD per year,ST_adoption_ceiling,0.187743758539719
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_error_reduction,0.00866175108478936
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_cost_reduction,0.00565559940496828
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_cycle_compression,0.241519749033631
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_tool_fixed_cost,8.75471060416489e-05
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_total_budget,0.000195671348573942
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_bean_price,0.169140334076141
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_discount_rate,0.168220558200728
+RunCost0.5,Incremental running cost 0.50 million USD per year,S1_adoption_ceiling,0.08178825364866
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_error_reduction,1.30796077128783
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_cost_reduction,1.05061139937444
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_cycle_compression,7.03967113049004
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_tool_fixed_cost,0.12470793169361
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_total_budget,0.176330754587561
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_bean_price,5.67712081142143
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_discount_rate,5.46743267044806
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIind_adoption_ceiling,3.88759359912555
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_error_reduction,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_cost_reduction,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_cycle_compression,-3.72529029846191e-15
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_tool_fixed_cost,-3.72529029846191e-15
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_total_budget,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_bean_price,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_discount_rate,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,EVPPIzero_adoption_ceiling,0
+RunCost0.5,Incremental running cost 0.50 million USD per year,RunCostM,0.5
+RunCost0.5,Incremental running cost 0.50 million USD per year,NPVbase_c0,-2.98706282839869
+RunCost0.5,Incremental running cost 0.50 million USD per year,NPVbase_c1,3.70979228366047
+RunCost0.5,Incremental running cost 0.50 million USD per year,NPVbase_c2,11.3090695528117
+RunCost0.5,Incremental running cost 0.50 million USD per year,NPVbase_c3,19.4562314501985
+RunCost1.0,Incremental running cost 1.00 million USD per year,EV,15.2761860654365
+RunCost1.0,Incremental running cost 1.00 million USD per year,PrPos,61.3249999999998
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_error_reduction,0.0233552315612826
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_cost_reduction,0.0173269279760202
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_cycle_compression,0.457250761485621
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_tool_fixed_cost,0.004490286963027
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_total_budget,0.00777139602209787
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_bean_price,0.35849144325075
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_discount_rate,0.336853821750232
+RunCost1.0,Incremental running cost 1.00 million USD per year,ST_adoption_ceiling,0.193920809945581
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_error_reduction,0.00894673569430013
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_cost_reduction,0.00584167711283553
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_cycle_compression,0.249466111229187
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_tool_fixed_cost,9.04275372136894e-05
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_total_budget,0.000202109229588984
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_bean_price,0.17470530489871
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_discount_rate,0.14085376630151
+RunCost1.0,Incremental running cost 1.00 million USD per year,S1_adoption_ceiling,0.0844792099345735
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_error_reduction,1.30796077128783
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_cost_reduction,1.05061139937444
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_cycle_compression,7.03967113049004
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_tool_fixed_cost,0.12470793169361
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_total_budget,0.176330754587561
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_bean_price,5.67712081142143
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_discount_rate,4.91668255379262
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIind_adoption_ceiling,3.88759359912554
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_error_reduction,0
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_cost_reduction,0
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_cycle_compression,1.27767403828203
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_tool_fixed_cost,0
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_total_budget,0
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_bean_price,0.276985871877452
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_discount_rate,1.86264514923096e-15
+RunCost1.0,Incremental running cost 1.00 million USD per year,EVPPIzero_adoption_ceiling,0
+RunCost1.0,Incremental running cost 1.00 million USD per year,RunCostM,1
+RunCost1.0,Incremental running cost 1.00 million USD per year,NPVbase_c0,-8.82445092269298
+RunCost1.0,Incremental running cost 1.00 million USD per year,NPVbase_c1,-2.12759581063381
+RunCost1.0,Incremental running cost 1.00 million USD per year,NPVbase_c2,5.47168145851739
+RunCost1.0,Incremental running cost 1.00 million USD per year,NPVbase_c3,13.6188433559042
+RunCost2.0,Incremental running cost 2.00 million USD per year,EV,4.64557627139699
+RunCost2.0,Incremental running cost 2.00 million USD per year,PrPos,38.9052777777777
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_error_reduction,0.0247244059873547
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_cost_reduction,0.0183426998216091
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_cycle_compression,0.484056577873496
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_tool_fixed_cost,0.0047535250328089
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_total_budget,0.00822698545440193
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_bean_price,0.379507604652389
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_discount_rate,0.297977615979181
+RunCost2.0,Incremental running cost 2.00 million USD per year,ST_adoption_ceiling,0.205289201347053
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_error_reduction,0.00947122810523251
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_cost_reduction,0.00618413892432635
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_cycle_compression,0.264090784025532
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_tool_fixed_cost,9.57287508214747e-05
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_total_budget,0.000213957657967879
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_bean_price,0.184947208728213
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_discount_rate,0.0904872756782228
+RunCost2.0,Incremental running cost 2.00 million USD per year,S1_adoption_ceiling,0.089431709483708
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_error_reduction,1.30796077128783
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_cost_reduction,1.05061139937444
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_cycle_compression,7.03967113049003
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_tool_fixed_cost,0.124707931693608
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_total_budget,0.176330754587557
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_bean_price,5.67712081142142
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_discount_rate,3.81518232048174
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIind_adoption_ceiling,3.88759359912554
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_error_reduction,0
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_cost_reduction,0
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_cycle_compression,4.71688299479154
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_tool_fixed_cost,0
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_total_budget,0
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_bean_price,3.5720589632356
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_discount_rate,1.36455145566666
+RunCost2.0,Incremental running cost 2.00 million USD per year,EVPPIzero_adoption_ceiling,2.02936309056674
+RunCost2.0,Incremental running cost 2.00 million USD per year,RunCostM,2
+RunCost2.0,Incremental running cost 2.00 million USD per year,NPVbase_c0,-20.4992271112816
+RunCost2.0,Incremental running cost 2.00 million USD per year,NPVbase_c1,-13.8023719992224
+RunCost2.0,Incremental running cost 2.00 million USD per year,NPVbase_c2,-6.20309473007118
+RunCost2.0,Incremental running cost 2.00 million USD per year,NPVbase_c3,1.9440671673156
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0,1.28271743829336
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0.1,1.7696127232229
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0.2,2.40153772745179
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0.3,2.99750234294555
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0.4,3.71474311373511
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_err_0.5,4.41247020684563
+ValueOfAccuracy,"Baseline state: median NPV by error-reduction level at zero compression, and at one year with no error reduction",NPV_c1_err0,7.52475233723862

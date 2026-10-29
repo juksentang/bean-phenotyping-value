@@ -1,0 +1,21 @@
+# v3 robustness block: fixed cost per environment and stage (site establishment,
+# travel, trial management), paid by both scenarios and not reduced by the tool's
+# per-plot saving. No sourced per-site value is available for East African bean
+# trials, so the levels span environment overheads of roughly 10-55% of the
+# USD 200,000 budget at the optimized allocations; 0 is the plot-only cost model.
+# Reduced tool grid of the v2 robustness block at the v3 genetic center.
+tool_grid:
+  error_reduction:   [0.0, 0.10, 0.20, 0.30, 0.50]
+  cost_reduction:    [0.10, 0.20, 0.50]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:   [10000]
+  total_budget:      [200000]
+genetic_grid:
+  h2_yield:  [0.10]
+  gxe_ratio: [1.5]
+design_grid:
+  cost_per_env: [0, 1000, 2500, 5000]
+mc_reps_per_cell: 100
+mc_seed_base: 6000042
+output_subdir: "sweep_v3_envcost"
+cell_filename_pattern: "cell_%05d.parquet"

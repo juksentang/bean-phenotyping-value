@@ -289,6 +289,26 @@ def check_layout(fig, renderer, tol=0.5):
     return issues
 
 
+def fit(ax, text, x0, y0, x1, y1):
+    """Require `text` to stay inside the rectangle (x0, y0)-(x1, y1) given in the data coordinates of `ax`."""
+    if not hasattr(ax.figure, "_fit"):
+        ax.figure._fit = []
+    ax.figure._fit.append((text, ax, (x0, y0, x1, y1)))
+    return text
+
+
+def check_fit(fig, renderer, tol=0.3):
+    """Report registered text that extends beyond its box."""
+    issues = []
+    for t, ax, (x0, y0, x1, y1) in getattr(fig, "_fit", []):
+        bb = mpl.text.Text.get_window_extent(t, renderer)
+        (ax0, ay0), (ax1, ay1) = ax.transData.transform((x0, y0)), ax.transData.transform((x1, y1))
+        if (bb.x0 < min(ax0, ax1) - tol or bb.x1 > max(ax0, ax1) + tol
+                or bb.y0 < min(ay0, ay1) - tol or bb.y1 > max(ay0, ay1) + tol):
+            issues.append(f"text leaves its box: {t.get_text()!r}")
+    return issues
+
+
 def save(fig, name, out="paper/figures"):
     Path(out).mkdir(parents=True, exist_ok=True)
     fig.canvas.draw()
@@ -296,7 +316,7 @@ def save(fig, name, out="paper/figures"):
     if getattr(fig, "_panel_titles", None):
         _place_letters(fig, renderer)
         fig.canvas.draw()
-    issues = check_layout(fig, renderer)
+    issues = check_layout(fig, renderer) + check_fit(fig, renderer)
     fig.savefig(Path(out) / f"{name}.pdf")
     fig.savefig(Path(out) / f"{name}.png", dpi=600)
     plt.close(fig)

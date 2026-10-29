@@ -13,11 +13,15 @@ source(file.path(getwd(), "layer1_genetic_sim/R/utils.R"))
 
 # --- Calculate total trial cost for a scenario ---
 
-calc_trial_cost <- function(stages, cost_per_plot, fixed_cost = 0) {
+# cost_per_env is a fixed charge per environment and stage (site establishment,
+# travel, trial management). It does not scale with plots, so the tool's per-plot
+# saving does not reduce it. Default 0 reproduces the plot-only cost model.
+calc_trial_cost <- function(stages, cost_per_plot, fixed_cost = 0, cost_per_env = 0) {
   total <- fixed_cost
   for (st_name in names(stages)) {
     st <- stages[[st_name]]
-    total <- total + st$n_genotypes * st$envs * st$reps * cost_per_plot
+    total <- total + st$n_genotypes * st$envs * st$reps * cost_per_plot +
+      st$envs * cost_per_env
   }
   total
 }
@@ -46,6 +50,7 @@ optimize_allocation <- function(master_cfg, gen_cfg, breed_cfg,
   budget <- master_cfg$total_budget
   cost_per_plot <- scenario$cost_per_plot
   fixed_cost <- scenario$fixed_cost
+  cost_per_env <- if (is.null(master_cfg$cost_per_env)) 0 else master_cfg$cost_per_env
   h2_base <- gen_cfg$h2_yield
   sigma_a <- sqrt(gen_cfg$var_yield_additive)
   gxe_cor <- gen_cfg$gxe_cor_onstation
@@ -99,7 +104,7 @@ optimize_allocation <- function(master_cfg, gen_cfg, breed_cfg,
       )
 
       # Check budget
-      total_cost <- calc_trial_cost(stages, cost_per_plot, fixed_cost)
+      total_cost <- calc_trial_cost(stages, cost_per_plot, fixed_cost, cost_per_env)
       if (total_cost > budget) next
 
       # Approximate ΔG
@@ -122,7 +127,7 @@ optimize_allocation <- function(master_cfg, gen_cfg, breed_cfg,
     best_delta_g    = best_dg,
     scenario        = scenario_name,
     budget          = budget,
-    cost_used       = calc_trial_cost(best_alloc, cost_per_plot, fixed_cost),
+    cost_used       = calc_trial_cost(best_alloc, cost_per_plot, fixed_cost, cost_per_env),
     grid_results    = results
   )
 }

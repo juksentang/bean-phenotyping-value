@@ -1,0 +1,50 @@
+
+╔════════════════════════════════════════╗
+║     R Environment Configured ✓        ║
+╠════════════════════════════════════════╣
+║ CRAN Mirror: 网易镜像                 ║
+║ User Library: ~/R/packages             ║
+║ CPU Cores: 8                     ║
+╚════════════════════════════════════════╝
+
+=== Active Subspaces  (d=8, N=500 gradients, h=0.040) ===
+  AS: gradient-sampling N=500 ...
+    50/500
+    100/500
+    150/500
+    200/500
+    250/500
+    300/500
+    350/500
+    400/500
+    450/500
+    500/500
+elapsed: 0.05 min
+
+=== Eigenvalue spectrum ===
+       k eigenvalue var_share cum_share
+   <int>      <num>     <num>     <num>
+1:     1    21.8059  0.654587    0.6546
+2:     2     7.5734  0.227345    0.8819
+3:     3     1.4878  0.044662    0.9266
+4:     4     0.8430  0.025307    0.9519
+5:     5     0.6826  0.020491    0.9724
+6:     6     0.5385  0.016164    0.9886
+7:     7     0.2727  0.008185    0.9967
+8:     8     0.1085  0.003258    1.0000
+
+=== First 3 eigenvectors (loadings) ===
+               param        w1        w2        w3
+              <char>     <num>     <num>     <num>
+1:   error_reduction -0.040193  0.086880 -0.124730
+2:    cost_reduction -0.077725  0.156932 -0.944982
+3: cycle_compression -0.890381 -0.454211 -0.002314
+4:   tool_fixed_cost  0.003146 -0.004305  0.240797
+5:      total_budget  0.010446  0.032988 -0.002830
+6:        bean_price -0.222972  0.466233  0.106699
+7:     discount_rate  0.338682 -0.638812 -0.127814
+8:  adoption_ceiling -0.187147  0.367364  0.075723
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+`geom_smooth()` using formula = 'y ~ x'
+Figures saved to: layer2_economics/outputs_v3/figures 

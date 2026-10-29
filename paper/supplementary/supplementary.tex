@@ -1,25 +1,353 @@
-\documentclass[10pt]{article}
-\usepackage[a4paper,margin=2cm]{geometry}
+%  Supplementary Material for the Agricultural Systems manuscript (elsarticle, preprint layout).
+%  Build from inside paper/supplementary/:  pdflatex supplementary && bibtex supplementary && pdflatex supplementary (x2)
+%  All result numbers and design constants are macros from ../numbers.tex (generated; do not edit).
+
+\documentclass[preprint,11pt,authoryear]{elsarticle}
+
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,microtype,booktabs,longtable,array,graphicx,caption,xcolor}
-\captionsetup{font=small,labelfont=bf}
-\renewcommand{\thetable}{S\arabic{table}}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,booktabs,array,multirow,tabularx,float}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lineno}
+\usepackage{setspace}
+\usepackage{xspace,etoolbox}
+\xspaceaddexceptions{\%}
+% Layout of the supplementary floats: small type in tables, bold S-labels, floats kept in their section
+\usepackage{longtable,pdflscape}
+\usepackage[section]{placeins}
+\usepackage[font=small,labelfont=bf,labelsep=period,skip=4pt]{caption}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\AtBeginEnvironment{table}{\small}
+
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\NumMissing}[1]{\textcolor{red}{[NUM: #1]}}
+
+\input{../numbers.tex}
+
+\usepackage{orcidlink}
+\usepackage[a4paper,margin=2.2cm,bottom=3.2cm,footskip=1.6cm]{geometry}
+\graphicspath{{../}{./}}
+\journal{Agricultural Systems}
+
+% Supplementary numbering: sections S1-S7, figures, tables and equations S1, S2, ...
+\renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thefigure}{S\arabic{figure}}
-\title{Supplementary Materials\\[4pt]\large Cycle Time versus Accuracy: The Simulated Economic Value of\\AI-Based Phenotyping in Smallholder Bean Breeding}
-\author{Juk-Sen Tang and Junhong Chen}
-\date{}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
 \begin{document}
-\maketitle
-\vspace{-2em}
-{\small\input{tableS1_queries.tex}}
-\clearpage
-\begin{figure}[p]
+
+\begin{frontmatter}
+
+\title{Supplementary material for: Faster, cheaper or more accurate? Valuing smartphone phenotyping in East African bean breeding with a simulation calibrated to public trial data}
+
+\author[baafs,mcgill-ae]{Juk-Sen Tang\,\orcidlink{0009-0009-8849-874X}}
+\author[mcgill-nrs]{Modi Wu\,\orcidlink{0009-0002-4062-5294}}
+\author[mcgill-fs]{Weiwen Liang\,\orcidlink{0009-0002-8387-4311}}
+\author[baafs]{Jing Gong\,\orcidlink{0009-0001-5570-0819}\corref{cor1}}
+\ead{gongj@agri.ac.cn}
+\author[baafs]{Junhong Chen\,\orcidlink{0009-0007-7201-3408}\corref{cor1}}
+\ead{chenjunhong@baafs.net.cn}
+\cortext[cor1]{Corresponding authors.}
+
+\affiliation[baafs]{organization={Institute of Data Science and Agricultural Economics, Beijing Academy of Agriculture and Forestry Sciences; Key Laboratory of Intelligent Seedling Technology Innovation, Ministry of Agriculture and Rural Affairs},
+  city={Beijing}, postcode={100097}, country={China}}
+\affiliation[mcgill-ae]{organization={Department of Agricultural Economics, McGill University},
+  city={Sainte-Anne-de-Bellevue}, postcode={H9X 3V9}, state={QC}, country={Canada}}
+\affiliation[mcgill-nrs]{organization={Department of Natural Resource Sciences, McGill University},
+  city={Sainte-Anne-de-Bellevue}, postcode={H9X 3V9}, state={QC}, country={Canada}}
+\affiliation[mcgill-fs]{organization={Department of Food Science and Agricultural Chemistry, McGill University},
+  city={Sainte-Anne-de-Bellevue}, postcode={H9X 3V9}, state={QC}, country={Canada}}
+
+\end{frontmatter}
+
+\singlespacing
+
+This document supports the main article. Sections S1 and S2 describe the tools the model represents and the literature evidence behind its inputs. Section S3 documents the public trial data and the variance components that set the genetic parameters. Section S4 estimates the size of a realistic error reduction from a stand covariate. Section S5 compares the breeder's equation with the simulation. Section S6 reports the robustness blocks, and Section S7 gives model details. All money values are in USD, and all values marked as simulated are conditional on the model and the explored ranges.
+
+%=================================================================
+\section{AI phenotyping tools in field trials}
+\label{sec:S1}
+
+The tools that the model represents combine a camera with image analysis that turns each image into a trait value for a plant, a plot or a sample. The camera is a proximal sensor when it is a smartphone, a handheld or fixed camera or a scanner, and a remote sensor when an unmanned aerial vehicle (UAV) carries it. The analysis ranges from thresholding, photogrammetry and regression on spectral data to deep neural networks for detection, counting and segmentation. Table~\ref{tab:aitools} summarizes the \NumMAtwoK{} effects from \NumMAtwoKclus{} studies of the agreement meta-analysis (MA2; Section~\ref{sec:S2}) by trait, platform and analysis method. The traits were counts of plants, seedlings, ears and pods, plant and canopy height, disease severity, seed size and canopy senescence, and most effects were recorded in field trials rather than in a greenhouse or laboratory.
+
+Agreement with manual scoring was highest for height (pooled $r$ = \NumMAtwoHeight) and plant counts (\NumMAtwoCounts). It was lower and uncertain for disease severity (\NumMAtwoDisease, with a confidence interval that includes zero) and poor for smartphone seed size in a single study. Tools based on deep learning agreed more closely with manual scoring than other image analysis, but they were applied to different traits and platforms, so the contrast is descriptive. All of these values measure agreement with a manual score that itself contains error, not accuracy against the true value.
+
+\begin{landscape}
+\begingroup\renewcommand{\arraystretch}{1.0}\let\footnotesize\scriptsize
+\input{../tables/table_ai_tools.tex}
+\endgroup
+\end{landscape}
+
+The model represents no product. It describes a generic smartphone computer-vision tool by five technical inputs, whose ranges and central values come from the multi-study evidence of MA2 and the time-saving meta-analysis (MA3), so the conclusions apply to the class of image-based tools with the stated properties. Measurement agreement and precision map onto measurement-error reduction, capture and analysis time onto whole-plot cost reduction, equipment, training and data management onto the tool fixed cost, and faster delivery of trait data onto cycle compression, which arises only where a selection decision waits for data. None of the traits in Table~\ref{tab:aitools} is grain yield, the trait the model simulates. Section~\ref{sec:S4} examines one route by which an image trait could lower the error variance of plot yield: adjustment for plant stand.
+
+%=================================================================
+\section{Literature searches and meta-analyses}
+\label{sec:S2}
+
+\subsection{Searches and study selection}
+
+Three meta-analyses grounded the model inputs: MA1 pools realized genetic gain in common bean, MA2 agreement between image-based or AI tools and manual references, and MA3 time and cost savings of digital phenotyping. Candidate studies came from a federated search of OpenAlex, Semantic Scholar and Crossref, which returned a capped number of records per query and source, supplemented for MA3 by direct queries of Crossref and Europe PMC. All searches ran on \NumSearchDate{}, with \NumPrismaOneQueries{} queries for MA1, \NumPrismaTwoQueries{} for MA2 and \NumPrismaThreeQueries{} for MA3 (query strings and hit counts in Table~\ref{tab:S1}). After removal of duplicates by DOI, \NumPrismaOneUnique{}, \NumPrismaTwoUnique{} and \NumPrismaThreeUnique{} records remained, and \NumPrismaOneIncluded{}, \NumPrismaTwoIncluded{} and \NumPrismaThreeIncluded{} studies were included after full-text reading; Fig.~\ref{fig:S1_prisma} gives the counts at every step, including candidates from reference lists and the other literature searches of this project.
+
+Title and abstract screening was logged record by record only for MA2, where a title-keyword rule removed off-topic records. For MA1 and MA3 the number of records excluded at screening was not recorded. A study entered a model only if it was marked as included, its DOI was verified against Crossref and re-checked live, and its full text had been read. Every extracted value carries its page or table locator. No formal risk-of-bias tool was applied. Table~\ref{tab:ma2appraisal} instead lists, for each MA2 effect, the crop, trait, platform, type of manual reference, unit of observation and preprint status. Some discovery queries timed out, so statements that no study was found refer to these searches only. Preprints stay in the primary sets and are removed in a sensitivity analysis.
+
+Topic searches on breeding simulation, phenotyping tools, breeding and adoption economics, and sensitivity and value-of-information methods also looked for a coupled breeding-simulation and adoption-economics valuation of a phenotyping tool, for global sensitivity analysis of a stochastic breeding simulation, and for value-of-information analysis of a breeding or phenotyping investment. Within these searches we found none. A re-run on \NumNoveltyDate{} with \NumNoveltyQueries{} queries in the federated search and in Crossref gave the same result; it rests mainly on Crossref, because rate limits made OpenAlex and Semantic Scholar unavailable. The closest studies simulate phenotyping in breeding pipelines without adoption economics or value-of-information analysis \citep{Peixoto2023Simulationbased,Jahufer2021Deterministic,Lane2021High}.
+
+\input{tableS1_queries.tex}
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth]{figS1_prisma.pdf}
-\caption{PRISMA 2020-style flow diagrams for (a) MA1 realized genetic gain, (b) MA2 agreement between
-image-based or AI tools and manual references and (c) MA3 time and cost savings. Duplicates were removed by
-DOI. ``Not recorded'' marks steps for which no record-level log exists. Other methods: candidates found in
-reference lists or in the other literature searches of this project.}
-\label{fig:S1}
+\includegraphics[width=\textwidth]{figS1_prisma.pdf}
+\caption{Study selection for the three meta-analyses follows PRISMA 2020-style flow diagrams. (a) MA1, realized genetic gain. (b) MA2, agreement between image-based or AI tools and manual references. (c) MA3, time and cost savings. Duplicates were removed by DOI. ``Not recorded'' marks steps for which no record-level log exists. Other methods: candidates found in reference lists or in the other literature searches of this project.}
+\label{fig:S1_prisma}
 \end{figure}
+
+\subsection{Effect sizes and pooling}
+
+All pooled estimates come from random-effects models fitted by restricted maximum likelihood (REML) in metafor, three-level where several effects share a program or study, with Knapp-Hartung ($t$) intervals. For MA1, the effect is the regression slope divided by the era-trial mean, in percent of mean yield per year, with standard errors taken or derived from the source tables. The MA1 pool rests on \NumMAoneKclus{} programs, so its prediction interval is indicative. For MA2, correlations were Fisher $z$-transformed with sampling variance $1/(n-3)$, where $n$ is the number of observation units of the effect (plots, plants, images, accessions, lines or cultivars; Table~\ref{tab:ma2appraisal}). Spearman coefficients and square roots of $R^2$ were treated as Pearson correlations. The pooled correlation mixes traits, platforms and reference types with very high heterogeneity, so it is descriptive, and the trait-specific estimates are the more meaningful summaries. Small-study checks (an Egger-type test, a rank test and trim-and-fill) were applied at the study level only. For MA3, the effect is the log ratio of time per unit of data. No study reports a variance, so it was pooled as an unweighted $t$-interval and back-transformed to a percent time reduction. We report 95\% prediction intervals next to confidence intervals, because they describe what a new program or tool might show. Sensitivity analyses used one effect per cluster, leave-one-out, exclusion of preprints and imputed standard errors. Table~\ref{tab:meta} gives the pooled estimates, and Fig.~\ref{fig:S2_evidence} compares them with the explored input ranges.
+
+\subsection{From agreement to error reduction and cost reduction}
+
+A tool-manual correlation does not identify error reduction, so we bounded it by three routes. Let $E = 1-\rho^2$ be the error share of a measurement, with $\rho$ its correlation with the true value, and let $\mathrm{ER} = 1 - E_{\mathrm{tool}}/E_{\mathrm{manual}}$. Route T1 treats the manual reference as error-free, so that $\rho_{\mathrm{tool}}$ equals the pooled correlation. Route T2 treats the reference as a manual measure with independent errors, so that $\rho_{\mathrm{tool}}$ equals the pooled correlation divided by the correlation of manual scoring with the true value, $\rho_{\mathrm{manual}}$. The manual-reliability evidence (MA2b, three studies) contains three kinds of coefficient: correlations of a visual estimate with a digital measurement of the true severity, which estimate $\rho_{\mathrm{manual}}$ directly; correlations between two raters, which for parallel measures with independent errors equal $\rho_{\mathrm{manual}}^2$; and squared correlations between two ratings, which equal $\rho_{\mathrm{manual}}^4$. We pooled the coefficients as entered, which gives T2 as entered. We pooled them again after converting every row to $\rho_{\mathrm{manual}}$ (square root of between-rater correlations, fourth root of squared correlations), which gives T2 converted. Intra-rater repeatability also contains persistent rater bias, so the converted value is an upper bound on validity. We propagated the sampling uncertainty of the pooled correlations through T1 and both T2 variants by Monte Carlo (\NumMAtwoMCdraws{} draws) and discarded infeasible draws under T2. The third route uses heritability pairs, the ratio of noise to signal $(1-h^2)/h^2$ for image traits over manual traits.
+
+The routes disagree. Route T1 gives a median error reduction of \NumERtOne\%, T2 as entered \NumERtTwo\% and T2 converted \NumERtTwoV\%, whereas the heritability-pair route gives a median of \NumERhtwoMedian\%. The central error reduction of the model, \NumCfgErrRedCentral\%, is the heritability-pair median rounded to the nearest ten percent. Because T1 and T2 converted give negative medians, this central value lies toward the favorable end of the literature evidence. Section~\ref{sec:S4} gives independent support for a value of this size from yield data.
+
+Whole-plot cost reduction is the data-capture (non-handling) share of plot cost, taken from a cost model for high-income phenotyping infrastructure \citep{Reynolds2019Costefficient} and therefore an upper bound on the saving from data capture alone, multiplied by the time saving of handheld field tools, derived from the capture times reported for a handheld field system and for a smartphone field workflow \citep{Walter2019Highthroughput,Lasdun2024Participatory}. This product gives a whole-plot cost reduction of \NumMAthreeCostRed\% (range \NumMAthreeCostRedLo{} to \NumMAthreeCostRedHi\%), the source of the central cost reduction of \NumCfgCostRedCentral\%.
+
+\begin{landscape}
+\input{../tables/table2_meta.tex}
+\end{landscape}
+
+\begin{landscape}
+\input{../tables/tableA1_ma2_appraisal.tex}
+\end{landscape}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig6_evidence.pdf}
+\caption{The explored error and cost reductions span the literature evidence, and the central values lie at its favorable end. (a) Realized yield gain of common-bean breeding programs ($k$ = \NumMAoneK{} estimates, \NumMAoneKclus{} programs, $I^2$ = \NumMAoneItwo\%; diamond and band: three-level REML estimate and 95\% CI). (b) Agreement between image-based or AI tools and manual reference measurements by trait ($k$ = \NumMAtwoK{} effects; line and band: pooled estimate and 95\% CI). (c) Time saved by digital phenotyping relative to manual recording, by platform (line: pooled estimate; two descriptive units for handheld tools). (d) Ranges of measurement-error and whole-plot cost reduction explored by the model (bars; dots: central case) against the evidence (points: median or estimate; lines: 95\% interval, or range for heritability pairs; arrows: the interval continues beyond the axis).}
+\label{fig:S2_evidence}
+\end{figure}
+
+%=================================================================
+\section{Public trial data and variance components}
+\label{sec:S3}
+
+\subsection{Data sources}
+
+Three public sources of East African common-bean yield trials were analyzed (Table~\ref{tab:S_sources}). Two give plot-level data and one gives single-trial variance components. The plot-level trials were grown at Kawanda and Kachwekano (Uganda) and Kitengule (Kagera Region, Tanzania); the Dryad trials were grown at Kagera, Kawanda and one further site in the region. The companion publications of the TSEZVG and ZUDPEP deposits describe the trial designs \citep{Saradadevi2021Multivariate,Amongi2019Yield}. The plot-level sources were cleaned and analyzed with the scripts in the project archive, which also write cleaning logs.
+
+\begin{table}[!htbp]
+\centering
+\caption{Public common-bean trial data used to estimate the genetic parameters.}
+\label{tab:S_sources}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Source & Repository identifier & License & Content used \\
+\midrule
+TSEZVG & Harvard Dataverse, doi:10.7910/\allowbreak DVN/TSEZVG & CC BY 4.0 & Plot-level grain yield of bush and climbing breeding lines in alpha-lattice trials (file \texttt{TPG\_Phenotypedata.tab}) \\
+ZUDPEP & Harvard Dataverse, doi:10.7910/\allowbreak DVN/ZUDPEP & CC0 & Plot-level observation sheets of preliminary yield trials in eight trial series repeated across sites and seasons \\
+Dryad dz08kpsbz & Dryad, doi:10.5061/\allowbreak dryad.dz08kpsbz & CC0 & Single-trial ANOVA variance components of grain yield (supplementary table of the deposit) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Cleaning}
+
+TSEZVG required little cleaning. Each genotype identifier maps to one designation, and growth habit is constant within trials. Plots with missing yield and residual outliers (absolute standardized conditional residual above \NumEmpOutlierZ) from a per-trial mixed model were removed. One trial has no yield data. Grain yield is analyzed as recorded in kg/ha. The companion description of the trials states that seed weight was converted to yield on the effective plot area and that the trials were alpha-lattice designs with complete replicates subdivided into incomplete blocks.
+
+ZUDPEP required more cleaning, documented in the cleaning log of the project archive. Rows without a designation were removed. Trial series, site and season were taken from the file names and checked against the site and season columns and the description sheets. Genotype names were harmonized by converting to upper case and removing white space (\texttt{DAB 474} and \texttt{DAB474} name the same line), and two obvious entry errors were corrected. In every export the recorded yield per hectare equals yield per harvested plant scaled to a fixed plant density, not plot weight divided by plot area. One file with a factor-ten scaling error and one on an area basis were recomputed on this per-plant scale. An area-based yield (plot seed weight divided by plot area) was also computed for sensitivity analyses and for Section~\ref{sec:S4}. Plots were excluded for missing or zero yield, for very low stands (fewer than \NumEmpMinPlants{} harvested plants or a stand below \NumEmpMinStandRel\% of the trial median), on which yield per hectare extrapolated from yield per plant is unreliable, and as residual outliers by the same rule as for TSEZVG. Every excluded plot is kept in the cleaned file with its reason.
+
+The Dryad deposit gives no plot data. Its single-trial ANOVA table reports genotype and residual variances and an entry-mean heritability for each environment, from which we computed the plot-level ratio. Few of its genotypes match TSEZVG designations, so it is treated as an independent source.
+
+\subsection{Models}
+
+Within each trial we fitted $y = \text{replicate} + g + b(\text{replicate}) + \varepsilon$ by REML with lme4, with genotype $g$ and incomplete block within replicate $b$ as random effects (blocks omitted where not recorded). Across trials, trials were grouped into connected sets: two trials were linked when they shared a minimum number and share of genotypes (at least \NumEmpLinkShared{} genotypes and \NumEmpLinkFrac\% of the smaller entry list), and a set was eligible when it had at least three environments and enough genotypes common to all of them. In ZUDPEP each connected set is one trial series. Where a TSEZVG set was unbalanced, its balanced core was also fitted. The multi-environment model was
+\begin{equation}
+y = \text{env} + g + (g \times \text{env}) + r(\text{env}) + b(\text{env}, r) + \varepsilon_{\text{env}},
+\label{eq:S_met}
+\end{equation}
+with random genotype, genotype-by-environment, replicate and block effects and a residual variance for each environment, fitted with glmmTMB. Where the heterogeneous model did not converge, a homogeneous-residual lme4 fit was used. $V_e$ is the mean of the environment residual variances. Intervals are parametric-bootstrap percentiles from simulations of, and refits of, the same model (\NumEmpNboot{} simulations). Pooled rows fit one set of variance components across all trials of a growth habit, in which genotypes are connected mainly through a few checks; they are therefore given without intervals.
+
+\subsection{Definitions}
+
+Five quantities are derived from the genotype variance $V_g$, the genotype-by-environment variance $V_{ge}$ and the plot residual variance $V_e$:
+\begin{align}
+h^2_w &= \frac{V_g}{V_g + V_e}, &
+\kappa &= \frac{V_{ge}}{V_g}, \nonumber\\
+\rho_{\mathrm{env}} &= \frac{V_g}{V_g + V_{ge}} = \frac{1}{1+\kappa}, &
+h^2_{\mathrm{total}} &= \frac{V_g}{V_g + V_{ge} + V_e}, \nonumber\\
+H^2_{\mathrm{mean}} &= \frac{V_g}{V_g + V_{ge}/e + V_e/(e\,r)}. & &
+\label{eq:S_defs}
+\end{align}
+The within-environment plot heritability $h^2_w$ and the variance ratio $\kappa$ are the two genetic parameters of the simulation (Section~\ref{sec:S7}). The between-environment genetic correlation $\rho_{\mathrm{env}}$ follows from $\kappa$ under compound symmetry. $h^2_{\mathrm{total}}$ counts GxE as noise for a single plot, and $H^2_{\mathrm{mean}}$ is the entry-mean heritability over $e$ environments and $r$ replicates that most trial reports give. A per-trial heritability from a single-environment fit contains that trial's GxE in its genotype variance, so it estimates $(V_g+V_{ge})/(V_g+V_{ge}+V_e)$ and exceeds $h^2_w$. Values under different definitions are not comparable.
+
+\subsection{Estimates by dataset}
+
+Plot heritability of bean yield is low and GxE is large in all three sources (Table~\ref{tab:S_varcomp}). Pooled over \NumEmpTZNenvAll{} TSEZVG trials, $h^2_w$ was \NumEmpTZHtwoAll{} and $\kappa$ was \NumEmpTZKappaAll. The bush and climbing pools gave $h^2_w$ of \NumEmpTZHtwoBush{} and \NumEmpTZHtwoClimb, with $\kappa$ of \NumEmpTZKappaBush{} and \NumEmpTZKappaClimb. Across connected sets and balanced cores, $h^2_w$ ranged from \NumEmpTZHtwoSetMin{} to \NumEmpTZHtwoSetMax{} and $\kappa$ from \NumEmpTZKappaSetMin{} to \NumEmpTZKappaSetMax. In ZUDPEP, $h^2_w$ ranged from \NumEmpZDHtwoMin{} to \NumEmpZDHtwoMax{} across trial series and the two yield definitions, and it was lower on the per-plant yield variable than on the area-based one. The genotype variance of several ZUDPEP series lay at or near zero, so their $\kappa$ is unstable and we do not use it. Per-trial heritabilities, which include each trial's GxE, had medians of \NumEmpTrialHtwoMedTZ{} (TSEZVG), \NumEmpTrialHtwoMedZD{} (ZUDPEP) and \NumEmpTrialHtwoMedDR{} (Dryad) over \NumEmpNtrials{} trials in total.
+
+\begin{table}[!htbp]
+\centering
+\caption{Variance components of common-bean grain yield in public East African trials, in published studies and in the model. $h^2_w$: within-environment plot heritability; $\kappa$: GxE-to-genetic variance ratio; per-trial $h^2$ includes the trial's GxE (definitions in Eq.~\ref{eq:S_defs}).}
+\label{tab:S_varcomp}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.4cm}>{\centering\arraybackslash}p{2.0cm}>{\centering\arraybackslash}p{2.0cm}@{}}
+\toprule
+Source and subset & Model & $h^2_w$ & $\kappa$ \\
+\midrule
+TSEZVG, all trials pooled (\NumEmpTZNenvAll{} trials) & Multi-environment & \NumEmpTZHtwoAll & \NumEmpTZKappaAll \\
+TSEZVG, bush pooled & Multi-environment & \NumEmpTZHtwoBush & \NumEmpTZKappaBush \\
+TSEZVG, climbing pooled & Multi-environment & \NumEmpTZHtwoClimb & \NumEmpTZKappaClimb \\
+TSEZVG, connected sets and balanced cores & Multi-environment & \NumEmpTZHtwoSetMin{} to \NumEmpTZHtwoSetMax & \NumEmpTZKappaSetMin{} to \NumEmpTZKappaSetMax \\
+ZUDPEP, trial series (two yield definitions) & Multi-environment & \NumEmpZDHtwoMin{} to \NumEmpZDHtwoMax & not used \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Per-trial $h^2$ (median; includes the trial's GxE)}}\\
+TSEZVG & Single trial & \NumEmpTrialHtwoMedTZ & -- \\
+ZUDPEP & Single trial & \NumEmpTrialHtwoMedZD & -- \\
+Dryad dz08kpsbz & Single trial (published ANOVA) & \NumEmpTrialHtwoMedDR & -- \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Published variance components, recomputed on the same definitions}}\\
+\citet{Amongi2023Gain,Amongi2025Yield} & Multi-environment & \NumPubHtwoWMin{} to \NumPubHtwoWMax & \NumPubKappaMin{} to \NumPubKappaMax \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Model}}\\
+Central value & Simulation & \NumCfgHtwoYield & \NumCfgKappa \\
+Robustness block (Section~\ref{sec:S6}) & Simulation & \NumCfgRobHtwoLevels & \NumCfgRobKappaLevels \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Comparison with published values and choice of model values}
+
+Two regional and national trial studies report the genotype, genotype-by-environment and residual variances of bean yield \citep{Amongi2023Gain,Amongi2025Yield}. We recomputed the quantities of Eq.~\eqref{eq:S_defs} from their variances. On the same definitions, $h^2_w$ ranged from \NumPubHtwoWMin{} to \NumPubHtwoWMax{} and $\kappa$ from \NumPubKappaMin{} to \NumPubKappaMax. Counting the environment-by-row and environment-by-column variances of the later study as plot noise lowers $h^2_w$ to as little as \NumPubHtwoWSpatialMin. On the plot scale that counts GxE as noise, $h^2_{\mathrm{total}}$ ranged from \NumPubHtwoPlotMin{} to \NumPubHtwoPlotMax, and $\rho_{\mathrm{env}}$ ranged from \NumPubRhoMin{} to \NumPubRhoMax. The entry-mean heritabilities these studies report are much higher, because they average over environments and replicates. The published $h^2_w$ values overlap the upper part of the TSEZVG range and lie above the pooled estimate, which may reflect more advanced entries and different variance models. Their $\kappa$ values bracket the pooled TSEZVG estimate.
+
+The simulation uses $h^2_w$ = \NumCfgHtwoYield{} and $\kappa$ = \NumCfgKappa, close to the pooled TSEZVG estimates, which come from the largest and best-connected plot-level source. The robustness block explores $h^2_w$ of \NumCfgRobHtwoLevels{} and $\kappa$ of \NumCfgRobKappaLevels. This range covers the TSEZVG and published estimates of $h^2_w$; the lowest ZUDPEP values and the most extreme $\kappa$ values lie outside it. Heritability in these data is lower, and GxE larger, than breeding simulations often assume. The estimates apply to yield in preliminary and regional trials with two or three replicates and small plots.
+
+%=================================================================
+\section{Stand covariate and the size of a realistic error reduction}
+\label{sec:S4}
+
+\subsection{Method}
+
+A smartphone tool does not measure yield, but it can count plants, and uneven stands add plot-to-plot noise to yield trials. A stand count used as a covariate is therefore one concrete route by which an image trait could lower the error variance of plot yield. We estimated this effect in ZUDPEP, the only plot-level source with a stand variable. The stand variable is the number of plants harvested per plot. The response is the area-based yield, because the per-plant yield variable already divides by stand. Plots excluded for low stand in the cleaning step were retained here, since they are what a stand adjustment corrects, and residual outliers on the area-yield scale were removed.
+
+For each trial we fitted $y = \text{replicate} + b(\text{replicate}) + g + \varepsilon$ by REML with and without a stand term. The form of the term (linear, linear plus quadratic, or logarithmic) was chosen for each trial by the Akaike information criterion under maximum likelihood. Two adjustments were compared. The phenotypic adjustment uses the stand of each plot as recorded. The within-genotype adjustment uses stand centered on the mean of the same genotype in that trial, so that only the non-genetic part of stand variation is regressed out. For each adjustment we computed the relative reduction of plot error variance, $\delta_e = 1 - V_e^{\mathrm{adj}}/V_e^{\mathrm{unadj}}$, and the share of genotype variance removed, $\delta_g = 1 - V_g^{\mathrm{adj}}/V_g^{\mathrm{unadj}}$. To test whether stand is genetic, we estimated its heritability with the same model and its genetic correlation with yield. The correlation used a variance-of-sum approximation: separate univariate REML fits of yield, rescaled stand and their sum give the covariance $[V(a+b) - V(a) - V(b)]/2$ for the genotype and residual components.
+
+\subsection{Results}
+
+The within-genotype stand adjustment reduced plot error variance by a median of \NumStandDeltaEMed{} (interquartile range \NumStandDeltaELo{} to \NumStandDeltaEHi) over \NumStandNtrials{} trials, and it did not remove genetic variance; in most trials the estimated genetic variance rose slightly. On the model's scale, this is an error reduction close to the central value of \NumCfgErrRedCentral\%. It is an empirical anchor for that value from yield data, independent of the agreement meta-analysis of Section~\ref{sec:S2}.
+
+The phenotypic adjustment is misleading. It reduced the residual variance in many trials, but it also removed a median share of \NumStandDeltaGNaiveMed{} of the genetic variance and lowered $h^2_w$ in most trials, because stand is itself heritable (median heritability \NumStandHtwoMed) and genetically correlated with yield (median genetic correlation \NumStandRgMed). Lines that establish and keep more plants also yield more, so regressing yield on recorded stand removes part of the genetic signal that selection is meant to find. The relevant quantity for selection is therefore the change in $h^2_w$ (or in $V_g/V_e$), not the change in $V_e$ alone, and a $\delta_e$ from a phenotypic covariate can report a gain where accuracy falls.
+
+\subsection{Caveats}
+
+Three caveats limit the transfer of this estimate to a smartphone tool. The stand variable is a harvest count, not an emergence count: it reflects emergence plus later, partly genotype-dependent plant loss to disease, drought, lodging and damage, so an early-season count from images would differ in both its error-reducing power and its genetic content. The within-genotype adjustment also requires replicated genotypes within a trial and a correct separation of genetic and non-genetic stand variation; a bivariate model of stand and yield would be the formal alternative. Finally, the plots are small and the trials are preliminary yield trials, so the estimate does not transfer to large-plot national performance trials. The analysis shows that an error reduction of the size the model uses is plausible for yield, not that any particular tool delivers it.
+
+%=================================================================
+\section{Breeder's equation versus simulation}
+\label{sec:S5}
+
+\subsection{Method}
+
+We compared the breeder's equation, the usual shortcut for valuing a phenotyping tool, with the stochastic simulation in every cell of the $h^2 \times \kappa$ robustness block (Section~\ref{sec:S6}). For each combination of $h^2$, $\kappa$, error reduction and cost reduction, the multi-stage breeder's equation predicts the per-cycle gain as $\sum_s i_s \sqrt{h^2_{\mathrm{eff},s}}\,\sigma_A$ (Section~\ref{sec:S7}), the same expression that drives the allocation search. The accuracy-only prediction applies the tool's error reduction to the manual program's optimal allocation, with no reallocation and no cost saving. The full prediction re-optimizes both programs under the budget, so it includes the cost channel and the tool fixed cost. The simulated uplift is the paired per-cycle difference averaged over cycle compression, which leaves per-cycle selection unchanged, divided by the manual program's gain. This comparison uses gain over the founder mean, the basis of the breeder's equation; the economic layer uses gain over the check varieties, on which per-cycle uplifts at low $h^2$ are two to three times larger. The simulated accuracy effect is the simulated uplift at a given error reduction minus that at zero error reduction and the same cost reduction. Intervals combine the Monte Carlo standard errors of the two cells.
+
+\subsection{Results}
+
+The breeder's equation gets the direction and shape right but overstates the accuracy effect (Fig.~\ref{fig:S3_be_vs_sim}a). Within each $h^2$, the full prediction and the simulated uplift correlated at \NumBEcorMin{} to \NumBEcorMax. Averaged over the two largest error reductions of the block, the simulated accuracy effect was \NumBEratioHtwoFive, \NumBEratioHtwoTen, \NumBEratioHtwoTwenty{} and \NumBEratioHtwoThirty{} times the accuracy-only prediction at the four heritability levels (\NumCfgRobHtwoLevels). The breeder's equation treats the candidates of every stage as an unselected population. In the pipeline, the observation nursery and the preliminary trial have already removed much of the genetic variance before the later stages select, so a given gain in accuracy moves less genetic value. The overstatement grows with $h^2$, plausibly because earlier stages then select more accurately and deplete more variance.
+
+The breeder's equation also misses how the cost channel depends on GxE (Fig.~\ref{fig:S3_be_vs_sim}b). At the central $h^2$ and a cost reduction of \NumBEcostRedMax\%, the simulated uplift rose from \NumBEcostKappaLoSim\% at the lowest $\kappa$ to \NumBEcostKappaHiSim\% at the highest, whereas the breeder's equation predicted \NumBEcostKappaLoBE\% and \NumBEcostKappaHiBE\%, a much flatter response that overstates the cost channel at low $\kappa$. Cheaper plots let the program test in more environments, and extra environments are worth more when GxE is large, because they average out the GxE variance of the genotype mean. The breeder's equation sees this interaction only through the effective heritability of each stage in isolation. Cycle compression is not part of this comparison, because its effect on annual gain, $L/(L-c)$, is the same closed form in both.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figS3_be_vs_sim.pdf}
+\caption{The breeder's equation overstates the accuracy effect and misses how the cost channel depends on GxE. (a) Per-cycle uplift from a \NumCfgErrRedMax\% error reduction at the smallest cost reduction of the block, by GxE-to-genetic variance ratio $\kappa$ (\NumCfgRobKappaLevels) within each plot-level heritability $h^2$ (\NumCfgRobHtwoLevels). Open circles: breeder's-equation prediction with the error reduction applied to the manual program's optimal allocation (accuracy only). Filled points and lines: simulated accuracy effect (uplift at this error reduction minus uplift at zero error reduction and the same cost reduction) with its 95\% interval. (b) Per-cycle uplift from a \NumBEcostRedMax\% cost reduction with no error reduction. Open circles: breeder's-equation prediction with both programs re-optimized under the budget. Filled points and lines: simulated uplift with its 95\% interval. Both panels use gain over the founder mean, the basis of the breeder's equation, and average the simulation over cycle compression, which does not change per-cycle selection. Fixed cost \NumCfgFixCostCentral{} USD and budget \NumCfgBudgetCentral{} USD per cycle; \NumNrepsPerCell{} replicates per cell.}
+\label{fig:S3_be_vs_sim}
+\end{figure}
+
+%=================================================================
+\section{Robustness blocks}
+\label{sec:S6}
+
+Three Layer~1 blocks test the assumptions that the main grid holds fixed (Table~\ref{tab:S_blocks}). Each uses the same pipeline, allocation search and common random numbers as the main grid, and each reports the per-cycle uplift of the tool program over the manual program on the check-variety basis.
+
+\subsection{Heritability and GxE block}
+
+\paragraph{Design} The block crosses four levels of plot heritability (\NumCfgRobHtwoLevels) with four levels of $\kappa$ (\NumCfgRobKappaLevels). Within each combination it crosses five levels of error reduction from zero to \NumCfgErrRedMax\%, three levels of cost reduction and four levels of compression from zero to \NumCfgCycMax{} years, at a fixed cost of USD \NumCfgFixCostCentral{} and a budget of USD \NumCfgBudgetCentral{} per cycle. It comprises \NumNcellsRobust{} profiles with \NumNrepsPerCell{} replicates each. The highest $\kappa$ corresponds to a between-environment genetic correlation of \NumCfgRobRhoLow. The block feeds the exchange rate between accuracy and time in the main text and the comparison of Section~\ref{sec:S5}. It is not part of the economic lookup table.
+
+\paragraph{Results} As the breeder's equation predicts, accuracy is worth more when heritability is low; the block gives the magnitudes. Averaged over $\kappa$, cost reduction and compression, the per-cycle uplift at zero error reduction was \NumRobUpliftHtwoFiveErrZero, \NumRobUpliftHtwoTenErrZero, \NumRobUpliftHtwoTwentyErrZero{} and \NumRobUpliftHtwoThirtyErrZero\% at the four heritability levels (\NumCfgRobHtwoLevels). At \NumCfgErrRedMax\% error reduction it was \NumRobUpliftHtwoFiveErrFifty, \NumRobUpliftHtwoTenErrFifty, \NumRobUpliftHtwoTwentyErrFifty{} and \NumRobUpliftHtwoThirtyErrFifty\%. Expressed as the months of cycle compression that raise annual gain by the same percentage, the central error reduction of \NumCfgErrRedCentral\% was worth \NumExchMoHtwoFiveErrTen, \NumExchMoHtwoTenErrTen, \NumExchMoHtwoTwentyErrTen{} and \NumExchMoHtwoThirtyErrTen{} months at the four heritability levels, and a \NumCfgErrRedMax\% reduction was worth \NumExchMoHtwoFiveErrFifty, \NumExchMoHtwoTenErrFifty, \NumExchMoHtwoTwentyErrFifty{} and \NumExchMoHtwoThirtyErrFifty{} months, more than a year at the two lowest heritabilities. The effect of error reduction changed little with $\kappa$, because the tool does not touch the GxE variance, whereas the cost channel grew with $\kappa$ (Section~\ref{sec:S5}). Across the block, the simulated manual program gained \NumRobManualGainPctMin{} to \NumRobManualGainPctMax\% of mean yield per year before calibration, about \NumRobManualGainFoldMin{} or more times the calibration target of \NumGainTargetPct\%, so heritability within the explored range cannot by itself explain the slow realized gain.
+
+\subsection{Environment-cost block}
+
+\paragraph{Design} The main cost model charges only per plot, so a cheaper plot buys more plots or environments without limit. Real trials also pay for site establishment, travel and management of each environment and stage. The environment-cost block adds such a charge, paid by both programs and not reduced by the tool, at USD \NumCfgEnvCostLevels{} per environment and stage. It uses the central $h^2$ and $\kappa$ and the same tool grid as the heritability and GxE block, for \NumNcellsEnvCost{} profiles. For each charge we regressed the per-cycle uplift on error reduction, cost reduction and compression by ordinary least squares and report the slopes per ten-point reduction.
+
+\paragraph{Results} A fixed charge per environment does not dilute either lever. Per ten-point error reduction, the per-cycle uplift rose by \NumEnvCostZeroErrSlope\% with no charge and by \NumEnvCostOneKErrSlope, \NumEnvCostTwoHalfKErrSlope{} and \NumEnvCostFiveKErrSlope\% at the three positive charges. Per ten-point cost reduction it rose by \NumEnvCostZeroCostSlope, \NumEnvCostOneKCostSlope, \NumEnvCostTwoHalfKCostSlope{} and \NumEnvCostFiveKCostSlope\%. The accuracy slope is somewhat larger with a charge than without, consistent with a program that buys fewer environments when each costs more, so that its effective heritability is lower and accuracy is worth more.
+
+\subsection{Stress block}
+
+\paragraph{Design} A tool may be noisier than the manual scoring it replaces. The stress block sets the error reduction to \NumCfgStressErr\%, so the tool's plot error variance exceeds the manual one. It crosses two cost reductions (\NumCfgCostRedMin{} and \NumCfgCostRedCentral\%) with three budgets (USD \NumCfgBudgetMin, \NumCfgBudgetCentral{} and \NumCfgBudgetMax), at the central $h^2$, $\kappa$ and fixed cost, for \NumNcellsStress{} profiles. The calibrated gains were valued in Layer~2 at zero to \NumCfgCycMax{} years of compression, applied in closed form, across the grid of price, discount rate and adoption ceiling at the baseline area.
+
+\paragraph{Results} In the simulation, a noisier tool loses value in most states unless it also shortens the cycle. Averaged over the block, the per-cycle uplift was \NumStressUpliftPct\%, ranging from \NumStressDiffMin\% to \NumStressDiffMax\% across profiles. The \NumCfgCostRedCentral\% cost reduction offset the extra noise at two of the three budgets, and the \NumCfgCostRedMin\% reduction at none. With no compression, the median NPV was \NumStressNPVCycZero{} million USD and NPV was positive in \NumStressPrPosCycZero\% of profile-state combinations. With one year of compression, the median NPV was \NumStressNPVCycOne{} million USD and NPV was positive in \NumStressPrPosCycOne\% of combinations. A pilot that finds a tool noisier than manual scoring therefore needs evidence on compression before the tool can be judged worth adopting.
+
+%=================================================================
+\section{Model details}
+\label{sec:S7}
+
+\subsection{Selection chain}
+
+Each stage selects on one phenotype per line, the mean over its $r$ replicates and $e$ environments. Let $\sigma^2_A$ be the genetic variance of the selection target and let the GxE variance be $\sigma^2_{GE} = \kappa\,\sigma^2_A$. With plot heritability $h^2 = \sigma^2_A/(\sigma^2_A+\sigma^2_\varepsilon)$, so that $\sigma^2_\varepsilon/\sigma^2_A = (1-h^2)/h^2$, the heritability of the line mean is
+\begin{equation}
+h^2_{\mathrm{eff}} = \frac{\sigma^2_A}{\sigma^2_A + \sigma^2_{GE}/e + \sigma^2_\varepsilon/(r\,e)} = \left[\, 1 + \frac{\kappa}{e} + \frac{1-h^2}{h^2\, r\, e} \,\right]^{-1}.
+\label{eq:S_heff}
+\end{equation}
+In the configuration the GxE parameter is entered as $1-\kappa$, so the central $\kappa$ of \NumCfgKappa{} appears as \NumCfgGxEOnstation; this parameter is not a correlation. The between-environment genetic correlation implied by $\kappa$ is $1/(1+\kappa)$. The error variance added to the true genetic value of each line is
+\begin{equation}
+\sigma^2_{\mathrm{ph}} = V_{\mathrm{ref}} \left( \frac{1}{h^2_{\mathrm{eff}}} - 1 \right),
+\label{eq:S_vare}
+\end{equation}
+where $V_{\mathrm{ref}}$ is the genetic variance of the F5 pool entering the observation nursery, computed once per program run. This error variance therefore stays fixed across stages while selection depletes genetic variance, so realized heritability falls from stage to stage, whereas $h^2_{\mathrm{eff}}$ keeps its meaning on the F5-line basis. The tool's error reduction $\delta$ scales the single-plot error variance by $(1-\delta)$ before averaging over replicates and environments. Normalizing the single-plot error variance to one gives $\sigma^2_A = h^2/(1-h^2)$, and the tool program replaces $h^2$ in Eq.~\eqref{eq:S_heff} by
+\begin{equation}
+h^2_{\mathrm{tool}} = \frac{\sigma^2_A}{\sigma^2_A + (1-\delta)}.
+\label{eq:S_htool}
+\end{equation}
+The GxE term is unchanged by the tool, and $\delta$ is negative for a tool noisier than manual scoring (Section~\ref{sec:S6}).
+
+The breeder's-equation approximation of per-cycle gain is $\hat{G} = \sum_s i_s \sqrt{h^2_{\mathrm{eff},s}}\,\sigma_A$, with $i_s = \phi(z_s)/p_s$ the selection intensity for a selected fraction $p_s$ and $z_s$ its standard normal quantile. It treats the candidates of every stage as an unselected normal pool. To isolate the effect of selection across stages, a seeded Monte Carlo of four sequential truncation stages in a normal model, on the manual program's optimal allocation at the central budget and with the error variance of each stage fixed on the F5-line basis as in Eq.~\eqref{eq:S_vare}, gives an uplift that includes variance depletion. At \NumCfgErrRedCentral\% error reduction, the breeder's-equation uplift on this fixed allocation was \NumChainBEUpliftErrTen\%, the sequential Monte Carlo gave \NumChainSeqUpliftErrTen\% (standard error \NumChainSeqUpliftSEErrTen) and the simulated accuracy effect on the founder-mean basis was \NumChainSimNetVsBaseErrTen\% (standard error \NumChainSimNetVsBaseSEErrTen). At \NumCfgErrRedMax\% the three values were \NumChainBEUpliftErrFifty, \NumChainSeqUpliftErrFifty{} and \NumChainSimNetVsBaseErrFifty\%. The sequential model comes close to the simulation, which points to variance depletion across stages as the main reason the breeder's equation overstates the accuracy effect (Section~\ref{sec:S5}). The simulated values here are the uplift at the lowest cost reduction of the main grid and its extensions (\NumChainSimCostRed\%), averaged over its \NumChainSimNcells{} profiles of compression, fixed cost and budget, minus that of the zero-error profiles at the same cost reduction.
+
+\subsection{Allocation search}
+
+Both programs spend the same budget per cycle. Trial cost is the sum over stages of lines $\times$ environments $\times$ replicates $\times$ cost per plot, plus a charge per environment and stage (zero except in the environment-cost block), plus the tool fixed cost, which is zero for the manual program. The manual cost per plot is USD \NumCfgCostPerPlot, and the tool's is that value multiplied by one minus the cost reduction. A grid search varies the size of the preliminary yield trial (PYT) from \NumCfgPYTmin{} to \NumCfgPYTmax{} lines in steps of \NumCfgPYTstep{} and its number of environments from one to \NumCfgPYTenvMax. The observation nursery (ON) size is \NumCfgONmult{} times the PYT size, capped at \NumCfgONcap{} lines and at the F5 pool of \NumCfgNcrosses{} crosses times \NumCfgNprogeny{} progeny per cross, and ON plots have one replicate in one environment. The advanced yield trial (AYT) and national performance trial (NPT) keep fixed capacities of \NumCfgStageAYTLines{} and \NumCfgStageNPTLines{} lines, with \NumCfgStageAYTReps{} replicates in \NumCfgStageAYTEnvs{} environments and \NumCfgStageNPTReps{} replicates in \NumCfgStageNPTEnvs{} environments, and the NPT selects \NumCfgNreleased{} lines for release. Because downstream capacity is fixed, a larger PYT means a smaller selected fraction at that stage and a stronger selection. Among the allocations that fit the budget, the search selects the one that maximizes $\hat{G}$. It is chosen once per program and tool profile and used in every replicate, and it trades the number of entries against replication \citep{Lorenz2013Resource,Cobb2019Enhancing}.
+
+\subsection{Monte Carlo design}
+
+Each cycle was simulated in AlphaSimR \citep{Gaynor2020Alphasimr} for a manual and a tool program in every replicate. The founder population has \NumCfgNfounders{} individuals on the \NumCfgNchr{} chromosomes of the common-bean genome \citep{Schmutz2014Reference}, with \NumCfgSegSites{} segregating sites and \NumCfgQTLperChr{} quantitative trait loci per chromosome. Random founder pairs produce F1 plants, which are advanced by \NumCfgNssd{} generations of single-seed descent before the ON. Genetic gain is the mean true genetic value of the released lines minus that of the check varieties, the top \NumCfgNreleased{} founders, which stand in for the elite varieties farmers grow; gain over the founder mean is kept as a secondary output. Both programs use common random numbers: within a replicate they start from the same founder population, and the generator is re-seeded with the same pipeline seed immediately before each program runs, so that crosses and generation advance are identical and noise largely cancels in the paired difference. Table~\ref{tab:S_blocks} lists the simulated blocks. The main grid and its two extensions together give \NumNcellsOK{} profiles at the central genetic parameters, each with \NumNrepsPerCell{} replicates.
+
+\begin{table}[!htbp]
+\centering
+\caption{Simulated blocks of the breeding model. Every profile was run with \NumNrepsPerCell{} paired replicates. ER: error reduction; CR: cost reduction.}
+\label{tab:S_blocks}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{1.4cm}@{}}
+\toprule
+Block & Varied factors & Profiles \\
+\midrule
+Main grid & ER, CR, compression, fixed cost and budget at the central $h^2$ and $\kappa$ & \NumNcellsMain \\
+Extension A & Zero ER with CR down to \NumCfgCostRedMin\% & \NumNcellsExtA \\
+Extension B & Positive ER with small CR & \NumNcellsExtB \\
+Heritability and GxE & $h^2$, $\kappa$, ER, CR and compression & \NumNcellsRobust \\
+Environment cost & Charge per environment, ER, CR and compression & \NumNcellsEnvCost \\
+Stress & ER of \NumCfgStressErr\%, CR and budget & \NumNcellsStress \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Software}
+
+Layer~1 was run on a computing cluster in R \NumRVersionHPC{} with AlphaSimR \NumAlphaSimRVersionHPC{} and data.table. Layer~2, the exact sensitivity and decision analyses, the robustness scenarios and the export of numbers were run in R \NumRVersionLocal{} with data.table, arrow and mvtnorm. The meta-analyses ran in R \NumRVersionMA{} with metafor \NummetaforVersion. The variance-component analyses used lme4 and glmmTMB. Figures were drawn in Python with matplotlib. A Makefile regenerates the Layer~2 outputs and the file of number macros, so every result number in the article and in this document is a generated macro. Code and data are archived on Zenodo at \url{https://doi.org/10.5281/zenodo.23197205}.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{../lit/refs}
+
 \end{document}

@@ -4,22 +4,32 @@
 # Every Layer-2 script resolves its Layer-1 input and its output directory
 # here, so switching model versions is one environment variable, not 20 edits.
 #
-#   TOOL_L1_SUBDIR  Layer-1 sweep subdir(s) under layer1_genetic_sim/outputs, comma-separated;
-#                  blocks are stacked into one grid (default: v2 main grid + extension blocks)
-#   TOOL_L2_OUT     Layer-2 output dir, relative to the project root       (default "layer2_economics/outputs_v2")
+#   TOOL_L1_SUBDIR     Layer-1 sweep subdir(s) under layer1_genetic_sim/outputs, comma-separated;
+#                     blocks are stacked into one grid (default: v3 main grid + extension blocks)
+#   TOOL_L2_OUT        Layer-2 output dir, relative to the project root (default "layer2_economics/outputs_v3")
+#   TOOL_ROBUST_SUBDIR h2 x GxE robustness block (default "sweep_v3_gxe")
+#   TOOL_STRESS_SUBDIR stress block, error reduction below zero (default "sweep_v3_stress")
+#
+# v2 (h2 0.30, GxE parameter 0.60): TOOL_L1_SUBDIR=sweep_v2,sweep_v2_extA,sweep_v2_extB
+# TOOL_L2_OUT=layer2_economics/outputs_v2 TOOL_ROBUST_SUBDIR=sweep_v2_robust TOOL_STRESS_SUBDIR=sweep_v2_stress
 #
 # The v1 results (layer2_economics/outputs, report/figures) are frozen: writing
 # there is refused. Reading v1 Layer 1 (TOOL_L1_SUBDIR=sweep) stays allowed.
 
-L1_DEFAULT_SUBDIRS <- "sweep_v2,sweep_v2_extA,sweep_v2_extB"
+L1_DEFAULT_SUBDIRS <- "sweep_v3,sweep_v3_extA,sweep_v3_extB"
 
 l1_summary_path <- function() {
   subs <- strsplit(Sys.getenv("TOOL_L1_SUBDIR", unset = L1_DEFAULT_SUBDIRS), ",")[[1]]
   file.path(getwd(), "layer1_genetic_sim/outputs", trimws(subs), "cell_summaries.csv")
 }
 
+l1_block_path <- function(var, default)
+  file.path(getwd(), "layer1_genetic_sim/outputs", Sys.getenv(var, unset = default), "cell_summaries.csv")
+robust_summary_path <- function() l1_block_path("TOOL_ROBUST_SUBDIR", "sweep_v3_gxe")
+stress_summary_path <- function() l1_block_path("TOOL_STRESS_SUBDIR", "sweep_v3_stress")
+
 l2_out_dir <- function() {
-  rel <- sub("/+$", "", Sys.getenv("TOOL_L2_OUT", unset = "layer2_economics/outputs_v2"))
+  rel <- sub("/+$", "", Sys.getenv("TOOL_L2_OUT", unset = "layer2_economics/outputs_v3"))
   if (normalizePath(file.path(getwd(), rel), mustWork = FALSE) ==
       normalizePath(file.path(getwd(), "layer2_economics/outputs"), mustWork = FALSE))
     stop("refusing to write Layer-2 results into the frozen v1 directory layer2_economics/outputs")

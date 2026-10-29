@@ -1,0 +1,31 @@
+\begin{table}[!htbp]
+\caption{Image-based phenotyping tools, including deep-learning tools, in the MA2 evidence: traits, crops, platforms, share of effects recorded in the field, and agreement with manual scoring. The correlation $r$ is the agreement between the tool and the manual score of the same plants, plots or samples; it is not the accuracy of the tool against the true value, because manual scores contain error. A setting is field when the source records a field trial or field plots, and controlled when the images were acquired in a greenhouse, a studio, on a bench or in a laboratory, including material taken from field trials.\label{tab:aitools}}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+\textbf{Group} & \textbf{Traits} & \textbf{Crops} & \textbf{Platforms or methods} & \textbf{Studies (effects)} & \textbf{Field, \emph{n}/\emph{N} (\%)} & \textbf{Pooled \emph{r} (95\% CI)} & \textbf{Median \emph{r} (range)}\\
+\midrule
+\multicolumn{8}{l}{\textit{A. By trait class}}\\
+Plant count & stand count, seedling emergence count, ears per image, ears per m$^2$ & common bean, wheat & UAV RGB + DL (1), UAV multispectral (1), camera (1), camera + DL (1) & 4 (8) & 8/8 (100) & 0.85 (0.69 to 0.93) & 0.81 (0.42 to 0.94)\\
+Height & plant height, canopy height & faba bean, maize, wheat & UAV RGB (3), smartphone + DL (1) & 4 (4) & 4/4 (100) & 0.95 (0.77 to 0.99) & 0.95 (0.83 to 0.98)\\
+Disease severity & frogeye leaf spot, Septoria tritici blotch, angular leaf spot & common bean, soybean, wheat & camera (2), scanner (1) & 3 (3) & 1/3 (33) & 0.68 ($-$0.29 to 0.96) & 0.69 (0.38 to 0.85)\\
+Seed size & seed area & soybean & smartphone (1) & 1 (2) & 0/2 (0) & -- & 0.23 (0.19 to 0.26)\\
+Seed or pod count & pods per plant & soybean & smartphone + DL (1) & 1 (1) & 0/1 (0) & -- & 0.97\\
+Senescence & canopy senescence & maize & UAV RGB (1) & 1 (1) & 1/1 (100) & -- & 0.64\\
+\midrule
+\multicolumn{8}{l}{\textit{B. By platform}}\\
+Smartphone & seed or pod count, height, seed size & maize, soybean & DL (2), other (1) & 3 (4) & 1/4 (25) & 0.91 ($-$0.50 to 1.00) & 0.61 (0.19 to 0.98)\\
+UAV RGB & plant count, height, senescence & common bean, faba bean, maize, wheat & other (4), DL (1) & 5 (5) & 5/5 (100) & 0.88 (0.58 to 0.97) & 0.83 (0.64 to 0.98)\\
+Camera & disease severity, plant count & common bean, soybean, wheat & other (3), DL (1) & 4 (8) & 7/8 (88) & 0.82 (0.66 to 0.91) & 0.81 (0.42 to 0.94)\\
+Other (scanner, UAV multispectral) & plant count, disease severity & wheat & other (2) & 2 (2) & 1/2 (50) & -- & 0.65 (0.38 to 0.93)\\
+\midrule
+\multicolumn{8}{l}{\textit{C. By analysis method}}\\
+Deep learning (DL) & plant count, seed or pod count, height & common bean, maize, soybean, wheat & smartphone + DL (2), UAV RGB + DL (1), camera + DL (1) & 4 (5) & 4/5 (80) & -- & 0.94 (0.79 to 0.98)\\
+Other image analysis & height, disease severity, plant count, seed size, senescence & common bean, faba bean, maize, soybean, wheat & UAV RGB (4), camera (3), UAV multispectral (1), scanner (1), smartphone (1) & 10 (14) & 10/14 (71) & -- & 0.76 (0.19 to 0.98)\\
+\midrule
+All primary effects & 6 trait classes & 5 crops & 5 platforms & 14 (19) & 14/19 (74) & 0.86 (0.73 to 0.93) & 0.83 (0.19 to 0.98)\\
+\bottomrule
+\end{tabularx}
+\par\smallskip\noindent{\footnotesize{Primary MA2 effects only (19 effects from 14 studies); each panel splits the same effects. Platforms (panels A and C) and analysis methods (panel B) are counted in studies; the studies are listed effect by effect in Table~\ref{tab:ma2appraisal}. Field: effects recorded in field conditions out of all effects in the group, classified from the setting recorded at extraction (rule in the caption); material from field plots is classified as field when the source does not state where it was imaged; this applies to one disease-severity study of leaflets \cite{Parrella2013Evaluation} and raises the field share of disease severity from 0/3 to 1/3. Pooled $r$: back-transformed random-effects mean of Fisher $z$ with its 95\% confidence interval, from the MA2 subgroup models ($I^2$ from 88.5 to 99.5\%); it is shown only where such a subgroup estimate exists, and the median alone is given otherwise. Median: median of the effect-level $r$ as entered (Pearson $r$, the square root of $R^2$ or Spearman $\rho$), with the minimum to maximum in parentheses. Plant count includes counts of plants, seedlings and ears. DL: deep learning, that is, a deep neural network (R-CNN, YOLO, DeepLab, DeepCount or Siamese network); other: thresholding, image-analysis software, photogrammetry or regression on spectral data.}}
+\end{table}

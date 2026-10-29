@@ -1,0 +1,575 @@
+\begin{thebibliography}{43}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Amongi et~al.(2025)Amongi, Aparicio, Nduwarugira, Ndabashinze,
+  Ruhebuza, Otsyula, Misango, Kamau, Karanja, Makoani, Uwera, Nestory, Nkalubo,
+  Kesiime, Moges, Tumsa, Mamo, Beebe and Mukankusi}]{Amongi2025Yield}
+\bibinfo{author}{Amongi, W.}, \bibinfo{author}{Aparicio, J.},
+  \bibinfo{author}{Nduwarugira, E.}, \bibinfo{author}{Ndabashinze, B.},
+  \bibinfo{author}{Ruhebuza, K.}, \bibinfo{author}{Otsyula, R.},
+  \bibinfo{author}{Misango, S.}, \bibinfo{author}{Kamau, E.},
+  \bibinfo{author}{Karanja, D.}, \bibinfo{author}{Makoani, W.M.},
+  \bibinfo{author}{Uwera, A.}, \bibinfo{author}{Nestory, S.},
+  \bibinfo{author}{Nkalubo, S.}, \bibinfo{author}{Kesiime, E.},
+  \bibinfo{author}{Moges, A.}, \bibinfo{author}{Tumsa, K.},
+  \bibinfo{author}{Mamo, T.}, \bibinfo{author}{Beebe, S.},
+  \bibinfo{author}{Mukankusi, C.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Yield and climatic parameters in a common bean
+  ({Phaseolus} vulgaris {L}.) regional trial}.
+\newblock \bibinfo{journal}{Crop Science} \bibinfo{volume}{65}.
+\newblock \DOIprefix\doi{10.1002/csc2.70037}.
+%Type = Article
+\bibitem[{Amongi et~al.(2023)Amongi, Kato, Male, Nakyanzi, Sebuliba, Kabwama,
+  Mbiu, Williams, Baguma and Mukankusi}]{Amongi2023Gain}
+\bibinfo{author}{Amongi, W.}, \bibinfo{author}{Kato, F.},
+  \bibinfo{author}{Male, A.}, \bibinfo{author}{Nakyanzi, B.},
+  \bibinfo{author}{Sebuliba, S.}, \bibinfo{author}{Kabwama, A.},
+  \bibinfo{author}{Mbiu, J.}, \bibinfo{author}{Williams, M.},
+  \bibinfo{author}{Baguma, G.}, \bibinfo{author}{Mukankusi, C.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Gain and performance in yield and micronutrient
+  concentration in common bean improvement}.
+\newblock \bibinfo{journal}{African Crop Science Journal} \bibinfo{volume}{31},
+  \bibinfo{pages}{85–111}.
+\newblock \DOIprefix\doi{10.4314/acsj.v31i1.8}.
+%Type = Article
+\bibitem[{Amongi et~al.(2019)Amongi, Mukankusi, Sebuliba, Nakyanzi, Naluwooza
+  and Baguma}]{Amongi2019Yield}
+\bibinfo{author}{Amongi, W.}, \bibinfo{author}{Mukankusi, C.},
+  \bibinfo{author}{Sebuliba, S.}, \bibinfo{author}{Nakyanzi, B.},
+  \bibinfo{author}{Naluwooza, C.}, \bibinfo{author}{Baguma, G.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Yield and response of bean breeding lines for drought
+  tolerance to field diseases}.
+\newblock \bibinfo{journal}{Journal of Agricultural Science}
+  \bibinfo{volume}{11}, \bibinfo{pages}{81}.
+\newblock \DOIprefix\doi{10.5539/jas.v11n13p81}.
+%Type = Article
+\bibitem[{Asea et~al.(2023)Asea, Kwemoi, Sneller, Kasozi, Das, Musundire,
+  Makumbi, Beyene and Prasanna}]{Asea2023Genetic}
+\bibinfo{author}{Asea, G.}, \bibinfo{author}{Kwemoi, D.B.},
+  \bibinfo{author}{Sneller, C.}, \bibinfo{author}{Kasozi, C.L.},
+  \bibinfo{author}{Das, B.}, \bibinfo{author}{Musundire, L.},
+  \bibinfo{author}{Makumbi, D.}, \bibinfo{author}{Beyene, Y.},
+  \bibinfo{author}{Prasanna, B.M.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Genetic trends for yield and key agronomic traits in
+  pre-commercial and commercial maize varieties between 2008 and 2020 in
+  {Uganda}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{14}.
+\newblock \DOIprefix\doi{10.3389/fpls.2023.1020667}.
+%Type = Article
+\bibitem[{Banerjee et~al.(2021)Banerjee, Sharma, Spangenberg and
+  Kant}]{Banerjee2021Machine}
+\bibinfo{author}{Banerjee, B.P.}, \bibinfo{author}{Sharma, V.},
+  \bibinfo{author}{Spangenberg, G.}, \bibinfo{author}{Kant, S.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Machine {Learning} {Regression} {Analysis} for
+  {Estimation} of {Crop} {Emergence} {Using} {Multispectral} {UAV} {Imagery}}.
+\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{13},
+  \bibinfo{pages}{2918}.
+\newblock \DOIprefix\doi{10.3390/rs13152918}.
+%Type = Article
+\bibitem[{Chiorato et~al.(2010)Chiorato, Carbonell, Vencovsky, Fonseca~Júnior
+  and Pinheiro}]{Chiorato2010Genetic}
+\bibinfo{author}{Chiorato, A.F.}, \bibinfo{author}{Carbonell, S.A.M.},
+  \bibinfo{author}{Vencovsky, R.}, \bibinfo{author}{Fonseca~Júnior, N.d.S.},
+  \bibinfo{author}{Pinheiro, J.B.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Genetic gain in the breeding program of common beans
+  at {IAC} from 1989 to 2007}.
+\newblock \bibinfo{journal}{Crop Breeding and Applied Biotechnology}
+  \bibinfo{volume}{10}, \bibinfo{pages}{329–336}.
+\newblock \DOIprefix\doi{10.1590/s1984-70332010000400007}.
+%Type = Article
+\bibitem[{Cobb et~al.(2019)Cobb, Juma, Biswas, Arbelaez, Rutkoski, Atlin,
+  Hagen, Quinn and Ng}]{Cobb2019Enhancing}
+\bibinfo{author}{Cobb, J.N.}, \bibinfo{author}{Juma, R.U.},
+  \bibinfo{author}{Biswas, P.S.}, \bibinfo{author}{Arbelaez, J.D.},
+  \bibinfo{author}{Rutkoski, J.}, \bibinfo{author}{Atlin, G.},
+  \bibinfo{author}{Hagen, T.}, \bibinfo{author}{Quinn, M.},
+  \bibinfo{author}{Ng, E.H.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Enhancing the rate of genetic gain in public-sector
+  plant breeding programs: lessons from the breeder’s equation}.
+\newblock \bibinfo{journal}{Theoretical and Applied Genetics}
+  \bibinfo{volume}{132}, \bibinfo{pages}{627–645}.
+\newblock \DOIprefix\doi{10.1007/s00122-019-03317-0}.
+%Type = Article
+\bibitem[{DeBruin et~al.(2025)DeBruin, Aref, Tirado~Tolosa, Hensley, Underwood,
+  McGuire, Soman, Nystrom, Parkinson, Li, Moose and
+  Chowdhary}]{DeBruin2025Breaking}
+\bibinfo{author}{DeBruin, J.}, \bibinfo{author}{Aref, T.},
+  \bibinfo{author}{Tirado~Tolosa, S.}, \bibinfo{author}{Hensley, R.},
+  \bibinfo{author}{Underwood, H.}, \bibinfo{author}{McGuire, M.},
+  \bibinfo{author}{Soman, C.}, \bibinfo{author}{Nystrom, G.},
+  \bibinfo{author}{Parkinson, E.}, \bibinfo{author}{Li, C.},
+  \bibinfo{author}{Moose, S.P.}, \bibinfo{author}{Chowdhary, G.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Breaking the field phenotyping bottleneck in maize
+  with autonomous robots}.
+\newblock \bibinfo{journal}{Communications Biology} \bibinfo{volume}{8}.
+\newblock \DOIprefix\doi{10.1038/s42003-025-07890-7}.
+%Type = Article
+\bibitem[{de~Faria et~al.(2018)de~Faria, Melo, de~Souza, Pereira and
+  Melo}]{deFaria2018Efficiency}
+\bibinfo{author}{de~Faria, L.C.}, \bibinfo{author}{Melo, P.G.S.},
+  \bibinfo{author}{de~Souza, T.L.P.O.}, \bibinfo{author}{Pereira, H.S.},
+  \bibinfo{author}{Melo, L.C.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Efficiency of methods for genetic progress estimation
+  in common bean breeding using database information}.
+\newblock \bibinfo{journal}{Euphytica} \bibinfo{volume}{214}.
+\newblock \DOIprefix\doi{10.1007/s10681-018-2246-8}.
+%Type = Article
+\bibitem[{Fernandez-Gallego et~al.(2018)Fernandez-Gallego, Kefauver,
+  Gutiérrez, Nieto-Taladriz and Araus}]{FernandezGallego2018Wheat}
+\bibinfo{author}{Fernandez-Gallego, J.A.}, \bibinfo{author}{Kefauver, S.C.},
+  \bibinfo{author}{Gutiérrez, N.A.}, \bibinfo{author}{Nieto-Taladriz, M.T.},
+  \bibinfo{author}{Araus, J.L.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Wheat ear counting in-field conditions: high
+  throughput and low-cost approach using {RGB} images}.
+\newblock \bibinfo{journal}{Plant Methods} \bibinfo{volume}{14}.
+\newblock \DOIprefix\doi{10.1186/s13007-018-0289-4}.
+%Type = Article
+\bibitem[{Gaynor et~al.(2021)Gaynor, Gorjanc and Hickey}]{Gaynor2020Alphasimr}
+\bibinfo{author}{Gaynor, R.C.}, \bibinfo{author}{Gorjanc, G.},
+  \bibinfo{author}{Hickey, J.M.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{{AlphaSimR}: an {R} package for breeding program
+  simulations}.
+\newblock \bibinfo{journal}{G3 Genes|Genomes|Genetics} \bibinfo{volume}{11}.
+\newblock \DOIprefix\doi{10.1093/g3journal/jkaa017}.
+%Type = Misc
+\bibitem[{Gijare et~al.(2026)Gijare, S, Trivedi, Bhangare, Gobade, Sarode,
+  Khade, Oak, Pawar and Patil}]{Gijare2026Assessing}
+\bibinfo{author}{Gijare, S.}, \bibinfo{author}{S, A.},
+  \bibinfo{author}{Trivedi, P.}, \bibinfo{author}{Bhangare, V.},
+  \bibinfo{author}{Gobade, A.}, \bibinfo{author}{Sarode, J.},
+  \bibinfo{author}{Khade, V.}, \bibinfo{author}{Oak, M.D.},
+  \bibinfo{author}{Pawar, D.}, \bibinfo{author}{Patil, A.S.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Assessing image based high throughput phenotyping for
+  accurate characterization of soybean seed morphology}.
+\newblock \bibinfo{howpublished}{Preprint}.
+\newblock \DOIprefix\doi{10.21203/rs.3.rs-10685107/v1}.
+%Type = Article
+\bibitem[{Guo et~al.(2025)Guo, Pan, Wang, Deng, Yang, Liu, Chen and
+  Zhu}]{Guo2025Dlmlpc}
+\bibinfo{author}{Guo, Y.}, \bibinfo{author}{Pan, J.}, \bibinfo{author}{Wang,
+  X.}, \bibinfo{author}{Deng, H.}, \bibinfo{author}{Yang, M.},
+  \bibinfo{author}{Liu, E.}, \bibinfo{author}{Chen, Q.}, \bibinfo{author}{Zhu,
+  R.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{{DLML-PC}: an automated deep learning and metric
+  learning approach for precise soybean pod classification and counting in
+  intact plants}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{16}.
+\newblock \DOIprefix\doi{10.3389/fpls.2025.1583526}.
+%Type = Article
+\bibitem[{Haghighattalab et~al.(2016)Haghighattalab, González~Pérez, Mondal,
+  Singh, Schinstock, Rutkoski, Ortiz-Monasterio, Singh, Goodin and
+  Poland}]{Haghighattalab2016Application}
+\bibinfo{author}{Haghighattalab, A.}, \bibinfo{author}{González~Pérez, L.},
+  \bibinfo{author}{Mondal, S.}, \bibinfo{author}{Singh, D.},
+  \bibinfo{author}{Schinstock, D.}, \bibinfo{author}{Rutkoski, J.},
+  \bibinfo{author}{Ortiz-Monasterio, I.}, \bibinfo{author}{Singh, R.P.},
+  \bibinfo{author}{Goodin, D.}, \bibinfo{author}{Poland, J.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Application of unmanned aerial systems for high
+  throughput phenotyping of large wheat breeding nurseries}.
+\newblock \bibinfo{journal}{Plant Methods} \bibinfo{volume}{12}.
+\newblock \DOIprefix\doi{10.1186/s13007-016-0134-6}.
+%Type = Article
+\bibitem[{Jahufer et~al.(2021)Jahufer, Arojju, Faville, Ghamkhar, Luo, Arief,
+  Yang, Sun, DeLacy, Griffiths, Eady, Clayton, Stewart, George, Hoyos-Villegas,
+  Basford and Barrett}]{Jahufer2021Deterministic}
+\bibinfo{author}{Jahufer, M.Z.Z.}, \bibinfo{author}{Arojju, S.K.},
+  \bibinfo{author}{Faville, M.J.}, \bibinfo{author}{Ghamkhar, K.},
+  \bibinfo{author}{Luo, D.}, \bibinfo{author}{Arief, V.},
+  \bibinfo{author}{Yang, W.H.}, \bibinfo{author}{Sun, M.},
+  \bibinfo{author}{DeLacy, I.H.}, \bibinfo{author}{Griffiths, A.G.},
+  \bibinfo{author}{Eady, C.}, \bibinfo{author}{Clayton, W.},
+  \bibinfo{author}{Stewart, A.V.}, \bibinfo{author}{George, R.M.},
+  \bibinfo{author}{Hoyos-Villegas, V.}, \bibinfo{author}{Basford, K.E.},
+  \bibinfo{author}{Barrett, B.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Deterministic and stochastic modelling of impacts
+  from genomic selection and phenomics on genetic gain for perennial ryegrass
+  dry matter yield}.
+\newblock \bibinfo{journal}{Scientific Reports} \bibinfo{volume}{11},
+  \bibinfo{pages}{13265}.
+\newblock \DOIprefix\doi{10.1038/s41598-021-92537-w}.
+%Type = Misc
+\bibitem[{Karisto et~al.(2017)Karisto, Hund, Yu, Anderegg, Walter, Mascher,
+  McDonald and Mikaberidze}]{Karisto2017Ranking}
+\bibinfo{author}{Karisto, P.}, \bibinfo{author}{Hund, A.}, \bibinfo{author}{Yu,
+  K.}, \bibinfo{author}{Anderegg, J.}, \bibinfo{author}{Walter, A.},
+  \bibinfo{author}{Mascher, F.}, \bibinfo{author}{McDonald, B.A.},
+  \bibinfo{author}{Mikaberidze, A.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Ranking quantitative resistance to {Septoria} tritici
+  blotch in elite wheat cultivars using automated image analysis}.
+\newblock \bibinfo{howpublished}{Preprint}.
+\newblock \DOIprefix\doi{10.1101/129353}.
+%Type = Article
+\bibitem[{Komyshev et~al.(2016)Komyshev, Genaev and
+  Afonnikov}]{Komyshev2017Evaluation}
+\bibinfo{author}{Komyshev, E.}, \bibinfo{author}{Genaev, M.},
+  \bibinfo{author}{Afonnikov, D.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Evaluation of the {SeedCounter}, {A} {Mobile}
+  {Application} for {Grain} {Phenotyping}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{7}.
+\newblock \DOIprefix\doi{10.3389/fpls.2016.01990}.
+%Type = Article
+\bibitem[{Lane and Murray(2021)}]{Lane2021High}
+\bibinfo{author}{Lane, H.M.}, \bibinfo{author}{Murray, S.C.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{High throughput can produce better decisions than
+  high accuracy when phenotyping plant populations}.
+\newblock \bibinfo{journal}{Crop Science} \bibinfo{volume}{61},
+  \bibinfo{pages}{3301--3313}.
+\newblock \DOIprefix\doi{10.1002/csc2.20514}.
+%Type = Article
+\bibitem[{Lasdun et~al.(2024)Lasdun, Güereña, Ortiz-Crespo, Mutuvi, Selvaraj
+  and Assefa}]{Lasdun2024Participatory}
+\bibinfo{author}{Lasdun, V.}, \bibinfo{author}{Güereña, D.},
+  \bibinfo{author}{Ortiz-Crespo, B.}, \bibinfo{author}{Mutuvi, S.},
+  \bibinfo{author}{Selvaraj, M.}, \bibinfo{author}{Assefa, T.},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Participatory {AI} for inclusive crop improvement}.
+\newblock \bibinfo{journal}{Agricultural Systems} \bibinfo{volume}{220},
+  \bibinfo{pages}{104054}.
+\newblock \DOIprefix\doi{10.1016/j.agsy.2024.104054}.
+%Type = Article
+\bibitem[{Liu et~al.(2021)Liu, Yu, Wu, Ye, Feng, Liu and
+  Yang}]{Liu2021Pocketmaize}
+\bibinfo{author}{Liu, L.}, \bibinfo{author}{Yu, L.}, \bibinfo{author}{Wu, D.},
+  \bibinfo{author}{Ye, J.}, \bibinfo{author}{Feng, H.}, \bibinfo{author}{Liu,
+  Q.}, \bibinfo{author}{Yang, W.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{{PocketMaize}: {An} {Android-Smartphone}
+  {Application} for {Maize} {Plant} {Phenotyping}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{12}.
+\newblock \DOIprefix\doi{10.3389/fpls.2021.770217}.
+%Type = Article
+\bibitem[{Lorenz(2013)}]{Lorenz2013Resource}
+\bibinfo{author}{Lorenz, A.J.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Resource {Allocation} for {Maximizing} {Prediction}
+  {Accuracy} and {Genetic} {Gain} of {Genomic} {Selection} in {Plant}
+  {Breeding}: {A} {Simulation} {Experiment}}.
+\newblock \bibinfo{journal}{G3 Genes|Genomes|Genetics} \bibinfo{volume}{3},
+  \bibinfo{pages}{481–491}.
+\newblock \DOIprefix\doi{10.1534/g3.112.004911}.
+%Type = Article
+\bibitem[{Makanza et~al.(2018)Makanza, Zaman-Allah, Cairns, Magorokosho,
+  Tarekegne, Olsen and Prasanna}]{Makanza2018Highthroughput}
+\bibinfo{author}{Makanza, R.}, \bibinfo{author}{Zaman-Allah, M.},
+  \bibinfo{author}{Cairns, J.}, \bibinfo{author}{Magorokosho, C.},
+  \bibinfo{author}{Tarekegne, A.}, \bibinfo{author}{Olsen, M.},
+  \bibinfo{author}{Prasanna, B.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{{High-Throughput} {Phenotyping} of {Canopy} {Cover}
+  and {Senescence} in {Maize} {Field} {Trials} {Using} {Aerial} {Digital}
+  {Canopy} {Imaging}}.
+\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{10},
+  \bibinfo{pages}{330}.
+\newblock \DOIprefix\doi{10.3390/rs10020330}.
+%Type = Article
+\bibitem[{McDonald et~al.(2022)McDonald, Buck and Li}]{McDonald2022Automated}
+\bibinfo{author}{McDonald, S.C.}, \bibinfo{author}{Buck, J.},
+  \bibinfo{author}{Li, Z.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Automated, image-based disease measurement for
+  phenotyping resistance to soybean frogeye leaf spot}.
+\newblock \bibinfo{journal}{Plant Methods} \bibinfo{volume}{18}.
+\newblock \DOIprefix\doi{10.1186/s13007-022-00934-7}.
+%Type = Article
+\bibitem[{Menkir et~al.(2022)Menkir, Dieng, Meseka, Bossey, Mengesha,
+  Muhyideen, Riberio, Coulibaly, Yacoubou, Bankole, Adu and
+  Ojo}]{Menkir2022Estimating}
+\bibinfo{author}{Menkir, A.}, \bibinfo{author}{Dieng, I.},
+  \bibinfo{author}{Meseka, S.}, \bibinfo{author}{Bossey, B.},
+  \bibinfo{author}{Mengesha, W.}, \bibinfo{author}{Muhyideen, O.},
+  \bibinfo{author}{Riberio, P.F.}, \bibinfo{author}{Coulibaly, M.},
+  \bibinfo{author}{Yacoubou, A.M.}, \bibinfo{author}{Bankole, F.A.},
+  \bibinfo{author}{Adu, G.B.}, \bibinfo{author}{Ojo, T.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Estimating genetic gains for tolerance to stress
+  combinations in tropical maize hybrids}.
+\newblock \bibinfo{journal}{Frontiers in Genetics} \bibinfo{volume}{13}.
+\newblock \DOIprefix\doi{10.3389/fgene.2022.1023318}.
+%Type = Article
+\bibitem[{Mohammadi et~al.(2024)Mohammadi, Uhlen, Lillemo, Ergon and
+  Shafiee}]{Mohammadi2024Enhancing}
+\bibinfo{author}{Mohammadi, S.}, \bibinfo{author}{Uhlen, A.K.},
+  \bibinfo{author}{Lillemo, M.}, \bibinfo{author}{Ergon, {\AA}.},
+  \bibinfo{author}{Shafiee, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Enhancing phenotyping efficiency in faba bean
+  breeding: integrating {UAV} imaging and machine learning}.
+\newblock \bibinfo{journal}{Precision Agriculture} \bibinfo{volume}{25},
+  \bibinfo{pages}{1502–1528}.
+\newblock \DOIprefix\doi{10.1007/s11119-024-10121-4}.
+%Type = Article
+\bibitem[{Mukaro et~al.(2024)Mukaro, Chaingeni, Sneller, Cairns, Musundire,
+  Prasanna, Mavankeni, Das, Mulanya, Chivasa, Mhike, Ndhlela, Matongera,
+  Matova, Muungani, Mutimaamba, Wegary, Zaman-Allah, Magorokosho, Chingwara and
+  Kutywayo}]{Mukaro2024Genetic}
+\bibinfo{author}{Mukaro, R.}, \bibinfo{author}{Chaingeni, D.},
+  \bibinfo{author}{Sneller, C.}, \bibinfo{author}{Cairns, J.E.},
+  \bibinfo{author}{Musundire, L.}, \bibinfo{author}{Prasanna, B.M.},
+  \bibinfo{author}{Mavankeni, B.O.}, \bibinfo{author}{Das, B.},
+  \bibinfo{author}{Mulanya, M.}, \bibinfo{author}{Chivasa, W.},
+  \bibinfo{author}{Mhike, X.}, \bibinfo{author}{Ndhlela, T.},
+  \bibinfo{author}{Matongera, N.}, \bibinfo{author}{Matova, P.M.},
+  \bibinfo{author}{Muungani, D.}, \bibinfo{author}{Mutimaamba, C.},
+  \bibinfo{author}{Wegary, D.}, \bibinfo{author}{Zaman-Allah, M.},
+  \bibinfo{author}{Magorokosho, C.}, \bibinfo{author}{Chingwara, V.},
+  \bibinfo{author}{Kutywayo, D.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Genetic trends in the {Zimbabwe’s} national maize
+  breeding program over two decades}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{15}.
+\newblock \DOIprefix\doi{10.3389/fpls.2024.1391926}.
+%Type = Article
+\bibitem[{Mwanje et~al.(2026)Mwanje, Tusubira, Nakatumba-Nabende, Kanaabi,
+  Serebe, Shah, Swennen, Brown and Nakato}]{Mwanje2026Digital}
+\bibinfo{author}{Mwanje, G.}, \bibinfo{author}{Tusubira, J.F.},
+  \bibinfo{author}{Nakatumba-Nabende, J.}, \bibinfo{author}{Kanaabi, R.},
+  \bibinfo{author}{Serebe, C.}, \bibinfo{author}{Shah, T.},
+  \bibinfo{author}{Swennen, R.}, \bibinfo{author}{Brown, A.},
+  \bibinfo{author}{Nakato, G.V.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Digital assessment of banana ({Musa} spp.) genotype
+  resistance to banana weevil ({Cosmopolites} sordidus) compared with expert
+  visual assessment}.
+\newblock \bibinfo{journal}{PLOS One} \bibinfo{volume}{21},
+  \bibinfo{pages}{e0352433}.
+\newblock \DOIprefix\doi{10.1371/journal.pone.0352433}.
+%Type = Article
+\bibitem[{Parrella et~al.(2013)Parrella, Santos, Parrella and
+  Silva}]{Parrella2013Evaluation}
+\bibinfo{author}{Parrella, R.A.d.C.}, \bibinfo{author}{Santos, J.B.d.},
+  \bibinfo{author}{Parrella, N.N.L.D.}, \bibinfo{author}{Silva, D.V.F.e.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Evaluation efficiency of severity of angular leaf
+  spot in common bean based on diseased and healthy leaf area}.
+\newblock \bibinfo{journal}{Crop Breeding and Applied Biotechnology}
+  \bibinfo{volume}{13}, \bibinfo{pages}{178–185}.
+\newblock \DOIprefix\doi{10.1590/s1984-70332013000300005}.
+%Type = Article
+\bibitem[{Peixoto et~al.(2023)Peixoto, Coelho, Leach, Bhering and
+  Resende}]{Peixoto2023Simulationbased}
+\bibinfo{author}{Peixoto, M.A.}, \bibinfo{author}{Coelho, I.F.},
+  \bibinfo{author}{Leach, K.A.}, \bibinfo{author}{Bhering, L.L.},
+  \bibinfo{author}{Resende, M.F.R.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Simulation-based decision-making and implementation
+  of tools in hybrid crop breeding pipelines}.
+\newblock \bibinfo{journal}{Crop Science} \bibinfo{volume}{64},
+  \bibinfo{pages}{110--125}.
+\newblock \DOIprefix\doi{10.1002/csc2.21139}.
+%Type = Article
+\bibitem[{Reynolds et~al.(2019)Reynolds, Baret, Welcker, Bostrom, Ball,
+  Cellini, Lorence, Chawade, Khafif, Noshita, Mueller-Linow, Zhou and
+  Tardieu}]{Reynolds2019Costefficient}
+\bibinfo{author}{Reynolds, D.}, \bibinfo{author}{Baret, F.},
+  \bibinfo{author}{Welcker, C.}, \bibinfo{author}{Bostrom, A.},
+  \bibinfo{author}{Ball, J.}, \bibinfo{author}{Cellini, F.},
+  \bibinfo{author}{Lorence, A.}, \bibinfo{author}{Chawade, A.},
+  \bibinfo{author}{Khafif, M.}, \bibinfo{author}{Noshita, K.},
+  \bibinfo{author}{Mueller-Linow, M.}, \bibinfo{author}{Zhou, J.},
+  \bibinfo{author}{Tardieu, F.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{What is cost-efficient phenotyping? {Optimizing}
+  costs for different scenarios}.
+\newblock \bibinfo{journal}{Plant Science} \bibinfo{volume}{282},
+  \bibinfo{pages}{14–22}.
+\newblock \DOIprefix\doi{10.1016/j.plantsci.2018.06.015}.
+%Type = Article
+\bibitem[{Sadeghi-Tehran et~al.(2019)Sadeghi-Tehran, Virlet, Ampe, Reyns and
+  Hawkesford}]{SadeghiTehran2019Deepcount}
+\bibinfo{author}{Sadeghi-Tehran, P.}, \bibinfo{author}{Virlet, N.},
+  \bibinfo{author}{Ampe, E.M.}, \bibinfo{author}{Reyns, P.},
+  \bibinfo{author}{Hawkesford, M.J.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{DeepCount}: {In-Field} {Automatic} {Quantification}
+  of {Wheat} {Spikes} {Using} {Simple} {Linear} {Iterative} {Clustering} and
+  {Deep} {Convolutional} {Neural} {Networks}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{10}.
+\newblock \DOIprefix\doi{10.3389/fpls.2019.01176}.
+%Type = Article
+\bibitem[{Saradadevi et~al.(2021)Saradadevi, Mukankusi, Li, Amongi, Mbiu,
+  Raatz, Ariza, Beebe, Varshney, Huttner, Kinghorn, Banks, Rubyogo, Siddique
+  and Cowling}]{Saradadevi2021Multivariate}
+\bibinfo{author}{Saradadevi, R.}, \bibinfo{author}{Mukankusi, C.},
+  \bibinfo{author}{Li, L.}, \bibinfo{author}{Amongi, W.},
+  \bibinfo{author}{Mbiu, J.P.}, \bibinfo{author}{Raatz, B.},
+  \bibinfo{author}{Ariza, D.}, \bibinfo{author}{Beebe, S.},
+  \bibinfo{author}{Varshney, R.K.}, \bibinfo{author}{Huttner, E.},
+  \bibinfo{author}{Kinghorn, B.}, \bibinfo{author}{Banks, R.},
+  \bibinfo{author}{Rubyogo, J.C.}, \bibinfo{author}{Siddique, K.H.M.},
+  \bibinfo{author}{Cowling, W.A.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Multivariate genomic analysis and optimal
+  contributions selection predicts high genetic gains in cooking time, iron,
+  zinc, and grain yield in common beans in {East Africa}}.
+\newblock \bibinfo{journal}{The Plant Genome} \bibinfo{volume}{14},
+  \bibinfo{pages}{e20156}.
+\newblock \DOIprefix\doi{10.1002/tpg2.20156}.
+%Type = Article
+\bibitem[{Schmutz et~al.(2014)Schmutz, McClean, Mamidi, Wu, Cannon, Grimwood,
+  Jenkins, Shu, Song, Chavarro, Torres-Torres, Geffroy, Moghaddam, Gao,
+  Abernathy, Barry, Blair, Brick, Chovatia, Gepts, Goodstein, Gonzales,
+  Hellsten, Hyten, Jia, Kelly, Kudrna, Lee, Richard, Miklas, Osorno, Rodrigues,
+  Thareau, Urrea, Wang, Yu, Zhang, Wing, Cregan, Rokhsar and
+  Jackson}]{Schmutz2014Reference}
+\bibinfo{author}{Schmutz, J.}, \bibinfo{author}{McClean, P.E.},
+  \bibinfo{author}{Mamidi, S.}, \bibinfo{author}{Wu, G.A.},
+  \bibinfo{author}{Cannon, S.B.}, \bibinfo{author}{Grimwood, J.},
+  \bibinfo{author}{Jenkins, J.}, \bibinfo{author}{Shu, S.},
+  \bibinfo{author}{Song, Q.}, \bibinfo{author}{Chavarro, C.},
+  \bibinfo{author}{Torres-Torres, M.}, \bibinfo{author}{Geffroy, V.},
+  \bibinfo{author}{Moghaddam, S.M.}, \bibinfo{author}{Gao, D.},
+  \bibinfo{author}{Abernathy, B.}, \bibinfo{author}{Barry, K.},
+  \bibinfo{author}{Blair, M.}, \bibinfo{author}{Brick, M.A.},
+  \bibinfo{author}{Chovatia, M.}, \bibinfo{author}{Gepts, P.},
+  \bibinfo{author}{Goodstein, D.M.}, \bibinfo{author}{Gonzales, M.},
+  \bibinfo{author}{Hellsten, U.}, \bibinfo{author}{Hyten, D.L.},
+  \bibinfo{author}{Jia, G.}, \bibinfo{author}{Kelly, J.D.},
+  \bibinfo{author}{Kudrna, D.}, \bibinfo{author}{Lee, R.},
+  \bibinfo{author}{Richard, M.M.S.}, \bibinfo{author}{Miklas, P.N.},
+  \bibinfo{author}{Osorno, J.M.}, \bibinfo{author}{Rodrigues, J.},
+  \bibinfo{author}{Thareau, V.}, \bibinfo{author}{Urrea, C.A.},
+  \bibinfo{author}{Wang, M.}, \bibinfo{author}{Yu, Y.}, \bibinfo{author}{Zhang,
+  M.}, \bibinfo{author}{Wing, R.A.}, \bibinfo{author}{Cregan, P.B.},
+  \bibinfo{author}{Rokhsar, D.S.}, \bibinfo{author}{Jackson, S.A.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{A reference genome for common bean and genome-wide
+  analysis of dual domestications}.
+\newblock \bibinfo{journal}{Nature Genetics} \bibinfo{volume}{46},
+  \bibinfo{pages}{707–713}.
+\newblock \DOIprefix\doi{10.1038/ng.3008}.
+%Type = Article
+\bibitem[{Tanger et~al.(2017)Tanger, Klassen, Mojica, Lovell, Moyers,
+  Baraoidan, Naredo, McNally, Poland, Bush, Leung, Leach and
+  McKay}]{Tanger2017Fieldbased}
+\bibinfo{author}{Tanger, P.}, \bibinfo{author}{Klassen, S.},
+  \bibinfo{author}{Mojica, J.P.}, \bibinfo{author}{Lovell, J.T.},
+  \bibinfo{author}{Moyers, B.T.}, \bibinfo{author}{Baraoidan, M.},
+  \bibinfo{author}{Naredo, M.E.B.}, \bibinfo{author}{McNally, K.L.},
+  \bibinfo{author}{Poland, J.}, \bibinfo{author}{Bush, D.R.},
+  \bibinfo{author}{Leung, H.}, \bibinfo{author}{Leach, J.E.},
+  \bibinfo{author}{McKay, J.K.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Field-based high throughput phenotyping rapidly
+  identifies genomic regions controlling yield components in rice}.
+\newblock \bibinfo{journal}{Scientific Reports} \bibinfo{volume}{7}.
+\newblock \DOIprefix\doi{10.1038/srep42839}.
+%Type = Article
+\bibitem[{Tarekegne et~al.(2023)Tarekegne, Wegary, Cairns, Zaman-Allah, Beyene,
+  Negera, Teklewold, Tesfaye, Jumbo, Das, Nhamucho, Simpasa, Kaonga,
+  Mashingaidze, Thokozile, Mhike and Prasanna}]{Tarekegne2024Genetic}
+\bibinfo{author}{Tarekegne, A.}, \bibinfo{author}{Wegary, D.},
+  \bibinfo{author}{Cairns, J.E.}, \bibinfo{author}{Zaman-Allah, M.},
+  \bibinfo{author}{Beyene, Y.}, \bibinfo{author}{Negera, D.},
+  \bibinfo{author}{Teklewold, A.}, \bibinfo{author}{Tesfaye, K.},
+  \bibinfo{author}{Jumbo, M.B.}, \bibinfo{author}{Das, B.},
+  \bibinfo{author}{Nhamucho, E.J.}, \bibinfo{author}{Simpasa, K.},
+  \bibinfo{author}{Kaonga, K.K.E.}, \bibinfo{author}{Mashingaidze, K.},
+  \bibinfo{author}{Thokozile, N.}, \bibinfo{author}{Mhike, X.},
+  \bibinfo{author}{Prasanna, B.M.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Genetic gains in early maturing maize hybrids
+  developed by the {International} {Maize} and {Wheat} {Improvement} {Center}
+  in {Southern} {Africa} during 2000–2018}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{14}.
+\newblock \DOIprefix\doi{10.3389/fpls.2023.1321308}.
+%Type = Article
+\bibitem[{Todeschini et~al.(2019)Todeschini, Milioli, Rosa, Dallacorte, Panho,
+  Marchese and Benin}]{Todeschini2019Soybean}
+\bibinfo{author}{Todeschini, M.H.}, \bibinfo{author}{Milioli, A.S.},
+  \bibinfo{author}{Rosa, A.C.}, \bibinfo{author}{Dallacorte, L.V.},
+  \bibinfo{author}{Panho, M.C.}, \bibinfo{author}{Marchese, J.A.},
+  \bibinfo{author}{Benin, G.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Soybean genetic progress in {South} {Brazil}:
+  physiological, phenological and agronomic traits}.
+\newblock \bibinfo{journal}{Euphytica} \bibinfo{volume}{215}.
+\newblock \DOIprefix\doi{10.1007/s10681-019-2439-9}.
+%Type = Misc
+\bibitem[{Volpato et~al.(2023)Volpato, Wright and Gomez}]{Volpato2023Digital}
+\bibinfo{author}{Volpato, L.}, \bibinfo{author}{Wright, E.M.},
+  \bibinfo{author}{Gomez, F.E.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Digital {Phenotyping} in {Plant} {Breeding}:
+  {Evaluating} {Relative} {Maturity}, {Stand} {Count}, and {Plant} {Height} in
+  {Dry} {Beans} ({Phaseolus} vulgaris {L}.) via {RGB} {Drone-Based} {Imagery}
+  and {Deep} {Learning} {Approaches}}.
+\newblock \bibinfo{howpublished}{Preprint}.
+\newblock \DOIprefix\doi{10.21203/rs.3.rs-3160633/v1}.
+%Type = Article
+\bibitem[{Walter et~al.(2019)Walter, Edwards, Cai, McDonald, Miklavcic and
+  Kuchel}]{Walter2019Highthroughput}
+\bibinfo{author}{Walter, J.}, \bibinfo{author}{Edwards, J.},
+  \bibinfo{author}{Cai, J.}, \bibinfo{author}{McDonald, G.},
+  \bibinfo{author}{Miklavcic, S.J.}, \bibinfo{author}{Kuchel, H.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{High-Throughput} {Field} {Imaging} and {Basic}
+  {Image} {Analysis} in a {Wheat} {Breeding} {Programme}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{10}.
+\newblock \DOIprefix\doi{10.3389/fpls.2019.00449}.
+%Type = Article
+\bibitem[{Yadav et~al.(2025)Yadav, Semwal, Amagnide, Pegalepo, Kobi, Adjah,
+  Amoah, El-Namaky, Zenna, Noumouha, Ndaw, Muhammad, Barry, Khouma, Menidiou,
+  Zhao and Manneh}]{Yadav2026Genetic}
+\bibinfo{author}{Yadav, S.}, \bibinfo{author}{Semwal, V.K.},
+  \bibinfo{author}{Amagnide, G.A.Y.G.}, \bibinfo{author}{Pegalepo, E.},
+  \bibinfo{author}{Kobi, K.O.}, \bibinfo{author}{Adjah, K.L.},
+  \bibinfo{author}{Amoah, N.K.A.}, \bibinfo{author}{El-Namaky, R.},
+  \bibinfo{author}{Zenna, N.}, \bibinfo{author}{Noumouha, E.N.G.},
+  \bibinfo{author}{Ndaw, F.O.}, \bibinfo{author}{Muhammad, M.L.},
+  \bibinfo{author}{Barry, L.M.}, \bibinfo{author}{Khouma, M.},
+  \bibinfo{author}{Menidiou, D.}, \bibinfo{author}{Zhao, D.},
+  \bibinfo{author}{Manneh, B.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Genetic progress in rice yield: preliminary insights
+  from historically released varieties in {Sub-Saharan} {Africa}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{16}.
+\newblock \DOIprefix\doi{10.3389/fpls.2025.1670651}.
+%Type = Misc
+\bibitem[{Zang et~al.(2022)Zang, Wang, Yang, He, Zhao, Zhou, Zheng and
+  Li}]{Zang2022Estimation}
+\bibinfo{author}{Zang, H.}, \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Yang,
+  X.}, \bibinfo{author}{He, J.}, \bibinfo{author}{Zhao, Q.},
+  \bibinfo{author}{Zhou, M.}, \bibinfo{author}{Zheng, G.}, \bibinfo{author}{Li,
+  G.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Estimation of plant density and plant height of
+  winter wheat breeding material based on {UAV} digital images}.
+\newblock \bibinfo{howpublished}{Preprint}.
+\newblock \DOIprefix\doi{10.21203/rs.3.rs-1469702/v1}.
+%Type = Article
+\bibitem[{Zang et~al.(2023)Zang, Jin, Zhang, Li, Mu, Li, Li, Wang, Su and
+  Jiang}]{Zang2023Fieldmeasured}
+\bibinfo{author}{Zang, J.}, \bibinfo{author}{Jin, S.}, \bibinfo{author}{Zhang,
+  S.}, \bibinfo{author}{Li, Q.}, \bibinfo{author}{Mu, Y.}, \bibinfo{author}{Li,
+  Z.}, \bibinfo{author}{Li, S.}, \bibinfo{author}{Wang, X.},
+  \bibinfo{author}{Su, Y.}, \bibinfo{author}{Jiang, D.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Field-measured canopy height may not be as accurate
+  and heritable as believed: evidence from advanced {3D} sensing}.
+\newblock \bibinfo{journal}{Plant Methods} \bibinfo{volume}{19}.
+\newblock \DOIprefix\doi{10.1186/s13007-023-01012-2}.
+%Type = Article
+\bibitem[{Zeffa et~al.(2020)Zeffa, Moda-Cirino, Medeiros, Freiria, Neto,
+  Ivamoto-Suzuki, Delfini, Scapim and Gonçalves}]{Zeffa2020Genetic}
+\bibinfo{author}{Zeffa, D.M.}, \bibinfo{author}{Moda-Cirino, V.},
+  \bibinfo{author}{Medeiros, I.A.}, \bibinfo{author}{Freiria, G.H.},
+  \bibinfo{author}{Neto, J.d.S.}, \bibinfo{author}{Ivamoto-Suzuki, S.T.},
+  \bibinfo{author}{Delfini, J.}, \bibinfo{author}{Scapim, C.A.},
+  \bibinfo{author}{Gonçalves, L.S.A.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Genetic {Progress} of {Seed} {Yield} and {Nitrogen}
+  {Use} {Efficiency} of {Brazilian} carioca {Common} {Bean} {Cultivars} {Using}
+  {Bayesian} {Approaches}}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{11}.
+\newblock \DOIprefix\doi{10.3389/fpls.2020.01168}.
+%Type = Article
+\bibitem[{Zu et~al.(2025)Zu, Liu, Zhu, Pan, Wang, Song, Yu, Dang, Yu and
+  Zhang}]{Zu2025Automated}
+\bibinfo{author}{Zu, Q.}, \bibinfo{author}{Liu, T.}, \bibinfo{author}{Zhu, W.},
+  \bibinfo{author}{Pan, Y.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Song,
+  X.}, \bibinfo{author}{Yu, J.}, \bibinfo{author}{Dang, S.},
+  \bibinfo{author}{Yu, X.}, \bibinfo{author}{Zhang, Z.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Automated seed counting using image processing and
+  deep learning}.
+\newblock \bibinfo{journal}{Frontiers in Plant Science} \bibinfo{volume}{16}.
+\newblock \DOIprefix\doi{10.3389/fpls.2025.1659781}.
+
+\end{thebibliography}

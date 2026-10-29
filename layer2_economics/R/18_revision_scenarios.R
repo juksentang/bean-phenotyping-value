@@ -134,7 +134,7 @@ print(dcast(dt[metric %in% c("EV", "PrPos", "ST_cycle_compression", "ST_error_re
             scenario ~ metric, value.var = "value")[, lapply(.SD, function(x) if (is.numeric(x)) round(x, 3) else x)])
 
 # --- 6. stress block (error reduction below zero) --------------------------------------
-stress_path <- file.path(getwd(), "layer1_genetic_sim/outputs/sweep_v2_stress/cell_summaries.csv")
+stress_path <- stress_summary_path()
 if (file.exists(stress_path)) {
   sc <- fread(stress_path); k <- attr(cells, "gain_scale")
   for (col in c("mean_dg_trad", "mean_dg_tool", "mean_dg_diff", "sd_dg_diff")) set(sc, j = col, value = sc[[col]] * k)

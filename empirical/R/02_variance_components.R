@@ -1,0 +1,160 @@
+# ============================================================================
+# Empirical calibration — Step 2: variance components for ZUDPEP grain yield
+# ============================================================================
+# Input : empirical/outputs/zudpep_plots.csv (from 01_zudpep_clean.R)
+# Output: empirical/outputs/zudpep_trial_h2.csv      per-trial h2_w
+#         empirical/outputs/zudpep_varcomp.csv       per-set multi-environment fits
+#         empirical/outputs/published_varcomp.csv    published components, same definitions
+#         empirical/outputs/zudpep_varcomp_summary.md
+#
+# Usage (from the project root):
+#   Rscript empirical/R/02_variance_components.R [n_bootstrap]
+
+source("empirical/R/varcomp_utils.R")
+
+args  <- commandArgs(trailingOnly = TRUE)
+NSIM  <- if (length(args) >= 1) as.integer(args[1]) else 200L
+NCPU  <- max(1L, min(8L, parallel::detectCores() - 1L))
+out_dir <- "empirical/outputs"
+
+plots <- fread(file.path(out_dir, "zudpep_plots.csv"))[exclude == FALSE]
+plots[, env := trial_id]
+
+# --- 1. Per-trial within-environment heritability ---------------------------------
+run_trials <- function(p, yvar) {
+  rbindlist(lapply(split(p, p$trial_id), function(d) {
+    d <- copy(d)[, y := get(yvar)][!is.na(y)]
+    cbind(data.table(trial_id = d$trial_id[1], set = d$set[1], site = d$site[1],
+                     season = d$season[1], yield_var = yvar), fit_trial(d))
+  }))
+}
+trial_h2 <- rbind(run_trials(plots, "yield_kg_ha"), run_trials(plots, "yield_area_kg_ha"))
+fwrite(trial_h2, file.path(out_dir, "zudpep_trial_h2.csv"))
+
+# --- 2. Connected sets ----------------------------------------------------------
+cs <- connected_sets(unique(plots[, .(env, genotype)]))
+cs <- merge(cs, unique(plots[, .(env, set)]), by = "env")
+chk <- cs[, .(n_series = uniqueN(set)), by = component]
+stopifnot(all(chk$n_series == 1))   # every connected component is one trial series
+sets <- cs[, .(n_env = .N), by = set]
+
+# --- 3. Multi-environment fits per set -----------------------------------------
+eligible <- function(p) {
+  des <- set_design(p)
+  des$n_env >= 3 && des$n_geno_common >= 10
+}
+met <- list()
+for (s in sort(unique(plots$set))) {
+  d <- copy(plots[set == s])[, y := yield_kg_ha]
+  if (!eligible(d)) next
+  cat("Fitting set", s, "\n")
+  met[[s]] <- cbind(data.table(dataset = "ZUDPEP", yield_var = "yield_kg_ha"),
+                    analyze_set(d, s, nsim = NSIM, ncpus = NCPU))
+}
+# Pooled model: all trials, variance components shared across series
+d <- copy(plots)[, y := yield_kg_ha]
+cat("Fitting pooled model\n")
+met[["pooled"]] <- cbind(data.table(dataset = "ZUDPEP", yield_var = "yield_kg_ha"),
+                         analyze_set(d, "ZUDPEP_pooled", boot = FALSE))
+# Sensitivity: area-based yield (homogeneous and heterogeneous fits, no bootstrap)
+for (s in sort(unique(plots$set))) {
+  d <- copy(plots[set == s])[, y := yield_area_kg_ha][!is.na(y)]
+  if (!eligible(d)) next
+  met[[paste0(s, "_area")]] <- cbind(data.table(dataset = "ZUDPEP", yield_var = "yield_area_kg_ha"),
+                                     analyze_set(d, s, boot = FALSE))
+}
+met <- rbindlist(met, fill = TRUE)
+fwrite(met, file.path(out_dir, "zudpep_varcomp.csv"))
+
+# --- 4. Published variance components, same definitions ----------------------------
+pub <- data.table(
+  study  = c("Amongi et al. 2023", "Amongi et al. 2023",
+             "Amongi et al. 2025", "Amongi et al. 2025", "Amongi et al. 2025"),
+  group  = c("bush", "climbing", "G1 large/medium-seeded bush (Andean)",
+             "G2 small-seeded bush (Mesoamerican)", "G3 climbing"),
+  Vg     = c(22828.8, 52516.1, 16871.5, 66215.9, 65650.7),
+  Vge    = c(45159.0, 35824.0, 99153.7, 128420.8, 122200.8),
+  Ve     = c(83182.5, 141233.2, 87582.2, 210597.3, 159501.4),
+  V_spatial = c(NA, NA, 48673.5 + 2748.3, 127111.8 + 80697.7, 9709.4 + 60218.5),
+  H2_reported = c(0.61, 0.75, 0.27, 0.52, 0.58),
+  n_env  = c("6 environments", "6 environments", "16 sites", "15 sites", "9 sites"),
+  source_table = c("Table 3", "Table 3", "Table 7", "Table 7", "Table 7"),
+  citation = c(rep("Amongi et al. 2023, Afr. Crop Sci. J. 31(1):85-111, doi:10.4314/acsj.v31i1.8", 2),
+               rep("Amongi et al. 2025, Crop Sci. 65(2):e70037, doi:10.1002/csc2.70037", 3)))
+pub[, c("h2_w", "kappa", "rho_env", "h2_total") := as.list(derived(Vg, Vge, Ve)), by = group]
+# Variant counting environment x row and environment x column variance as plot noise
+pub[, h2_w_incl_spatial := fifelse(is.na(V_spatial), NA_real_, Vg / (Vg + Ve + V_spatial))]
+pub[, note := fifelse(is.na(V_spatial), "YDHA; Vres = residual",
+                      "Error term only for Ve; environment x row/column variance in V_spatial")]
+fwrite(pub, file.path(out_dir, "published_varcomp.csv"))
+
+# --- 5. Summary ---------------------------------------------------------------
+L <- character(); w <- function(...) L <<- c(L, paste0(...))
+w("# ZUDPEP grain-yield variance components")
+w("")
+w("Generated by `empirical/R/02_variance_components.R` (", format(Sys.Date()), "). Yield = YDHA ",
+  "(kg/ha, per-plant yield x 200,000 plants/ha) after the cleaning in `zudpep_cleaning_log.md`. ",
+  "Definitions: h2_w = Vg/(Vg+Ve); kappa = Vge/Vg; rho_env = Vg/(Vg+Vge); ",
+  "h2_total = Vg/(Vg+Vge+Ve); H2_mean = Vg/(Vg+Vge/e+Ve/(e r)).")
+w("")
+w("## Per-trial within-environment plot heritability")
+w("")
+w("Model per trial: yield ~ rep + (1|genotype) + (1|rep:block) (blocks omitted where not recorded), REML (lme4).")
+w("")
+tz <- trial_h2[yield_var == "yield_kg_ha"]
+ds <- dist_summary(tz$h2_w)
+w("- Trials: ", nrow(tz), "; genotypes per trial ", min(tz$n_geno), "-", max(tz$n_geno),
+  "; ", paste(sort(unique(tz$n_rep)), collapse = "/"), " replicates.")
+w("- h2_w median ", fmt(ds$median), " (IQR ", fmt(ds$q25), "-", fmt(ds$q75), "; range ",
+  fmt(ds$min), "-", fmt(ds$max), "; mean ", fmt(ds$mean), ").")
+w("- Trials with Vg at the zero boundary: ", sum(tz$vg_boundary), " (",
+  paste(tz[vg_boundary == TRUE, trial_id], collapse = ", "), ").")
+da <- dist_summary(trial_h2[yield_var == "yield_area_kg_ha", h2_w])
+w("- Area-based yield (sensitivity): median ", fmt(da$median), " (IQR ", fmt(da$q25), "-", fmt(da$q75), ").")
+w("")
+w("| trial | genotypes | reps | blocks | mean kg/ha | Vg | Ve | h2_w | boundary |")
+w("|---|---|---|---|---|---|---|---|---|")
+for (i in seq_len(nrow(tz))) with(tz[i], w("| ", trial_id, " | ", n_geno, " | ", n_rep, " | ", n_block, " | ",
+  fmt0(mean_kg_ha), " | ", fmt0(Vg), " | ", fmt0(Ve), " | ", fmt(h2_w), " | ", ifelse(vg_boundary, "yes", ""), " |"))
+w("")
+w("## Multi-environment estimates per trial series")
+w("")
+w("Model: yield ~ env + (1|genotype) + (1|genotype:env) + (1|env:rep) + (1|env:rep:block), REML. ",
+  "Point estimates use a residual variance per environment (glmmTMB, `dispformula = ~ env`) ",
+  "where it converged, with Ve = mean of the environment residual variances; ",
+  "95% intervals are parametric-bootstrap percentiles (", NSIM, " simulations from, and refits of, ",
+  "the same model; the interval for kappa is derived from that of rho_env, since kappa = 1/rho_env - 1). ",
+  "The homogeneous-residual lme4 estimates are in the CSV columns `*_hom`. Sets are connected components of trials sharing >= 10 ",
+  "genotypes and >= 50% of the smaller entry list; each component is exactly one trial series. ",
+  "Eligibility: >= 3 environments and >= 10 genotypes common to all of them.")
+w("")
+mz <- met[yield_var == "yield_kg_ha"]
+w("| set | n_env | n_geno (common) | residual | Vg | Vge | Ve | h2_w [95% CI] | kappa [95% CI] | rho_env | h2_total | H2_mean |")
+w("|---|---|---|---|---|---|---|---|---|---|---|---|")
+for (i in seq_len(nrow(mz))) with(mz[i], w("| ", set, " | ", n_env, " | ", n_geno, " (", n_geno_common, ") | ",
+  sub("_by_env", "", resid_model), " | ", fmt0(Vg), " | ", fmt0(Vge), " | ", fmt0(Ve), " | ",
+  fmt(h2_w), if (!is.na(h2_w_lo)) paste0(" [", fmt(h2_w_lo), ", ", fmt(h2_w_hi), "]") else "",
+  " | ", fmt(kappa), if (!is.na(kappa_lo)) paste0(" [", fmt(kappa_lo), ", ", fmt_k(kappa_hi), "]") else "",
+  " | ", fmt(rho_env), " | ", fmt(h2_total), " | ", fmt(H2_mean), " |"))
+w("")
+sets_only <- mz[set != "ZUDPEP_pooled"]
+w("- Across the ", nrow(sets_only), " series: h2_w median ", fmt(median(sets_only$h2_w)),
+  " (range ", fmt(min(sets_only$h2_w)), "-", fmt(max(sets_only$h2_w)), "); kappa median ",
+  fmt(median(sets_only$kappa, na.rm = TRUE)), " (range ", fmt(min(sets_only$kappa, na.rm = TRUE)), "-",
+  fmt(max(sets_only$kappa, na.rm = TRUE)), "); rho_env median ", fmt(median(sets_only$rho_env)), ".")
+ma <- met[yield_var == "yield_area_kg_ha"]
+if (nrow(ma)) w("- Area-based yield (sensitivity): h2_w median ", fmt(median(ma$h2_w)),
+                ", kappa median ", fmt(median(ma$kappa, na.rm = TRUE)), ", rho_env median ", fmt(median(ma$rho_env)), ".")
+w("")
+w("## Published values, same definitions")
+w("")
+w("| study | group | Vg | Vge | Ve | h2_w | kappa | rho_env | h2_total | H2 reported |")
+w("|---|---|---|---|---|---|---|---|---|---|")
+for (i in seq_len(nrow(pub))) with(pub[i], w("| ", study, " | ", group, " | ", fmt0(Vg), " | ", fmt0(Vge), " | ",
+  fmt0(Ve), " | ", fmt(h2_w), " | ", fmt(kappa), " | ", fmt(rho_env), " | ", fmt(h2_total), " | ", fmt(H2_reported), " |"))
+w("")
+w("For Amongi et al. 2025, Ve is the error term only; counting the environment x row and ",
+  "environment x column variance as plot noise lowers h2_w to ",
+  paste(fmt(pub[!is.na(h2_w_incl_spatial), h2_w_incl_spatial]), collapse = " / "), " (G1/G2/G3).")
+writeLines(L, file.path(out_dir, "zudpep_varcomp_summary.md"))
+cat("Done.\n")

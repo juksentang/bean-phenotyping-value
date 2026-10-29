@@ -1,0 +1,16 @@
+# v3 (Agricultural Systems version): genetic parameters centered on public East African
+# bean trial data (empirical/outputs: TSEZVG, ZUDPEP, Amongi et al. 2023, 2025):
+# within-environment plot h2 = 0.10 and GxE-to-genetic variance ratio kappa = 1.5.
+tool_grid:
+  error_reduction:   [0.0]
+  cost_reduction:    [0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:    [3000, 6500, 10000, 13500, 17000, 20000]
+  total_budget:      [100000, 150000, 200000, 300000, 500000]
+genetic_grid:
+  h2_yield:  [0.10]
+  gxe_ratio: [1.5]
+mc_reps_per_cell: 100
+mc_seed_base: 1000042
+output_subdir: "sweep_v3_extA"
+cell_filename_pattern: "cell_%05d.parquet"

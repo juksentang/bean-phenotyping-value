@@ -1,0 +1,7 @@
+environment,site,season,Vg,Ve,h2_w,H2_reported,r_implied,mean_kg_ha,vg_boundary,source
+Kag18A,Kagera (Kitengule),2018A,45229.9,141487.2,0.24223758830873,0.39,1.9999829649899,998.1,FALSE,Dryad dz08kpsbz Suppl. Table 2
+Kag18B,Kagera (Kitengule),2018B,28935.6,79954,0.265733366639238,0.42,2.00091666106564,688.9,FALSE,Dryad dz08kpsbz Suppl. Table 2
+Kaw18A,Kawanda,2018A,47709.5,77081.7,0.382314618338473,0.55,1.97467939648637,1018.1,FALSE,Dryad dz08kpsbz Suppl. Table 2
+Kaw18B,Kawanda,2018B,44221.1,55882.8,0.441752019651582,0.61,1.97657748833093,658,FALSE,Dryad dz08kpsbz Suppl. Table 2
+Kaw20A,Kawanda,2020A,36751.3,43091.9,0.460293425113222,0.63,1.99646528407416,567.7,FALSE,Dryad dz08kpsbz Suppl. Table 2
+Rwe20A,Rwebitaba,2020A,0,354114.6,0,0,,1539.5,TRUE,Dryad dz08kpsbz Suppl. Table 2

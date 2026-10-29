@@ -9,7 +9,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, Circle
 from PIL import Image, ImageChops
@@ -19,15 +18,14 @@ from figstyle import TOK, PCOL, setup, check_layout
 
 os.chdir(Path(__file__).resolve().parents[2])
 setup()
-mpl.rcParams["font.family"] = "Arial"
 
 num = pd.read_csv("paper/numbers.csv", dtype=str).set_index("name")["value"]
-rb = pd.read_csv("layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv")
+rb = pd.read_csv(Path("layer1_genetic_sim/outputs") / os.environ.get("TOOL_ROBUST_SUBDIR", "sweep_v3_gxe") / "cell_summaries.csv")
 rb["uplift"] = 100 * rb.mean_dg_diff / rb.mean_dg_trad
 CYCLE = 10
 years = lambda u: CYCLE - CYCLE / (1 + np.asarray(u) / 100)
 err_lo, err_hi = 0.10, rb.error_reduction.max()
-h2_main = 0.30
+h2_main = float(num["CfgHtwoYield"])                 # central plot-level h2 (genetic_params.yaml)
 m = rb[np.isclose(rb.h2_yield, h2_main)].groupby("error_reduction").uplift.mean()
 yr_evid, yr_opt = float(years(m.loc[err_lo])), float(years(m.loc[err_hi]))
 
@@ -76,9 +74,10 @@ ax.annotate("", xy=(72, 29), xytext=(67, 29),
             arrowprops=dict(arrowstyle="-|>", color=TOK["muted"], lw=1.6, mutation_scale=16))
 
 # --- right: the headline and the exchange rate -------------------------------
-ax.text(73, 49.5, "Time beats accuracy", fontsize=23, fontweight="bold", color=TOK["ink"], va="center")
-ax.text(73, 44.3, "Equivalent years of cycle compression", fontsize=11.5, color=TOK["ink2"], va="center")
-x0, scale = 73, 22                                   # 1 year = 22 units of bar
+ax.text(73, 49.5, "Cycle time leads;\naccuracy counts at low h²", fontsize=15, linespacing=1.05, fontweight="bold", color=TOK["ink"], va="center")
+ax.text(73, 43.0, "Equivalent years of cycle compression", fontsize=11.5, color=TOK["ink2"], va="center")
+x0 = 73
+scale = min(22, 26 / max(yr_evid, yr_opt, 1.0))      # units of bar per year; longest bar fits the canvas
 bars = [(f"Accuracy, {int(err_lo * 100)}% error cut (evidence)", yr_evid, PCOL["error_reduction"], 0.45),
         (f"Accuracy, {int(err_hi * 100)}% error cut (optimistic)", yr_opt, PCOL["error_reduction"], 1.0),
         ("One year shorter breeding cycle", 1.0, PCOL["cycle_compression"], 1.0)]
@@ -87,7 +86,7 @@ for k, (lab, v, c, a) in enumerate(bars):
     ax.text(x0, y + 2.6, lab, fontsize=11.5, color=TOK["ink"], va="center")
     ax.add_patch(FancyBboxPatch((x0, y - 1.6), max(v * scale, 0.6), 3.2,
                                 boxstyle="round,pad=0,rounding_size=0.8", fc=c, ec="none", alpha=a))
-    ax.text(x0 + max(v * scale, 0.6) + 1.2, y, f"{12 * v:.1f} months" if v < 1 else "12 months",
+    ax.text(x0 + max(v * scale, 0.6) + 1.2, y, f"{12 * v:.0f} months" if abs(v - 1) < 1e-9 else f"{12 * v:.1f} months",
             fontsize=12, fontweight="bold", color=TOK["ink"], va="center")
 ax.text(73, 12.4, "Worth measuring first in a pilot (EVPPI)", fontsize=11.5, color=TOK["ink2"], va="center")
 ax.text(73, 8.4, f"cycle time \\${num['EVPPIIndiffCyc']}M  vs  accuracy \\${num['EVPPIIndiffErrRed']}M",
@@ -104,5 +103,7 @@ img = Image.open(out).convert("RGB")                 # trim surrounding blank sp
 bg = Image.new("RGB", img.size, img.getpixel((0, 0)))
 l, t, r, b = ImageChops.difference(img, bg).getbbox()
 pad = 60
-img.crop((max(l - pad, 0), max(t - pad, 0), min(r + pad, img.width), min(b + pad, img.height))).save(out)
+ga = img.crop((max(l - pad, 0), max(t - pad, 0), min(r + pad, img.width), min(b + pad, img.height)))
+ga.save(out)
+ga.save(out.with_suffix(".pdf"), resolution=DPI)       # Elsevier accepts TIFF, EPS, PDF or Office files
 print("graphical_abstract:", "ok" if not issues else issues)

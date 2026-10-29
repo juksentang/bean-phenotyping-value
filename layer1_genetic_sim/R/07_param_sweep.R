@@ -80,9 +80,12 @@ load_sweep_grid <- function(path = NULL) {
 
 # --- Expand the 5D grid into a deterministic data.table ---
 # Column order and row order are fixed; cell_id = row index - 1 (0-based).
-# An optional `genetic_grid` block (h2_yield, gxe_cor_onstation) adds columns
-# that override genetic_params.yaml per cell (robustness sweeps); without it
-# the grid and cell ids are unchanged.
+# An optional `genetic_grid` block (h2_yield, gxe_cor_onstation or gxe_ratio)
+# adds columns that override genetic_params.yaml per cell (robustness sweeps);
+# without it the grid and cell ids are unchanged. gxe_ratio is the GxE-to-genetic
+# variance ratio kappa = sigma2_GE / sigma2_A, which can exceed 1 (rho_GE = 1 - kappa).
+# An optional `design_grid` block (cost_per_env) works the same way for the trial
+# cost model.
 expand_sweep_grid <- function(sweep_cfg) {
   g <- sweep_cfg$tool_grid
   gg <- sweep_cfg$genetic_grid
@@ -92,7 +95,8 @@ expand_sweep_grid <- function(sweep_cfg) {
     cycle_compression = g$cycle_compression,
     tool_fixed_cost    = g$tool_fixed_cost,
     total_budget      = g$total_budget),
-    gg[intersect(names(gg), c("h2_yield", "gxe_cor_onstation"))],
+    gg[intersect(names(gg), c("h2_yield", "gxe_cor_onstation", "gxe_ratio"))],
+    sweep_cfg$design_grid[intersect(names(sweep_cfg$design_grid), "cost_per_env")],
     list(KEEP.OUT.ATTRS = FALSE, stringsAsFactors = FALSE)
   ))
   dt <- as.data.table(grid)
@@ -126,13 +130,16 @@ run_cell <- function(cell_id, n_reps_override = NULL,
   for (nm in intersect(names(row), c("h2_yield", "gxe_cor_onstation"))) {
     gen_cfg[[nm]] <- row[[nm]]
   }
+  # calc_h2_eff() uses sigma2_GE / sigma2_A = 1 - gxe_cor, so a ratio maps to 1 - kappa
+  if ("gxe_ratio" %in% names(row)) gen_cfg$gxe_cor_onstation <- 1 - row$gxe_ratio
 
   override <- list(
     total_budget      = row$total_budget,
     error_reduction   = row$error_reduction,
     cost_reduction    = row$cost_reduction,
     cycle_compression = row$cycle_compression,
-    tool_fixed_cost    = row$tool_fixed_cost
+    tool_fixed_cost    = row$tool_fixed_cost,
+    cost_per_env      = row[["cost_per_env"]]
   )
 
   n_reps <- if (!is.null(n_reps_override)) n_reps_override else sweep_cfg$mc_reps_per_cell
@@ -176,6 +183,7 @@ run_cell <- function(cell_id, n_reps_override = NULL,
     h2_yield          = gen_cfg$h2_yield,
     gxe_cor_onstation = gen_cfg$gxe_cor_onstation
   )]
+  if ("cost_per_env" %in% names(row)) res[, cost_per_env := row$cost_per_env]
   setcolorder(res, c("cell_id", "model_version", "error_reduction", "cost_reduction",
                      "cycle_compression", "tool_fixed_cost", "total_budget",
                      "rep", "scenario"))
@@ -212,6 +220,8 @@ run_cell <- function(cell_id, n_reps_override = NULL,
     h2_plot_tool      = mean(res[scenario == "tool", h2_plot]),
     elapsed_s        = elapsed_s
   )
+  if ("cost_per_env" %in% names(row))
+    cell_summary[, cost_per_env := row$cost_per_env]
 
   # Write parquet
   dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)

@@ -1,0 +1,6 @@
+study,bibkey,group,var_g,var_gxe,var_error,n_env,reported_H2,locator
+Amongi2023,Amongi2023Gain,bush,22828.8,45159.0,83182.5,6,0.61,Table 3 (YDHA; residual variance)
+Amongi2023,Amongi2023Gain,climbing,52516.1,35824.0,141233.2,6,0.75,Table 3 (YDHA; residual variance)
+Amongi2025,Amongi2025Yield,G1 large/medium bush,16871.5,99153.7,87582.2,NA,0.27,Table 7 (error; spatial row/column terms excluded)
+Amongi2025,Amongi2025Yield,G2 small bush,66215.9,128420.8,210597.3,NA,0.52,Table 7 (error; spatial row/column terms excluded)
+Amongi2025,Amongi2025Yield,G3 climbing,65650.7,122200.8,159501.4,NA,0.58,Table 7 (error; spatial row/column terms excluded)

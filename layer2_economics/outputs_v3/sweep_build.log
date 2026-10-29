@@ -1,0 +1,38 @@
+
+╔════════════════════════════════════════╗
+║     R Environment Configured ✓        ║
+╠════════════════════════════════════════╣
+║ CRAN Mirror: 网易镜像                 ║
+║ User Library: ~/R/packages             ║
+║ CPU Cores: 8                     ║
+╚════════════════════════════════════════╝
+
+Loaded 5760 L1 cells from layer1_genetic_sim/outputs/sweep_v3/cell_summaries.csv
+ Loaded 5760 L1 cells from layer1_genetic_sim/outputs/sweep_v3_extA/cell_summaries.csv
+ Loaded 5760 L1 cells from layer1_genetic_sim/outputs/sweep_v3_extB/cell_summaries.csv
+L2 grid points: 625
+Total lookup rows: 3600000
+Computing NPV for 3600000 rows (compute_irr = FALSE)...
+  180000 / 3600000 (5%)
+  360000 / 3600000 (10%)
+  540000 / 3600000 (15%)
+  720000 / 3600000 (20%)
+  900000 / 3600000 (25%)
+  1080000 / 3600000 (30%)
+  1260000 / 3600000 (35%)
+  1440000 / 3600000 (40%)
+  1620000 / 3600000 (45%)
+  1800000 / 3600000 (50%)
+  1980000 / 3600000 (55%)
+  2160000 / 3600000 (60%)
+  2340000 / 3600000 (65%)
+  2520000 / 3600000 (70%)
+  2700000 / 3600000 (75%)
+  2880000 / 3600000 (80%)
+  3060000 / 3600000 (85%)
+  3240000 / 3600000 (90%)
+  3420000 / 3600000 (95%)
+  3600000 / 3600000 (100%)
+NPV compute done in 4.12 min
+Lookup table written: layer2_economics/outputs_v3/lookup_table.parquet 
+Size: 63.4 MB

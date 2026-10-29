@@ -1,4 +1,4 @@
-"""Manuscript figures 1-6. Run from the project root: python3 paper/py/make_figures.py
+"""Manuscript figures 1-7. Run from the project root: python3 paper/py/make_figures.py
 
 Reads the Layer-1 sweep summaries, the Layer-2 outputs and the meta-analysis
 results; no value shown in a figure is entered by hand. Writes PDF + PNG to
@@ -9,7 +9,8 @@ is found.
 
 Storyline: (1) design and input colors, (2) time beats accuracy, (3) why:
 per-cycle gain is near its ceiling, (4) value follows cycle time, (5) what a
-pilot should measure, (6) evidence behind the inputs.
+pilot should measure, (6) evidence behind the inputs, (7) how phenotyping efficiency
+reaches the breeding cycle and genetic gain (schematic).
 """
 import os
 import re
@@ -20,12 +21,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import yaml
-from matplotlib.patches import Rectangle
+import matplotlib as mpl
+from matplotlib.patches import Rectangle, Polygon, FancyArrowPatch, FancyBboxPatch
 from matplotlib.colors import Normalize
 
 sys.path.insert(0, str(Path(__file__).parent))
 from figstyle import (TOK, ORD4, CMAP_BLUE, PCOL, TECH, ECON, LW, LW_HAIR, MS, COL_W, FULL_W, PARAM_LABEL,
-                      KEY_LABEL, setup, clean, point, label_column, raincloud, dumbbell, new_figure, claim, save)
+                      KEY_LABEL, setup, clean, point, label_column, raincloud, dumbbell, new_figure, claim, fit, save)
 
 os.chdir(Path(__file__).resolve().parents[2])
 setup()
@@ -40,8 +42,8 @@ def cfg(name):
 
 
 econ, breed, gen = cfg("economic_params"), cfg("breeding_params"), cfg("genetic_params")
-OUT = Path(os.environ.get("TOOL_L2_OUT", "layer2_economics/outputs_v2"))
-L1_SUBS = os.environ.get("TOOL_L1_SUBDIR", "sweep_v2,sweep_v2_extA,sweep_v2_extB").split(",")
+OUT = Path(os.environ.get("TOOL_L2_OUT", "layer2_economics/outputs_v3"))
+L1_SUBS = os.environ.get("TOOL_L1_SUBDIR", "sweep_v3,sweep_v3_extA,sweep_v3_extB").split(",")
 LIT = Path("paper/lit")
 
 l1 = pd.concat([pd.read_csv(f"layer1_genetic_sim/outputs/{s.strip()}/cell_summaries.csv")
@@ -61,15 +63,35 @@ def years_equivalent(uplift_pct):
 
 l1["uplift"] = 100 * l1.mean_dg_diff / l1.mean_dg_trad
 l1["annual"] = annual_uplift(l1.uplift, l1.cycle_compression)
-rb_path = Path("layer1_genetic_sim/outputs/sweep_v2_robust/cell_summaries.csv")
+rb_path = Path("layer1_genetic_sim/outputs") / os.environ.get("TOOL_ROBUST_SUBDIR", "sweep_v3_gxe") / "cell_summaries.csv"
 rb = pd.read_csv(rb_path) if rb_path.exists() else None
 if rb is not None:
     rb["uplift"] = 100 * rb.mean_dg_diff / rb.mean_dg_trad
+    rb["kappa"] = (1 - rb.gxe_cor_onstation).round(2)   # GxE-to-genetic variance ratio (07_param_sweep.R)
+
+ec_path = Path("layer1_genetic_sim/outputs") / os.environ.get("TOOL_ENVCOST_SUBDIR", "sweep_v3_envcost") / "cell_summaries.csv"
+ec = pd.read_csv(ec_path) if ec_path.exists() else None
+if ec is not None:
+    ec["uplift"] = 100 * ec.mean_dg_diff / ec.mean_dg_trad
+
+
+def lever_slopes(d):
+    """OLS of per-cycle uplift on error reduction, cost reduction and compression: slope per
+    10-point reduction of each lever, with its standard error."""
+    X = np.column_stack([np.ones(len(d)), d.error_reduction, d.cost_reduction, d.cycle_compression])
+    beta, *_ = np.linalg.lstsq(X, d.uplift.values, rcond=None)
+    resid = d.uplift.values - X @ beta
+    cov = resid @ resid / (len(d) - X.shape[1]) * np.linalg.inv(X.T @ X)
+    se = np.sqrt(np.diag(cov))
+    return {"error_reduction": (beta[1] / 10, se[1] / 10), "cost_reduction": (beta[2] / 10, se[2] / 10)}
+
 
 CYC_YEAR_PCT = float(annual_uplift(0, 1))
 META_ERR = econ["tool_error_reduction_frac"]
 META_COST = econ["tool_cost_reduction_frac"]
-H2 = gen["h2_yield"]
+H2 = float(l1.h2_yield.iloc[0])                      # plot-level h2 of the main grid (sweep config)
+assert np.allclose(l1.h2_yield, H2)
+KAPPA = float(1 - l1.gxe_cor_onstation.iloc[0])
 is_meta = pd.Series(np.isclose(l1.error_reduction, META_ERR) & np.isclose(l1.cost_reduction, META_COST),
                     index=l1.index)
 
@@ -146,7 +168,7 @@ def figure1():
 
 
 # ---------------------------------------------------------------------------
-# Figure 2. Time beats accuracy
+# Figure 2. Cycle time outweighs accuracy
 # ---------------------------------------------------------------------------
 def figure2():
     fig, axd = new_figure(FULL_W, 78, "ab", width_ratios=[1.2, 1])
@@ -154,7 +176,7 @@ def figure2():
     ax = axd["b"]
     emax = None
     if rb is not None:
-        t = rb.groupby(["h2_yield", "gxe_cor_onstation", "error_reduction"]).uplift.mean().reset_index()
+        t = rb.groupby(["h2_yield", "kappa", "error_reduction"]).uplift.mean().reset_index()
         t["years"] = years_equivalent(t.uplift)
         h2s = np.sort(t.h2_yield.unique())
         emax = t.error_reduction.max()
@@ -166,14 +188,15 @@ def figure2():
             ax.scatter(np.r_[lo, hi], np.full(len(lo) + len(hi), k - 0.22), s=5, color=PCOL["error_reduction"],
                        alpha=0.5, lw=0)
             ax.text(hi.mean() + 0.035, k, f"{12 * hi.mean():.1f} mo", va="center", fontsize=6.5)
-            ax.text(lo.mean(), k + 0.2, f"{12 * lo.mean():.1f} mo", va="bottom", ha="center", fontsize=6.5,
-                    color=TOK["ink2"])
+            near = abs(lo.mean() - 1) < 0.15            # keep the label off the one-year line
+            ax.text(lo.mean() + (0.12 if near else 0), k + 0.2, f"{12 * lo.mean():.1f} mo", va="bottom",
+                    ha="left" if near else "center", fontsize=6.5, color=TOK["ink2"])
         ax.axvline(1, color=PCOL["cycle_compression"], lw=LW)
         ax.text(0.97, -0.5, "one year of\ncycle compression", fontsize=6.5, ha="right", va="bottom",
                 color=PCOL["cycle_compression"])
         ax.set_yticks(range(len(h2s)), [f"h² = {h:.2f}" for h in h2s])
         ax.set_ylim(-0.55, len(h2s) + 0.3)
-        ax.set_xlim(-0.08, 1.38)
+        ax.set_xlim(-0.08, max(1.38, 1.18 * t.years.max()))
         ax.set_xlabel("Equivalent years of cycle compression")
         ax.plot([], [], marker="o", ls="none", mfc=TOK["surface"], mec=PCOL["error_reduction"], ms=MS,
                 label=f"error reduction {pct(META_ERR)} (evidence)")
@@ -181,7 +204,7 @@ def figure2():
                 label=f"error reduction {pct(emax)} (optimistic)")
         ax.legend(loc="upper left", handletextpad=0.3)
         clean(ax, "x")
-    claim(ax, "b", "Accuracy buys months, not years")
+    claim(ax, "b", "Accuracy buys months at high heritability, a year or more at low")
 
     ax = axd["a"]
     cycs = np.sort(l1.cycle_compression.unique())
@@ -200,26 +223,26 @@ def figure2():
     ax.scatter([], [], s=9, color=PCOL["error_reduction"], label="evidence-based tool profile")
     ax.legend(loc="lower right", handletextpad=0.2)
     clean(ax, "x")
-    claim(ax, "a", "Cycle time separates outcomes; accuracy and cost barely do")
+    claim(ax, "a", "Cycle time separates outcomes; accuracy and cost shift them within")
     finish(fig, "fig2_time_beats_accuracy",
-           "Time beats accuracy. (a) Annual genetic-gain uplift over manual phenotyping across all simulated tool "
+           "In the simulated pipeline, cycle time outweighs accuracy. (a) Annual genetic-gain uplift over manual phenotyping across all simulated tool "
            "profiles, by years of cycle compression, which is applied as a scenario and not simulated (cloud: "
            "density; rain: profiles; bar and ring: interquartile range and median). Orange: evidence-based "
            f"profile (error reduction {pct(META_ERR)}, cost reduction {pct(META_COST)}). (b) Exchange rate between "
            "accuracy and cycle time: years of breeding-cycle compression that raise annual genetic gain as much "
            "as the tool's per-cycle uplift, at the "
            f"evidence-based ({pct(META_ERR)}) and an optimistic ({pct(emax) if emax is not None else 'maximum'}) "
-           "error reduction, by plot-level heritability (large markers: mean over on-station GxE parameter "
-           "0.4-0.8; small dots: individual settings).")
+           "error reduction, by plot-level heritability (large markers: mean over the GxE-to-genetic variance "
+           f"ratio κ = {rb.kappa.min():g}-{rb.kappa.max():g}; small dots: individual settings).")
 
 
 # ---------------------------------------------------------------------------
 # Figure 3. Why accuracy and cost move gain only a little
 # ---------------------------------------------------------------------------
 def figure3():
-    fig, axd = new_figure(COL_W, 112, "ab;cc", width_ratios=[1, 1.25], height_ratios=[1, 0.95])
+    fig, axd = new_figure(COL_W, 150, "ab;cc;dd", width_ratios=[1, 1.25], height_ratios=[1, 0.95, 0.75])
     ymin = min(l1.uplift.min(), -1) - 0.5
-    ymax = max(l1.uplift.quantile(0.998), CYC_YEAR_PCT) + 1
+    ymax = max(l1.uplift.max(), CYC_YEAR_PCT) + 1
     for key, param, lab, ttl in [("a", "error_reduction", "Error reduction (%)", "Accuracy lever"),
                                  ("b", "cost_reduction", "Cost reduction (%)", "Cost lever")]:
         ax = axd[key]
@@ -242,34 +265,34 @@ def figure3():
         else:
             ax.sharey(axd["a"])
             ax.tick_params(labelleft=False)
-            ax.text(len(levels) - 0.35, CYC_YEAR_PCT + 0.25, "one year of cycle compression", fontsize=6.5,
-                    ha="right", va="bottom", color=PCOL["cycle_compression"])
         clean(ax, "y")
         claim(ax, key, ttl)
 
     ax = axd["c"]
     if rb is not None:
-        t = rb.groupby(["h2_yield", "gxe_cor_onstation", "error_reduction"]).uplift.mean().reset_index()
+        t = rb.groupby(["h2_yield", "kappa", "error_reduction"]).uplift.mean().reset_index()
         e0, e1 = t.error_reduction.min(), t.error_reduction.max()
-        h2s, gxes = np.sort(t.h2_yield.unique()), np.sort(t.gxe_cor_onstation.unique())
+        h2s, gxes = np.sort(t.h2_yield.unique()), np.sort(t.kappa.unique())
         xt, xl = [], []
         for i, h in enumerate(h2s):
             for j, gx in enumerate(gxes):
                 x = i * (len(gxes) + 0.8) + j
-                d = t[(t.h2_yield == h) & (t.gxe_cor_onstation == gx)]
+                d = t[(t.h2_yield == h) & (t.kappa == gx)]
                 a = d[np.isclose(d.error_reduction, e0)].uplift.iloc[0]
                 b = d[np.isclose(d.error_reduction, e1)].uplift.iloc[0]
                 ax.plot([x, x], [a, b], color=PCOL["error_reduction"], lw=LW * 1.6, alpha=0.45,
                         solid_capstyle="round")
                 ax.plot(x, a, marker="o", ms=MS, mfc=TOK["surface"], mec=PCOL["error_reduction"], mew=1.0)
                 point(ax, x, b, PCOL["error_reduction"])
-                xt.append(x); xl.append(f"{gx:.1f}")
+                xt.append(x); xl.append(f"{gx:g}")
             ax.text(i * (len(gxes) + 0.8) + (len(gxes) - 1) / 2, -0.17, f"h² = {h:.2f}",
                     transform=ax.get_xaxis_transform(), ha="center", va="top", fontsize=6.5, fontweight="bold")
         ax.axhline(CYC_YEAR_PCT, color=PCOL["cycle_compression"], lw=LW)
+        ax.text(xt[-1] + 0.4, CYC_YEAR_PCT + 0.6, "one year of cycle compression", fontsize=6.5,
+                ha="right", va="bottom", color=PCOL["cycle_compression"])
         ax.axhline(0, color=TOK["axis"], lw=LW_HAIR)
         ax.set_xticks(xt, xl, fontsize=6.5)
-        ax.set_xlabel("On-station GxE parameter, by plot-level heritability", labelpad=20)
+        ax.set_xlabel("GxE-to-genetic variance ratio κ, by plot-level heritability", labelpad=20)
         ax.set_ylabel(f"Per-cycle uplift, {pct(e0)} to {pct(e1)}")
         ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
         ax.plot([], [], marker="o", ls="none", mfc=TOK["surface"], mec=PCOL["error_reduction"], ms=MS,
@@ -278,15 +301,39 @@ def figure3():
                 label=f"error reduction {pct(e1)}")
         ax.legend(loc="upper right", ncols=2, handletextpad=0.2)
         clean(ax, "y")
-    claim(ax, "c", "Only at low heritability does accuracy rival a year of compression")
+    claim(ax, "c", "At East African trial heritability, accuracy can rival a year of compression")
+
+    ax = axd["d"]
+    if ec is not None:
+        levels = np.sort(ec.cost_per_env.unique())
+        for k, lv in enumerate(levels):
+            sl = lever_slopes(ec[ec.cost_per_env == lv])
+            for off, p in [(-0.09, "error_reduction"), (0.09, "cost_reduction")]:
+                b, se = sl[p]
+                ax.plot([k + off, k + off], [b - 1.96 * se, b + 1.96 * se], color=PCOL[p], lw=LW)
+                point(ax, k + off, b, PCOL[p])
+        ax.axhline(0, color=TOK["axis"], lw=LW_HAIR)
+        ax.set_xticks(range(len(levels)), [f"{v:,.0f}" for v in levels])
+        ax.set_xlim(-0.5, len(levels) - 0.5)
+        ax.set_xlabel("Fixed cost per environment and stage (USD)")
+        ax.set_ylabel("Per-cycle uplift per\n10-point reduction")
+        ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
+        for p, lab in [("error_reduction", "error reduction"), ("cost_reduction", "cost reduction")]:
+            ax.plot([], [], marker="o", ls="none", mfc=PCOL[p], mec="none", ms=MS, label=lab)
+        ax.legend(loc="upper left", ncols=2, handletextpad=0.2)
+        clean(ax, "y")
+    claim(ax, "d", "Both levers keep their value when each environment carries a fixed cost")
     finish(fig, "fig3_gain_ceiling",
            "Accuracy and cost savings move per-cycle genetic gain by a few percent. (a, b) Per-cycle "
            "genetic-gain uplift of the tool over manual phenotyping across all simulated tool profiles, by "
            f"measurement-error reduction (a) and whole-plot cost reduction (b) (h2 = {H2:.2f}; cloud: density; "
            "rain: profiles; bar and ring: interquartile range and median); shaded columns: evidence-based "
            "values. (c) Robustness: per-cycle uplift with no and with the largest error reduction for each "
-           "combination of plot-level heritability and on-station GxE parameter. Blue lines: the annual-gain "
-           "increase from one year of cycle compression.")
+           "combination of plot-level heritability and GxE-to-genetic variance ratio κ. Blue lines: the annual-gain "
+           "increase from one year of cycle compression. (d) Robustness to a fixed cost per environment and "
+           "stage, paid by both programs and not reduced by the tool: per-cycle uplift per 10-point error "
+           "reduction and per 10-point cost reduction (least-squares slopes over the tool profiles of the block, "
+           f"with 95% intervals), at h2 = {H2:.2f} and κ = {KAPPA:g}.")
 
 
 # ---------------------------------------------------------------------------
@@ -606,8 +653,278 @@ def figure6():
            "pairs; arrows: interval continues beyond -115%).")
 
 
+# ---------------------------------------------------------------------------
+# Figure 7. How phenotyping efficiency reaches the breeding cycle (schematic)
+# ---------------------------------------------------------------------------
+NUMS = pd.read_csv("paper/numbers.csv", dtype=str).drop_duplicates("name").set_index("name")
+
+
+def num(name):
+    """A generated result number (paper/numbers.csv), as formatted for the manuscript."""
+    return NUMS.loc[name, "value"]
+
+
+def mm_canvas(fig, ax):
+    """Turn an axes into a drawing sheet whose data units are millimeters, measured from the top."""
+    ax.axis("off")
+    fig.canvas.draw()
+    bb = ax.get_window_extent()
+    w, h = bb.width / fig.dpi * 25.4, bb.height / fig.dpi * 25.4
+    ax.set_xlim(0, w)
+    ax.set_ylim(h, 0)
+    return w, h
+
+
+def label(ax, x, y, s, fs=6.5, weight="normal", color=None, ha="center", va="center", box=None, **kw):
+    t = ax.text(x, y, s, fontsize=fs, fontweight=weight, color=color or TOK["ink"], ha=ha, va=va,
+                linespacing=1.15, zorder=6, **kw)
+    if box is not None:
+        fit(ax, t, *box)
+    return t
+
+
+def node(ax, renderer, x, y, w, h, main, sub=None, ec=None, fc=None, lw=0.9, bar=None, fs=6.5, fs_sub=6.0,
+         main_weight="bold", sub_color=None, ha="center"):
+    """Rounded box (x, y = top-left, mm) with a bold main text and an optional lighter sub text, centered
+    vertically. A colored bar on the left edge marks the model input the box stands for."""
+    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.2", fc=fc or TOK["plane"],
+                                ec=ec or TOK["axis"], lw=lw, zorder=2))
+    left = x + (3.4 if bar else 0)
+    inner = (left, x + w)
+    cx = (inner[0] + inner[1]) / 2 if ha == "center" else inner[0] + 1.6
+    if bar:
+        ax.add_patch(FancyBboxPatch((x, y), 2.2, h, boxstyle="round,pad=0,rounding_size=1.0", fc=bar, ec="none",
+                                    zorder=3))
+    box = (x, y, x + w, y + h)
+    t1 = label(ax, cx, y, main, fs=fs, weight=main_weight, va="top", ha=ha, box=box)
+    texts = [t1]
+    if sub:
+        texts.append(label(ax, cx, y, sub, fs=fs_sub, color=sub_color or TOK["ink2"], va="top", ha=ha, box=box))
+    hs = [mpl.text.Text.get_window_extent(t, renderer).height / ax.figure.dpi * 25.4 for t in texts]
+    gap = 0.9
+    top = y + (h - (sum(hs) + gap * (len(hs) - 1))) / 2
+    for t, hh in zip(texts, hs):
+        t.set_y(top)
+        top += hh + gap
+    return texts
+
+
+def side_label(ax, renderer, x, ymid, title, desc, box, color=None):
+    """Right-aligned bold title with a lighter description beneath it, centered on ymid (mm)."""
+    t1 = label(ax, x, ymid, title, fs=6.3, weight="bold", ha="right", va="top", color=color, box=box)
+    t2 = label(ax, x, ymid, desc, fs=6.0, ha="right", va="top", color=TOK["ink2"], box=box)
+    hs = [mpl.text.Text.get_window_extent(t, renderer).height / ax.figure.dpi * 25.4 for t in (t1, t2)]
+    top = ymid - (sum(hs) + 0.6) / 2
+    t1.set_y(top)
+    t2.set_y(top + hs[0] + 0.6)
+
+
+def arrow(ax, p0, p1, color=None, lw=0.8, rad=0.0, style="-|>", ms=5.5):
+    ax.add_patch(FancyArrowPatch(p0, p1, arrowstyle=style, mutation_scale=ms, lw=lw, color=color or TOK["ink2"],
+                                 connectionstyle=f"arc3,rad={rad}", shrinkA=0, shrinkB=0, zorder=4))
+
+
+def figure7():
+    L, cc = breed["cycle_years"], econ["tool_cycle_compression"]
+    c_blue, c_orange, c_green = PCOL["cycle_compression"], PCOL["error_reduction"], PCOL["cost_reduction"]
+    uplift_meta, cyc_year = num("UpliftMeta"), num("CycOneYearPct")
+    assert abs(float(cyc_year) - CYC_YEAR_PCT) < 0.05
+    with mpl.rc_context({"mathtext.default": "regular", "hatch.linewidth": 0.4}):
+        fig, axd = new_figure(FULL_W, 160, "a;b", height_ratios=[84, 69])
+        renderer = fig.canvas.get_renderer()
+        claim(axd["a"], "a", "Faster phenotyping can shorten only the data-limited wait")
+        claim(axd["b"], "b", "Speed acts through cycle length; accuracy and cost act through gain per cycle")
+        axd["b"].axis("off")
+
+        # ---------------- a: the pipeline and its waits ----------------
+        ax = axd["a"]
+        W, H = mm_canvas(fig, ax)
+        lab_w = 37.0
+        xs = lab_w + 3.0
+        xe = W - 0.4
+        gap = 1.4
+        spec = [("cross", 24), ("ON", 23), ("PYT", 23), ("AYT", 23), ("NPT", 27), ("rel", 14)]
+        k = (xe - xs - gap * (len(spec) - 1)) / sum(w for _, w in spec)
+        cols, x = {}, xs
+        for name, w in spec:
+            cols[name] = (x, w * k)
+            x += w * k + gap
+
+        # cycle length of the manual program, drawn as a dimension line
+        y_len = 3.2
+        ax.plot([xs, xe], [y_len, y_len], color=TOK["ink2"], lw=0.8, zorder=2)
+        for xx in (xs, xe):
+            ax.plot([xx, xx], [y_len - 1.3, y_len + 1.3], color=TOK["ink2"], lw=0.8, zorder=2)
+        label(ax, (xs + xe) / 2, y_len, f"cycle length L = {L} years, cross to release (assumed)", fs=6.5,
+              bbox=dict(fc=TOK["surface"], ec="none", pad=1.6))
+        label(ax, lab_w, y_len, "Manual program", fs=6.5, weight="bold", ha="right")
+
+        # stage headers
+        y_h0, y_h1 = 8.6, 14.2
+        names = {"cross": "Cross, F1 to F5"}
+        subs = {"cross": f"{breed['n_crosses_per_cycle']} crosses\n{breed['n_ssd_generations']} selfing generations"}
+        # stage sizes: the manual program's optimal allocation at the central budget, as in the selection-chain
+        # table (Chain* numbers), not the configured defaults that the budget allocation re-optimizes
+        for st in ("ON", "PYT", "AYT", "NPT"):
+            names[st] = st
+            n_lines, n_reps, n_envs = num(f"Chain{st}Lines"), num(f"Chain{st}Reps"), num(f"Chain{st}Envs")
+            rep_w = "rep" if n_reps == "1" else "reps"
+            env_w = "env" if n_envs == "1" else "envs"
+            subs[st] = f"{n_lines} lines\n{n_reps} {rep_w} × {n_envs} {env_w}"
+        for name, (x, w) in cols.items():
+            if name == "rel":
+                ax.add_patch(FancyBboxPatch((x, y_h0), w, y_h1 - y_h0, boxstyle="round,pad=0,rounding_size=1.2",
+                                            fc=TOK["ink2"], ec="none", zorder=2))
+                label(ax, x + w / 2, (y_h0 + y_h1) / 2, "Release", fs=6.5, weight="bold", color=TOK["surface"],
+                      box=(x, y_h0, x + w, y_h1))
+                label(ax, x + w / 2, y_h1 + 1.0, f"{num('CfgNreleased')} lines", fs=6.0, color=TOK["ink2"], va="top",
+                      box=(x - gap / 2, y_h1, x + w + gap / 2, y_h1 + 8))
+                continue
+            first = name == "cross"
+            notch = 2.2
+            pts = [(x, y_h0), (x + w - notch, y_h0), (x + w, (y_h0 + y_h1) / 2), (x + w - notch, y_h1), (x, y_h1)]
+            if not first:
+                pts.append((x + notch, (y_h0 + y_h1) / 2))
+            ax.add_patch(Polygon(pts, closed=True, fc=TOK["plane"], ec=TOK["ink2"], lw=0.7, zorder=2))
+            label(ax, x + w / 2 + (0 if first else notch / 2 - 0.3), (y_h0 + y_h1) / 2, names[name], fs=6.5,
+                  weight="bold", box=(x, y_h0, x + w, y_h1))
+            label(ax, x + w / 2, y_h1 + 1.0, subs[name], fs=6.0, color=TOK["ink2"], va="top",
+                  box=(x - gap / 2, y_h1, x + w + gap / 2, y_h1 + 8))
+
+        # lanes: which waits can hold back the next planting or crossing decision
+        lane_top, lane_h, pitch = 25.0, 8.4, 9.6
+        lanes = [
+            ("Season-limited", "growing season", ["cross", "ON", "PYT", "AYT", "NPT"]),
+            ("Data-limited", "scoring, image analysis,\ndata cleaning", ["ON", "PYT", "AYT", "NPT"]),
+            ("Seed-limited", "seed multiplication", ["ON", "PYT", "AYT"]),
+            ("Regulatory", "official variety testing", ["NPT"]),
+        ]
+        style = [dict(fc=TOK["axis"], ec="none"),
+                 dict(fc=c_blue, ec="none"),
+                 dict(fc=TOK["surface"], ec=TOK["ink2"], hatch="/////"),
+                 dict(fc=TOK["muted"], ec="none")]
+        for i, (title, desc, where) in enumerate(lanes):
+            yt = lane_top + i * pitch
+            ax.add_patch(Rectangle((xs - 1.0, yt - 0.6), xe - xs + 1.0, lane_h + 1.2, fc=TOK["plane"], ec="none",
+                                   zorder=0))
+            side_label(ax, renderer, lab_w, yt + lane_h / 2, title, desc,
+                       box=(0, yt - 0.6, lab_w + 0.5, yt + lane_h + 0.6))
+            for name in where:
+                x, w = cols[name]
+                ax.add_patch(Rectangle((x + 0.8, yt), w - 1.6, lane_h, lw=0.5, zorder=2, **style[i]))
+        y_bot = lane_top + 3 * pitch + lane_h + 0.6
+        for name, (x, w) in cols.items():
+            xg = x + w + gap / 2
+            if name == "rel":
+                continue
+            ax.plot([xg, xg], [lane_top - 1.4, y_bot], color=TOK["muted"], lw=0.6, ls=(0, (2.2, 1.8)), zorder=3)
+        label(ax, (xs + xe) / 2, y_bot + 2.0, "dashed lines: the next stage starts when every wait that applies has ended",
+              fs=6.0, color=TOK["ink2"], va="top")
+
+        # tool program
+        y_tool = y_bot + 10.0
+        xt = xe - (xe - xs) * cc / L
+        ax.plot([xs, xt], [y_tool, y_tool], color=c_blue, lw=1.1, zorder=2)
+        ax.plot([xt, xe], [y_tool, y_tool], color=c_blue, lw=1.1, ls=(0, (1.6, 1.4)), alpha=0.7, zorder=2)
+        for xx in (xs, xt, xe):
+            ax.plot([xx, xx], [y_tool - 1.3, y_tool + 1.3], color=c_blue, lw=0.9, zorder=2)
+        label(ax, (xs + xt) / 2, y_tool, "cycle length L − c", fs=6.5, bbox=dict(fc=TOK["surface"], ec="none", pad=1.6))
+        label(ax, (xt + xe) / 2, y_tool - 3.0, "c", fs=6.5, color=c_blue, style="italic")
+        label(ax, lab_w, y_tool, "Tool program", fs=6.5, weight="bold", ha="right", color=c_blue)
+        label(ax, xs, y_tool + 3.0,
+              f"c = {num('CfgCycCompCentral')} year in the evidence-based profile ({num('CfgCycRange')} years explored) is an "
+              "assumed scenario input,\nnot derived by the simulation. A phenotyping tool can supply it only by "
+              "shortening the data-limited wait.", fs=6.0, color=TOK["ink2"], ha="left", va="top")
+        y_end_a = y_tool + 3.0 + 5.8
+        assert y_end_a < H, (y_end_a, H)
+
+        # ---------------- b: the causal pathway ----------------
+        bx = axd["b"]
+        Wb, Hb = mm_canvas(fig, bx)
+        c1, c2, c3, c4 = (0.0, 33.0), (39.5, 46.0), (92.0, 43.0), (141.0, Wb - 141.0 - 0.4)
+        for (x, w), t in zip((c1, c2, c3, c4), ["Phenotyping improvement", "Mechanism", "Effect on the program",
+                                                   "Result"]):
+            label(bx, x, 1.8, t, fs=6.0, weight="bold", color=TOK["ink2"],
+                  ha="left", box=(x, 0, x + w + 4, 4))
+        rows = {"blue": (6.6, 17.0), "orange": (35.5, 14.0), "green": (51.5, 14.0)}  # (top, height)
+        rows_end = rows["green"][0] + rows["green"][1]
+        assert rows_end < Hb, (rows_end, Hb)
+        h2 = r"$h^2_{\mathrm{eff}}$"
+
+        def row_mid(r):
+            return rows[r][0] + rows[r][1] / 2
+
+        # column 1: improvements (colored bar = model input)
+        for r, p, txt in [("blue", "cycle_compression", "Faster scoring\nand analysis"),
+                          ("orange", "error_reduction", "More accurate\nmeasurement"),
+                          ("green", "cost_reduction", "Cheaper\nplots")]:
+            y, h = rows[r]
+            node(bx, renderer, c1[0], y, c1[1], h, txt, KEY_LABEL.get(p, PARAM_LABEL[p]), ec=PCOL[p], bar=PCOL[p])
+            arrow(bx, (c1[0] + c1[1], y + h / 2), (c2[0], y + h / 2), color=PCOL[p])
+        # column 2: mechanisms
+        mech = {"blue": ("Selection decision made earlier:\ndata are ready before the next\nplanting or crossing window", None),
+                "orange": (f"Lower error variance raises\n{h2} and selection accuracy", None),
+                "green": (f"Same budget funds more lines\nand environments (selection\nintensity and {h2})", None)}
+        pc = {"blue": c_blue, "orange": c_orange, "green": c_green}
+        for r, (txt, sub) in mech.items():
+            y, h = rows[r]
+            node(bx, renderer, c2[0], y, c2[1], h, txt, sub, ec=pc[r], main_weight="normal", fs=6.3)
+        # column 3: gate (blue) and per-cycle gain (orange and green)
+        yb, hb = rows["blue"]
+        gx0, gx1, gy = c3[0], c3[0] + c3[1], yb + hb / 2
+        dh = hb / 2 + 0.2
+        bx.add_patch(Polygon([(gx0, gy), (gx0 + c3[1] / 2, gy - dh), (gx1, gy), (gx0 + c3[1] / 2, gy + dh)],
+                             closed=True, fc=TOK["plane"], ec=c_blue, lw=0.9, zorder=2))
+        label(bx, gx0 + c3[1] / 2, gy, "Was the next step\nwaiting for data?", fs=6.3, weight="bold",
+              box=(gx0 + 6, gy - 3.5, gx1 - 6, gy + 3.5))
+        arrow(bx, (c2[0] + c2[1], gy), (gx0, gy), color=c_blue)
+        y_dg = rows["orange"][0] + 1.0
+        h_dg = rows["green"][0] + rows["green"][1] - y_dg - 1.0
+        node(bx, renderer, c3[0], y_dg, c3[1], h_dg, "Per-cycle gain ΔG rises",
+             f"+{uplift_meta}% per cycle for the\nevidence-based profile (median)", ec=TOK["ink2"])
+        for r in ("orange", "green"):
+            y, h = rows[r]
+            arrow(bx, (c2[0] + c2[1], y + h / 2), (c3[0], y_dg + h_dg / 2 + (-1 if r == "orange" else 1) * h_dg / 4),
+                  color=pc[r])
+        # no-branch of the gate
+        arrow(bx, (gx0 + c3[1] / 2, gy + dh), (gx0 + c3[1] / 2, gy + dh + 4.0), color=TOK["ink2"])
+        label(bx, gx0 + c3[1] / 2 - 1.2, gy + dh + 2.0, "no", fs=6.0, color=TOK["ink2"], ha="right", style="italic")
+        label(bx, gx0 + c3[1] / 2, gy + dh + 5.0, "Cycle unchanged: season, seed\nor official-testing wait sets the pace",
+              fs=6.0, color=TOK["ink2"], va="top", box=(gx0 - 3, gy + dh + 4, gx1 + 3, y_dg - 0.4))
+        # column 4: result
+        node(bx, renderer, c4[0], yb, c4[1], hb, "Cycle shortens:\nL → L − c",
+             f"one year of compression:\n+{cyc_year}% annual gain", ec=c_blue)
+        arrow(bx, (gx1, gy), (c4[0], gy), color=c_blue)
+        label(bx, (gx1 + c4[0]) / 2, gy - 1.6, "yes", fs=6.0, color=TOK["ink2"], style="italic")
+        y_out = y_dg
+        node(bx, renderer, c4[0], y_out, c4[1], h_dg, "Annual gain =\nper-cycle gain ÷ cycle length",
+             "(L − c for the tool)", ec=TOK["ink"], fc=TOK["neutral"], lw=1.1)
+        arrow(bx, (c4[0] + c4[1] / 2, yb + hb), (c4[0] + c4[1] / 2, y_out), color=c_blue)
+        arrow(bx, (c3[0] + c3[1], y_dg + h_dg / 2), (c4[0], y_dg + h_dg / 2), color=TOK["ink2"])
+
+        finish(fig, "fig7_cycle_pathway",
+               "How phenotyping efficiency reaches genetic gain per year. (a) The four-stage pipeline from cross to "
+               f"release (ON, observation nursery; PYT, preliminary yield trial; AYT, advanced yield trial; NPT, national "
+               f"performance trial), with the assumed cycle length L = {L} years. For each stage, bars mark the waits that "
+               "can hold back the next planting or crossing decision: season-limited (growing season), data-limited "
+               "(scoring, image analysis and data cleaning between harvest and the decision; blue, the only wait that "
+               "faster phenotyping can shorten), seed-limited (seed multiplication) and regulatory (official variety "
+               "testing). The next stage starts when every wait that applies has ended (dashed lines). Bar widths are "
+               "schematic: the configuration fixes the cycle length and the number of selfing generations, not the "
+               "duration of single waits. Stage sizes are the manual program's optimal allocation at the central "
+               "budget (Table 3). The tool program is shorter by c years (c = "
+               f"{num('CfgCycCompCentral')} in the evidence-based profile, {num('CfgCycRange')} explored), a scenario "
+               "input that the simulation does not derive. (b) Causal pathway. Faster scoring and analysis (blue, cycle "
+               "compression) shorten the cycle only if the next step was waiting for data. More accurate measurement "
+               "(orange, error reduction) and cheaper plots (green, cost reduction) act on per-cycle gain through the "
+               "effective heritability, selection accuracy and selection intensity. Annual gain is per-cycle gain "
+               f"divided by cycle length. Percentages: the median per-cycle uplift of the evidence-based profile in the "
+               f"simulation ({uplift_meta}%) and the annual-gain increase from one year of compression, which follows "
+               f"from L by construction ({cyc_year}%).")
+
+
 failed = []
-for f in (figure1, figure2, figure3, figure4, figure5, figure6):
+for f in (figure1, figure2, figure3, figure4, figure5, figure6, figure7):
     try:
         f()
     except Exception as e:

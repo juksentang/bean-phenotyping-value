@@ -1,0 +1,13 @@
+# LaTeX build products (the figure PDFs and main.bbl are tracked)
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+paper/main.pdf
+paper/supplementary/supplementary.pdf
+# Python caches
+__pycache__/
+*.spl

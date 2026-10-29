@@ -1,0 +1,100 @@
+
+╔════════════════════════════════════════╗
+║     R Environment Configured ✓        ║
+╠════════════════════════════════════════╣
+║ CRAN Mirror: 网易镜像                 ║
+║ User Library: ~/R/packages             ║
+║ CPU Cores: 8                     ║
+╚════════════════════════════════════════╝
+
+Cells: 5760, gain scale 0.1806
+Max relative deviation from stored lookup table: 6.91e-13
+NPV array dims: 6 8 4 6 5 5 5 5  mean NPV (M USD): 25.91 
+               param        S1       ST        group
+              <char>     <num>    <num>       <char>
+1: cycle_compression 2.333e-01 0.427626 L1 technical
+2:     discount_rate 1.965e-01 0.379819  L2 economic
+3:        bean_price 1.634e-01 0.335265  L2 economic
+4:  adoption_ceiling 7.901e-02 0.181357  L2 economic
+5:   error_reduction 8.367e-03 0.021842 L1 technical
+6:    cost_reduction 5.463e-03 0.016204 L1 technical
+7:      total_budget 1.890e-04 0.007268 L1 technical
+8:   tool_fixed_cost 8.457e-05 0.004199 L1 technical
+              param        S1      ST        group
+             <char>     <num>   <num>       <char>
+1:    discount_rate 0.2367606 0.45619  L2 economic
+2:       bean_price 0.1516829 0.32593  L2 economic
+3:  error_reduction 0.0846054 0.22645 L1 technical
+4: adoption_ceiling 0.0733466 0.17631  L2 economic
+5:   cost_reduction 0.0561075 0.17235 L1 technical
+6:     total_budget 0.0313982 0.12407 L1 technical
+7:  tool_fixed_cost 0.0009788 0.05036 L1 technical
+               param shapley_effect        group        S1       ST bracket_ok
+              <char>          <num>       <char>     <num>    <num>     <lgcl>
+1: cycle_compression       0.323524 L1 technical 2.333e-01 0.427626       TRUE
+2:     discount_rate       0.281474  L2 economic 1.965e-01 0.379819       TRUE
+3:        bean_price       0.242871  L2 economic 1.634e-01 0.335265       TRUE
+4:  adoption_ceiling       0.125500  L2 economic 7.901e-02 0.181357       TRUE
+5:   error_reduction       0.013665 L1 technical 8.367e-03 0.021842       TRUE
+6:    cost_reduction       0.009442 L1 technical 5.463e-03 0.016204       TRUE
+7:      total_budget       0.002441 L1 technical 1.890e-04 0.007268       TRUE
+8:   tool_fixed_cost       0.001084 L1 technical 8.457e-05 0.004199       TRUE
+               param shapley_effect        group
+              <char>          <num>       <char>
+1: cycle_compression       0.353653 L1 technical
+2:     discount_rate       0.237613  L2 economic
+3:        bean_price       0.221195  L2 economic
+4:  adoption_ceiling       0.131216  L2 economic
+5:   error_reduction       0.039707 L1 technical
+6:    cost_reduction       0.008818 L1 technical
+7:      total_budget       0.006546 L1 technical
+8:   tool_fixed_cost       0.001252 L1 technical
+               param PAWN_median PAWN_max PAWN_mean
+              <char>       <num>    <num>     <num>
+1: cycle_compression    0.252552 0.458258  0.267721
+2:        bean_price    0.149671 0.297314  0.176769
+3:     discount_rate    0.123093 0.281903  0.165198
+4:  adoption_ceiling    0.096799 0.201715  0.111503
+5:   error_reduction    0.046503 0.069640  0.044943
+6:    cost_reduction    0.036219 0.062990  0.036446
+7:      total_budget    0.015081 0.030268  0.017561
+8:   tool_fixed_cost    0.005078 0.009621  0.005214
+    year error_reduction cost_reduction cycle_compression tool_fixed_cost total_budget bean_price
+   <int>           <num>          <num>             <num>           <num>        <num>      <num>
+1:     0      -2.220e-15     -1.554e-15            0.7308      -2.220e-15     0.446334 -1.110e-15
+2:     5      -4.441e-16     -2.220e-16            0.7279      -4.441e-16     0.444551 -2.220e-16
+3:     7       3.423e-03      2.564e-03            0.8650       8.455e-04     0.037106  2.893e-01
+4:    10       3.886e-03      2.886e-03            0.7413       9.348e-04     0.004807  3.048e-01
+5:    25       2.184e-02      1.620e-02            0.4276       4.199e-03     0.007268  3.353e-01
+   discount_rate adoption_ceiling
+           <num>            <num>
+1:    -1.110e-15       -1.110e-15
+2:     8.746e-03       -4.441e-16
+3:     5.923e-02        1.565e-01
+4:     1.127e-01        1.649e-01
+5:     3.798e-01        1.814e-01
+                param threshold_M EVPPI_M
+               <char>       <num>   <num>
+ 1: cycle_compression       25.91   7.040
+ 2:     discount_rate       25.91   6.018
+ 3:        bean_price       25.91   5.677
+ 4:  adoption_ceiling       25.91   3.888
+ 5: cycle_compression       32.38   3.831
+ 6:     discount_rate       32.38   3.808
+ 7: cycle_compression       19.43   3.801
+ 8:        bean_price       32.38   3.086
+ 9:        bean_price       19.43   2.840
+10:     discount_rate       19.43   2.614
+11:     discount_rate       38.86   2.512
+12: cycle_compression       38.86   2.212
+Layer-1 noise bootstrap (B = 120)...
+               param     S1_lo     S1_hi    ST_lo    ST_hi
+              <char>     <num>     <num>    <num>    <num>
+1:   error_reduction 8.147e-03 0.0085599 0.024880 0.025975
+2:    cost_reduction 5.244e-03 0.0056505 0.019423 0.020548
+3: cycle_compression 2.316e-01 0.2329120 0.427804 0.430341
+4:   tool_fixed_cost 6.838e-05 0.0001084 0.007533 0.008104
+5:      total_budget 1.592e-04 0.0002347 0.010361 0.011074
+6:        bean_price 1.623e-01 0.1630098 0.334379 0.334966
+7:     discount_rate 1.951e-01 0.1960982 0.378944 0.379652
+8:  adoption_ceiling 7.847e-02 0.0788238 0.180878 0.181195

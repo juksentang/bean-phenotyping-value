@@ -1,0 +1,17 @@
+# v3 robustness block: within-environment plot h2 and the GxE-to-genetic variance
+# ratio kappa = sigma2_GE / sigma2_A, spanning the public-data estimates
+# (h2 0.05-0.20, kappa 0.5-3) plus the v2 center (h2 0.30, kappa 0.4) as a bridge,
+# on the reduced tool grid of the v2 robustness block.
+tool_grid:
+  error_reduction:   [0.0, 0.10, 0.20, 0.30, 0.50]
+  cost_reduction:    [0.10, 0.20, 0.50]
+  cycle_compression: [0, 1, 2, 3]
+  tool_fixed_cost:   [10000]
+  total_budget:      [200000]
+genetic_grid:
+  h2_yield:  [0.05, 0.10, 0.20, 0.30]
+  gxe_ratio: [0.4, 0.75, 1.5, 3.0]
+mc_reps_per_cell: 100
+mc_seed_base: 3000042
+output_subdir: "sweep_v3_gxe"
+cell_filename_pattern: "cell_%05d.parquet"

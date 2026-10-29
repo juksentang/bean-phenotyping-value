@@ -2,8 +2,10 @@
 # Common Bean (Phaseolus vulgaris) Genetic Parameters
 # ============================================================================
 # Sources checked against Crossref + full text (paper/lit, citation audit). Values
-# marked ASSUMPTION are not reported by the cited work; h2_yield and gxe_cor_onstation
-# are varied in the robustness sweep (config/sweeps/sweep_v2_robust.yaml).
+# marked ASSUMPTION are not reported by the cited work. h2_yield and gxe_cor_onstation
+# are estimated from public East African bean multi-environment trials (empirical/)
+# and varied in the robustness sweep (config/sweeps/sweep_v3_gxe.yaml). The v2 values
+# (0.30, 0.60) are pinned in the v2 sweep configs.
 
 # --- Genome structure ---
 n_chr: 11                      # Schmutz et al. 2014, Nat Genet 46:707 (10.1038/ng.3008)
@@ -21,15 +23,17 @@ var_yield_additive: 22500      # ASSUMPTION: sigma_A = 150 kg/ha (~19% CV); abso
                                # recalibrated in Layer 2 (gain_target_pct_per_yr)
 
 # --- Heritability ---
-h2_yield: 0.30                 # ASSUMPTION (plot-level yield h2); robustness sweep 0.15/0.30/0.50
+h2_yield: 0.10                 # within-environment plot h2 Vg/(Vg+Ve), central of 0.05-0.20
+                               # (empirical/outputs/*_varcomp_summary.md); robustness 0.05/0.10/0.20/0.30
 h2_disease: 0.60               # ASSUMPTION (unused in yield model); cf. Miklas et al. 2006, Euphytica 147:105 (10.1007/s10681-006-4600-5)
 h2_maturity: 0.65              # ASSUMPTION (unused); cf. Koinange et al. 1996, unverified
 h2_seed_weight: 0.80           # ASSUMPTION (unused)
 
 # --- GxE interaction ---
 n_env_default: 4               # default number of test environments
-gxe_cor_onstation: 0.60        # ASSUMPTION; robustness sweep 0.40/0.60/0.80
-                               # genetic correlation between on-station environments
+gxe_cor_onstation: -0.50       # = 1 - kappa, kappa = sigma2_GE / sigma2_A = 1.5 (central of 0.5-3,
+                               # empirical/); calc_h2_eff() reads sigma2_GE / sigma2_A = 1 - gxe_cor.
+                               # Robustness kappa 0.4/0.75/1.5/3
 gxe_cor_onfarm: 0.40           # ASSUMPTION (on-farm vs on-station; unused in the sweep)
 
 # --- Genetic-gain baseline (Layer 1 reporting) ---

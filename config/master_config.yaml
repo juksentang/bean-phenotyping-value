@@ -18,6 +18,8 @@ scenarios:
     fixed_cost: 10000          # USD — equipment + training (sensitivity 3K-20K)
 
 total_budget: 200000           # USD per breeding cycle
+cost_per_env: 0                # USD per environment and stage (site setup, travel, management),
+                               # paid by both scenarios; 0 = plot-only cost model (v1-v3 sweeps)
 mc_reps: 1000                  # Monte Carlo repetitions (use 5 for smoke tests)
 mc_seed: 42
 

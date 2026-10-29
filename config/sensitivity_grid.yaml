@@ -16,6 +16,10 @@ tool_grid:
   tool_fixed_cost:    [3000, 6500, 10000, 13500, 17000, 20000]  # 6
   total_budget:      [100000, 150000, 200000, 300000, 500000]  # 5
 
+genetic_grid:                  # v2 genetic center, pinned so the block reproduces after the
+  h2_yield:          [0.30]    # v3 recentering of genetic_params.yaml
+  gxe_cor_onstation: [0.60]
+
 mc_reps_per_cell: 250
 mc_seed_base: 42
 

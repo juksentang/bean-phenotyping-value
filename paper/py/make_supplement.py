@@ -53,47 +53,47 @@ def fmt(v):
 
 
 # ---------------------------------------------------------------------------
-# Figure S1: one flow diagram per meta-analysis
+# Figure S1: PRISMA 2020-style flow, one column per meta-analysis
 # ---------------------------------------------------------------------------
+# Main boxes follow the records down; grey side boxes give what left the flow at
+# each step. Stage bands on the left follow PRISMA 2020 (identification,
+# screening, included).
 TITLES = {"MA1": "MA1 Realized genetic gain", "MA2": "MA2 Tool-manual agreement",
           "MA3": "MA3 Time and cost savings"}
 COLORS = {"MA1": TOK["ink2"], "MA2": PCOL["error_reduction"], "MA3": PCOL["cost_reduction"]}
 PRIMARY = {"MA1": "MA1.CB.primary", "MA2": "MA2.primary", "MA3": "MA3.time.primary"}
 
+ROW_Y = [104, 87, 70, 53, 36, 17]          # box centers, top to bottom (axis units = mm)
+BOX_H = 12
+MAIN_W, SIDE_W, GAP = 28, 21, 4            # main box, side box, gap between them
+COL_X = [18, 74, 130]                      # left edge of each meta-analysis column
 
-def box(ax, x, y, w, h, text, edge, fill=None, bold_first=True):
-    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.2",
-                                fc=fill or TOK["surface"], ec=edge, lw=0.7))
-    lines = text.split("\n")
-    top = ax.transData + ScaledTranslation(0, -3 / 72, ax.figure.dpi_scale_trans)
-    body = ax.transData + ScaledTranslation(0, -12 / 72, ax.figure.dpi_scale_trans)
-    ax.text(x + w / 2, y + h, lines[0], ha="center", va="top", fontsize=6.2, transform=top,
-            fontweight="bold" if bold_first else "normal")
-    if len(lines) > 1 and "\n".join(lines[1:]).strip():
-        ax.text(x + w / 2, y + h, "\n".join(lines[1:]), ha="center", va="top", fontsize=5.7,
-                color=TOK["ink2"], linespacing=1.2, transform=body)
+
+def box(ax, x, yc, w, title, body, edge, fill, title_color=None):
+    ax.add_patch(FancyBboxPatch((x, yc - BOX_H / 2), w, BOX_H, boxstyle="round,pad=0,rounding_size=1.0",
+                                fc=fill, ec=edge, lw=0.7))
+    ax.text(x + w / 2, yc + (2.2 if body else 0), title, ha="center", va="center", fontsize=6.3,
+            fontweight="bold", color=title_color or TOK["ink"])
+    if body:
+        ax.text(x + w / 2, yc - 2.6, body, ha="center", va="center", fontsize=5.6, color=TOK["ink2"],
+                linespacing=1.15)
 
 
 def arrow(ax, x0, y0, x1, y1):
     ax.annotate("", xy=(x1, y1), xytext=(x0, y0),
-                arrowprops=dict(arrowstyle="-|>", color=TOK["muted"], lw=0.6, mutation_scale=6))
+                arrowprops=dict(arrowstyle="-|>", color=TOK["muted"], lw=0.6, mutation_scale=6,
+                                shrinkA=0, shrinkB=0))
 
 
-def flow_panel(ax, ma):
-    ax.set_xlim(0, 100); ax.set_ylim(0, 128); ax.axis("off")
+def flow_column(ax, ma, x):
     col = COLORS[ma]
-    db_rows = flow[(flow.analysis == ma) & (flow.box == "Records identified from databases/registers")
-                   & (flow.source != "all")]
-    db_lines = [f"{source_label(s)}: {fmt(None if pd.isna(c) else int(c))}"
-                for s, c in zip(db_rows.source, db_rows["count"]) if not pd.isna(c) and int(c) > 0]
     db_total = get(ma, "Records identified from databases/registers", "all")
     other = get(ma, "Records identified via other methods", "other methods")
     dup = get(ma, "Duplicate records removed", "database search")
     after = get(ma, "Records after duplicates removed", "database search")
     screened = get(ma, "Records screened", "database search")
     excl = get(ma, "Records excluded", "database search")
-    sought_db = get(ma, "Reports sought for retrieval", "database search")
-    sought_oth = get(ma, "Reports sought for retrieval", "other methods")
+    sought = get(ma, "Reports sought for retrieval", "all")
     notret = get(ma, "Reports not retrieved", "all")
     notass = get(ma, "Reports retrieved but not assessable", "all") or 0
     assessed = get(ma, "Reports assessed for eligibility (full text read)", "all")
@@ -103,65 +103,93 @@ def flow_panel(ax, ma):
     k_st = get(ma, f"Studies contributing to primary pooled model ({prim})", "all")
     k_ef = get(ma, f"Effects contributing to primary pooled model ({prim})", "all")
 
-    L, R, W, WR = 3, 60, 52, 37
-    box(ax, L, 103, W, 24, f"Records from databases (n = {fmt(db_total)})\n" + "\n".join(db_lines), col)
-    box(ax, R, 103, WR, 24, f"Other methods (n = {fmt(other)})\ncitation chasing, related\nproject searches", col)
-    box(ax, L, 84, W, 14, f"After duplicates removed (n = {fmt(after)})\nremoved by DOI: {fmt(dup)}", col)
-    box(ax, L, 65, W, 14, f"Records screened: {fmt(screened)}\nexcluded: {fmt(excl)}", col)
-    box(ax, L, 46, W, 11, f"Reports sought (n = {fmt(sought_db)})\n", col)
-    box(ax, R, 46, WR, 11, f"Reports sought (n = {fmt(sought_oth)})\n", col)
-    box(ax, L, 26, W + 4 + WR, 14, f"Full texts assessed (n = {fmt(assessed)})\n"
-        f"not retrieved: {fmt(notret)}; retrieved, not assessable: {fmt(notass)}; excluded: {fmt(excl_ft)}", col)
-    box(ax, L, 6, W + 4 + WR, 14, f"Studies included (n = {fmt(incl)})\n"
-        f"primary pooled model: {fmt(k_ef)} effects from {fmt(k_st)} studies or programs", col,
-        fill=TOK["plane"])
-    arrow(ax, L + W / 2, 103, L + W / 2, 98)
-    arrow(ax, L + W / 2, 84, L + W / 2, 79)
-    arrow(ax, L + W / 2, 65, L + W / 2, 57)
-    arrow(ax, R + WR / 2, 103, R + WR / 2, 57)
-    arrow(ax, L + W / 2, 46, L + W / 2, 40)
-    arrow(ax, R + WR / 2, 46, R + WR / 2, 40)
-    arrow(ax, 50, 26, 50, 20)
+    main = [(f"Records identified", f"databases {fmt(db_total)}\nother methods {fmt(other)}"),
+            (f"After deduplication", f"n = {fmt(after)}"),
+            (f"Records screened", f"n = {fmt(screened)}"),
+            (f"Reports sought", f"n = {fmt(sought)}"),
+            (f"Full texts assessed", f"n = {fmt(assessed)}"),
+            (f"Studies included", f"n = {fmt(incl)}")]
+    side = [None,
+            ("Duplicates", f"n = {fmt(dup)}"),
+            ("Excluded", f"n = {fmt(excl)}"),
+            ("Not retrieved", f"n = {fmt(notret)}" + (f"\nnot assessable {notass}" if notass else "")),
+            ("Excluded", f"n = {fmt(excl_ft)}"),
+            ("Primary model", f"{fmt(k_ef)} effects,\n{fmt(k_st)} studies")]
+    ax.text(x + (MAIN_W + GAP + SIDE_W) / 2, ROW_Y[0] + BOX_H / 2 + 5, TITLES[ma], ha="center", va="bottom",
+            fontsize=6.8, fontweight="bold", color=col)
+    for k, ((t, b), s) in enumerate(zip(main, side)):
+        final = k == len(main) - 1
+        box(ax, x, ROW_Y[k], MAIN_W, t, b, col, TOK["plane"] if final else TOK["surface"])
+        if k:
+            arrow(ax, x + MAIN_W / 2, ROW_Y[k - 1] - BOX_H / 2, x + MAIN_W / 2, ROW_Y[k] + BOX_H / 2)
+        if s:
+            sx = x + MAIN_W + GAP
+            box(ax, sx, ROW_Y[k], SIDE_W, s[0], s[1], TOK["axis"], TOK["neutral"], title_color=TOK["ink2"])
+            if not final:
+                arrow(ax, x + MAIN_W, ROW_Y[k], sx, ROW_Y[k])
+            else:
+                ax.plot([x + MAIN_W, sx], [ROW_Y[k], ROW_Y[k]], color=TOK["muted"], lw=0.6, ls=(0, (2, 1.5)))
 
 
-fig, axd = new_figure(FULL_W, 215, "a;b;c")
-for key, ma in zip("abc", ["MA1", "MA2", "MA3"]):
-    flow_panel(axd[key], ma)
-    claim(axd[key], key, TITLES[ma])
+fig, axd = new_figure(FULL_W, 122, "a")
+ax = axd["a"]
+ax.set_xlim(0, 184); ax.set_ylim(8, 120); ax.axis("off")
+for label, top, bottom in [("Identification", ROW_Y[0], ROW_Y[1]), ("Screening", ROW_Y[2], ROW_Y[4]),
+                           ("Included", ROW_Y[5], ROW_Y[5])]:
+    y0, y1 = bottom - BOX_H / 2, top + BOX_H / 2
+    ax.add_patch(FancyBboxPatch((1, y0), 9, y1 - y0, boxstyle="round,pad=0,rounding_size=1.0",
+                                fc=TOK["neutral"], ec="none"))
+    ax.text(5.5, (y0 + y1) / 2, label, rotation=90, ha="center", va="center", fontsize=6.3,
+            fontweight="bold", color=TOK["ink2"])
+for ma, x in zip(["MA1", "MA2", "MA3"], COL_X):
+    flow_column(ax, ma, x)
 issues = save(fig, "figS1_prisma", out=str(OUT))
 print("figS1_prisma:", "ok" if not issues else issues)
 
 # ---------------------------------------------------------------------------
-# Table S1: search queries
+# Table S2: search summary (the full query list is published as a CSV file)
 # ---------------------------------------------------------------------------
-def tex_escape(s):
-    s = "" if pd.isna(s) else str(s)
-    for a, b in [("\\", r"\textbackslash{}"), ("&", r"\&"), ("%", r"\%"), ("$", r"\$"), ("#", r"\#"),
-                 ("_", r"\_"), ("{", r"\{"), ("}", r"\}"), ("~", r"\textasciitilde{}"), ("^", r"\^{}")]:
-        s = s.replace(a, b)
-    return s
+SRC_SHORT = {"federated": "Federated search (OpenAlex, Semantic Scholar, Crossref)",
+             "Crossref REST": "Crossref", "Europe PMC": "Europe PMC"}
 
 
+def src_short(s):
+    for k, v in SRC_SHORT.items():
+        if k in str(s):
+            return v
+    return str(s)
+
+
+q = queries.copy()
+q["src"] = q.source.map(src_short)
+q["failed"] = q.n_hits.astype(str).str.lower().eq("failed")
+q["hits"] = pd.to_numeric(q.n_hits, errors="coerce")
 rows = []
-for ma, d in queries.groupby("analysis", sort=True):
-    rows.append(rf"\multicolumn{{4}}{{l}}{{\textbf{{{TITLES.get(ma, ma)}}}}}\\")
-    for _, r in d.iterrows():
-        q = "not recorded" if pd.isna(r.query_string) or str(r.query_string) == "NA" else r.query_string
-        hits = r.n_hits if not pd.isna(r.n_hits) else "not recorded"
-        rows.append(f"{tex_escape(r.query_id)} & {tex_escape(source_label(r.source))} & "
-                    f"{tex_escape(q)} & {tex_escape(hits)}\\\\")
-date = queries.date.dropna().unique()
+for ma, d in q.groupby("analysis", sort=True):
+    first = True
+    for src, e in d.groupby("src", sort=False):
+        lead = TITLES.get(ma, ma) if first else ""
+        first = False
+        rows.append(f"{lead} & {src} & {len(e)} & {int(e.hits.sum()):,} & {int(e.failed.sum())}\\\\")
+    rows.append(r"\addlinespace")
+rows = rows[:-1]
+date = pd.to_datetime(queries.date.dropna().unique()[0]).strftime("%-d %B %Y")
 tab = [
-    r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.58\linewidth}r@{}}",
-    rf"\caption{{Search queries for the three meta-analyses, run on {', '.join(pd.to_datetime(d).strftime('%-d %B %Y') for d in date)}. "
-    r"Federated search: one query sent to OpenAlex, Semantic Scholar and Crossref, which "
-    r"returned at most 25 records per query and source. Hits: records returned; failed: no usable "
-    r"response.}\label{tab:S1}\\",
-    r"\toprule ID & Source & Query & Hits\\ \midrule \endfirsthead",
-    r"\toprule ID & Source & Query & Hits\\ \midrule \endhead",
-    r"\bottomrule \endfoot",
+    r"\begin{table}[!htbp]",
+    rf"\caption{{Literature searches for the three meta-analyses, run on {date}. The federated search sent each "
+    r"query to OpenAlex, Semantic Scholar and Crossref and returned at most 25 records per query and source. "
+    r"Hits: records returned before deduplication; failed: queries with no usable response. The full list of "
+    rf"{len(queries)} queries with their hit counts is archived with the code "
+    r"(\texttt{paper/lit/search/prisma/search\_queries.csv}).}\label{tab:S1}",
+    r"\small",
+    r"\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}X rrr@{}}",
+    r"\toprule",
+    r"Meta-analysis & Source & Queries & Hits & Failed\\",
+    r"\midrule",
     *rows,
-    r"\end{longtable}",
+    r"\bottomrule",
+    r"\end{tabularx}",
+    r"\end{table}",
 ]
 (OUT / "tableS1_queries.tex").write_text("\n".join(tab) + "\n")
-print(f"tableS1_queries.tex: {len(queries)} queries")
+print(f"tableS1_queries.tex: {len(queries)} queries summarized in {len([r for r in rows if '&' in r])} rows")

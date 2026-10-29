@@ -16,6 +16,7 @@ source(file.path(getwd(), "layer1_genetic_sim/R/03_budget_optimizer.R"))
 #                       = traditional cost_per_plot * (1 - cost_reduction))
 #   cycle_compression — years saved by the tool
 #   tool_fixed_cost    — USD fixed cost for the tool scenario
+#   cost_per_env      — USD per environment and stage, both scenarios
 # Any NULL field leaves the corresponding master_cfg value untouched.
 
 apply_scenario_override <- function(master_cfg, override) {
@@ -28,6 +29,8 @@ apply_scenario_override <- function(master_cfg, override) {
     master_cfg$scenarios$tool$cycle_compression <- override$cycle_compression
   if (!is.null(override$tool_fixed_cost))
     master_cfg$scenarios$tool$fixed_cost <- override$tool_fixed_cost
+  if (!is.null(override$cost_per_env))
+    master_cfg$cost_per_env <- override$cost_per_env
   if (!is.null(override$cost_reduction)) {
     trad_cost <- master_cfg$scenarios$traditional$cost_per_plot
     master_cfg$scenarios$tool$cost_per_plot <- trad_cost * (1 - override$cost_reduction)
